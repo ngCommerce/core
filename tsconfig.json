@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es5",
+        "sourceMap": true,
+        "inlineSources": false,
+        "declaration": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "stripInternal": true,
+        "skipLibCheck": true
+    },
+    "files": [
+        "index.ts",
+        "test/core.spec.ts"
+    ],
+    "typeRoots": [
+        "../node_modules/@types"
+    ],
+    "types": [
+        "jasmine"
+    ]
+}
