@@ -18,15 +18,26 @@ Installation
 2. Import `EcommerceCoreModule` in your application and use `forRoot('apiURL')` to choose your apiURL :
 
     ```typescript
-    import { NgModule }         from '@angular/core';
-    import { BrowserModule }    from '@angular/platform-browser';
-    import { AppComponent }     from './app.component';
+    import { NgModule }            from '@angular/core';
     import { EcommerceCoreModule } from "@ngcommerce/core";
 
     @NgModule({
-        imports:      [ BrowserModule, EcommerceCoreModule.forRoot('http://test/api/') ],
-        declarations: [ AppComponent ],
-        bootstrap:    [ AppComponent ]
+        imports: [EcommerceCoreModule.forRoot('http://test/api/') ]
     })
     export class AppModule { } 
     ```
+Usage
+-------------
+Inject the `CorService` service anywhere you need it and use it like it's `alert` :
+ 
+```typescript
+@Component({})
+export class MyComponent(){
+
+    constructor(private service: CorService){
+    
+            alert(service.apiURL);
+
+    }
+}
+```
