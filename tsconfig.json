@@ -15,7 +15,8 @@
         "index.ts",
         "test/core.spec.ts",
         "test/category/category.spec.ts",
-        "test/product/product.spec.ts"        
+        "test/product/product.spec.ts",
+        "test/shop/shop.spec.ts"
     ],
     "typeRoots": [
         "../node_modules/@types"

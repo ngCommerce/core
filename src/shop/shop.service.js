@@ -13,13 +13,20 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-exports.API_URL = "";
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/toPromise");
+var core_service_1 = require("../core.service");
 var ShopService = (function () {
-    function ShopService(apiURL) {
+    function ShopService(apiURL, http) {
+        this.http = http;
         this._apiURL = apiURL;
     }
     ShopService.prototype.getShopList = function () {
-        return this._apiURL + 'shops';
+        return this.http.get('http://greenvintage-v1.herokuapp.com/api/shops')
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(function (error) { return null; });
     };
     ShopService.prototype.createShop = function () {
         return this._apiURL + 'shops';
@@ -34,8 +41,8 @@ var ShopService = (function () {
 }());
 ShopService = __decorate([
     core_1.Injectable(),
-    __param(0, core_1.Inject(exports.API_URL)),
-    __metadata("design:paramtypes", [String])
+    __param(0, core_1.Inject(core_service_1.API_URL)),
+    __metadata("design:paramtypes", [String, http_1.Http])
 ], ShopService);
 exports.ShopService = ShopService;
 //# sourceMappingURL=shop.service.js.map
