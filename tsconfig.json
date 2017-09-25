@@ -14,7 +14,8 @@
     "files": [
         "index.ts",
         "test/core.spec.ts",
-        "test/category/category.spec.ts"
+        "test/category/category.spec.ts",
+        "test/product/product.spec.ts"        
     ],
     "typeRoots": [
         "../node_modules/@types"
