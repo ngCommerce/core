@@ -5,5 +5,5 @@ export declare class ProductService {
     http: Http;
     private _apiURL;
     constructor(apiURL: String, http: Http);
-    getCategoryList(): Promise<any>;
+    getProductList(): Promise<any>;
 }

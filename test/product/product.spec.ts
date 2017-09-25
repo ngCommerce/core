@@ -14,7 +14,7 @@ describe('Core service', () => {
 
         it('should not call anything', (inject([ProductService], (service: ProductService) => {
             // expect(service.apiURL).toEqual("api/test");
-            expect(service.getCategoryList()).not.toBeNull();
+            expect(service.getProductList()).not.toBeNull();
         })));
     });
 });

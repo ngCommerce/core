@@ -12,7 +12,7 @@ export class ProductService {
         this._apiURL = apiURL;
     }
 
-    public getCategoryList() {
+    public getProductList() {
         // return this._apiURL;
         return this.http.get('http://greenvintage-v1.herokuapp.com/api/products')
             .toPromise()

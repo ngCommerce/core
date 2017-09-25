@@ -8,7 +8,7 @@ var ProductService = (function () {
         this.http = http;
         this._apiURL = apiURL;
     }
-    ProductService.prototype.getCategoryList = function () {
+    ProductService.prototype.getProductList = function () {
         // return this._apiURL;
         return this.http.get('http://greenvintage-v1.herokuapp.com/api/products')
             .toPromise()

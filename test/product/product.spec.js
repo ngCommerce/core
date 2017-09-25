@@ -11,7 +11,7 @@ describe('Core service', function () {
         });
         it('should not call anything', (testing_1.inject([product_service_1.ProductService], function (service) {
             // expect(service.apiURL).toEqual("api/test");
-            expect(service.getCategoryList()).not.toBeNull();
+            expect(service.getProductList()).not.toBeNull();
         })));
     });
 });
