@@ -9,7 +9,7 @@ export class CategoryService {
         this._apiURL = apiURL;
     }
 
-    getCategoryList() {
+    public getCategoryList() {
         return this._apiURL + 'categories';
     }
 }
