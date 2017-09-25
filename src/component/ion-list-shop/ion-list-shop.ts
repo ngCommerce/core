@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * Generated class for the IonListShopComponent component.
@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
   templateUrl: 'ion-list-shop.html'
 })
 export class IonListShopComponent {
-
+@Input() items:any;
   text: string;
 
   constructor() {
