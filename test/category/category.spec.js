@@ -9,7 +9,7 @@ describe('Category service', function () {
         beforeEach(function () {
             testing_1.TestBed.configureTestingModule({ imports: [http_1.HttpModule, core_module_1.EcommerceCoreModule.forRoot('http://localhost/api/')] });
         });
-        it('should not call anything', (testing_1.inject([category_service_1.CategoryService], function (service) {
+        it('Get Category list', (testing_1.inject([category_service_1.CategoryService], function (service) {
             // expect(service.getCategoryList()).toEqual('http://localhost/api/');
             expect(service.getCategoryList()).not.toBeNull();
         })));
