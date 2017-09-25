@@ -50,7 +50,9 @@
     "url": "https://github.com/ngCommerce/core/issues"
   },
   "homepage": "https://github.com/ngCommerce/core#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@angular/http": "^4.4.3"
+  },
   "devDependencies": {
     "@angular/common": "4.0.1",
     "@angular/compiler": "4.0.1",

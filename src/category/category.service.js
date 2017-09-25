@@ -13,20 +13,28 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-exports.API_URL = "";
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/toPromise");
+var core_service_1 = require("../core.service");
 var CategoryService = (function () {
-    function CategoryService(apiURL) {
+    function CategoryService(apiURL, http) {
+        this.http = http;
         this._apiURL = apiURL;
     }
     CategoryService.prototype.getCategoryList = function () {
-        return this._apiURL + 'categories';
+        // return this._apiURL;
+        return this.http.get('http://greenvintage-v1.herokuapp.com/api/categories')
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(function (error) { return null; });
     };
     return CategoryService;
 }());
 CategoryService = __decorate([
     core_1.Injectable(),
-    __param(0, core_1.Inject(exports.API_URL)),
-    __metadata("design:paramtypes", [String])
+    __param(0, core_1.Inject(core_service_1.API_URL)),
+    __metadata("design:paramtypes", [String, http_1.Http])
 ], CategoryService);
 exports.CategoryService = CategoryService;
 //# sourceMappingURL=category.service.js.map

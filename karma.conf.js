@@ -52,6 +52,7 @@ module.exports = function (config) {
             // Paths loaded via module imports:
             // Angular itself without AOT packages
             { pattern: 'node_modules/@angular/common/**/*.js', included: false, watched: false },
+            { pattern: 'node_modules/@angular/http/**/*.js', included: false, watched: false },
             { pattern: 'node_modules/@angular/compiler/**/*.js', included: false, watched: false },
             { pattern: 'node_modules/@angular/compiler-cli/**/*.js', included: false, watched: false },
             { pattern: 'node_modules/@angular/core/**/*.js', included: false, watched: false },
