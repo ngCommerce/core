@@ -17,11 +17,11 @@ export class ShopService {
         return this._apiURL + 'shops';
     }
 
-    updateShopByID(ID) {
+    updateShopByID(ID: string) {
         return this._apiURL + 'shops/' + ID;
     }
 
-    deleteShopByID(ID) {
+    deleteShopByID(ID: string) {
         return this._apiURL + 'shops/' + ID;
     }
 }
