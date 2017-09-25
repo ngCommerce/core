@@ -1,5 +1,5 @@
 import { HttpModule } from '@angular/http';
-import { ProductService } from './../../src/product/product.service';
+import { ProductService } from '../../src/services/product/product.service';
 import { TestBed, inject } from "@angular/core/testing";
 import { EcommerceCoreModule } from "../../src/core.module";
 import { CorService } from "../../src/core.service";

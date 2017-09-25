@@ -1,4 +1,3 @@
-import uglify from "rollup-plugin-uglify";
 
 export default {
     entry: 'index.js',
@@ -6,12 +5,13 @@ export default {
     format: 'umd',
     moduleName: 'ng.commerce',
     external: [
-        '@angular/core'
+        '@angular/core',
+        '@angular/http',
+        'rxjs/add/operator/toPromise',
+        'rxjs/add/operator/map'
     ],
     globals: {
-        '@angular/core': 'ng.core'
-    },
-    plugins: [
-        uglify()
-    ]
+        '@angular/core': 'ng.core',
+        '@angular/http': 'ng.http'
+    }
 }

@@ -1,6 +1,6 @@
 import { TestBed, inject } from "@angular/core/testing";
 import { EcommerceCoreModule } from "../../src/core.module";
-import { ShopService } from "../../src/shop/shop.service";
+import { ShopService } from "../../src/services/shop/shop.service";
 import { HttpModule } from "@angular/http";
 
 

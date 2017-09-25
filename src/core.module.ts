@@ -1,16 +1,18 @@
-import { ProductService } from './product/product.service';
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { HttpModule } from '@angular/http';
-import { CorService, API_URL } from "./core.service";
-import { CategoryService } from "./category/category.service";
-import { ShopService } from "./shop/shop.service";
 
-import { IonItemCategoryComponent } from "./component/ion-item-category/ion-item-category";
-import { IonItemProductComponent } from "./component/ion-item-product/ion-item-product";
-import { IonItemShopComponent } from "./component/ion-item-shop/ion-item-shop";
-import { IonListCategoryComponent } from "./component/ion-list-category/ion-list-category";
-import { IonListProductComponent } from "./component/ion-list-product/ion-list-product";
-import { IonListShopComponent } from "./component/ion-list-shop/ion-list-shop";
+import { API_URL } from "./models/core.model";
+import { CorService} from "./core.service";
+import { CategoryService } from "./services/category/category.service";
+import { ShopService } from "./services/shop/shop.service";
+import { ProductService } from './services/product/product.service';
+
+import { IonItemCategoryComponent } from "./components/ion-item-category/ion-item-category";
+import { IonItemProductComponent } from "./components/ion-item-product/ion-item-product";
+import { IonItemShopComponent } from "./components/ion-item-shop/ion-item-shop";
+import { IonListCategoryComponent } from "./components/ion-list-category/ion-list-category";
+import { IonListProductComponent } from "./components/ion-list-product/ion-list-product";
+import { IonListShopComponent } from "./components/ion-list-shop/ion-list-shop";
 
 @NgModule()
 export class EcommerceCoreModule {

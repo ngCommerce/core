@@ -1,7 +1,5 @@
 import {Injectable, Inject} from "@angular/core";
-
-export const API_URL = "";
-
+import { API_URL } from "./models/core.model";
 
 @Injectable()
 export class CorService {
