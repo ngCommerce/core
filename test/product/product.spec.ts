@@ -1,7 +1,8 @@
+import { HttpModule } from '@angular/http';
+import { ProductService } from './../../src/product/product.service';
 import { TestBed, inject } from "@angular/core/testing";
 import { EcommerceCoreModule } from "../../src/core.module";
-import { ShopService } from "../../src/shop/shop.service";
-import { HttpModule } from "@angular/http";
+import { CorService } from "../../src/core.service";
 
 
 describe('Core service', () => {
@@ -11,9 +12,9 @@ describe('Core service', () => {
             TestBed.configureTestingModule({ imports: [HttpModule, EcommerceCoreModule.forRoot('api/test')] });
         });
 
-        it('should get shop list', (inject([ShopService], (service: ShopService) => {
-            // expect(service.getShopList()).toEqual("api/test/shops");
-            expect(service.getShopList()).not.toBeNull();            
+        it('should not call anything', (inject([ProductService], (service: ProductService) => {
+            // expect(service.apiURL).toEqual("api/test");
+            expect(service.getCategoryList()).not.toBeNull();
         })));
     });
 });
