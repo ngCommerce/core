@@ -27,6 +27,24 @@ let CategoryService = class CategoryService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+    createCategory(category) {
+        return this.http.post(this._apiURL + 'categories', category)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    getCategoryByID(id) {
+        return this.http.get(this._apiURL + 'categories/' + id)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    deleteCategory(id) {
+        return this.http.delete(this._apiURL + 'categories/' + id)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
     handleError(error) {
         return Promise.reject(error.message || error);
     }
