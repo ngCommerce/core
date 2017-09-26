@@ -19,7 +19,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   </ion-list>
 
 <div padding>
-<button block (click)="addcate(items)">Add</button>
+<button ion-button block (click)="addcate(items)">Add</button>
 </div>
     `,
   styles: [`
@@ -30,8 +30,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class IonFormCategoryComponent {
   @Output() createcate: EventEmitter<any> = new EventEmitter<any>();
-
-  @Input() items: any;
+  items = {
+    name: ''
+  }
+  // @Input() items: any;
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
   }

@@ -1,3 +1,4 @@
+import { AuthenService } from './services/authen/authen.service';
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { HttpModule } from '@angular/http';
 
@@ -14,6 +15,7 @@ import { IonFormShopComponent } from "./components/ion-form-shop/ion-form-shop";
 import { IonListXProductComponent } from "./components/ion-list-Xproduct/ion-list-x-product";
 import { IonFormCategoryComponent } from "./components/ion-form-category/ion-form-category";
 import { IonFormProductComponent } from "./components/ion-form-product/ion-form-product";
+import { IonPreloadImageComponent } from "./components/ion-preload-image/ion-preload-image";
 
 @NgModule()
 export class EcommerceCoreModule {
@@ -32,6 +34,7 @@ export class EcommerceCoreModule {
                 CategoryService,
                 ShopService,
                 ProductService,
+                AuthenService,
                 // HttpModule,
 
                 // IonItemCategoryComponent,
