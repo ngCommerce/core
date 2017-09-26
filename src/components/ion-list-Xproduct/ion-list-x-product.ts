@@ -28,7 +28,6 @@ import { Component, Input } from '@angular/core';
 </ion-scroll>
     `,
   styles: [`
-  ion-list-x-product{
     .horizontal-categories {
       border-bottom: 10px solid darken(#FFFFFF, 3%);
       padding-bottom: 16px;
@@ -68,7 +67,6 @@ import { Component, Input } from '@angular/core';
           }
       }
     }
-  }
   `]
 })
 export class IonListXProductComponent {
