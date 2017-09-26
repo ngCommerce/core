@@ -10,4 +10,5 @@ export * from "./components/ion-list-category/ion-list-category";
 export * from "./components/ion-list-shop/ion-list-shop";
 export * from "./components/ion-list-product/ion-list-product";
 export * from "./components/ion-form-shop/ion-form-shop";
+export * from "./components/ion-list-Xproduct/ion-list-x-product";
 

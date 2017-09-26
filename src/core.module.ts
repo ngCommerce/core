@@ -11,6 +11,7 @@ import { IonListCategoryComponent } from "./components/ion-list-category/ion-lis
 import { IonListShopComponent } from "./components/ion-list-shop/ion-list-shop";
 import { IonListProductComponent } from "./components/ion-list-product/ion-list-product";
 import { IonFormShopComponent } from "./components/ion-form-shop/ion-form-shop";
+import { IonListXProductComponent } from "./components/ion-list-Xproduct/ion-list-x-product";
 
 @NgModule()
 export class EcommerceCoreModule {
