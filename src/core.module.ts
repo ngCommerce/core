@@ -9,6 +9,11 @@ import { ProductService } from './services/product/product.service';
 
 import { IonListCategoryComponent } from "./components/ion-list-category/ion-list-category";
 import { IonListShopComponent } from "./components/ion-list-shop/ion-list-shop";
+import { IonListProductComponent } from "./components/ion-list-product/ion-list-product";
+import { IonFormShopComponent } from "./components/ion-form-shop/ion-form-shop";
+import { IonListXProductComponent } from "./components/ion-list-Xproduct/ion-list-x-product";
+import { IonFormCategoryComponent } from "./components/ion-form-category/ion-form-category";
+import { IonFormProductComponent } from "./components/ion-form-product/ion-form-product";
 
 @NgModule()
 export class EcommerceCoreModule {

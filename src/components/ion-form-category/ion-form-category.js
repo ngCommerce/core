@@ -16,35 +16,47 @@ const core_1 = require("@angular/core");
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonListShopComponent = class IonListShopComponent {
+let IonFormCategoryComponent = class IonFormCategoryComponent {
     constructor() {
-        // console.log('Hello IonListShopComponent Component');
+        this.createcate = new core_1.EventEmitter();
+        // console.log('Hello IonListCategoryComponent Component');
+    }
+    addcate(items) {
+        this.createcate.emit(items);
     }
 };
 __decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], IonFormCategoryComponent.prototype, "createcate", void 0);
+__decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], IonListShopComponent.prototype, "items", void 0);
-IonListShopComponent = __decorate([
+], IonFormCategoryComponent.prototype, "items", void 0);
+IonFormCategoryComponent = __decorate([
     core_1.Component({
-        selector: 'ion-list-shop',
+        selector: 'ion-form-category',
         template: `
-    <ion-list >
-      <ion-item *ngFor="let item of items">
-        <ion-avatar item-left>
-            <img src="{{item.image}}">
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-      </ion-item>
-    </ion-list>
+  <ion-list>
+  
+    <ion-item>
+      <ion-label floating>Name Shop</ion-label>
+      <ion-input type="text" [(ngModel)]="items.name"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+<div padding>
+<button block (click)="addcate(items)">Add</button>
+</div>
     `,
         styles: [`
-  ion-list-shop {
+  ion-form-category {
     background-color: red;
   }`
         ]
     }),
     __metadata("design:paramtypes", [])
-], IonListShopComponent);
-exports.IonListShopComponent = IonListShopComponent;
-//# sourceMappingURL=ion-list-shop.js.map
+], IonFormCategoryComponent);
+exports.IonFormCategoryComponent = IonFormCategoryComponent;
+//# sourceMappingURL=ion-form-category.js.map

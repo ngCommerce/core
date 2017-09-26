@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -7,8 +7,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-form-category',
-    template: `
+  selector: 'ion-form-category',
+  template: `
   <ion-list>
   
     <ion-item>
@@ -22,22 +22,22 @@ import { Component, Output, EventEmitter } from '@angular/core';
 <button block (click)="addcate(items)">Add</button>
 </div>
     `,
-    styles: [`
+  styles: [`
   ion-form-category {
     background-color: red;
   }`
-    ]
+  ]
 })
 export class IonFormCategoryComponent {
-    @Output() createcate : EventEmitter<any> = new EventEmitter<any>;
-    
-    //   @Input() items: any;
-    constructor() {
-        // console.log('Hello IonListCategoryComponent Component');
-    }
-    addcate(items){
-        this.createcate.emit(items);
+  @Output() createcate: EventEmitter<any> = new EventEmitter<any>();
 
-    }
+  @Input() items: any;
+  constructor() {
+    // console.log('Hello IonListCategoryComponent Component');
+  }
+  addcate(items) {
+    this.createcate.emit(items);
+
+  }
 
 }

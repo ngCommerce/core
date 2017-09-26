@@ -7,27 +7,28 @@ import { Component, Input } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-list-shop',
+    selector: 'ion-list-Product',
     template: `
     <ion-list >
       <ion-item *ngFor="let item of items">
-        <ion-avatar item-left>
+        <ion-thumbnail item-start>
             <img src="{{item.image}}">
-        </ion-avatar>
+        </ion-thumbnail>
         <h2>{{item.name}}</h2>
+        <p>{{item.price}}</p>
       </ion-item>
     </ion-list>
     `,
     styles: [`
-  ion-list-shop {
+  ion-list-Product {
     background-color: red;
   }`
     ]
 })
-export class IonListShopComponent {
+export class IonListProductComponent {
     @Input() items: any;
     constructor() {
-        // console.log('Hello IonListShopComponent Component');
+        // console.log('Hello IonListProductComponent Component');
     }
 
 }

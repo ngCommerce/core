@@ -16,35 +16,46 @@ const core_1 = require("@angular/core");
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonListShopComponent = class IonListShopComponent {
+let IonFormShopComponent = class IonFormShopComponent {
     constructor() {
-        // console.log('Hello IonListShopComponent Component');
+        this.createShop = new core_1.EventEmitter();
+        // console.log('Hello IonFormShopComponent Component');
+    }
+    addShop(item) {
+        this.createShop.emit(item);
     }
 };
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], IonListShopComponent.prototype, "items", void 0);
-IonListShopComponent = __decorate([
+], IonFormShopComponent.prototype, "item", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], IonFormShopComponent.prototype, "createShop", void 0);
+IonFormShopComponent = __decorate([
     core_1.Component({
-        selector: 'ion-list-shop',
+        selector: 'ion-form-shop',
         template: `
-    <ion-list >
-      <ion-item *ngFor="let item of items">
-        <ion-avatar item-left>
-            <img src="{{item.image}}">
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-      </ion-item>
+    <ion-list>
+        <ion-item>
+            <ion-label floating >Name</ion-label>
+            <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating >Image</ion-label>
+            <ion-input type="text" [(ngModel)]="item.image"></ion-input>
+        </ion-item>
+        <button ion-button block color="dark" (click)="addShop(item)">Add</button>
     </ion-list>
     `,
         styles: [`
-  ion-list-shop {
+  ion-form-shop {
     background-color: red;
   }`
         ]
     }),
     __metadata("design:paramtypes", [])
-], IonListShopComponent);
-exports.IonListShopComponent = IonListShopComponent;
-//# sourceMappingURL=ion-list-shop.js.map
+], IonFormShopComponent);
+exports.IonFormShopComponent = IonFormShopComponent;
+//# sourceMappingURL=ion-form-shop.js.map
