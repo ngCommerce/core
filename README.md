@@ -44,4 +44,5 @@ The service offer a sub-list of `window.console` capacities :
 	     - CategoryModel
          - CategoryService
 	     - IonListCategoryComponent
-
+     - [Product](https://github.com/ngCommerce/core/blob/master/Documents/PRODUCT.md)
+     - [Shop](https://github.com/ngCommerce/core/blob/master/Documents/SHOP.md)
