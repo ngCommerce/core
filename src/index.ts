@@ -8,6 +8,7 @@ export { ShopService } from "./services/shop/shop.service";
 
 export { ShopListModel, ShopModel } from "./models/shop.model";
 export { ReviewsModel } from "./models/core.model";
+export { ProductModel, ProductListModel } from "./models/product.model";
 
 
 

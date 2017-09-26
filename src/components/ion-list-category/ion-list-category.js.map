@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 {"version":3,"file":"ion-list-category.js","sourceRoot":"","sources":["ion-list-category.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,wCAAiD;AAEjD;;;;;GAKG;AAgBH,IAAa,wBAAwB,GAArC;IAEE;QACE,2DAA2D;IAC7D,CAAC;CAEF,CAAA;AALU;IAAR,YAAK,EAAE;;uDAAY;AADT,wBAAwB;IAfpC,gBAAS,CAAC;QACT,QAAQ,EAAE,mBAAmB;QAC7B,QAAQ,EAAE;;;;;;KAMP;QACH,MAAM,EAAE,CAAC;;;IAGP;SACD;KACF,CAAC;;GACW,wBAAwB,CAMpC;AANY,4DAAwB"}
 =======
 {"version":3,"file":"ion-list-category.js","sourceRoot":"","sources":["ion-list-category.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,wCAAiD;AAEjD;;;;;GAKG;AAgBH,IAAa,wBAAwB,GAArC;IAEE;QACE,2DAA2D;IAC7D,CAAC;CAEF,CAAA;AALU;IAAR,YAAK,EAAE;;uDAAY;AADT,wBAAwB;IAfpC,gBAAS,CAAC;QACT,QAAQ,EAAE,mBAAmB;QAC7B,QAAQ,EAAE;;;;;;KAMP;QACH,MAAM,EAAE,CAAC;;;IAGP;SACD;KACF,CAAC;;GACW,wBAAwB,CAMpC;AANY,4DAAwB"}
 >>>>>>> bc540233cc9421d9d4ebcea94a90cad23f5ab6b2
+=======
+{"version":3,"file":"ion-list-category.js","sourceRoot":"","sources":["ion-list-category.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,wCAAiD;AAEjD;;;;;GAKG;AAgBH,IAAa,wBAAwB,GAArC;IAEE;QACE,2DAA2D;IAC7D,CAAC;CAEF,CAAA;AALU;IAAR,YAAK,EAAE;;uDAAY;AADT,wBAAwB;IAfpC,gBAAS,CAAC;QACT,QAAQ,EAAE,mBAAmB;QAC7B,QAAQ,EAAE;;;;;;KAMP;QACH,MAAM,EAAE,CAAC;;;IAGP;SACD;KACF,CAAC;;GACW,wBAAwB,CAMpC;AANY,4DAAwB"}
+>>>>>>> 2019c9318c358a1ed544edca5d39c61630b6468a

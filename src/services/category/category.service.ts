@@ -33,6 +33,13 @@ export class CategoryService {
             .catch(this.handleError);
     }
 
+    updateCategory(category): Promise<CategoryModel> {
+        return this.http.put(this._apiURL + 'categories/' + category._id, category)
+            .toPromise()
+            .then(response => response.json() as CategoryModel)
+            .catch(this.handleError);
+    }
+
     deleteCategory(id): Promise<CategoryModel> {
         return this.http.delete(this._apiURL + 'categories/' + id)
             .toPromise()
