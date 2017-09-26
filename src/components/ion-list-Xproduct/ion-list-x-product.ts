@@ -10,6 +10,9 @@ import { Component, Input } from '@angular/core';
   selector: 'ion-list-x-product',
   template: `
   <style>
+  .ttt{
+    color:red !important;
+  }
   .horizontal-categories {
     border-bottom: 10px solid darken(#FFFFFF, 3%);
     padding-bottom: 16px;
@@ -50,6 +53,7 @@ import { Component, Input } from '@angular/core';
     }
   }
 </style>
+<p class="ttt">ssdsdsds</p>
   <ion-scroll scrollX="true" class="horizontal-categories">
   <ion-row>
     <ion-col >
