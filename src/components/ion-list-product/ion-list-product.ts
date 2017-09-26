@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-list-Product',
+    selector: 'ion-list-product',
     template: `
     <ion-list >
       <ion-item *ngFor="let item of items">
@@ -20,7 +20,7 @@ import { Component, Input } from '@angular/core';
     </ion-list>
     `,
     styles: [`
-  ion-list-Product {
+  ion-list-product {
     background-color: red;
   }`
     ]
