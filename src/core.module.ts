@@ -10,6 +10,7 @@ import { ProductService } from './services/product/product.service';
 import { IonListCategoryComponent } from "./components/ion-list-category/ion-list-category";
 import { IonListShopComponent } from "./components/ion-list-shop/ion-list-shop";
 import { IonListProductComponent } from "./components/ion-list-product/ion-list-product";
+import { IonFormShopComponent } from "./components/ion-form-shop/ion-form-shop";
 
 @NgModule()
 export class EcommerceCoreModule {
