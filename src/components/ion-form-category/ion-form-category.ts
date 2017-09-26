@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component,Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -31,7 +31,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class IonFormCategoryComponent {
     @Output() createcate : EventEmitter<any> = new EventEmitter<any>;
     
-    //   @Input() items: any;
+     @Input() items: any;
     constructor() {
         // console.log('Hello IonListCategoryComponent Component');
     }
