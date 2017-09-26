@@ -13,7 +13,7 @@ export class CategoryService {
     }
 
     getCategoryList(): Promise<Array<CategoryModel>> {
-        return this.http.get(this._apiURL + '/api/dataofcategories')
+        return this.http.get(this._apiURL + 'categories')
             .toPromise()
             .then(response => response.json() as Array<CategoryModel>)
             .catch(this.handleError);

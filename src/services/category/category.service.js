@@ -8,7 +8,7 @@ export class CategoryService {
         this._apiURL = apiURL;
     }
     getCategoryList() {
-        return this.http.get(this._apiURL + '/api/dataofcategories')
+        return this.http.get(this._apiURL + 'categories')
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
