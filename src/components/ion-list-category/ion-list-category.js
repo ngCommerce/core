@@ -12,8 +12,8 @@ export class IonListCategoryComponent {
 }
 IonListCategoryComponent.decorators = [
     { type: Component, args: [{
-                selector: `ion-list-category',
-  template: '
+                selector: 'ion-list-category',
+                template: `
     <ion-list >
       <ion-item *ngFor="let item of items">
         <h2>{{item.name}}</h2>

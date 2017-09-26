@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
  * Components.
  */
 @Component({
-  selector: `ion-list-category',
-  template: '
+  selector: 'ion-list-category',
+  template: `
     <ion-list >
       <ion-item *ngFor="let item of items">
         <h2>{{item.name}}</h2>
