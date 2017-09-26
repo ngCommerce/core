@@ -12,3 +12,4 @@ export { ReviewsModel } from "./models/core.model";
 
 
 export * from "./components/ion-list-category/ion-list-category";
+export * from "./components/ion-list-shop/ion-list-shop";
