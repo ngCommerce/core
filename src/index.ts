@@ -6,4 +6,9 @@ export { CategoryService } from "./services/category/category.service";
 export { ProductService } from "./services/product/product.service";
 export { ShopService } from "./services/shop/shop.service";
 
+export { ShopListModel, ShopModel } from "./models/shop.model";
+export { ReviewsModel } from "./models/core.model";
+
+
+
 export * from "./components/ion-list-category/ion-list-category";

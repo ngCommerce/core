@@ -20,11 +20,15 @@ let IonListCategoryComponent = class IonListCategoryComponent {
     constructor() {
         // console.log('Hello IonListCategoryComponent Component');
     }
-}
-IonListCategoryComponent.decorators = [
-    { type: Component, args: [{
-                selector: 'ion-list-category',
-                template: `
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], IonListCategoryComponent.prototype, "items", void 0);
+IonListCategoryComponent = __decorate([
+    core_1.Component({
+        selector: 'ion-list-category',
+        template: `
     <ion-list >
       <ion-item *ngFor="let item of items">
         <h2>{{item.name}}</h2>

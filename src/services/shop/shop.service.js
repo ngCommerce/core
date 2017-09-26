@@ -23,19 +23,37 @@ let ShopService = class ShopService {
         this._apiURL = apiURL;
     }
     getShopList() {
-        return this.http.get('http://greenvintage-v1.herokuapp.com/api/shops')
+        return this.http.get(this._apiURL + 'shops')
             .toPromise()
             .then(response => response.json())
-            .catch(error => null);
+            .catch(this.handleError);
     }
-    createShop() {
-        return this._apiURL + 'shops';
+    createShop(data) {
+        return this.http.post(this._apiURL + 'shops', data)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
     }
-    updateShopByID(ID) {
-        return this._apiURL + 'shops/' + ID;
+    updateShopByID(data) {
+        return this.http.put(this._apiURL + 'shops/' + data._id, data)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
     }
-    deleteShopByID(ID) {
-        return this._apiURL + 'shops/' + ID;
+    getShopByID(id) {
+        return this.http.get(this._apiURL + 'shops/' + id)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    deleteShopByID(id) {
+        return this.http.delete(this._apiURL + 'shops/' + id)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    handleError(error) {
+        return Promise.reject(error.message || error);
     }
 };
 ShopService = __decorate([
