@@ -16,32 +16,35 @@ const core_1 = require("@angular/core");
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonListCategoryComponent = class IonListCategoryComponent {
+let IonListShopComponent = class IonListShopComponent {
     constructor() {
-        // console.log('Hello IonListCategoryComponent Component');
+        // console.log('Hello IonListShopComponent Component');
     }
 };
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], IonListCategoryComponent.prototype, "items", void 0);
-IonListCategoryComponent = __decorate([
+], IonListShopComponent.prototype, "items", void 0);
+IonListShopComponent = __decorate([
     core_1.Component({
-        selector: `ion-list-category',
+        selector: `ion-list-shop',
   template: '
     <ion-list >
       <ion-item *ngFor="let item of items">
+        <ion-avatar item-left>
+            <img src="{{item.image}}">
+        </ion-avatar>
         <h2>{{item.name}}</h2>
       </ion-item>
     </ion-list>
     `,
         styles: [`
-  ion-list-category {
+  ion-list-shop {
     background-color: red;
   }`
         ]
     }),
     __metadata("design:paramtypes", [])
-], IonListCategoryComponent);
-exports.IonListCategoryComponent = IonListCategoryComponent;
-//# sourceMappingURL=ion-list-category.js.map
+], IonListShopComponent);
+exports.IonListShopComponent = IonListShopComponent;
+//# sourceMappingURL=ion-list-shop.js.map

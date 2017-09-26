@@ -1,1 +1,1 @@
-{"version":3,"sources":["core.model.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,OAAO,GAAG,EAAE,CAAC","file":"core.model.js","sourceRoot":"","sourcesContent":["export const API_URL = \"\";"]}
+{"version":3,"file":"core.model.js","sourceRoot":"","sources":["core.model.ts"],"names":[],"mappings":";;AAAa,QAAA,OAAO,GAAG,EAAE,CAAC"}
