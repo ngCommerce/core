@@ -1,9 +1,4 @@
 Welcome to ngCommerce!
-===================
-
-
-Hey! I'm your first Markdown document in **StackEdit**[^stackedit]. Don't delete me, I'm very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.
-
 ----------
 
 
@@ -41,3 +36,12 @@ export class MyComponent(){
     }
 }
 ```
+
+The service offer a sub-list of `window.console` capacities :
+
+ - Basics :
+     - [Category](https://github.com/ngCommerce/core/blob/master/Documents/Category.md)
+	     - CategoryModel
+         - CategoryService
+	     - IonListCategoryComponent
+
