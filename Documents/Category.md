@@ -1,5 +1,33 @@
 Usage Category
-----------
+===================
+
+CategoryModel
+-------------
+
+1. Import `CategoryModel` in your application :
+	```
+    import { CategoryModel } from "@ngcommerce/core";
+
+    ```
+2. Properties in `CategoryModel` :
+	```
+	_id : string;
+	name : string;
+    ```
+    
+	Example : 
+ 
+	```typescript
+	@Component({}
+	export class MyComponent(){
+	
+	category:CategoryModel;	
+	    
+	    constructor(){
+
+	    }
+	}
+	```
 
 CategoryService
 -------------
@@ -32,3 +60,42 @@ CategoryService
 	     - *parameter* - id of category.
 	 - **deleteCategory(** *parameter* **) -** Delete category data.
 	     - *parameter* - id of category.
+
+	Example : 
+ 
+	```typescript
+	@Component({}
+	export class MyComponent(){
+	
+	    constructor(private categoryService: CategoryService){
+	    
+	        this.categoryService.getCategoryList().then((data)=>{
+				console.log(data);
+			},(error)=>{
+		        console.error(error);
+	        });
+	
+	    }
+	}
+	```
+IonListCategoryComponent
+-------------
+
+1. Import `IonListCategoryComponent` in your application :
+
+    ```typescript
+    import { NgModule } from '@angular/core';
+    import { EcommerceCoreModule, IonListCategoryComponent } from "@ngcommerce/core";
+
+    @NgModule({
+	    declarations: [MyApp, IonListCategoryComponent],
+        imports: [EcommerceCoreModule.forRoot('http://test/api/') ]
+    })
+    export class AppModule { } 
+    ```
+2. Use in HTML
+
+	```
+	<ion-list-category [items]="categoryArray"></ion-list-category>
+	```
+	**Note :** [items] - Input categoryArray binding.
