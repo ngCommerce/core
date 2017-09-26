@@ -14,40 +14,40 @@ import { Component, Input } from '@angular/core';
     color:red !important;
   }
   .horizontal-categories {
-    border-bottom: 10px solid darken(#FFFFFF, 3%);
-    padding-bottom: 16px;
+    border-bottom: 10px solid darken(#FFFFFF, 3%) !important;
+    padding-bottom: 16px !important;
     .scroll-content {
-        position: relative;
-        contain: style layout;
+        position: relative !important;
+        contain: style layout !important;
     }
     .categories-row {
-        flex-wrap: nowrap;
+        flex-wrap: nowrap !important;
         &::after {
-            content: '';
-            flex: 0 0 10px;
-            max-width: 10px;
+            content: '' !important;
+            flex: 0 0 10px !important;
+            max-width: 10px !important;
         }
     }
     preload-image {
         img {
-            z-index: -3;
+            z-index: -3 !important;
         }
     }
     .horizontal-item {
-        padding: 0px 0px 0px 10px;
+        padding: 0px 0px 0px 10px !important;
         .product-box {
-            background-color: rgba(lighten(rgba(#000000, .8), 40%), .6);
-            margin-top: -50px;
-            color: #FFFFFF;
+            background-color: rgba(lighten(rgba(#000000, .8), 40%), .6) !important;
+            margin-top: -50px !important;
+            color: #FFFFFF !important;
             .txt-centr {
-                text-align: center;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                text-align: center !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
             }
             .txt-centr2 {
-                text-align: center;
-                margin-top: -10px;
+                text-align: center !important;
+                margin-top: -10px !important;
             }
         }
     }
