@@ -1,43 +1,34 @@
-Welcome to ngCommerce!
-===================
-
-
-Hey! I'm your first Markdown document in **StackEdit**[^stackedit]. Don't delete me, I'm very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.
-
+Usage Category
 ----------
 
-
-Installation
+CategoryService
 -------------
 
-1. Install the npm package.
+1. Import `CategoryService` in your application :
 	```
-    npm install @ngcommerce/core --save
+    import { CategoryService } from "@ngcommerce/core";
+
     ```
-
-2. Import `EcommerceCoreModule` in your application and use `forRoot('apiURL')` to choose your apiURL :
-
-    ```typescript
-    import { NgModule }            from '@angular/core';
-    import { EcommerceCoreModule } from "@ngcommerce/core";
-
-    @NgModule({
-        imports: [EcommerceCoreModule.forRoot('http://test/api/') ]
-    })
-    export class AppModule { } 
-    ```
-Usage
--------------
-Inject the `CorService` service anywhere you need it and use it like it's `alert` :
+2. Inject the `CategoryService` service anywhere you need it :
  
-```typescript
-@Component({})
-export class MyComponent(){
+	```typescript
+	@Component({})
+	export class MyComponent(){
+	
+	    constructor(private categoryService: CategoryService){
+	    
+	    }
+	}
+	```
+3. How to use method in  `CategoryService` :
 
-    constructor(private service: CorService){
-    
-            alert(service.apiURL);
-
-    }
-}
-```
+     - **getCategoryList() -** Return category data of Array[].
+     - **createCategory(** *parameter* **) -** Create category data.
+	     - *parameter* - Data of Category.
+	 - **updateCategory(** *parameter* **) -** Update category data.
+	     - *parameter* - Data of Category.
+	     - *key Object* - _id
+     - **getCategoryByID(** *parameter* **) -** Get category data by id.
+	     - *parameter* - id of category.
+	 - **deleteCategory(** *parameter* **) -** Delete category data.
+	     - *parameter* - id of category.
