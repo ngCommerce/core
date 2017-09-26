@@ -9,9 +9,32 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'ion-list-x-product',
   template: `
-  <style>
+  
+<p class="ttt">ssdsdsds</p>
+  <ion-scroll scrollX="true" class="horizontal-categories">
+  <ion-row>
+    <ion-col >
+      
+    </ion-col>
+  </ion-row>
+  <ion-row class="categories-row">
+    <ion-col col-3 class="horizontal-item" *ngFor="let popular of items" 
+      (click) = "_selectedItem(popular)">
+      <ion-preload-image [ratio]="{w:1, h:1}" [src]="popular.image" title="popular.image"></ion-preload-image>
+      <div class="product-box">
+          <p class="txt-centr">{{popular.name}}</p>
+          <p class="txt-centr2">{{popular.price | number}}</p>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-scroll>
+    `,
+  styles: [`
   .ttt{
-    color:red !important;
+    color:blue !important;
+  }
+  .scroll-content{
+    heigth:100px !important;
   }
   .horizontal-categories {
     border-bottom: 10px solid darken(#FFFFFF, 3%) !important;
@@ -52,28 +75,6 @@ import { Component, Input } from '@angular/core';
         }
     }
   }
-</style>
-<p class="ttt">ssdsdsds</p>
-  <ion-scroll scrollX="true" class="horizontal-categories">
-  <ion-row>
-    <ion-col >
-      
-    </ion-col>
-  </ion-row>
-  <ion-row class="categories-row">
-    <ion-col col-3 class="horizontal-item" *ngFor="let popular of items" 
-      (click) = "_selectedItem(popular)">
-      <ion-preload-image [ratio]="{w:1, h:1}" [src]="popular.image" title="popular.image"></ion-preload-image>
-      <div class="product-box">
-          <p class="txt-centr">{{popular.name}}</p>
-          <p class="txt-centr2">{{popular.price | number}}</p>
-      </div>
-    </ion-col>
-  </ion-row>
-</ion-scroll>
-    `,
-  styles: [`
-    
   `]
 })
 export class IonListXProductComponent {
