@@ -28,49 +28,47 @@ import { Component, Input } from '@angular/core';
 </ion-scroll>
     `,
   styles: [`
-  $categories-horizontal-list-padding: 10px;
-  $white: #FFFFFF;
-  $white-a: darken($white, 3%);
-  $black: rgba(#000000, .8);
-  $black-c: lighten($black, 40%);
+  .scroll-content{
+    heigth:100px !important;
+  }
   .horizontal-categories {
-      border-bottom: 10px solid $white-a;
-      padding-bottom: 16px;
-      .scroll-content {
-          position: relative;
-          contain: style layout;
-      }
-      .categories-row {
-          flex-wrap: nowrap;
-          &::after {
-              content: '';
-              flex: 0 0 $categories-horizontal-list-padding;
-              max-width: $categories-horizontal-list-padding;
-          }
-      }
-      preload-image {
-          img {
-              z-index: -3;
-          }
-      }
-      .horizontal-item {
-          padding: 0px 0px 0px $categories-horizontal-list-padding;
-          .product-box {
-              background-color: rgba($black-c, .6);
-              margin-top: -50px;
-              color: $white;
-              .txt-centr {
-                  text-align: center;
-                  white-space: nowrap;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-              }
-              .txt-centr2 {
-                  text-align: center;
-                  margin-top: -10px;
-              }
-          }
-      }
+    border-bottom: 10px solid darken(#FFFFFF, 3%) !important;
+    padding-bottom: 16px !important;
+    .scroll-content {
+        position: relative !important;
+        contain: style layout !important;
+    }
+    .categories-row {
+        flex-wrap: nowrap !important;
+        &::after {
+            content: '' !important;
+            flex: 0 0 10px !important;
+            max-width: 10px !important;
+        }
+    }
+    preload-image {
+        img {
+            z-index: -3 !important;
+        }
+    }
+    .horizontal-item {
+        padding: 0px 0px 0px 10px !important;
+        .product-box {
+            background-color: rgba(lighten(rgba(#000000, .8), 40%), .6) !important;
+            margin-top: -50px !important;
+            color: #FFFFFF !important;
+            .txt-centr {
+                text-align: center !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+            .txt-centr2 {
+                text-align: center !important;
+                margin-top: -10px !important;
+            }
+        }
+    }
   }
   `]
 })
