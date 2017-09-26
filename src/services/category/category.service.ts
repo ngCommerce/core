@@ -19,6 +19,28 @@ export class CategoryService {
             .catch(this.handleError);
     }
 
+    createCategory(category): Promise<CategoryModel> {
+        return this.http.post(this._apiURL + 'categories', category)
+            .toPromise()
+            .then(response => response.json() as CategoryModel)
+            .catch(this.handleError);
+    }
+
+    getCategoryByID(id): Promise<CategoryModel> {
+        return this.http.get(this._apiURL + 'categories/' + id)
+            .toPromise()
+            .then(response => response.json() as CategoryModel)
+            .catch(this.handleError);
+    }
+
+    deleteCategory(id): Promise<CategoryModel> {
+        return this.http.delete(this._apiURL + 'categories/' + id)
+            .toPromise()
+            .then(response => response.json() as CategoryModel)
+            .catch(this.handleError);
+    }
+
+
     private handleError(error: any): Promise<any> {
         return Promise.reject(error.message || error);
     }
