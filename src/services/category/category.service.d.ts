@@ -6,5 +6,9 @@ export declare class CategoryService {
     private _apiURL;
     constructor(apiURL: String, http: Http);
     getCategoryList(): Promise<Array<CategoryModel>>;
+    createCategory(category: any): Promise<CategoryModel>;
+    getCategoryByID(id: any): Promise<CategoryModel>;
+    updateCategory(category: any): Promise<CategoryModel>;
+    deleteCategory(id: any): Promise<CategoryModel>;
     private handleError(error);
 }

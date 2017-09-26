@@ -46,3 +46,9 @@ The service offer a sub-list of `window.console` capacities :
 	     - IonListCategoryComponent
      - [Product](https://github.com/ngCommerce/core/blob/master/Documents/PRODUCT.md)
      - [Shop](https://github.com/ngCommerce/core/blob/master/Documents/SHOP.md)
+
+NPM Step
+-------------
+npm run bundle
+
+npm publish --access=public

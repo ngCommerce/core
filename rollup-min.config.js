@@ -8,10 +8,12 @@ export default {
         '@angular/core',
         '@angular/http',
         'rxjs/add/operator/toPromise',
-        'rxjs/add/operator/map'
+        'rxjs/add/operator/map',
+        'ionic-angular/util/util'
     ],
     globals: {
         '@angular/core': 'ng.core',
-        '@angular/http': 'ng.http'
+        '@angular/http': 'ng.http',
+        'ionic-angular/util/util' : 'ng.util'
     }
 }
