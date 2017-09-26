@@ -1,3 +1,4 @@
+import { ShopListModel, ShopModel } from '../../models/shop.model';
 import { Injectable, Inject } from "@angular/core";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -10,23 +11,42 @@ export class ShopService {
     constructor( @Inject(API_URL) apiURL: String, public http: Http) {
         this._apiURL = apiURL;
     }
-
-    getShopList() {
-        return this.http.get('http://greenvintage-v1.herokuapp.com/api/shops')
-        .toPromise()
-        .then(response => response.json())
-        .catch(error => null);
+    getShopList(): Promise<ShopListModel> {
+        return this.http.get(this._apiURL + 'shops')
+            .toPromise()
+            .then(response => response.json() as ShopListModel)
+            .catch(this.handleError);
     }
 
-    createShop() {
-        return this._apiURL + 'shops';
+    createShop(data): Promise<ShopModel> {
+        return this.http.post(this._apiURL + 'shops',data)
+            .toPromise()
+            .then(response => response.json() as ShopModel)
+            .catch(this.handleError);
     }
 
-    updateShopByID(ID: string) {
-        return this._apiURL + 'shops/' + ID;
+    updateShopByID(data): Promise<ShopModel> {
+        return this.http.put(this._apiURL + 'shops/'+data._id,data)
+            .toPromise()
+            .then(response => response.json() as ShopModel)
+            .catch(this.handleError);
     }
 
-    deleteShopByID(ID: string) {
-        return this._apiURL + 'shops/' + ID;
+    getShopByID(id): Promise<ShopModel> {
+        return this.http.get(this._apiURL + 'shops/'+id)
+            .toPromise()
+            .then(response => response.json() as ShopModel)
+            .catch(this.handleError);
+    }
+
+    deleteShopByID(id): Promise<ShopModel> {
+        return this.http.delete(this._apiURL + 'shops/'+id)
+            .toPromise()
+            .then(response => response.json() as ShopModel)
+            .catch(this.handleError);
+    }
+
+    private handleError(error: any): Promise<any> {
+        return Promise.reject(error.message || error);
     }
 }
