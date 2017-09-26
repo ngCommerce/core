@@ -13,6 +13,7 @@ import { IonListProductComponent } from "./components/ion-list-product/ion-list-
 import { IonFormShopComponent } from "./components/ion-form-shop/ion-form-shop";
 import { IonListXProductComponent } from "./components/ion-list-Xproduct/ion-list-x-product";
 import { IonFormCategoryComponent } from "./components/ion-form-category/ion-form-category";
+import { IonFormProductComponent } from "./components/ion-form-product/ion-form-product";
 
 @NgModule()
 export class EcommerceCoreModule {

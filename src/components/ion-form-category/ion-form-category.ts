@@ -29,8 +29,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   ]
 })
 export class IonFormCategoryComponent {
-  @Output() createcate: EventEmitter<any> = new EventEmitter<any>;
-    
+  @Output() createcate: EventEmitter<any> = new EventEmitter<any>();
+
   @Input() items: any;
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');

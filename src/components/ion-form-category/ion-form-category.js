@@ -16,46 +16,47 @@ const core_1 = require("@angular/core");
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonFormShopComponent = class IonFormShopComponent {
+let IonFormCategoryComponent = class IonFormCategoryComponent {
     constructor() {
-        this.createShop = new core_1.EventEmitter();
-        // console.log('Hello IonFormShopComponent Component');
+        this.createcate = new core_1.EventEmitter();
+        // console.log('Hello IonListCategoryComponent Component');
     }
-    addShop(item) {
-        this.createShop.emit(item);
+    addcate(items) {
+        this.createcate.emit(items);
     }
 };
 __decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], IonFormShopComponent.prototype, "item", void 0);
-__decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
-], IonFormShopComponent.prototype, "createShop", void 0);
-IonFormShopComponent = __decorate([
+], IonFormCategoryComponent.prototype, "createcate", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], IonFormCategoryComponent.prototype, "items", void 0);
+IonFormCategoryComponent = __decorate([
     core_1.Component({
-        selector: 'ion-form-shop',
+        selector: 'ion-form-category',
         template: `
-    <ion-list>
-        <ion-item>
-            <ion-label floating >Name</ion-label>
-            <ion-input type="text" [(ngModel)]="item.name"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating >Image</ion-label>
-            <ion-input type="text" [(ngModel)]="item.image"></ion-input>
-        </ion-item>
-        <button ion-button block color="dark" (click)="addShop(item)">Add</button>
-    </ion-list>
+  <ion-list>
+  
+    <ion-item>
+      <ion-label floating>Name Shop</ion-label>
+      <ion-input type="text" [(ngModel)]="items.name"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+<div padding>
+<button block (click)="addcate(items)">Add</button>
+</div>
     `,
         styles: [`
-  ion-form-shop {
+  ion-form-category {
     background-color: red;
   }`
         ]
     }),
     __metadata("design:paramtypes", [])
-], IonFormShopComponent);
-exports.IonFormShopComponent = IonFormShopComponent;
-//# sourceMappingURL=ion-form-shop.js.map
+], IonFormCategoryComponent);
+exports.IonFormCategoryComponent = IonFormCategoryComponent;
+//# sourceMappingURL=ion-form-category.js.map

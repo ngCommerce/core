@@ -27,8 +27,8 @@ __decorate([
 ], IonListProductComponent.prototype, "items", void 0);
 IonListProductComponent = __decorate([
     core_1.Component({
-        selector: `ion-list-Product',
-  template: '
+        selector: 'ion-list-Product',
+        template: `
     <ion-list >
       <ion-item *ngFor="let item of items">
         <ion-thumbnail item-start>
