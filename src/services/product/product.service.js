@@ -23,11 +23,37 @@ let ProductService = class ProductService {
         this._apiURL = apiURL;
     }
     getProductList() {
-        // return this._apiURL;
-        return this.http.get('http://greenvintage-v1.herokuapp.com/api/products')
+        return this.http.get(this._apiURL + 'products')
             .toPromise()
             .then(response => response.json())
-            .catch(error => null);
+            .catch(this.handleError);
+    }
+    getProductByID(id) {
+        return this.http.get(this._apiURL + 'products/' + id)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    createProduct(product) {
+        return this.http.post(this._apiURL + 'products', product)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    updateProduct(product) {
+        return this.http.post(this._apiURL + 'products/' + product._id, product)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    deleteProduct(id) {
+        return this.http.delete(this._apiURL + 'products/' + id)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    handleError(error) {
+        return Promise.reject(error.message || error);
     }
 };
 ProductService = __decorate([

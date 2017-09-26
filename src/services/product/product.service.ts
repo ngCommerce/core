@@ -1,3 +1,4 @@
+import { ProductListModel, ProductModel } from './../../models/product.model';
 import { Injectable, Inject } from "@angular/core";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -12,12 +13,42 @@ export class ProductService {
         this._apiURL = apiURL;
     }
 
-    public getProductList() {
-        // return this._apiURL;
-        return this.http.get('http://greenvintage-v1.herokuapp.com/api/products')
+    getProductList(): Promise<ProductListModel> {
+        return this.http.get(this._apiURL + 'products')
             .toPromise()
-            .then(response => response.json())
-            .catch(error => null);
+            .then(response => response.json() as ProductListModel)
+            .catch(this.handleError);
     }
 
+    getProductByID(id): Promise<ProductModel> {
+        return this.http.get(this._apiURL + 'products/' + id)
+            .toPromise()
+            .then(response => response.json() as ProductModel)
+            .catch(this.handleError);
+    }
+
+    createProduct(product): Promise<ProductModel> {
+        return this.http.post(this._apiURL + 'products', product)
+            .toPromise()
+            .then(response => response.json() as ProductModel)
+            .catch(this.handleError);
+    }
+
+    updateProduct(product): Promise<ProductModel> {
+        return this.http.post(this._apiURL + 'products/' + product._id, product)
+            .toPromise()
+            .then(response => response.json() as ProductModel)
+            .catch(this.handleError);
+    }
+
+    deleteProduct(id): Promise<ProductModel> {
+        return this.http.delete(this._apiURL + 'products/' + id)
+            .toPromise()
+            .then(response => response.json() as ProductModel)
+            .catch(this.handleError);
+    }
+
+    private handleError(error: any): Promise<any> {
+        return Promise.reject(error.message || error);
+    }
 }
