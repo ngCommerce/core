@@ -7,10 +7,19 @@ import { Component, Input } from '@angular/core';
  * Components.
  */
 @Component({
-  selector: 'ion-list-category',
-  //templateUrl: 'ion-list-category.html'
-  template: '<ion-list ><ion-item *ngFor="let item of items"><h2>{{item.name}}</h2></ion-item></ion-list>',
-  styles:['ion-list-category {background-color: red;}']
+  selector: `ion-list-category',
+  template: '
+    <ion-list >
+      <ion-item *ngFor="let item of items">
+        <h2>{{item.name}}</h2>
+      </ion-item>
+    </ion-list>
+    `,
+  styles: [`
+  ion-list-category {
+    background-color: red;
+  }`
+  ]
 })
 export class IonListCategoryComponent {
   @Input() items: any;
