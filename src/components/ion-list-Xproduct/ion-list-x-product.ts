@@ -9,6 +9,47 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'ion-list-x-product',
   template: `
+  <style>
+  .horizontal-categories {
+    border-bottom: 10px solid darken(#FFFFFF, 3%);
+    padding-bottom: 16px;
+    .scroll-content {
+        position: relative;
+        contain: style layout;
+    }
+    .categories-row {
+        flex-wrap: nowrap;
+        &::after {
+            content: '';
+            flex: 0 0 10px;
+            max-width: 10px;
+        }
+    }
+    preload-image {
+        img {
+            z-index: -3;
+        }
+    }
+    .horizontal-item {
+        padding: 0px 0px 0px 10px;
+        .product-box {
+            background-color: rgba(lighten(rgba(#000000, .8), 40%), .6);
+            margin-top: -50px;
+            color: #FFFFFF;
+            .txt-centr {
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .txt-centr2 {
+                text-align: center;
+                margin-top: -10px;
+            }
+        }
+    }
+  }
+</style>
   <ion-scroll scrollX="true" class="horizontal-categories">
   <ion-row>
     <ion-col >
@@ -28,45 +69,7 @@ import { Component, Input } from '@angular/core';
 </ion-scroll>
     `,
   styles: [`
-    .horizontal-categories {
-      border-bottom: 10px solid darken(#FFFFFF, 3%);
-      padding-bottom: 16px;
-      .scroll-content {
-          position: relative;
-          contain: style layout;
-      }
-      .categories-row {
-          flex-wrap: nowrap;
-          &::after {
-              content: '';
-              flex: 0 0 10px;
-              max-width: 10px;
-          }
-      }
-      preload-image {
-          img {
-              z-index: -3;
-          }
-      }
-      .horizontal-item {
-          padding: 0px 0px 0px 10px;
-          .product-box {
-              background-color: rgba(lighten(rgba(#000000, .8), 40%), .6);
-              margin-top: -50px;
-              color: #FFFFFF;
-              .txt-centr {
-                  text-align: center;
-                  white-space: nowrap;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-              }
-              .txt-centr2 {
-                  text-align: center;
-                  margin-top: -10px;
-              }
-          }
-      }
-    }
+    
   `]
 })
 export class IonListXProductComponent {
