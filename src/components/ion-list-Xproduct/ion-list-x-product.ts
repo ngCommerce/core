@@ -18,7 +18,7 @@ import { Component, Input } from '@angular/core';
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let popular of items" 
         (click) = "_selectedItem(popular)">
-        <preload-image [ratio]="{w:1, h:1}" [src]="popular.image" title="popular.image"></preload-image>
+        <img src="{{popular.image}}"/>
         <div class="product-box">
             <p class="txt-centr">{{popular.name}}</p>
             <p class="txt-centr2">{{popular.price | number}}</p>
