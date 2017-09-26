@@ -1,3 +1,4 @@
+import { AuthenService } from './services/authen/authen.service';
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { HttpModule } from '@angular/http';
 
@@ -32,6 +33,7 @@ export class EcommerceCoreModule {
                 CategoryService,
                 ShopService,
                 ProductService,
+                AuthenService,
                 // HttpModule,
 
                 // IonItemCategoryComponent,

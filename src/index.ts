@@ -9,6 +9,8 @@ export { ShopService } from "./services/shop/shop.service";
 export { ShopListModel, ShopModel } from "./models/shop.model";
 export { ReviewsModel } from "./models/core.model";
 export { ProductModel, ProductListModel } from "./models/product.model";
+export { SigninModel, SignupModel } from "./models/authen.model";
+export { AuthenService } from "./services/authen/authen.service";
 
 
 
