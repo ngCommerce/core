@@ -9,8 +9,6 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'ion-list-x-product',
   template: `
-  
-<p class="ttt">ssdsdsds</p>
   <ion-scroll scrollX="true" class="horizontal-categories">
   <ion-row>
     <ion-col >
@@ -30,9 +28,6 @@ import { Component, Input } from '@angular/core';
 </ion-scroll>
     `,
   styles: [`
-  .ttt{
-    color:blue !important;
-  }
   .scroll-content{
     heigth:100px !important;
   }
