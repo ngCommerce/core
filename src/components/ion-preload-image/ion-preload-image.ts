@@ -14,47 +14,49 @@ import { isPresent } from 'ionic-angular/util/util';
     <ng-content></ng-content>
     `,
     styles: [`
-  position: relative;
-  width: 100%;
-	display: block;
-  overflow: hidden;
-
-	&.rounded-image
-	{
-		border-radius: 50%;
-	}
-
-  &.img-loaded
-  {
-    background-color: transparent;
-    border: none;
-
-		img
-	  {
-			visibility: visible;
-			opacity: 1;
-	  }
-
-		ion-spinner {
-			visibility: hidden;
-			display: none;
-		}
-  }
-
-  img
-  {
-    position: absolute;
-		left: 0px;
-		top: 0px;
-		visibility: hidden;
-		opacity: 0;
-    width: 100% !important;
-    height: inherit !important;
-    max-width: inherit !important;
-    max-height: inherit !important;
-    min-width: inherit !important;
-    min-height: inherit !important;
-  }
+    ion-preload-image{
+        position: relative;
+        width: 100%;
+          display: block;
+        overflow: hidden;
+      
+          &.rounded-image
+          {
+              border-radius: 50%;
+          }
+      
+        &.img-loaded
+        {
+          background-color: transparent;
+          border: none;
+      
+              img
+            {
+                  visibility: visible;
+                  opacity: 1;
+            }
+      
+              ion-spinner {
+                  visibility: hidden;
+                  display: none;
+              }
+        }
+      
+        img
+        {
+          position: absolute;
+              left: 0px;
+              top: 0px;
+              visibility: hidden;
+              opacity: 0;
+          width: 100% !important;
+          height: inherit !important;
+          max-width: inherit !important;
+          max-height: inherit !important;
+          min-width: inherit !important;
+          min-height: inherit !important;
+        }
+    }
   `]
 })
 export class IonPreloadImageComponent implements OnChanges {
