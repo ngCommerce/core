@@ -1,6 +1,6 @@
 {
   "name": "@ngcommerce/core",
-  "version": "1.0.10",
+  "version": "1.0.15",
   "description": "Great repository ng2+ lib of ecommerce platform by c@net",
   "main": "bundles/core.umd.js",
   "module": "index.js",
@@ -50,9 +50,7 @@
     "url": "https://github.com/ngCommerce/core/issues"
   },
   "homepage": "https://github.com/ngCommerce/core#readme",
-  "dependencies": {
-    "@angular/http": "^4.4.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@angular/common": "4.0.1",
     "@angular/compiler": "4.0.1",
@@ -78,7 +76,8 @@
     "zone.js": "0.8.5"
   },
   "peerDependencies": {
-    "@angular/core": ">= 2.0.0 < 5"
+    "@angular/core": ">= 2.0.0 < 5",
+    "@angular/http": ">= 2.0.0 < 5"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

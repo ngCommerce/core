@@ -5,3 +5,5 @@ export { CorService } from "./core.service";
 export { CategoryService } from "./services/category/category.service";
 export { ProductService } from "./services/product/product.service";
 export { ShopService } from "./services/shop/shop.service";
+
+export * from "./components/ion-list-category/ion-list-category";

@@ -6,6 +6,5 @@
  */
 export declare class IonListCategoryComponent {
     items: any;
-    text: string;
     constructor();
 }
