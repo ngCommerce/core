@@ -8,3 +8,4 @@ export { ShopService } from "./services/shop/shop.service";
 
 export * from "./components/ion-list-category/ion-list-category";
 export * from "./components/ion-list-shop/ion-list-shop";
+export * from "./components/ion-list-product/ion-list-product";
