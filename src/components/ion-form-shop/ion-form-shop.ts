@@ -18,6 +18,7 @@ import { Component, Input } from '@angular/core';
             <ion-label floating >Image</ion-label>
             <ion-input type="text" [(ngModel)]="image"></ion-input>
         </ion-item>
+        <button ion-button block color="dark">Add</button>
     </ion-list>
     `,
     styles: [`
