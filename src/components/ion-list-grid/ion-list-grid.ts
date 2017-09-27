@@ -42,16 +42,14 @@ import { Component, Input } from '@angular/core';
   
     `,
     styles: [`
-    ion-list-grid {
-        .p-margin-top-50 {
-            margin-top: -50px;
-        }
-        .p-margin-top-40 {
-            margin-top: -30px;
-            font-size: 12px;
-        }
-    }`
-    ]
+    .p-margin-top-50 {
+      margin-top: -50px;
+    }
+    .p-margin-top-40 {
+        margin-top: -30px;
+        font-size: 12px;
+    }   
+    `]
 })
 export class IonListGridComponent {
     @Input() items: Array<any>;

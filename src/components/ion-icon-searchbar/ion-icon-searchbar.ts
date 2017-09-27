@@ -18,9 +18,11 @@ import { Component, Output, EventEmitter } from '@angular/core';
 </ion-item>
   `,
   styles: [`
- 
-  `
-  ]
+  .item-inner {
+         padding-right: 0px; 
+         border-bottom: 0px solid #dedede;
+    }
+  `]
 })
 export class IonIconSearchbarComponent {
   @Output() returnData: EventEmitter<any> = new EventEmitter<any>();
