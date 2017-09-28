@@ -20,17 +20,17 @@ export interface ProductModel {
     cod: Boolean;
 }
 
-export interface QuestionModel {
-    _id: string;
-    question: string;
-    answer: number;
-}
+// export interface QuestionModel {
+//     _id: string;
+//     question: string;
+//     answer: number;
+// }
 
-export interface ProductDataSize {
-    _id: string;
-    detail: string;
-    sizedetail: Array<string>;
-}
+// export interface ProductDataSize {
+//     _id: string;
+//     detail: string;
+//     sizedetail: Array<string>;
+// }
 
 export interface Shipping {
     _id: string;
