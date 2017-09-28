@@ -13,10 +13,11 @@ export interface ProductModel {
     categories: Array<CategoryModel>;
     images: Array<string>;
     reviews: Array<ReviewsModel>; // relate of Reviews
-    questions: Array<QuestionModel>; // relate of QA Transactions
-    size: ProductDataSize;
+    // questions: Array<QuestionModel>; // relate of QA Transactions
+    // size: ProductDataSize;
     shippings: Array<Shipping>;
     shop: ShopModel;
+    cod: Boolean;
 }
 
 export interface QuestionModel {
