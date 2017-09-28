@@ -59,7 +59,6 @@ export class CategoryService {
 
 
     private handleError(error: any): Promise<any> {
-        console.log(error.message);
         return Promise.reject(error.message || error);
     }
 }
