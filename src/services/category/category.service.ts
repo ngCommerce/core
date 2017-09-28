@@ -1,47 +1,57 @@
 import { Injectable, Inject } from "@angular/core";
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { API_URL } from "../../models/core.model";
 import { CategoryModel } from "../../models/category.model";
 
 @Injectable()
 export class CategoryService {
-    private _apiURL: String;
-
+    private _apiURL: string;
+    private headers: Headers;
     constructor( @Inject(API_URL) apiURL: String, public http: Http) {
-        this._apiURL = apiURL;
+        this._apiURL = apiURL + 'categories/';
     }
 
-    getCategoryList(): Promise<Array<CategoryModel>> {
-        return this.http.get(this._apiURL + 'categories')
+    createAuthorizationHeader(token) {
+        this.headers = new Headers();
+        this.headers.append("Authorization", "Bearer " + token);
+    }
+
+    getCategoryList(token): Promise<Array<CategoryModel>> {
+        this.createAuthorizationHeader(token);
+        return this.http.get(this._apiURL, { headers: this.headers })
             .toPromise()
             .then(response => response.json() as Array<CategoryModel>)
             .catch(this.handleError);
     }
 
-    createCategory(category): Promise<CategoryModel> {
-        return this.http.post(this._apiURL + 'categories', category)
+    createCategory(category, token): Promise<CategoryModel> {
+        this.createAuthorizationHeader(token);
+        return this.http.post(this._apiURL, category, { headers: this.headers })
             .toPromise()
             .then(response => response.json() as CategoryModel)
             .catch(this.handleError);
     }
 
-    getCategoryByID(id): Promise<CategoryModel> {
-        return this.http.get(this._apiURL + 'categories/' + id)
+    getCategoryByID(id, token): Promise<CategoryModel> {
+        this.createAuthorizationHeader(token);
+        return this.http.get(this._apiURL + id, { headers: this.headers })
             .toPromise()
             .then(response => response.json() as CategoryModel)
             .catch(this.handleError);
     }
 
-    updateCategory(category): Promise<CategoryModel> {
-        return this.http.put(this._apiURL + 'categories/' + category._id, category)
+    updateCategory(category, token): Promise<CategoryModel> {
+        this.createAuthorizationHeader(token);
+        return this.http.put(this._apiURL + category._id, category, { headers: this.headers })
             .toPromise()
             .then(response => response.json() as CategoryModel)
             .catch(this.handleError);
     }
 
-    deleteCategory(id): Promise<CategoryModel> {
-        return this.http.delete(this._apiURL + 'categories/' + id)
+    deleteCategory(id, token): Promise<CategoryModel> {
+        this.createAuthorizationHeader(token);
+        return this.http.delete(this._apiURL + id, { headers: this.headers })
             .toPromise()
             .then(response => response.json() as CategoryModel)
             .catch(this.handleError);
@@ -49,6 +59,7 @@ export class CategoryService {
 
 
     private handleError(error: any): Promise<any> {
+        console.log(error.message);
         return Promise.reject(error.message || error);
     }
 }
