@@ -12,7 +12,6 @@ import { ShippingService } from './services/shipping/shipping.service';
 import { CartService } from './services/cart/cart.service';
 import { OrderService } from './services/order/order.service';
 
-
 export { CategoryModel } from "./models/category.model";
 export { ShopListModel, ShopModel } from "./models/shop.model";
 export { ReviewsModel } from "./models/core.model";
@@ -23,9 +22,6 @@ export { PaymentModel } from "./models/payment.model";
 export { ShippingModel } from "./models/shipping.model";
 export { CartModel } from "./models/cart.model";
 export { OrderModel } from "./models/order.model";
-
-
-
 
 export * from "./components/ion-list-category/ion-list-category";
 export * from "./components/ion-list-shop/ion-list-shop";
