@@ -1,16 +1,29 @@
 export { EcommerceCoreModule } from "./core.module";
 export { API_URL } from "./models/core.model";
-export { CategoryModel } from "./models/category.model";
+
+export { AuthenService } from "./services/authen/authen.service";
 export { CorService } from "./core.service";
 export { CategoryService } from "./services/category/category.service";
 export { ProductService } from "./services/product/product.service";
 export { ShopService } from "./services/shop/shop.service";
+import { AddressService } from './services/address/address.service';
+import { PaymentService } from './services/payment/payment.service';
+import { ShippingService } from './services/shipping/shipping.service';
+import { CartService } from './services/cart/cart.service';
+import { OrderService } from './services/order/order.service';
 
+
+export { CategoryModel } from "./models/category.model";
 export { ShopListModel, ShopModel } from "./models/shop.model";
 export { ReviewsModel } from "./models/core.model";
 export { ProductModel, ProductListModel } from "./models/product.model";
 export { SigninModel, SignupModel } from "./models/authen.model";
-export { AuthenService } from "./services/authen/authen.service";
+export { AddressModel } from "./models/address.model";
+export { PaymentModel } from "./models/payment.model";
+export { ShippingModel } from "./models/shipping.model";
+export { CartModel } from "./models/cart.model";
+export { OrderModel } from "./models/order.model";
+
 
 
 

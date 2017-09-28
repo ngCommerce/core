@@ -7,6 +7,11 @@ import { CorService } from "./core.service";
 import { CategoryService } from "./services/category/category.service";
 import { ShopService } from "./services/shop/shop.service";
 import { ProductService } from './services/product/product.service';
+import { AddressService } from './services/address/address.service';
+import { PaymentService } from './services/payment/payment.service';
+import { ShippingService } from './services/shipping/shipping.service';
+import { CartService } from './services/cart/cart.service';
+import { OrderService } from './services/order/order.service';
 
 import { IonListCategoryComponent } from "./components/ion-list-category/ion-list-category";
 import { IonListShopComponent } from "./components/ion-list-shop/ion-list-shop";
@@ -35,6 +40,11 @@ export class EcommerceCoreModule {
                 ShopService,
                 ProductService,
                 AuthenService,
+                AddressService,
+                PaymentService,
+                ShippingService,
+                CartService,
+                OrderService,
                 // HttpModule,
 
                 // IonItemCategoryComponent,

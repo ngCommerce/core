@@ -1,9 +1,10 @@
 import { ProductModel } from "./product.model";
 import { DeliveryModel } from "./cart.model";
+import { AddressModel } from "./address.model";
 
 export interface OrderModel {
     _id: string;
-    // shipping: รอบ๊วย
+    shipping: AddressModel;
     items: Array<OrderItemModel>;
     payment: PaymentItemModel;
     amount: number;
