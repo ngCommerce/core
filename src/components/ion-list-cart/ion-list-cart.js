@@ -40,12 +40,12 @@ IonListCartComponent.decorators = [
             <ion-icon name="trash" (click)="removeItem(i)"></ion-icon>
           </ion-col>
           <ion-col col-6>
-            <button ion-button icon-only small>
-            <ion-icon name="remove" (click)="decrease(item)"></ion-icon>
+            <button ion-button icon-only small (click)="decrease(item)">
+              <ion-icon name="remove"></ion-icon>
             </button>
-            <label class="count">1</label>
-            <button ion-button icon-only small>
-            <ion-icon name="add" (click)="increase(item)"></ion-icon>
+            <label class="count">{{ item.qty }}</label>
+            <button ion-button icon-only small (click)="increase(item)">
+              <ion-icon name="add"></ion-icon>
             </button>
           </ion-col>
         </ion-row>
