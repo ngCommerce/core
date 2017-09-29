@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the SearchBarIconComponent component.
@@ -10,24 +10,25 @@ import { Component, Output, EventEmitter } from '@angular/core';
   selector: 'ion-list-cart',
   template: `
     <ion-list>
-    <ion-item *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+    <ion-item *ngFor="let item of items; let i = index">
       <ion-thumbnail item-start>
-        <img src="https://im9.cz/iR/importprodukt-orig/38c/38cc33bafaad5147a77d475eafd49cd1--mmf250x250.jpg">
+        <img [src]="item.images[0]">
       </ion-thumbnail>
-      <h2>iPhone</h2>
-      <p>100 บาท</p>
+      <h2>{{ item.product.name }}</h2>
+      <p *ngIf="!item.product.promotionprice">{{ item.product.price }} {{ item.product.currency }}</p>
+      <p *ngIf="item.product.promotionprice">{{ item.product.promotionprice }} {{ item.product.currency }}</p>
       <ion-grid>
         <ion-row>
           <ion-col col-6>
-            <ion-icon name="trash"></ion-icon>
+            <ion-icon name="trash" (click)="removeItem(i)"></ion-icon>
           </ion-col>
           <ion-col col-6>
             <button ion-button icon-only small>
-            <ion-icon name="add"></ion-icon>
+            <ion-icon name="remove" (click)="decrease(item)"></ion-icon>
             </button>
             <label class="count">1</label>
             <button ion-button icon-only small>
-            <ion-icon name="remove"></ion-icon>
+            <ion-icon name="add" (click)="increase(item)"></ion-icon>
             </button>
           </ion-col>
         </ion-row>
@@ -41,9 +42,26 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class IonListCartComponent {
 
+  @Input() items: Array<any>;
+  @Output() returnItems: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    
+
+  }
+
+  removeItem(index) {
+    this.items.splice(index, 1);
+    this.returnItems.emit(this.items);
+  }
+
+  decrease(item){
+    item.qty--;
+    this.returnItems.emit(this.items);    
+  }
+
+  increase(item){
+    item.qty++;
+    this.returnItems.emit(this.items);    
   }
 
 }
