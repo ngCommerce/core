@@ -2,7 +2,7 @@ import { Injectable, Inject } from "@angular/core";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { API_URL } from "../../models/core.model";
-import { SigninModel, SignupModel } from "../../models/authen.model";
+import { SigninModel, SignupModel, UserModel } from "../../models/authen.model";
 
 @Injectable()
 export class AuthenService {
@@ -15,14 +15,14 @@ export class AuthenService {
     signIn(authen): Promise<SigninModel> {
         return this.http.post(this._apiURL + 'auth/signin', authen)
             .toPromise()
-            .then(response => response.json() as SignupModel)
+            .then(response => response.json() as UserModel)
             .catch(this.handleError);
     }
 
     signUp(user): Promise<SignupModel> {
         return this.http.post(this._apiURL + 'auth/singup', user)
             .toPromise()
-            .then(response => response.json() as SignupModel)
+            .then(response => response.json() as UserModel)
             .catch(this.handleError);
     }
 
