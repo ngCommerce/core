@@ -12,6 +12,7 @@ import { ShippingService } from './services/shipping/shipping.service';
 import { CartService } from './services/cart/cart.service';
 import { OrderService } from './services/order/order.service';
 import { FavoriteService } from './services/favorite/favorite.service';
+import { testService } from './services/testservice/testservice.service';
 
 export { CategoryModel } from "./models/category.model";
 export { ShopListModel, ShopModel } from "./models/shop.model";
@@ -24,6 +25,9 @@ export { ShippingModel } from "./models/shipping.model";
 export { FavoriteListModel } from "./models/favorite.model";
 export { CartModel } from "./models/cart.model";
 export { OrderModel } from "./models/order.model";
+
+
+
 
 export * from "./components/ion-list-category/ion-list-category";
 export * from "./components/ion-list-shop/ion-list-shop";
