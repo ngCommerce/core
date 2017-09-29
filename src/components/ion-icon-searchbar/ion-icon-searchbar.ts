@@ -10,7 +10,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   selector: 'ion-icon-searchbar',
   template: `
   <ion-item>
-  <ion-avatar item-left>
+  <ion-avatar class="indexIcon" item-left>
   <span class="green-vintage-logo"></span>
   </ion-avatar>
   <ion-searchbar [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
@@ -21,6 +21,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
   .item-inner {
          padding-right: 0px; 
          border-bottom: 0px solid #dedede;
+    }
+    .indexIcon{
+      margin-top:-10px;
     }
   `]
 })
