@@ -12,15 +12,8 @@ describe('Category service', () => {
         });
 
         it('Get Category list', (inject([CategoryService], (service: CategoryService) => {
-            expect(service.getCategoryList('token')).not.toBeNull();
+            expect(service.getCategoryList()).not.toBeNull();
             //expect(null).toBeNull();
         })));
-
-        // it('Create Category', (inject([CategoryService], (service: CategoryService) => {
-        //     var category = {
-        //         name: "Angular 4 test spec"
-        //     }
-        //     expect(service.createCategory(category, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNlY3JldCIsImlhdCI6MTUwNjU3MDE3NH0.r4Y4e7BTcyzCbZoCvNfJfTUbXoInxpcnnLOHIbGPYHw')).not.toBeNull();
-        // })));
     });
 });
