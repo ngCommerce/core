@@ -1,5 +1,6 @@
 import { Injectable, Inject } from "@angular/core";
 import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { API_URL } from "../../models/core.model";
 import { CorService } from "../../core.service";
