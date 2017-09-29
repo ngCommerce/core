@@ -2,46 +2,52 @@ import { Injectable, Inject } from "@angular/core";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { API_URL } from "../../models/core.model";
+import { CorService } from "../../core.service";
 import { AddressModel } from "../../models/address.model";
 
 @Injectable()
 export class AddressService {
     private _apiURL: String;
 
-    constructor( @Inject(API_URL) apiURL: String, public http: Http) {
+    constructor( @Inject(API_URL) apiURL: String, public http: Http, public corService: CorService) {
         this._apiURL = apiURL;
     }
 
     getAddressList(): Promise<AddressModel> {
-        return this.http.get(this._apiURL + 'addresses')
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'addresses/', { headers: headers })
             .toPromise()
             .then(response => response.json() as AddressModel)
             .catch(this.handleError);
     }
 
     getAddressByID(id): Promise<AddressModel> {
-        return this.http.get(this._apiURL + 'addresses/' + id)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'addresses/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json() as AddressModel)
             .catch(this.handleError);
     }
 
     createAddress(product): Promise<AddressModel> {
-        return this.http.post(this._apiURL + 'addresses', product)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.post(this._apiURL + 'addresses/', product, { headers: headers })
             .toPromise()
             .then(response => response.json() as AddressModel)
             .catch(this.handleError);
     }
 
     updateAddress(product): Promise<AddressModel> {
-        return this.http.post(this._apiURL + 'addresses/' + product._id, product)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.post(this._apiURL + 'addresses/' + product._id, product, { headers: headers })
             .toPromise()
             .then(response => response.json() as AddressModel)
             .catch(this.handleError);
     }
 
     deleteAddress(id): Promise<AddressModel> {
-        return this.http.delete(this._apiURL + 'addresses/' + id)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.delete(this._apiURL + 'addresses/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json() as AddressModel)
             .catch(this.handleError);
