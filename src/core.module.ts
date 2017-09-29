@@ -23,6 +23,7 @@ import { IonFormCategoryComponent } from "./components/ion-form-category/ion-for
 import { IonFormProductComponent } from "./components/ion-form-product/ion-form-product";
 import { IonPreloadImageComponent } from "./components/ion-preload-image/ion-preload-image";
 import { IonListFavoriteComponent } from "./components/ion-list-favorite/ion-list-favorite";
+import { IonFormProfileComponent } from "./components/ion-form-profile/ion-form-profile";
 
 @NgModule()
 export class EcommerceCoreModule {

@@ -68,4 +68,4 @@ export class AppModule { }
 <ion-form-product [items]="productArray"></ion-form-product>
 ```
 
-**Note :** [items] - Input categoryArray binding.
+**Note :** [items] - Input productArray binding.
