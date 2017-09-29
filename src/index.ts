@@ -11,7 +11,7 @@ import { PaymentService } from './services/payment/payment.service';
 import { ShippingService } from './services/shipping/shipping.service';
 import { CartService } from './services/cart/cart.service';
 import { OrderService } from './services/order/order.service';
-import { FavoriteService } from './services/favorite/favorite.service';
+export { FavoriteService } from './services/favorite/favorite.service';
 
 export { CategoryModel } from "./models/category.model";
 export { ShopListModel, ShopModel } from "./models/shop.model";
