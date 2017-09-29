@@ -11,7 +11,7 @@ export class FavoriteService {
         // this._apiURL = apiURL;
     }
     getFavoriteList() {
-        return JSON.parse(window.localStorage.getItem('favproduct'));
+        return window.localStorage.getItem('favproduct') ? JSON.parse(window.localStorage.getItem('favproduct')) : [];
     }
     addFavorite(product) {
         this.getFavoriteList().then((data) => {
