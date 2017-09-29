@@ -11,7 +11,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   template: `
   <ion-item>
   <ion-avatar item-left>
-    <img src="https://scontent.fbkk5-6.fna.fbcdn.net/v/t1.0-9/21430596_1717394338303097_8955073718525174182_n.jpg?oh=fef743e10f9b6b79deec0a7d9ba4298d&oe=5A3A3E2F">
+  <span class="green-vintage-logo"></span>
   </ion-avatar>
   <ion-searchbar [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
     <p></p>
