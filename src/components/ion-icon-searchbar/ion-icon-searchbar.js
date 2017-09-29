@@ -28,15 +28,13 @@ IonIconSearchbarComponent.decorators = [
 </ion-item>
   `,
                 styles: [`
-    ion-icon-searchbar {
       .item-inner {
         padding-right: 0px; 
         border-bottom: 0px solid #dedede;
       }
       .indexIcon{
-        margin-top:-10px !important;
+        margin-top: -10px !important;
       }
-    }
   `]
             },] },
 ];
