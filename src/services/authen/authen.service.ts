@@ -20,7 +20,7 @@ export class AuthenService {
     }
 
     signUp(user): Promise<SignupModel> {
-        return this.http.post(this._apiURL + 'auth/singup', user)
+        return this.http.post(this._apiURL + 'auth/signup', user)
             .toPromise()
             .then(response => response.json() as UserModel)
             .catch(this.handleError);
