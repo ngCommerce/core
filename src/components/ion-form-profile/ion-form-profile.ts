@@ -28,7 +28,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           <ion-icon name="ios-filing-outline" item-start></ion-icon>
           History log
       </button>
-  <button ion-item *ngIf="profileData"  >
+  <button ion-item *ngIf="item"  >
           <ion-icon name="ios-pin-outline" item-start></ion-icon>
           Location
       </button>
@@ -55,8 +55,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           Help
       </button>
 </ion-list>
-<ion-list *ngIf="profileData">
-  <button ion-item>
+<ion-list *ngIf="item">
+  <button ion-item (click)="logout()">
           <ion-icon name="ios-log-out-outline" item-start></ion-icon>
           logout
       </button>
@@ -74,7 +74,8 @@ export class IonFormProfileComponent {
     constructor() {
         // console.log('Hello IonListCategoryComponent Component');
     }
-    onClick(item) {
-        this.itemClicked.emit(item);
+
+    logout(){
+        this.itemClicked.emit('logout');
     }
 }
