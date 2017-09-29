@@ -23,7 +23,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
          border-bottom: 0px solid #dedede;
     }
     .indexIcon{
-      margin-top:-10px;
+      margin-top:-10px !important;
     }
   `]
 })
