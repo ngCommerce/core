@@ -17,7 +17,7 @@ export { CategoryModel } from "./models/category.model";
 export { ShopListModel, ShopModel } from "./models/shop.model";
 export { ReviewsModel } from "./models/core.model";
 export { ProductModel, ProductListModel } from "./models/product.model";
-export { SigninModel, SignupModel } from "./models/authen.model";
+export { SigninModel, SignupModel, UserModel } from "./models/authen.model";
 export { AddressModel } from "./models/address.model";
 export { PaymentModel } from "./models/payment.model";
 export { ShippingModel } from "./models/shipping.model";
