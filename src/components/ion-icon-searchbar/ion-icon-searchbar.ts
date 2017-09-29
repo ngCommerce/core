@@ -11,7 +11,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   template: `
   <ion-item>
   <ion-avatar class="indexIcon" item-left>
-  <span class="green-vintage-logo"></span>
+  <span class="icon-green-logo"></span>
   </ion-avatar>
   <ion-searchbar [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
     <p></p>
