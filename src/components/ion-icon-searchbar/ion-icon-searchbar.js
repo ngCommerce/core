@@ -21,7 +21,7 @@ IonIconSearchbarComponent.decorators = [
                 template: `
   <ion-item>
   <ion-avatar item-left>
-  <span class="green-vintage-logo"></span>
+  <span class="icon-green-text"></span>
   </ion-avatar>
   <ion-searchbar [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
     <p></p>

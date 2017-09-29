@@ -1,14 +1,31 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-
 /**
  * Generated class for the SearchBarIconComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-@Component({
-  selector: 'ion-list-cart',
-  template: `
+export class IonListCartComponent {
+    constructor() {
+        this.returnItems = new EventEmitter();
+    }
+    removeItem(index) {
+        this.items.splice(index, 1);
+        this.returnItems.emit(this.items);
+    }
+    decrease(item) {
+        item.qty--;
+        this.returnItems.emit(this.items);
+    }
+    increase(item) {
+        item.qty++;
+        this.returnItems.emit(this.items);
+    }
+}
+IonListCartComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'ion-list-cart',
+                template: `
     <ion-list>
     <ion-item *ngFor="let item of items; let i = index">
       <ion-thumbnail item-start>
@@ -36,32 +53,15 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </ion-item>
   </ion-list>
   `,
-  styles: [`
+                styles: [`
   
   `]
-})
-export class IonListCartComponent {
-
-  @Input() items: Array<any>;
-  @Output() returnItems: EventEmitter<any> = new EventEmitter();
-
-  constructor() {
-
-  }
-
-  removeItem(index) {
-    this.items.splice(index, 1);
-    this.returnItems.emit(this.items);
-  }
-
-  decrease(item){
-    item.qty--;
-    this.returnItems.emit(this.items);    
-  }
-
-  increase(item){
-    item.qty++;
-    this.returnItems.emit(this.items);    
-  }
-
-}
+            },] },
+];
+/** @nocollapse */
+IonListCartComponent.ctorParameters = () => [];
+IonListCartComponent.propDecorators = {
+    'items': [{ type: Input },],
+    'returnItems': [{ type: Output },],
+};
+//# sourceMappingURL=ion-list-cart.js.map
