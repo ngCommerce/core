@@ -3,14 +3,14 @@ import { Injectable, Inject } from "@angular/core";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { API_URL } from "../../models/core.model";
-import { CorService } from "../../core.service";
+// import { API_URL } from "../../models/core.model";
+// import { CorService } from "../../core.service";
 
 @Injectable()
 export class FavoriteService {
-    private _apiURL: String;
-    constructor( @Inject(API_URL) apiURL: String, public http: Http, public corService: CorService) {
-        this._apiURL = apiURL;
+    // private _apiURL: String;
+    constructor(public http: Http) {
+        // this._apiURL = apiURL;
     }
 
     getFavoriteList(): Promise<FavoriteListModel> {
@@ -32,8 +32,4 @@ export class FavoriteService {
         });
         return JSON.parse(window.localStorage.getItem('favproduct'));
     }
-
-    // private handleError(error: any): Promise<any> {
-    //     return Promise.reject(error.message || error);
-    // }
 }
