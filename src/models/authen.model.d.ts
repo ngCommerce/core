@@ -18,4 +18,3 @@ export interface EditUserModel {
     lastName: string;
     username: string;
 }
-
