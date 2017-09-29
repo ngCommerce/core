@@ -12,7 +12,7 @@ import { ShippingService } from './services/shipping/shipping.service';
 import { CartService } from './services/cart/cart.service';
 import { OrderService } from './services/order/order.service';
 import { FavoriteService } from './services/favorite/favorite.service';
-import { testService } from './services/testservice/testservice.service';
+import { TestService } from './services/testservice/test.service';
 
 export { CategoryModel } from "./models/category.model";
 export { ShopListModel, ShopModel } from "./models/shop.model";
