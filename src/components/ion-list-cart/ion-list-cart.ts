@@ -26,7 +26,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             <button ion-button icon-only small (click)="decrease(item)">
               <ion-icon name="remove"></ion-icon>
             </button>
-            <label class="count">1</label>
+            <label class="count">{{ item.qty }}</label>
             <button ion-button icon-only small (click)="increase(item)">
               <ion-icon name="add"></ion-icon>
             </button>
