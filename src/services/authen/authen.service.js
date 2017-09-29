@@ -10,7 +10,11 @@ export class AuthenService {
     signIn(authen) {
         return this.http.post(this._apiURL + 'auth/signin', authen)
             .toPromise()
-            .then(response => response.json())
+            .then(response => {
+            let res = response.json();
+            window.localStorage.setItem('token', res.loginToken);
+            return res;
+        })
             .catch(this.handleError);
     }
     signUp(user) {
