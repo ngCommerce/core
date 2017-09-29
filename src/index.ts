@@ -6,11 +6,11 @@ export { CorService } from "./core.service";
 export { CategoryService } from "./services/category/category.service";
 export { ProductService } from "./services/product/product.service";
 export { ShopService } from "./services/shop/shop.service";
-import { AddressService } from './services/address/address.service';
-import { PaymentService } from './services/payment/payment.service';
-import { ShippingService } from './services/shipping/shipping.service';
-import { CartService } from './services/cart/cart.service';
-import { OrderService } from './services/order/order.service';
+export { AddressService } from './services/address/address.service';
+export { PaymentService } from './services/payment/payment.service';
+export { ShippingService } from './services/shipping/shipping.service';
+export { CartService } from './services/cart/cart.service';
+export { OrderService } from './services/order/order.service';
 export { FavoriteService } from './services/favorite/favorite.service';
 
 export { CategoryModel } from "./models/category.model";

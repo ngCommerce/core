@@ -20,7 +20,7 @@ IonIconSearchbarComponent.decorators = [
                 selector: 'ion-icon-searchbar',
                 template: `
   <ion-item>
-  <ion-avatar item-left>
+  <ion-avatar class="indexIcon" item-left>
   <span class="icon-green-logo"></span>
   </ion-avatar>
   <ion-searchbar [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
@@ -31,6 +31,9 @@ IonIconSearchbarComponent.decorators = [
   .item-inner {
          padding-right: 0px; 
          border-bottom: 0px solid #dedede;
+    }
+    .indexIcon{
+      margin-top:-10px !important;
     }
   `]
             },] },

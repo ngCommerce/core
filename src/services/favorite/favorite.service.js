@@ -10,25 +10,25 @@ export class FavoriteService {
         this.http = http;
         // this._apiURL = apiURL;
     }
+    getFavoriteList() {
+        return JSON.parse(window.localStorage.getItem('favproduct'));
+    }
+    addFavorite(product) {
+        this.getFavoriteList().then((data) => {
+            data.items = data.items ? data.items : [];
+            data.items.push(product);
+            window.localStorage.setItem('favproduct', JSON.stringify(data));
+        });
+        return JSON.parse(window.localStorage.getItem('favproduct'));
+    }
+    removeFavorite(index) {
+        this.getFavoriteList().then((data) => {
+            data.items.splice(index, 1);
+            window.localStorage.setItem('favproduct', JSON.stringify(data));
+        });
+        return JSON.parse(window.localStorage.getItem('favproduct'));
+    }
 }
-// getFavoriteList(): Promise<FavoriteListModel> {
-//     return JSON.parse(window.localStorage.getItem('favproduct'));
-// }
-// addFavorite(product): Promise<FavoriteListModel> {
-//     this.getFavoriteList().then((data) => {
-//         data.items = data.items ? data.items : [];
-//         data.items.push(product);
-//         window.localStorage.setItem('favproduct', JSON.stringify(data));
-//     });
-//     return JSON.parse(window.localStorage.getItem('favproduct'));
-// }
-// removeFavorite(index): Promise<FavoriteListModel> {
-//     this.getFavoriteList().then((data) => {
-//         data.items.splice(index, 1);
-//         window.localStorage.setItem('favproduct', JSON.stringify(data));
-//     });
-//     return JSON.parse(window.localStorage.getItem('favproduct'));
-// }
 FavoriteService.decorators = [
     { type: Injectable },
 ];

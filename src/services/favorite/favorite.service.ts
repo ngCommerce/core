@@ -14,7 +14,7 @@ export class FavoriteService {
     }
 
     getFavoriteList(): Promise<FavoriteListModel> {
-        return JSON.parse(window.localStorage.getItem('favproduct'));
+        return window.localStorage.getItem('favproduct') ? JSON.parse(window.localStorage.getItem('favproduct')) : [];
     }
 
     addFavorite(product): Promise<FavoriteListModel> {
