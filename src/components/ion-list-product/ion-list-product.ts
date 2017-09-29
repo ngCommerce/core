@@ -15,7 +15,8 @@ import { Component, Input } from '@angular/core';
             <img src="{{item.image}}">
         </ion-thumbnail>
         <h2>{{item.name}}</h2>
-        <p>{{item.price}}</p>
+        <p>{{item.price | number}} {{item.currency}}</p>
+        <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
       </ion-item>
     </ion-list>
     `,
