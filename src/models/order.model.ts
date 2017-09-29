@@ -1,5 +1,4 @@
 import { ProductModel } from "./product.model";
-import { DeliveryModel } from "./cart.model";
 import { AddressModel } from "./address.model";
 
 export interface OrderModel {
@@ -25,6 +24,12 @@ export interface OrderItemModel {
     discount: number;
     totalamount: number;
     deliveryprice: number;
+}
+
+export interface DeliveryModel{
+    name:string;
+    detail:string;
+    price:number;
 }
 
 export interface PaymentItemModel {
