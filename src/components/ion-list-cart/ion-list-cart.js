@@ -33,7 +33,7 @@ IonListCartComponent.decorators = [
       </ion-thumbnail>
       <h2>{{ item.product.name }}</h2>
       <p *ngIf="!item.product.promotionprice">{{ item.product.price }} {{ item.product.currency }}</p>
-      <p *ngIf="item.product.promotionprice">{{ item.product.promotionprice }} {{ item.product.currency }}</p>
+      <p *ngIf="item.product.promotionprice"><span class="price-red"> {{ item.product.promotionprice }} </span><span class="price-gray text-decoration"> {{ item.product.price }} </span> {{ item.product.currency }} </p>
       <ion-grid>
         <ion-row>
           <ion-col col-6>
