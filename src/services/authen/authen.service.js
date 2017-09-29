@@ -18,7 +18,7 @@ export class AuthenService {
             .catch(this.handleError);
     }
     signUp(user) {
-        return this.http.post(this._apiURL + 'auth/singup', user)
+        return this.http.post(this._apiURL + 'auth/signup', user)
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
