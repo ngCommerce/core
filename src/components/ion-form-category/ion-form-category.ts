@@ -14,6 +14,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <ion-item>
       <ion-label floating>Name Shop</ion-label>
       <ion-input type="text" [(ngModel)]="items.name"></ion-input>
+      
     </ion-item>
   
   </ion-list>
