@@ -16,7 +16,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       </ion-thumbnail>
       <h2>{{ item.product.name }}</h2>
       <p *ngIf="!item.product.promotionprice" class="price-gray">{{ item.product.price }} {{ item.product.currency }}</p>
-      <p *ngIf="item.product.promotionprice"><span class="price-gray"> {{ item.product.promotionprice }} {{ item.product.currency }}</span><span class="price-red text-decoration">{{ item.product.price }}</span> </p>
+      <p *ngIf="item.product.promotionprice"><span class="price-red"> {{ item.product.promotionprice }} </span><span class="price-gray text-decoration"> {{ item.product.price }} {{ item.product.currency }}</span> </p>
       <ion-grid>
         <ion-row>
           <ion-col col-6>
