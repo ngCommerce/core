@@ -2,38 +2,45 @@ import { Injectable, Inject } from "@angular/core";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { CorService } from "../../core.service";
 import { API_URL } from "../../models/core.model";
 export class ProductService {
-    constructor(apiURL, http) {
+    constructor(apiURL, http, corService) {
         this.http = http;
+        this.corService = corService;
         this._apiURL = apiURL;
     }
     getProductList() {
-        return this.http.get(this._apiURL + 'products')
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'products/', { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     getProductByID(id) {
-        return this.http.get(this._apiURL + 'products/' + id)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'products/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     createProduct(product) {
-        return this.http.post(this._apiURL + 'products', product)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.post(this._apiURL + 'products/', product, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     updateProduct(product) {
-        return this.http.post(this._apiURL + 'products/' + product._id, product)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.post(this._apiURL + 'products/' + product._id, product, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     deleteProduct(id) {
-        return this.http.delete(this._apiURL + 'products/' + id)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.delete(this._apiURL + 'products/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
@@ -49,5 +56,6 @@ ProductService.decorators = [
 ProductService.ctorParameters = () => [
     { type: String, decorators: [{ type: Inject, args: [API_URL,] },] },
     { type: Http, },
+    { type: CorService, },
 ];
 //# sourceMappingURL=product.service.js.map

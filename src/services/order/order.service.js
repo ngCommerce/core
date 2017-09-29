@@ -1,48 +1,45 @@
 import { Injectable, Inject } from "@angular/core";
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { API_URL } from "../../models/core.model";
+import { CorService } from "../../core.service";
 export class OrderService {
-    constructor(apiURL, http) {
+    constructor(apiURL, http, corService) {
         this.http = http;
-        this._apiURL = apiURL + 'orders/';
-    }
-    createAuthorizationHeader(token) {
-        let headers = new Headers();
-        headers.append("Authorization", "Bearer " + token);
-        return headers;
+        this.corService = corService;
+        this._apiURL = apiURL;
     }
     getOrderList(token) {
-        let headers = this.createAuthorizationHeader(token);
-        return this.http.get(this._apiURL, { headers: headers })
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'orders/', { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     createOrder(Order, token) {
-        let headers = this.createAuthorizationHeader(token);
-        return this.http.post(this._apiURL, Order, { headers: headers })
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.post(this._apiURL + 'orders/', Order, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     getOrderByID(id, token) {
-        let headers = this.createAuthorizationHeader(token);
-        return this.http.get(this._apiURL + id, { headers: headers })
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'orders/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     updateOrder(Order, token) {
-        let headers = this.createAuthorizationHeader(token);
-        return this.http.put(this._apiURL + Order._id, Order, { headers: headers })
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'orders/' + Order._id, Order, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     deleteOrder(id, token) {
-        let headers = this.createAuthorizationHeader(token);
-        return this.http.delete(this._apiURL + id, { headers: headers })
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.delete(this._apiURL + 'orders/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
@@ -58,5 +55,6 @@ OrderService.decorators = [
 OrderService.ctorParameters = () => [
     { type: String, decorators: [{ type: Inject, args: [API_URL,] },] },
     { type: Http, },
+    { type: CorService, },
 ];
 //# sourceMappingURL=order.service.js.map

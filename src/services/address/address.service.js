@@ -2,37 +2,44 @@ import { Injectable, Inject } from "@angular/core";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { API_URL } from "../../models/core.model";
+import { CorService } from "../../core.service";
 export class AddressService {
-    constructor(apiURL, http) {
+    constructor(apiURL, http, corService) {
         this.http = http;
+        this.corService = corService;
         this._apiURL = apiURL;
     }
     getAddressList() {
-        return this.http.get(this._apiURL + 'addresses')
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'addresses/', { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     getAddressByID(id) {
-        return this.http.get(this._apiURL + 'addresses/' + id)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'addresses/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     createAddress(product) {
-        return this.http.post(this._apiURL + 'addresses', product)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.post(this._apiURL + 'addresses/', product, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     updateAddress(product) {
-        return this.http.post(this._apiURL + 'addresses/' + product._id, product)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.post(this._apiURL + 'addresses/' + product._id, product, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     deleteAddress(id) {
-        return this.http.delete(this._apiURL + 'addresses/' + id)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.delete(this._apiURL + 'addresses/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
@@ -48,5 +55,6 @@ AddressService.decorators = [
 AddressService.ctorParameters = () => [
     { type: String, decorators: [{ type: Inject, args: [API_URL,] },] },
     { type: Http, },
+    { type: CorService, },
 ];
 //# sourceMappingURL=address.service.js.map

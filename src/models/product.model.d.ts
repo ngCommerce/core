@@ -12,20 +12,9 @@ export interface ProductModel {
     categories: Array<CategoryModel>;
     images: Array<string>;
     reviews: Array<ReviewsModel>;
-    questions: Array<QuestionModel>;
-    size: ProductDataSize;
     shippings: Array<Shipping>;
     shop: ShopModel;
-}
-export interface QuestionModel {
-    _id: string;
-    question: string;
-    answer: number;
-}
-export interface ProductDataSize {
-    _id: string;
-    detail: string;
-    sizedetail: Array<string>;
+    cod: Boolean;
 }
 export interface Shipping {
     _id: string;

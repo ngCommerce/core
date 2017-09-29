@@ -28,9 +28,11 @@ IonIconSearchbarComponent.decorators = [
 </ion-item>
   `,
                 styles: [`
- 
-  `
-                ]
+  .item-inner {
+         padding-right: 0px; 
+         border-bottom: 0px solid #dedede;
+    }
+  `]
             },] },
 ];
 /** @nocollapse */

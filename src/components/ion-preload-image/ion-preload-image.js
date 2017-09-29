@@ -53,48 +53,46 @@ IonPreloadImageComponent.decorators = [
     <ng-content></ng-content>
     `,
                 styles: [`
-    ion-preload-image{
-        position: relative;
-        width: 100%;
-          display: block;
-        overflow: hidden;
-      
-          &.rounded-image
-          {
-              border-radius: 50%;
-          }
-      
-        &.img-loaded
+    position: relative;
+    width: 100%;
+      display: block;
+    overflow: hidden;
+  
+      &.rounded-image
+      {
+          border-radius: 50%;
+      }
+  
+    &.img-loaded
+    {
+      background-color: transparent;
+      border: none;
+  
+          img
         {
-          background-color: transparent;
-          border: none;
-      
-              img
-            {
-                  visibility: visible;
-                  opacity: 1;
-            }
-      
-              ion-spinner {
-                  visibility: hidden;
-                  display: none;
-              }
+              visibility: visible;
+              opacity: 1;
         }
-      
-        img
-        {
-          position: absolute;
-              left: 0px;
-              top: 0px;
+  
+          ion-spinner {
               visibility: hidden;
-              opacity: 0;
-          width: 100% !important;
-          height: inherit !important;
-          max-width: inherit !important;
-          max-height: inherit !important;
-          min-width: inherit !important;
-          min-height: inherit !important;
-        }
+              display: none;
+          }
+    }
+  
+    img
+    {
+      position: absolute;
+          left: 0px;
+          top: 0px;
+          visibility: hidden;
+          opacity: 0;
+      width: 100% !important;
+      height: inherit !important;
+      max-width: inherit !important;
+      max-height: inherit !important;
+      min-width: inherit !important;
+      min-height: inherit !important;
     }
   `]
             },] },

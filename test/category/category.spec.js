@@ -7,7 +7,7 @@ const http_1 = require("@angular/http");
 describe('Category service', () => {
     describe('Category set forRoot with api url', () => {
         beforeEach(() => {
-            testing_1.TestBed.configureTestingModule({ imports: [http_1.HttpModule, core_module_1.EcommerceCoreModule.forRoot('http://greenvintage-v1.herokuapp.com/api/')] });
+            testing_1.TestBed.configureTestingModule({ imports: [http_1.HttpModule, core_module_1.EcommerceCoreModule.forRoot('https://ngcommerce-server.herokuapp.com/api/')] });
         });
         it('Get Category list', (testing_1.inject([category_service_1.CategoryService], (service) => {
             expect(service.getCategoryList()).not.toBeNull();
