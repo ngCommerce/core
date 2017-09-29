@@ -7,7 +7,6 @@ CategoryModel
 1. Import `CategoryModel` in your application :
 	```
     import { CategoryModel } from "@ngcommerce/core";
-
     ```
 2. Properties in `CategoryModel` :
 	```
@@ -35,7 +34,6 @@ CategoryService
 1. Import `CategoryService` in your application :
 	```
     import { CategoryService } from "@ngcommerce/core";
-
     ```
 2. Inject the `CategoryService` service anywhere you need it :
  
@@ -70,7 +68,7 @@ CategoryService
 	    constructor(private categoryService: CategoryService){
 	    
 	        this.categoryService.getCategoryList().then((data)=>{
-				console.log(data);
+			console.log(data);
 			},(error)=>{
 		        console.error(error);
 	        });
