@@ -33,8 +33,7 @@ export class FavoriteService {
         return JSON.parse(window.localStorage.getItem('favproduct'));
     }
 
-
-    private handleError(error: any): Promise<any> {
-        return Promise.reject(error.message || error);
-    }
+    // private handleError(error: any): Promise<any> {
+    //     return Promise.reject(error.message || error);
+    // }
 }
