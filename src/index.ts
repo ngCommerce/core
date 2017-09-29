@@ -36,5 +36,6 @@ export * from "./components/ion-preload-image/ion-preload-image";
 export * from "./components/ion-list-grid/ion-list-grid";
 export * from "./components/ion-icon-searchbar/ion-icon-searchbar";
 export * from "./components/ion-list-favorite/ion-list-favorite";
+export * from "./components/ion-form-profile/ion-form-profile";
 
 
