@@ -17,6 +17,7 @@ export class FavoriteService {
 
     addFavorite(product): Promise<FavoriteListModel> {
         this.favorite = JSON.parse(window.localStorage.getItem('favproduct')) || this.favorite;
+        this.favorite.items = this.favorite.items ? this.favorite.items : [];
         this.favorite.items.push(product);
         window.localStorage.setItem('favproduct', JSON.stringify(this.favorite));
         return this.getFavoriteList();
