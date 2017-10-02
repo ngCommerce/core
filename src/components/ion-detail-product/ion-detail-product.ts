@@ -9,7 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'ion-detail-product',
   template: `
-  <ion-slides pager="true" *ngIf="images">
+  <ion-slides pager="true" *ngIf="item.images && item.images.length > 0">
   <ion-slide *ngFor="let image of item.images">
     <img src="{{image}}">
   </ion-slide>
