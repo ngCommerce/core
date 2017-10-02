@@ -9,7 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'ion-detail-product',
   template: `
-  <ion-slides pager="true" *ngIf="item.images && item.images.length > 0">
+  <ion-slides pager="true">
   <ion-slide *ngFor="let image of item.images">
     <img src="{{image}}">
   </ion-slide>
@@ -38,7 +38,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
                 <ion-icon name='ios-share-outline' is-active="false"></ion-icon>
             </button>
             <button ion-button color="danger" clear icon-only>
-                    <ion-icon [name]='nameOfLike' is-active="false" ></ion-icon>
+                    <ion-icon name='heart' is-active="false" ></ion-icon>
             </button>
         </ion-col>
     </ion-row>
