@@ -13,9 +13,12 @@ import { Component, Output, EventEmitter } from '@angular/core';
   <div class="indexIcon">
     <ion-avatar item-left>
       <span class="icon-green-logo"></span>
-    </ion-avatar>
   <ion-searchbar [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
+  
+    </ion-avatar>
   </div>
+  <ion-searchbar [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
+    <p></p>
 </ion-item>
   `,
   styles: [`
