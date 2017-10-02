@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class FavoriteService {
-    favorite = {} as FavoriteListModel;
+    favorite = {items:[]} as FavoriteListModel;
     constructor(public http: Http) {
     }
 
