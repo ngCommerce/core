@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class FavoriteService {
-    favorite = {items:[]} as FavoriteListModel;
+    favorite = { items: [] } as FavoriteListModel;
     constructor(public http: Http) {
     }
 
@@ -18,9 +18,15 @@ export class FavoriteService {
     addFavorite(product): Promise<FavoriteListModel> {
         this.favorite = JSON.parse(window.localStorage.getItem('favproduct')) || this.favorite;
         this.favorite.items = this.favorite.items ? this.favorite.items : [];
-        this.favorite.items.push(product);
-        window.localStorage.setItem('favproduct', JSON.stringify(this.favorite));
-        return this.getFavoriteList();
+        let chkFavorite = this.favorite.items.filter(function (obj) { return obj._id == product._id; });
+        if (chkFavorite.length > 0) {
+            return this.getFavoriteList();
+        } else {
+            this.favorite.items.push(product);
+            window.localStorage.setItem('favproduct', JSON.stringify(this.favorite));
+            return this.getFavoriteList();
+        }
+
     }
     removeFavorite(index): Promise<FavoriteListModel> {
         this.favorite = JSON.parse(window.localStorage.getItem('favproduct'));
