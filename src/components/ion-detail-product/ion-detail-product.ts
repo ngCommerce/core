@@ -10,7 +10,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector: 'ion-detail-product',
   template: `
   <ion-slides pager="true" *ngIf="images">
-  <ion-slide *ngFor="let image of images">
+  <ion-slide *ngFor="let image of item.images">
     <img src="{{image}}">
   </ion-slide>
 </ion-slides>
@@ -82,7 +82,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   ]
 })
 export class IonDetailProductComponent {
-  @Input() items: any;
+  @Input() item: any;
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
   }
