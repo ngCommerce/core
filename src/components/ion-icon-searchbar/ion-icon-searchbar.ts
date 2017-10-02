@@ -14,6 +14,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
       <span class="icon-green-logo"></span>
     </ion-avatar>
   <ion-searchbar item-end [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
+  <p></p>
 </ion-item>
   `,
   styles: [`
