@@ -1,5 +1,4 @@
 export interface FavoriteListModel {
-    title: string;
     items: Array<FavoriteItemModel>;
 }
 

@@ -7,8 +7,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
  * Components.
  */
 @Component({
-  selector: 'ion-detail-product',
-  template: `
+    selector: 'ion-detail-product',
+    template: `
   <ion-slides pager="true" *ngIf="item.images && item.images.length > 0">
   <ion-slide *ngFor="let image of item.images">
     <img src="{{image}}">
@@ -37,7 +37,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             <button ion-button color="danger" clear icon-only>
                 <ion-icon name='ios-share-outline' is-active="false"></ion-icon>
             </button>
-            <button ion-button color="danger" clear icon-only>
+            <button ion-button color="danger" clear icon-only (click)="favorite(item)">
                     <ion-icon name='ios-heart-outline' is-active="false" ></ion-icon>
             </button>
         </ion-col>
@@ -75,17 +75,19 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </ion-row>
 </ion-grid>
     `,
-  styles: [`
+    styles: [`
   ion-detail-product {
     background-color: red;
   }`
-  ]
+    ]
 })
 export class IonDetailProductComponent {
-  @Input() item: any;
-  constructor() {
-    // console.log('Hello IonListCategoryComponent Component');
-  }
- 
-
+    @Input() item: any;
+    @Output() selectedFavorite: EventEmitter<any> = new EventEmitter<any>();
+    constructor() {
+        // console.log('Hello IonListCategoryComponent Component');
+    }
+    favorite(item) {
+        this.selectedFavorite.emit(item);
+    }
 }
