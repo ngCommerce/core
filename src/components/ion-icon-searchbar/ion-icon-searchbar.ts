@@ -10,13 +10,10 @@ import { Component, Output, EventEmitter } from '@angular/core';
   selector: 'ion-icon-searchbar',
   template: `
   <ion-item>
-  <div class="indexIcon">
-    <ion-avatar item-start>
+    <ion-avatar class="indexIcon" item-start>
       <span class="icon-green-logo"></span>
     </ion-avatar>
-  </div>
   <ion-searchbar item-end [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
-   
 </ion-item>
   `,
   styles: [`
