@@ -14,9 +14,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <img src="{{image}}">
   </ion-slide>
 </ion-slides>
-<ion-grid>
+<ion-grid id="gridDetail">
     <ion-row>
-        <ion-col>
+        <ion-col id="colProduct">
             <p>{{item.name}}</p>
             <p>{{item.detail}}</p>
             <p *ngIf="item.promotionprice">
@@ -29,11 +29,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </ion-col>
     </ion-row>
     <ion-row *ngIf="item.rate">
-        <ion-col width-50>
+        <ion-col width-50 id="colRate">
             <rating [(ngModel)]="item.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
                 starIconName="star" nullable="false"></rating>
         </ion-col>
-        <ion-col width-50 text-right>
+        <ion-col width-50 text-right id="colBtn">
             <button ion-button color="danger" clear icon-only>
                 <ion-icon name='ios-share-outline' is-active="false"></ion-icon>
             </button>
@@ -44,7 +44,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </ion-row>
 </ion-grid>
 <ion-row  *ngIf="item.shippings && item.shippings.length > 0">
-    <ion-col text-left>
+    <ion-col text-left id="colShipping">
         วิธีการจัดส่ง
     </ion-col>
 </ion-row>
@@ -57,11 +57,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </ion-item-divider>
 </ion-list>
 <ion-row *ngIf="item.shop">
-    <ion-col text-left>
-        คนขาย
+    <ion-col text-left id="colShop">
+        จัดจำหน่ายโดย : 
     </ion-col>
 </ion-row>
-<ion-grid *ngIf="item.shop">
+<ion-grid *ngIf="item.shop" id="gridShop">
     <ion-row>
         <ion-col>
             <span >{{item.shop.name}}</span>
