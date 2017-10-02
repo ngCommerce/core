@@ -76,6 +76,7 @@ export class IonFormProfileComponent {
     }
 
     logout(){
+        window.localStorage.removeItem('token');
         this.itemClicked.emit('logout');
     }
 }
