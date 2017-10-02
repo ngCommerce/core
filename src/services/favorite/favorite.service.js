@@ -1,39 +1,42 @@
-import { Injectable } from "@angular/core";
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
-// import { API_URL } from "../../models/core.model";
-// import { CorService } from "../../core.service";
-export class FavoriteService {
-    // private _apiURL: String;
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = require("@angular/core");
+const http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/toPromise");
+let FavoriteService = class FavoriteService {
     constructor(http) {
         this.http = http;
-        // this._apiURL = apiURL;
+        this.favorite = {};
     }
     getFavoriteList() {
-        return window.localStorage.getItem('favproduct') ? JSON.parse(window.localStorage.getItem('favproduct')) : [];
+        return JSON.parse(window.localStorage.getItem('favproduct')) || this.favorite;
     }
     addFavorite(product) {
-        this.getFavoriteList().then((data) => {
-            data.items = data.items ? data.items : [];
-            data.items.push(product);
-            window.localStorage.setItem('favproduct', JSON.stringify(data));
-        });
-        return JSON.parse(window.localStorage.getItem('favproduct'));
+        this.favorite = JSON.parse(window.localStorage.getItem('favproduct')) || this.favorite;
+        this.favorite.items.push(product);
+        window.localStorage.setItem('favproduct', JSON.stringify(this.favorite));
+        return this.getFavoriteList();
     }
     removeFavorite(index) {
-        this.getFavoriteList().then((data) => {
-            data.items.splice(index, 1);
-            window.localStorage.setItem('favproduct', JSON.stringify(data));
-        });
-        return JSON.parse(window.localStorage.getItem('favproduct'));
+        this.favorite = JSON.parse(window.localStorage.getItem('favproduct'));
+        this.favorite.items.splice(index, 1);
+        window.localStorage.setItem('favproduct', JSON.stringify(this.favorite));
+        return this.getFavoriteList();
     }
-}
-FavoriteService.decorators = [
-    { type: Injectable },
-];
-/** @nocollapse */
-FavoriteService.ctorParameters = () => [
-    { type: Http, },
-];
+};
+FavoriteService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], FavoriteService);
+exports.FavoriteService = FavoriteService;
 //# sourceMappingURL=favorite.service.js.map

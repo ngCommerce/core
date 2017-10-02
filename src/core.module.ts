@@ -25,7 +25,7 @@ import { IonPreloadImageComponent } from "./components/ion-preload-image/ion-pre
 import { IonListFavoriteComponent } from "./components/ion-list-favorite/ion-list-favorite";
 import { IonFormProfileComponent } from "./components/ion-form-profile/ion-form-profile";
 import { IonListCartComponent } from "./components/ion-list-cart/ion-list-cart";
-
+import { IonDetailProductComponent } from "./components/ion-detail-product/ion-detail-product";
 @NgModule()
 export class EcommerceCoreModule {
 
