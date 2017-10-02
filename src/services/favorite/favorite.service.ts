@@ -18,10 +18,16 @@ export class FavoriteService {
     addFavorite(product): Promise<FavoriteListModel> {
         this.favorite = JSON.parse(window.localStorage.getItem('favproduct')) || this.favorite;
         this.favorite.items = this.favorite.items ? this.favorite.items : [];
-        let chkFavorite = this.favorite.items.filter(function (obj) { return obj._id == product._id; });
-        if (chkFavorite.length > 0) {
-            return this.getFavoriteList();
-        } else {
+        if (this.favorite.items && this.favorite.items.length > 0) {
+            let chkFavorite = this.favorite.items.filter(function (obj) { return obj._id == product._id; });
+            if (chkFavorite.length > 0) {
+                return this.getFavoriteList();
+            } else {
+                this.favorite.items.push(product);
+                window.localStorage.setItem('favproduct', JSON.stringify(this.favorite));
+                return this.getFavoriteList();
+            }
+        }else{
             this.favorite.items.push(product);
             window.localStorage.setItem('favproduct', JSON.stringify(this.favorite));
             return this.getFavoriteList();
