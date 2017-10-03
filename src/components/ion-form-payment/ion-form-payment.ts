@@ -12,9 +12,9 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
   <ion-form-paymentoption [paymentgateway]="paymentgateway.payment" [datashipping]="datashipping" (datapayment)="paymentType($event)"
   [(channel)]="channel">
   <p>testValue : {{channel}}</p>
-  <ion-form-credit [value]="'credit'" (datacredit)="formcredit($event)"></ion-form-credit><p>111111111111</p>
-  <ion-form-delivery [value]="'delivery'"></ion-form-delivery><p>2222222222</p>
-  <ion-form-counterservice [value]="'bank'" [paymentgateway]="paymentgateway.counterservice" [datapayment]="datapayment"></ion-form-counterservice><p>3333333333</p>
+  <ion-form-credit [value]="'credit'" (datacredit)="formcredit($event)"></ion-form-credit>
+  <ion-form-delivery [value]="'delivery'"></ion-form-delivery>
+  <ion-form-counterservice [value]="'bank'" [paymentgateway]="paymentgateway.counterservice" [datapayment]="datapayment"></ion-form-counterservice>
   <ion-grid>
     <ion-row>
       <ion-col>
