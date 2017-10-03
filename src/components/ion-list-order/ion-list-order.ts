@@ -9,105 +9,23 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'ion-list-order',
   template: `
-  <ion-toolbar no-border-top>
-  <ion-segment [(ngModel)]="pet">
-    <ion-segment-button value="puppies">
-      Puppies
-    </ion-segment-button>
-    <ion-segment-button value="kittens">
-      Kittens
-    </ion-segment-button>
-    <ion-segment-button value="ducklings">
-      Ducklings
-    </ion-segment-button>
-  </ion-segment>
-</ion-toolbar>
-</ion-header>
-
-<ion-content>
-<div [ngSwitch]="pet">
-  <ion-list *ngSwitchCase="'puppies'">
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-puppy-1.jpg">
-      </ion-thumbnail>
-      <h2>Ruby</h2>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-puppy-2.jpg">
-      </ion-thumbnail>
-      <h2>Oscar</h2>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-puppy-4.jpg">
-      </ion-thumbnail>
-      <h2>Zoey</h2>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-puppy-3.jpg">
-      </ion-thumbnail>
-      <h2>Otto</h2>
-    </ion-item>
-  </ion-list>
-
-  <ion-list *ngSwitchCase="'kittens'">
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-kitten-1.jpg">
-      </ion-thumbnail>
-      <h2>Luna</h2>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-kitten-3.jpg">
-      </ion-thumbnail>
-      <h2>Milo</h2>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-kitten-4.jpg">
-      </ion-thumbnail>
-      <h2>Bandit</h2>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-kitten-2.jpg">
-      </ion-thumbnail>
-      <h2>Nala</h2>
-    </ion-item>
-  </ion-list>
-
-  <ion-list *ngSwitchCase="'ducklings'">
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-duckling-1.jpg">
-      </ion-thumbnail>
-      <h2>Daffy</h2>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-duckling-2.jpg">
-      </ion-thumbnail>
-      <h2>Huey</h2>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-duckling-3.jpg">
-      </ion-thumbnail>
-      <h2>Dewey</h2>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/img/thumbnail-duckling-4.jpg">
-      </ion-thumbnail>
-      <h2>Louie</h2>
-    </ion-item>
-  </ion-list>
-</div>
-</ion-content>
+  <ion-navbar>
+  <ion-grid text-right>
+    <ion-row>
+      <ion-col *ngFor="let step of steps">
+        <ion-row>
+          <ion-col text-center>
+            <ion-segment color="light" class="md" [(ngModel)]="channel">
+              <ion-segment-button [ngClass]="channel >= step.value ? 'active' : '' " [value]="step.value">{{step.value}}</ion-segment-button>
+            </ion-segment>
+            <p>{{step.title}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-navbar>
+<ng-content></ng-content>
     `,
   styles: [`
   ion-list-order {
@@ -116,7 +34,8 @@ import { Component, Input } from '@angular/core';
   ]
 })
 export class IonListOrderComponent {
-  @Input() items: any;
+    @Input() channel: any;
+    @Input() steps:Array<any>;
   constructor() {
     // console.log('Hello IonListProductComponent Component');
   }

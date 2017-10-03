@@ -27,7 +27,8 @@ import { IonFormProfileComponent } from "./components/ion-form-profile/ion-form-
 import { IonListCartComponent } from "./components/ion-list-cart/ion-list-cart";
 import { IonDetailProductComponent } from "./components/ion-detail-product/ion-detail-product";
 import { IonDetailOrderComponent } from "./components/ion-detail-order/ion-detail-order";
-
+import { IonListOrderComponent } from "./components/ion-list-order/ion-list-order";
+import { IonSegmentOrderComponent } from "./components/ion-segment-order/ion-segment-order";
 @NgModule()
 export class EcommerceCoreModule {
 
