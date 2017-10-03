@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -9,23 +9,27 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'ion-list-order',
   template: `
-  <ion-navbar>
-  <ion-grid text-right>
-    <ion-row>
-      <ion-col *ngFor="let step of steps">
-        <ion-row>
-          <ion-col text-center>
-            <ion-segment color="light" class="md" [(ngModel)]="channel">
-              <ion-segment-button [ngClass]="channel >= step.value ? 'active' : '' " [value]="step.value">{{step.value}}</ion-segment-button>
-            </ion-segment>
-            <p>{{step.title}}</p>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-navbar>
-<ng-content></ng-content>
+  <div *ngIf="items">
+  <div>
+    <div *ngFor="let item of items; let i = index">
+      <ion-list (click)="selectOrder(item)">
+        <ion-item>
+          <ion-row>
+            <ion-col no-padding width-33 class="magin-right-10-custom">
+              <img src="{{item.image}}">
+            </ion-col>
+            <ion-col *ngIf="item.status === status">
+              <p>{{item.name}}</p>
+              <p>{{item.qty}} qty</p>
+              <p class="color-orenge-custom">{{item.price | number}} Baht</p>
+              <p text-right class="color-green-custom">{{item.status}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</div>
     `,
   styles: [`
   ion-list-order {
@@ -34,10 +38,22 @@ import { Component, Input } from '@angular/core';
   ]
 })
 export class IonListOrderComponent {
-    @Input() channel: any;
-    @Input() steps:Array<any>;
+  @Input() items: any;
+  @Input() status: string;
+  @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
+  data: any = {};
+
+  user: any = {
+    shop: {
+      _id: ''
+    }
+  };
   constructor() {
     // console.log('Hello IonListProductComponent Component');
   }
-
+  selectOrder(item) {
+    this.data = item;
+    // this.navCtrl.push(OrderDetailPage);
+    this.itemClicked.emit(this.data);
+  }
 }

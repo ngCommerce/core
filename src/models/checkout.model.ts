@@ -1,26 +1,25 @@
 import { ProductItemModel } from "./product.model";
-export class CheckoutModel {
+export interface CheckoutModel {
     _id: string;
     items: Array<CheckoutItemModel>;
     amount: number;
     discount: number;
     totalamount: number;
 };
-export class CheckoutItemModel {
+export interface CheckoutItemModel {
     product: ProductItemModel;
     qty: number;
     amount: number;
     discount: number;
     totalamount: number;
 };
-// 
 
-export class ShippingModel {
+export interface ShippingModel {
     _id: string;
     products: Array<PaymentItemModel>;
     amount: number;
 };
-export class PaymentItemModel {
+export interface PaymentItemModel {
     product: ProductItemModel;
     price: number;
     qty: number;
