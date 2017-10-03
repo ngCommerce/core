@@ -9,11 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
     selector: 'ion-detail-order',
     template: `
-  <ion-slides pager="true" *ngIf="item.images && item.images.length > 0">
-  <ion-slide *ngFor="let image of item.images">
-    <img src="{{image}}">
-  </ion-slide>
-</ion-slides>
+    <img src="{{item.image}}">
 <ion-grid id="gridDetail">
     <ion-row>
         <ion-col id="colProduct">
