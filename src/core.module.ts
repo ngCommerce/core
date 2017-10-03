@@ -12,6 +12,7 @@ import { PaymentService } from './services/payment/payment.service';
 import { ShippingService } from './services/shipping/shipping.service';
 import { CartService } from './services/cart/cart.service';
 import { OrderService } from './services/order/order.service';
+import { FavoriteService } from './services/favorite/favorite.service';
 
 import { IonListCategoryComponent } from "./components/ion-list-category/ion-list-category";
 import { IonListShopComponent } from "./components/ion-list-shop/ion-list-shop";
@@ -21,7 +22,10 @@ import { IonListXProductComponent } from "./components/ion-list-Xproduct/ion-lis
 import { IonFormCategoryComponent } from "./components/ion-form-category/ion-form-category";
 import { IonFormProductComponent } from "./components/ion-form-product/ion-form-product";
 import { IonPreloadImageComponent } from "./components/ion-preload-image/ion-preload-image";
-
+import { IonListFavoriteComponent } from "./components/ion-list-favorite/ion-list-favorite";
+import { IonFormProfileComponent } from "./components/ion-form-profile/ion-form-profile";
+import { IonListCartComponent } from "./components/ion-list-cart/ion-list-cart";
+import { IonDetailProductComponent } from "./components/ion-detail-product/ion-detail-product";
 @NgModule()
 export class EcommerceCoreModule {
 
@@ -45,6 +49,7 @@ export class EcommerceCoreModule {
                 ShippingService,
                 CartService,
                 OrderService,
+                FavoriteService,
                 // HttpModule,
 
                 // IonItemCategoryComponent,

@@ -1,19 +1,34 @@
-import { Component, Input } from '@angular/core';
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = require("@angular/core");
 /**
  * Generated class for the IonListCategoryComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-export class IonListGridComponent {
+let IonListGridComponent = class IonListGridComponent {
     constructor() {
         // console.log('Hello IonFormShopComponent Component');
     }
-}
-IonListGridComponent.decorators = [
-    { type: Component, args: [{
-                selector: 'ion-list-grid',
-                template: `
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Array)
+], IonListGridComponent.prototype, "items", void 0);
+IonListGridComponent = __decorate([
+    core_1.Component({
+        selector: 'ion-list-grid',
+        template: `
     <ion-grid>
     <ion-row>
       <ion-col col-6 *ngIf="items && items.length > 0">
@@ -46,22 +61,17 @@ IonListGridComponent.decorators = [
   </ion-grid>
   
     `,
-                styles: [`
-    ion-list-grid {
-        .p-margin-top-50 {
-            margin-top: -50px;
-        }
-        .p-margin-top-40 {
-            margin-top: -30px;
-            font-size: 12px;
-        }
-    }`
-                ]
-            },] },
-];
-/** @nocollapse */
-IonListGridComponent.ctorParameters = () => [];
-IonListGridComponent.propDecorators = {
-    'items': [{ type: Input },],
-};
+        styles: [`
+    .p-margin-top-50 {
+      margin-top: -50px;
+    }
+    .p-margin-top-40 {
+        margin-top: -30px;
+        font-size: 12px;
+    }   
+    `]
+    }),
+    __metadata("design:paramtypes", [])
+], IonListGridComponent);
+exports.IonListGridComponent = IonListGridComponent;
 //# sourceMappingURL=ion-list-grid.js.map

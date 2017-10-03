@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -10,12 +10,13 @@ import { Component, Input } from '@angular/core';
   selector: 'ion-list-product',
   template: `
     <ion-list >
-      <ion-item *ngFor="let item of items">
+      <ion-item *ngFor="let item of items" (click)="add(item)">
         <ion-thumbnail item-start>
             <img src="{{item.image}}">
         </ion-thumbnail>
         <h2>{{item.name}}</h2>
-        <p>{{item.price}}</p>
+        <p>{{item.price | number}} {{item.currency}}</p>
+        <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
       </ion-item>
     </ion-list>
     `,
@@ -27,8 +28,12 @@ import { Component, Input } from '@angular/core';
 })
 export class IonListProductComponent {
   @Input() items: any;
+  @Output() selectedProduct: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListProductComponent Component');
+  }
+  add(item) {
+    this.selectedProduct.emit(item);
   }
 
 }

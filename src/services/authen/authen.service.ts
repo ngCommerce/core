@@ -12,14 +12,18 @@ export class AuthenService {
         this._apiURL = apiURL;
     }
 
-    signIn(authen): Promise<SigninModel> {
+    signIn(authen): Promise<UserModel> {
         return this.http.post(this._apiURL + 'auth/signin', authen)
             .toPromise()
-            .then(response => response.json() as UserModel)
+            .then(response => {
+                let res = response.json() as UserModel;
+                window.localStorage.setItem('token', res.loginToken);
+                return res;
+            })
             .catch(this.handleError);
     }
 
-    signUp(user): Promise<SignupModel> {
+    signUp(user): Promise<UserModel> {
         return this.http.post(this._apiURL + 'auth/signup', user)
             .toPromise()
             .then(response => response.json() as UserModel)
