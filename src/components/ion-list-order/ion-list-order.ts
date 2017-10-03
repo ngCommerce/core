@@ -16,7 +16,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         <ion-item>
           <ion-row>
             <ion-col no-padding width-33 class="magin-right-10-custom">
-              <preload-image [ratio]="{w:1, h:1}" [src]="item.image"></preload-image>
+              <preload-image [src]="item.image"></preload-image>
             </ion-col>
             <ion-col *ngIf="item.status === status">
               <p>{{item.name}}</p>
