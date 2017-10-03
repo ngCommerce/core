@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IonOrdersComponent } from '../ion-orders/ion-orders';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -29,11 +30,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   ]
 })
 export class IonSegmentOrderComponent {
-    order: any;
-    text: string;
-    @Input() items: any;
-    @Output() SelectedOrder: EventEmitter<any> = new EventEmitter<any>();
-  constructor() {
+  order: any;
+  text: string;
+  @Input() items: any;
+  @Output() SelectedOrder: EventEmitter<any> = new EventEmitter<any>();
+  constructor(public parent: IonOrdersComponent) {
     // console.log('Hello IonListProductComponent Component');
   }
   getItem(e) {

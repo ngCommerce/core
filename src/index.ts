@@ -55,6 +55,6 @@ export * from "./components/ion-form-paymentoption/ion-form-paymentoption";
 export * from "./components/ion-detail-order/ion-detail-order";
 export * from "./components/ion-segment-order/ion-segment-order";
 export * from "./components/ion-list-order/ion-list-order";
-
+export * from "./components/ion-orders/ion-orders"
 
 
