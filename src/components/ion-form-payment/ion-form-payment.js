@@ -11,48 +11,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 /**
- * Generated class for the SearchBarIconComponent component.
+ * Generated class for the IonListCategoryComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonIconSearchbarComponent = class IonIconSearchbarComponent {
+let IonFormPaymentComponent = class IonFormPaymentComponent {
     constructor() {
-        this.returnData = new core_1.EventEmitter();
-        // console.log('Hello IonIconSearchbarComponent Component');
+        this.itemClicked = new core_1.EventEmitter();
+        // console.log('Hello IonFormPaymentComponent Component');
     }
-    keySearch(e) {
-        console.log(e);
-        this.returnData.emit(e);
+    onClick(item) {
+        this.itemClicked.emit(item);
     }
 };
 __decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], IonFormPaymentComponent.prototype, "items", void 0);
+__decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
-], IonIconSearchbarComponent.prototype, "returnData", void 0);
-IonIconSearchbarComponent = __decorate([
+], IonFormPaymentComponent.prototype, "itemClicked", void 0);
+IonFormPaymentComponent = __decorate([
     core_1.Component({
-        selector: 'ion-icon-searchbar',
+        selector: 'ion-form-payment',
         template: `
-  <ion-item>
-    <ion-avatar class="indexIcon" item-start>
-      <span class="icon-green-logo"></span>
-    </ion-avatar>
-  <ion-searchbar item-end [(ngModel)]="keys" (ngModelChange)="keySearch(keys)"></ion-searchbar>
-  <p></p>
-</ion-item>
-  `,
+    <ion-list>
+    
+      <ion-item>
+        
+      </ion-item>
+    
+    </ion-list>
+    
+    <div>
+      <button ion-button block (click)="onClick(item)">Submit</button>
+    </div>
+    `,
         styles: [`
-      .item-inner {
-        padding-right: 0px; 
-        border-bottom: 0px solid #dedede;
-      }
-      .indexIcon {
-        margin-top: -10px !important;
-      }
-  `]
+  ion-form-payment {
+    
+  }`
+        ]
     }),
     __metadata("design:paramtypes", [])
-], IonIconSearchbarComponent);
-exports.IonIconSearchbarComponent = IonIconSearchbarComponent;
-//# sourceMappingURL=ion-icon-searchbar.js.map
+], IonFormPaymentComponent);
+exports.IonFormPaymentComponent = IonFormPaymentComponent;
+//# sourceMappingURL=ion-form-payment.js.map

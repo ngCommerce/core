@@ -22,6 +22,7 @@ let IonFormProfileComponent = class IonFormProfileComponent {
         // console.log('Hello IonListCategoryComponent Component');
     }
     logout() {
+        window.localStorage.removeItem('token');
         this.itemClicked.emit('logout');
     }
 };

@@ -18,19 +18,27 @@ const core_1 = require("@angular/core");
  */
 let IonListProductComponent = class IonListProductComponent {
     constructor() {
+        this.selectedProduct = new core_1.EventEmitter();
         // console.log('Hello IonListProductComponent Component');
+    }
+    add(item) {
+        this.selectedProduct.emit(item);
     }
 };
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], IonListProductComponent.prototype, "items", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], IonListProductComponent.prototype, "selectedProduct", void 0);
 IonListProductComponent = __decorate([
     core_1.Component({
         selector: 'ion-list-product',
         template: `
     <ion-list >
-      <ion-item *ngFor="let item of items">
+      <ion-item *ngFor="let item of items" (click)="add(item)">
         <ion-thumbnail item-start>
             <img src="{{item.image}}">
         </ion-thumbnail>
