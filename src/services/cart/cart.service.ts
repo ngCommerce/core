@@ -74,6 +74,7 @@ export class CartService {
                     item.totalamount = item.amount - item.discount;
                     window.localStorage.setItem('gCart', JSON.stringify(cartStorage));
                     this.getCartStorage();
+                    return;
                 }
             }
 
@@ -92,6 +93,7 @@ export class CartService {
         });
         window.localStorage.setItem('gCart', JSON.stringify(cartStorage));
         this.getCartStorage();
+        return;
 
     }
 
