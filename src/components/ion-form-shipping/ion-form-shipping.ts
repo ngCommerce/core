@@ -10,7 +10,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     selector: 'ion-form-shipping',
     template: `
     <ion-content>
-    <ion-label> {{'SHIPPING' | translate}} </ion-label>
+    <ion-label> {{'SHIPPING'}} </ion-label>
     <ion-list radio-group>
         <ion-item *ngFor="let item of listaddress.address" (click)="selectaddress(item)">
             <ion-label>
@@ -33,8 +33,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             <ion-radio (click)="selectaddress(item)"></ion-radio>
         </ion-item>
     </ion-list>
-    <ion-label (click)="openModal()">{{'ADD_NEW_ADDRESS' | translate}}</ion-label>
-    <ion-label> {{'PLEASE_SELECT_THE_TYPE_OF_SHIPMENT' | translate}} </ion-label>
+    <ion-label (click)="openModal()">{{'ADD_NEW_ADDRESS'}}</ion-label>
+    <ion-label> {{'PLEASE_SELECT_THE_TYPE_OF_SHIPMENT'}} </ion-label>
     <ion-list>
         <div *ngFor="let item of listshipping.items">
             <ion-item>
@@ -49,15 +49,15 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     </ion-col>
                     <ion-col>
                         <p>{{item.product.name}}</p>
-                        <p>{{item.qty}} {{'QTY' | translate}}</p>
+                        <p>{{item.qty}} {{'QTY'}}</p>
                         <p>{{item.product.price | number}} Baht</p>
-                        <p text-right>รวม {{item.product.price * item.qty | number}} {{'CURRENCY' | translate}}</p>
+                        <p text-right>รวม {{item.product.price * item.qty | number}} {{'CURRENCY'}}</p>
                     </ion-col>
                 </ion-row>
             </ion-item>
             <ion-row>
                 <ion-col width-100>
-                    <p>{{'SHIPPINGMETHOD' | translate}}</p>
+                    <p>{{'SHIPPINGMETHOD'}}</p>
                 </ion-col>
             </ion-row>
             <ion-list radio-group>
@@ -75,20 +75,20 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
         <div *ngIf="listshipping.items && listshipping.items.length > 0">
             <ion-row>
                 <ion-col width-50>
-                    <p>{{'TOTAL_PRICE' | translate}}</p>
-                    <p>{{'DISCOUNT' | translate}}</p>
-                    <p>{{'TOTAL_NET' | translate}}</p>
+                    <p>{{'TOTAL_PRICE'}}</p>
+                    <p>{{'DISCOUNT'}}</p>
+                    <p>{{'TOTAL_NET'}}</p>
                 </ion-col>
                 <ion-col width-50>
-                    <p text-right>{{listshipping.amount | number}} {{currency | translate}}</p>
-                    <p text-right>{{listshipping.discount | number}} {{currency | translate}}</p>
-                    <p text-right>{{listshipping.totalamount | number}} {{currency | translate}}</p>
+                    <p text-right>{{listshipping.amount | number}} {{currency}}</p>
+                    <p text-right>{{listshipping.discount | number}} {{currency}}</p>
+                    <p text-right>{{listshipping.totalamount | number}} {{currency}}</p>
                 </ion-col>
             </ion-row>
         </div>
     </ion-grid>
     <ion-grid>
-        <button ion-button full color="danger" (click)="stepValidation()">{{'PAYMENT' | translate}}</button>
+        <button ion-button full color="danger" (click)="stepValidation()">{{'PAYMENT'}}</button>
     </ion-grid>
 </ion-content>
     `,
