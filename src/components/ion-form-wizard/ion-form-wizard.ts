@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -9,17 +9,23 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 @Component({
     selector: 'ion-form-wizard',
     template: `
-    <ion-list>
-    
-      <ion-item>
-        
-      </ion-item>
-    
-    </ion-list>
-    
-    <div>
-      <button ion-button block (click)="onClick(item)">Submit</button>
-    </div>
+    <ion-navbar>
+    <ion-grid text-right>
+      <ion-row>
+        <ion-col *ngFor="let step of steps">
+          <ion-row>
+            <ion-col text-center>
+              <ion-segment color="light" [(ngModel)]="currentstep">
+                <ion-segment-button [ngClass]="currentstep >= step.value ? 'active' : '' " [value]="step.value">{{step.value}}</ion-segment-button>
+              </ion-segment>
+              <p>{{step.title}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+  <ng-content></ng-content>
     `,
     styles: [`
   ion-form-wizard {
@@ -28,12 +34,14 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     ]
 })
 export class IonFormWizardComponent {
-    @Input() items: any;
-    @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
+    @Input() currentstep: any;
+    @Input() steps:Array<any>;
+    // @Input() items: any;
+    // @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonFormWizardComponent Component');
     }
-    onClick(item) {
-        this.itemClicked.emit(item);
-    }
+    // onClick(item) {
+    //     this.itemClicked.emit(item);
+    // }
 }

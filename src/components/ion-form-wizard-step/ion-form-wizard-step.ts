@@ -1,5 +1,5 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+import { IonFormWizardComponent } from "../ion-form-wizard/ion-form-wizard";
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -9,17 +9,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 @Component({
     selector: 'ion-form-wizard-step',
     template: `
-    <ion-list>
-    
-      <ion-item>
-        
-      </ion-item>
-    
-    </ion-list>
-    
-    <div>
-      <button ion-button block (click)="onClick(item)">Submit</button>
-    </div>
+    <ng-content *ngIf="step == parent.currentstep"></ng-content>
     `,
     styles: [`
   ion-form-wizard-step {
@@ -28,12 +18,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     ]
 })
 export class IonFormWizardStepComponent {
-    @Input() items: any;
-    @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
-    constructor() {
+    @Input() step: any;
+    constructor(public parent: IonFormWizardComponent) {
         // console.log('Hello IonFormWizardStepComponent Component');
-    }
-    onClick(item) {
-        this.itemClicked.emit(item);
     }
 }
