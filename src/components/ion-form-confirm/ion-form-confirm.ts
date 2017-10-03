@@ -50,7 +50,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                 </ion-row>
                 <ion-row no-padding>
                   <ion-col no-padding width-20>
-                    <ion-preload-image [ratio]="{w:1, h:1}" src="{{item.product.image}}"></ion-preload-image>
+                  <p>preload-image</p>
                   </ion-col>
                   <ion-col no-padding width-60>
                     <h3>{{item.product.name}}</h3>
