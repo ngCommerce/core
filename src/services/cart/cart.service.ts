@@ -12,7 +12,7 @@ export class CartService {
         this._apiURL = apiURL;
     }
 
-    getCartList(token): Promise<Array<CartModel>> {
+    getCartList(): Promise<Array<CartModel>> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'carts/', { headers: headers })
             .toPromise()
@@ -20,7 +20,7 @@ export class CartService {
             .catch(this.handleError);
     }
 
-    createCart(Cart, token): Promise<CartModel> {
+    createCart(Cart): Promise<CartModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.post(this._apiURL + 'carts/', Cart, { headers: headers })
             .toPromise()
@@ -28,7 +28,7 @@ export class CartService {
             .catch(this.handleError);
     }
 
-    getCartByID(id, token): Promise<CartModel> {
+    getCartByID(id): Promise<CartModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'carts/' + id, { headers: headers })
             .toPromise()
@@ -36,7 +36,7 @@ export class CartService {
             .catch(this.handleError);
     }
 
-    updateCart(Cart, token): Promise<CartModel> {
+    updateCart(Cart): Promise<CartModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.put(this._apiURL + 'carts/' + Cart._id, Cart, { headers: headers })
             .toPromise()
@@ -44,11 +44,19 @@ export class CartService {
             .catch(this.handleError);
     }
 
-    deleteCart(id, token): Promise<CartModel> {
+    deleteCart(id): Promise<CartModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.delete(this._apiURL + 'carts/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json() as CartModel)
+            .catch(this.handleError);
+    }
+
+    getCartByUser(userId): Promise<Array<CartModel>> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'cartbyuser/' + userId, { headers: headers })
+            .toPromise()
+            .then(response => response.json() as Array<CartModel>)
             .catch(this.handleError);
     }
 

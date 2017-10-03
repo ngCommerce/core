@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { API_URL } from "../../models/core.model";
 import { CorService } from "../../core.service";
-import { OrderModel } from "../../models/Order.model";
+import { OrderModel, ItemByOrderByShopModel } from "../../models/Order.model";
 
 @Injectable()
 export class OrderService {
@@ -49,6 +49,14 @@ export class OrderService {
         return this.http.delete(this._apiURL + 'orders/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json() as OrderModel)
+            .catch(this.handleError);
+    }
+
+    getOrderByShop(): Promise<ItemByOrderByShopModel> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'orderbyshop', { headers: headers })
+            .toPromise()
+            .then(response => response.json() as ItemByOrderByShopModel)
             .catch(this.handleError);
     }
 
