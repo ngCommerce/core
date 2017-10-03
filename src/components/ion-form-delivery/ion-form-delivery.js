@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
+const ion_form_payment_1 = require("./../ion-form-payment/ion-form-payment");
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -17,25 +18,24 @@ const core_1 = require("@angular/core");
  * Components.
  */
 let IonFormDeliveryComponent = class IonFormDeliveryComponent {
-    constructor() {
+    constructor(parent) {
+        this.parent = parent;
         // console.log('Hello IonFormPaymentComponent Component');
     }
 };
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], IonFormDeliveryComponent.prototype, "value", void 0);
 IonFormDeliveryComponent = __decorate([
     core_1.Component({
         selector: 'ion-form-delivery',
         template: `
-    <ion-list>
-    
-      <ion-item>
-        
-      </ion-item>
-    
-    </ion-list>
-    
-    <div>
-      <button ion-button block (click)="onClick(item)">Submit</button>
-    </div>
+    <ion-grid padding *ngIf="parent.channel == value">
+    <ion-row>
+      <ion-col col-12>การชำระเงินผ่านระบบชำระเงินปลายทาง. ชำระเงินโดยตรงกับพนักงานส่งของในระหว่างการจัดส่งได้ทันที</ion-col>
+    </ion-row>
+    </ion-grid>
     `,
         styles: [`
   ion-form-delivery {
@@ -43,7 +43,7 @@ IonFormDeliveryComponent = __decorate([
   }`
         ]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [ion_form_payment_1.IonFormPaymentComponent])
 ], IonFormDeliveryComponent);
 exports.IonFormDeliveryComponent = IonFormDeliveryComponent;
 //# sourceMappingURL=ion-form-delivery.js.map

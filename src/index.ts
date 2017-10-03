@@ -50,6 +50,7 @@ export * from "./components/ion-form-confirm/ion-form-confirm"
 export * from "./components/ion-form-credit/ion-form-credit"
 export * from "./components/ion-form-delivery/ion-form-delivery"
 export * from "./components/ion-form-counterservice/ion-form-counterservice"
+export * from "./components/ion-form-paymentoption/ion-form-paymentoption"
 
 
 

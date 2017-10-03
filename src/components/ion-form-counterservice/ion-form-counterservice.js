@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
+const ion_form_payment_1 = require("./../ion-form-payment/ion-form-payment");
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -17,25 +18,51 @@ const core_1 = require("@angular/core");
  * Components.
  */
 let IonFormCounterserviceComponent = class IonFormCounterserviceComponent {
-    constructor() {
+    constructor(parent) {
+        this.parent = parent;
         // console.log('Hello IonFormPaymentComponent Component');
     }
+    selectcounter(data) {
+        this.datapayment = this.datapayment ? this.datapayment : {};
+        this.datapayment.order.payment.counterservice = data.name;
+    }
 };
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], IonFormCounterserviceComponent.prototype, "paymentgateway", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], IonFormCounterserviceComponent.prototype, "value", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], IonFormCounterserviceComponent.prototype, "datapayment", void 0);
 IonFormCounterserviceComponent = __decorate([
     core_1.Component({
         selector: 'ion-form-counterservice',
         template: `
-    <ion-list>
-    
-      <ion-item>
-        
-      </ion-item>
-    
-    </ion-list>
-    
-    <div>
-      <button ion-button block (click)="onClick(item)">Submit</button>
-    </div>
+    <ion-item-group *ngIf="parent.channel == value">
+    <ion-item-divider color="light"><b>bank</b></ion-item-divider>
+</ion-item-group>
+<ion-grid text-right *ngIf="parent.channel == value">
+    <ion-row>
+        <ion-col>
+            <ion-row>
+                <ion-col text-center *ngFor="let counter of paymentgateway" (click)="selectcounter(counter)">
+                    <ion-segment color="light" [(ngModel)]="counteractive">
+                        <ion-segment-button [value]="counter.name">
+                            <ion-preload-image [ratio]="{w:1, h:1}" src="{{counter.img}}"></ion-preload-image>
+                        </ion-segment-button>
+                    </ion-segment>
+                    <p>{{counter.name}}</p>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+<ng-content></ng-content>
     `,
         styles: [`
   ion-form-counterservice {
@@ -43,7 +70,7 @@ IonFormCounterserviceComponent = __decorate([
   }`
         ]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [ion_form_payment_1.IonFormPaymentComponent])
 ], IonFormCounterserviceComponent);
 exports.IonFormCounterserviceComponent = IonFormCounterserviceComponent;
 //# sourceMappingURL=ion-form-counterservice.js.map

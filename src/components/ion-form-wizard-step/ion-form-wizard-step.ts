@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IonFormWizardComponent } from "../ion-form-wizard/ion-form-wizard";
+import { IonFormWizardComponent } from './../ion-form-wizard/ion-form-wizard';
+
 /**
  * Generated class for the IonListCategoryComponent component.
  *

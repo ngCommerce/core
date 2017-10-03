@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -7,29 +8,24 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-form-delivery',
-    template: `
-    <ion-list>
-    
-      <ion-item>
-        
-      </ion-item>
-    
-    </ion-list>
-    
-    <div>
-      <button ion-button block (click)="onClick(item)">Submit</button>
-    </div>
+  selector: 'ion-form-delivery',
+  template: `
+    <ion-grid padding *ngIf="parent.channel == value">
+    <ion-row>
+      <ion-col col-12>การชำระเงินผ่านระบบชำระเงินปลายทาง. ชำระเงินโดยตรงกับพนักงานส่งของในระหว่างการจัดส่งได้ทันที</ion-col>
+    </ion-row>
+    </ion-grid>
     `,
-    styles: [`
+  styles: [`
   ion-form-delivery {
     
   }`
-    ]
+  ]
 })
 export class IonFormDeliveryComponent {
-    constructor() {
-        // console.log('Hello IonFormPaymentComponent Component');
-    }
-    
+  @Input() value: string;
+  constructor(public parent: IonFormPaymentComponent) {
+    // console.log('Hello IonFormPaymentComponent Component');
+  }
+
 }
