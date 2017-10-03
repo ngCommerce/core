@@ -25,6 +25,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       
     </ion-row>
 </ion-grid>
+<ion-list>
 <ion-item>
 <h3>
   <ion-icon name="md-car"></ion-icon>Shipping</h3>
@@ -47,6 +48,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   <span> รหัสไปรษณีย์ {{item.shipping.postcode}} </span>
 </div>
 </ion-item>
+</ion-list>
     `,
     styles: [`
   ion-detail-order {
