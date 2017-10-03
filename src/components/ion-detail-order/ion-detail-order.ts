@@ -13,15 +13,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 <ion-grid id="gridDetail">
     <ion-row>
         <ion-col id="colProduct">
-            <p>{{item.name}}</p>
-            <p>{{item.detail}}</p>
-            <p *ngIf="item.promotionprice">
-                <span>{{item.promotionprice | number}} {{item.currency}}</span>
-                <span>{{item.price | number}} {{item.currency}}</span>
-                <span>-{{item.percentofdiscount}} %</span>
-            </p>
+            <p>{{item.name}}</p>    
             <h4 *ngIf="!item.promotionprice">{{item.price}} {{item.currency}}</h4>
-
         </ion-col>
     </ion-row>
     <ion-row *ngIf="item.rate">
@@ -32,18 +25,28 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       
     </ion-row>
 </ion-grid>
-<ion-row  *ngIf="item.shippings && item.shippings.length > 0">
-    <ion-col text-left id="colShipping">
-        วิธีการจัดส่ง
-    </ion-col>
-</ion-row>
-<ion-list *ngIf="item.shippings && item.shippings.length > 0">
-    <ion-item-divider *ngFor="let shipping of item.shippings">
-        <ion-icon item-start name="ios-archive-outline"></ion-icon> {{shipping.name}}
-    </ion-item-divider>
-    <ion-item-divider *ngIf="item.cod">
-        <ion-icon item-start name="ios-cash-outline"></ion-icon> สามารถชำระเงินปลายทางได้
-    </ion-item-divider>
+<ion-item>
+<h3>
+  <ion-icon name="md-car"></ion-icon>Shipping</h3>
+<div>
+
+  <span>จัดส่ง : {{item.delivery.name}}</span>
+  <span>  {{item.delivery.detail}} </span>
+  <span> ค่าจัดส่ง {{item.delivery.price}} บาท</span>
+
+</div>
+</ion-item>
+<ion-item>
+<h3>
+  <ion-icon name="ios-cash"></ion-icon>Delivery</h3>
+<div *ngIf="item.shipping">
+  <span>ที่อยู่ : {{item.shipping.address}}</span>
+  <span>  ตำบล {{item.shipping.subdistrict}} </span>
+  <span> อำเภอ {{item.shipping.district}} </span>
+  <span> จังหวัด {{item.shipping.province}} </span>
+  <span> รหัสไปรษณีย์ {{item.shipping.postcode}} </span>
+</div>
+</ion-item>
 </ion-list>
     `,
     styles: [`
