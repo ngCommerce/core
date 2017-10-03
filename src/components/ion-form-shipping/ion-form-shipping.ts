@@ -63,8 +63,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             <ion-list radio-group>
                 <ion-item *ngFor="let itm of item.product.shippings" (click)="setproduct(item,itm)">
                     <ion-label>
-                        <p>{{itm.shipping.name}}</p>
-                        <p>{{itm.shipping.detail}}</p>
+                        <p>{{itm.name}}</p>
+                        <p>{{itm.detail}}</p>
                     </ion-label>
                     <ion-radio (click)="setproduct(item,itm)"></ion-radio>
                 </ion-item>
