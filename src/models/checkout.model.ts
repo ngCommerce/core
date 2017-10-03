@@ -1,4 +1,4 @@
-import { ProductItemModel } from "./product.model";
+import { ProductModel, ProductItemModel } from "./product.model";
 export interface CheckoutModel {
     _id: string;
     items: Array<CheckoutItemModel>;
@@ -7,7 +7,7 @@ export interface CheckoutModel {
     totalamount: number;
 };
 export interface CheckoutItemModel {
-    product: ProductItemModel;
+    product: ProductModel;
     qty: number;
     amount: number;
     discount: number;
