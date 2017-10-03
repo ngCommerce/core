@@ -16,7 +16,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           <ion-col text-center *ngFor="let payment of paymentgateway" (click)="selectpayment(payment)">
             <ion-segment color="light" [(ngModel)]="channel">
               <ion-segment-button [value]="payment.name">
-                <ion-preload-image [ratio]="{w:1, h:1}" src="{{payment.img}}"></ion-preload-image>
+                <ion-preload-image [ratio]="{w:1, h:1}" src="{{payment.image}}"></ion-preload-image>
               </ion-segment-button>
             </ion-segment>
             <p>{{payment.name}}</p>
