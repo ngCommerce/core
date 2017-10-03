@@ -11,9 +11,10 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
   template: `
   <ion-form-paymentoption [paymentgateway]="paymentgateway.payment" [datashipping]="datashipping" (datapayment)="paymentType($event)"
   [(channel)]="channel">
-  <ion-form-credit [steps]="1" (datacredit)="formcredit($event)"></ion-form-credit>
-  <ion-form-delivery [steps]="2"></ion-form-delivery>
-  <ion-form-counterservice [steps]="3" [paymentgateway]="paymentgateway.counterservice" [datapayment]="datapayment"></ion-form-counterservice>
+  <p>testValue : {{channel}}</p>
+  <ion-form-credit [value]="'credit'" (datacredit)="formcredit($event)"></ion-form-credit><p>111111111111</p>
+  <ion-form-delivery [value]="'delivery'"></ion-form-delivery><p>2222222222</p>
+  <ion-form-counterservice [value]="'bank'" [paymentgateway]="paymentgateway.counterservice" [datapayment]="datapayment"></ion-form-counterservice><p>3333333333</p>
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -37,21 +38,7 @@ export class IonFormPaymentComponent {
   @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
   @Output() datapaymentData: EventEmitter<any> = new EventEmitter<any>();
 
-  steps: Array<any> = [
-    {
-      value: 1,
-      title: "credit"
-    },
-    {
-      value: 2,
-      title: "delivery"
-    },
-    {
-      value: 3,
-      title: "bank"
-    }
-  ];
-  channel: number = 2;
+  channel: string = 'credit';
 
   constructor() {
     // console.log('Hello IonFormPaymentComponent Component');
