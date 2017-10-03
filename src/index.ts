@@ -18,12 +18,13 @@ export { ShopListModel, ShopModel } from "./models/shop.model";
 export { ReviewsModel } from "./models/core.model";
 export { ProductModel, ProductListModel } from "./models/product.model";
 export { SigninModel, SignupModel, UserModel } from "./models/authen.model";
-export { AddressModel } from "./models/address.model";
+export { ListAddressModel, AddressModel } from "./models/address.model";
 export { PaymentModel } from "./models/payment.model";
 export { ShippingModel } from "./models/shipping.model";
 export { FavoriteListModel } from "./models/favorite.model";
 export { CartModel } from "./models/cart.model";
 export { OrderModel } from "./models/order.model";
+export { CheckoutModel } from "./models/checkout.model";
 
 
 

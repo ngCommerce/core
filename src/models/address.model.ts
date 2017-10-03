@@ -1,3 +1,6 @@
+export interface ListAddressModel {
+    address: Array<AddressModel>;
+}
 export interface AddressModel {
     _id: string;
     firstname: string;
