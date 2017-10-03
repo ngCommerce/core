@@ -41,7 +41,11 @@ export * from "./components/ion-icon-searchbar/ion-icon-searchbar";
 export * from "./components/ion-list-favorite/ion-list-favorite";
 export * from "./components/ion-form-profile/ion-form-profile";
 export * from "./components/ion-list-cart/ion-list-cart";
-export * from "./components/ion-detail-product/ion-detail-product"
+export * from "./components/ion-detail-product/ion-detail-product";
+export * from "./components/ion-detail-order/ion-detail-order";
+export * from "./components/ion-detail-order/ion-detail-order"
+export * from "./components/ion-segment-order/ion-segment-order"
+
 
 
 
