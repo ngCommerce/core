@@ -20,7 +20,7 @@ import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment'
                 <ion-col text-center *ngFor="let counter of paymentgateway" (click)="selectcounter(counter)">
                     <ion-segment color="light" [(ngModel)]="counteractive">
                         <ion-segment-button [value]="counter.name">
-                            <ion-preload-image [ratio]="{w:1, h:1}" src="{{counter.image}}"></ion-preload-image>
+                        <p>preload-image</p>
                         </ion-segment-button>
                     </ion-segment>
                     <p>{{counter.name}}</p>
