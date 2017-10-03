@@ -17,37 +17,41 @@ const core_1 = require("@angular/core");
  * Components.
  */
 let IonFormWizardComponent = class IonFormWizardComponent {
+    // @Input() items: any;
+    // @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
-        this.itemClicked = new core_1.EventEmitter();
         // console.log('Hello IonFormWizardComponent Component');
-    }
-    onClick(item) {
-        this.itemClicked.emit(item);
     }
 };
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], IonFormWizardComponent.prototype, "items", void 0);
+], IonFormWizardComponent.prototype, "currentstep", void 0);
 __decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], IonFormWizardComponent.prototype, "itemClicked", void 0);
+    core_1.Input(),
+    __metadata("design:type", Array)
+], IonFormWizardComponent.prototype, "steps", void 0);
 IonFormWizardComponent = __decorate([
     core_1.Component({
         selector: 'ion-form-wizard',
         template: `
-    <ion-list>
-    
-      <ion-item>
-        
-      </ion-item>
-    
-    </ion-list>
-    
-    <div>
-      <button ion-button block (click)="onClick(item)">Submit</button>
-    </div>
+    <ion-navbar>
+    <ion-grid text-right>
+      <ion-row>
+        <ion-col *ngFor="let step of steps">
+          <ion-row>
+            <ion-col text-center>
+              <ion-segment color="light" [(ngModel)]="currentstep">
+                <ion-segment-button [ngClass]="currentstep >= step.value ? 'active' : '' " [value]="step.value">{{step.value}}</ion-segment-button>
+              </ion-segment>
+              <p>{{step.title}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+  <ng-content></ng-content>
     `,
         styles: [`
   ion-form-wizard {

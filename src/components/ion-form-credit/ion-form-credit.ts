@@ -7,7 +7,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-form-payment',
+    selector: 'ion-form-credit',
     template: `
     <ion-list>
     
@@ -22,12 +22,12 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     </div>
     `,
     styles: [`
-  ion-form-payment {
+  ion-form-credit {
     
   }`
     ]
 })
-export class IonFormPaymentComponent {
+export class IonFormCreditComponent {
     constructor() {
         // console.log('Hello IonFormPaymentComponent Component');
     }

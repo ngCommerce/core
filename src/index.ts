@@ -47,6 +47,9 @@ export * from "./components/ion-form-wizard/ion-form-wizard"
 export * from "./components/ion-form-wizard-step/ion-form-wizard-step"
 export * from "./components/ion-form-shipping/ion-form-shipping"
 export * from "./components/ion-form-confirm/ion-form-confirm"
+export * from "./components/ion-form-credit/ion-form-credit"
+export * from "./components/ion-form-delivery/ion-form-delivery"
+export * from "./components/ion-form-counterservice/ion-form-counterservice"
 
 
 

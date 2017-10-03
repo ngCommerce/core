@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
+const ion_form_wizard_1 = require("../ion-form-wizard/ion-form-wizard");
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -17,37 +18,20 @@ const core_1 = require("@angular/core");
  * Components.
  */
 let IonFormWizardStepComponent = class IonFormWizardStepComponent {
-    constructor() {
-        this.itemClicked = new core_1.EventEmitter();
+    constructor(parent) {
+        this.parent = parent;
         // console.log('Hello IonFormWizardStepComponent Component');
-    }
-    onClick(item) {
-        this.itemClicked.emit(item);
     }
 };
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], IonFormWizardStepComponent.prototype, "items", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], IonFormWizardStepComponent.prototype, "itemClicked", void 0);
+], IonFormWizardStepComponent.prototype, "step", void 0);
 IonFormWizardStepComponent = __decorate([
     core_1.Component({
         selector: 'ion-form-wizard-step',
         template: `
-    <ion-list>
-    
-      <ion-item>
-        
-      </ion-item>
-    
-    </ion-list>
-    
-    <div>
-      <button ion-button block (click)="onClick(item)">Submit</button>
-    </div>
+    <ng-content *ngIf="step == parent.currentstep"></ng-content>
     `,
         styles: [`
   ion-form-wizard-step {
@@ -55,7 +39,7 @@ IonFormWizardStepComponent = __decorate([
   }`
         ]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [ion_form_wizard_1.IonFormWizardComponent])
 ], IonFormWizardStepComponent);
 exports.IonFormWizardStepComponent = IonFormWizardStepComponent;
 //# sourceMappingURL=ion-form-wizard-step.js.map

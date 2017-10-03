@@ -16,14 +16,14 @@ const core_1 = require("@angular/core");
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonFormPaymentComponent = class IonFormPaymentComponent {
+let IonFormCreditComponent = class IonFormCreditComponent {
     constructor() {
         // console.log('Hello IonFormPaymentComponent Component');
     }
 };
-IonFormPaymentComponent = __decorate([
+IonFormCreditComponent = __decorate([
     core_1.Component({
-        selector: 'ion-form-payment',
+        selector: 'ion-form-credit',
         template: `
     <ion-list>
     
@@ -38,12 +38,12 @@ IonFormPaymentComponent = __decorate([
     </div>
     `,
         styles: [`
-  ion-form-payment {
+  ion-form-credit {
     
   }`
         ]
     }),
     __metadata("design:paramtypes", [])
-], IonFormPaymentComponent);
-exports.IonFormPaymentComponent = IonFormPaymentComponent;
-//# sourceMappingURL=ion-form-payment.js.map
+], IonFormCreditComponent);
+exports.IonFormCreditComponent = IonFormCreditComponent;
+//# sourceMappingURL=ion-form-credit.js.map

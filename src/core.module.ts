@@ -31,6 +31,9 @@ import { IonFormWizardComponent } from "./components/ion-form-wizard/ion-form-wi
 import { IonFormWizardStepComponent } from "./components/ion-form-wizard-step/ion-form-wizard-step";
 import { IonFormShippingComponent } from "./components/ion-form-shipping/ion-form-shipping";
 import { IonFormConfirmComponent } from "./components/ion-form-confirm/ion-form-confirm";
+import { IonFormCreditComponent } from "./components/ion-form-credit/ion-form-credit";
+import { IonFormDeliveryComponent } from "./components/ion-form-delivery/ion-form-delivery";
+import { IonFormCounterserviceComponent } from "./components/ion-form-counterservice/ion-form-counterservice";
 @NgModule()
 export class EcommerceCoreModule {
 
