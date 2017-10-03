@@ -9,5 +9,5 @@ export declare class IonFormProfileComponent {
     item: any;
     itemClicked: EventEmitter<any>;
     constructor();
-    onClick(item: any): void;
+    logout(): void;
 }

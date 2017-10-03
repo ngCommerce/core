@@ -41,16 +41,19 @@ export * from "./components/ion-icon-searchbar/ion-icon-searchbar";
 export * from "./components/ion-list-favorite/ion-list-favorite";
 export * from "./components/ion-form-profile/ion-form-profile";
 export * from "./components/ion-list-cart/ion-list-cart";
-export * from "./components/ion-detail-product/ion-detail-product"
-export * from "./components/ion-form-payment/ion-form-payment"
-export * from "./components/ion-form-wizard/ion-form-wizard"
-export * from "./components/ion-form-wizard-step/ion-form-wizard-step"
-export * from "./components/ion-form-shipping/ion-form-shipping"
-export * from "./components/ion-form-confirm/ion-form-confirm"
-export * from "./components/ion-form-credit/ion-form-credit"
-export * from "./components/ion-form-delivery/ion-form-delivery"
-export * from "./components/ion-form-counterservice/ion-form-counterservice"
-export * from "./components/ion-form-paymentoption/ion-form-paymentoption"
+export * from "./components/ion-detail-product/ion-detail-product";
+export * from "./components/ion-form-payment/ion-form-payment";
+export * from "./components/ion-form-wizard/ion-form-wizard";
+export * from "./components/ion-form-wizard-step/ion-form-wizard-step";
+export * from "./components/ion-form-shipping/ion-form-shipping";
+export * from "./components/ion-form-confirm/ion-form-confirm";
+export * from "./components/ion-form-credit/ion-form-credit";
+export * from "./components/ion-form-delivery/ion-form-delivery";
+export * from "./components/ion-form-counterservice/ion-form-counterservice";
+export * from "./components/ion-form-paymentoption/ion-form-paymentoption";
+export * from "./components/ion-detail-order/ion-detail-order";
+export * from "./components/ion-segment-order/ion-segment-order";
+export * from "./components/ion-list-order/ion-list-order";
 
 
 

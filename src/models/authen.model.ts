@@ -9,6 +9,7 @@ export interface SignupModel {
     lastName: string;
     username: string;
     password: string;
+    tel: string;
     profileImageURL: string;
 }
 
@@ -20,6 +21,7 @@ export interface UserModel {
     username: string;
     password: string;
     profileImageURL: string;
+    tel: string;
     loginExpires: string;
     loginToken: string;
     rolse: Array<string>;

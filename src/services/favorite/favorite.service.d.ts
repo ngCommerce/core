@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 export declare class FavoriteService {
     http: Http;
+    favorite: FavoriteListModel;
     constructor(http: Http);
     getFavoriteList(): Promise<FavoriteListModel>;
     addFavorite(product: any): Promise<FavoriteListModel>;
