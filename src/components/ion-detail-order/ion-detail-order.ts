@@ -47,7 +47,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   <span> รหัสไปรษณีย์ {{item.shipping.postcode}} </span>
 </div>
 </ion-item>
-</ion-list>
     `,
     styles: [`
   ion-detail-order {
