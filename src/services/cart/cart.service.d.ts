@@ -7,10 +7,15 @@ export declare class CartService {
     corService: CorService;
     private _apiURL;
     constructor(apiURL: String, http: Http, corService: CorService);
-    getCartList(token: any): Promise<Array<CartModel>>;
-    createCart(Cart: any, token: any): Promise<CartModel>;
-    getCartByID(id: any, token: any): Promise<CartModel>;
-    updateCart(Cart: any, token: any): Promise<CartModel>;
-    deleteCart(id: any, token: any): Promise<CartModel>;
+    getCartList(): Promise<Array<CartModel>>;
+    createCart(Cart: any): Promise<CartModel>;
+    getCartByID(id: any): Promise<CartModel>;
+    updateCart(Cart: any): Promise<CartModel>;
+    deleteCart(id: any): Promise<CartModel>;
+    getCartByUser(userId: any): Promise<Array<CartModel>>;
+    addToCart(product: any): void;
+    getCartStorage(): any;
+    saveCartStorage(cart: any): void;
+    onCalculate(cart: any): any;
     private handleError(error);
 }

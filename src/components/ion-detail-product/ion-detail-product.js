@@ -7,37 +7,17 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
  */
 export class IonDetailProductComponent {
     constructor() {
-<<<<<<< HEAD
-        this.selectedFavorite = new core_1.EventEmitter();
-=======
         this.selectedFavorite = new EventEmitter();
->>>>>>> d03aba0f5e523140585057b516ace49fb04ab1d0
         // console.log('Hello IonListCategoryComponent Component');
     }
     favorite(item) {
         this.selectedFavorite.emit(item);
     }
-<<<<<<< HEAD
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], IonDetailProductComponent.prototype, "item", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], IonDetailProductComponent.prototype, "selectedFavorite", void 0);
-IonDetailProductComponent = __decorate([
-    core_1.Component({
-        selector: 'ion-detail-product',
-        template: `
-=======
 }
 IonDetailProductComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-detail-product',
                 template: `
->>>>>>> d03aba0f5e523140585057b516ace49fb04ab1d0
   <ion-slides pager="true" *ngIf="item.images && item.images.length > 0">
   <ion-slide *ngFor="let image of item.images">
     <img src="{{image}}">

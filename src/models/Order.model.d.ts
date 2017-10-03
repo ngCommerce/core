@@ -27,6 +27,7 @@ export interface DeliveryModel {
     name: string;
     detail: string;
     price: number;
+    duedate: number;
 }
 export interface PaymentItemModel {
     paymenttype: string;
@@ -35,4 +36,22 @@ export interface PaymentItemModel {
     expdate: string;
     creditcvc: string;
     counterservice: string;
+}
+export interface ItemByOrderByShopModel {
+    waiting: Array<ItemByShopModel>;
+    accept: Array<ItemByShopModel>;
+    sent: Array<ItemByShopModel>;
+    return: Array<ItemByShopModel>;
+}
+export interface ItemByShopModel {
+    order_id: string;
+    item_id: string;
+    name: string;
+    price: number;
+    qty: number;
+    rate: number;
+    image: string;
+    status: string;
+    shipping: AddressModel;
+    delivery: DeliveryModel;
 }

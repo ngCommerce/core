@@ -5,12 +5,12 @@ import { EventEmitter } from '@angular/core';
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-export declare class IonListOrderComponent {
-    items: any;
-    status: string;
-    itemClicked: EventEmitter<any>;
+export declare class IonFormConfirmComponent {
     data: any;
-    user: any;
+    confirmgateway: any;
+    gotoNext: EventEmitter<any>;
+    confirmdiscount: number;
     constructor();
-    selectOrder(item: any): void;
+    discount(data: any): void;
+    stepValidation(): void;
 }

@@ -9,37 +9,44 @@ export class OrderService {
         this.corService = corService;
         this._apiURL = apiURL;
     }
-    getOrderList(token) {
+    getOrderList() {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'orders/', { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
-    createOrder(Order, token) {
+    createOrder(Order) {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.post(this._apiURL + 'orders/', Order, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
-    getOrderByID(id, token) {
+    getOrderByID(id) {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'orders/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
-    updateOrder(Order, token) {
+    updateOrder(Order) {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.put(this._apiURL + 'orders/' + Order._id, Order, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
-    deleteOrder(id, token) {
+    deleteOrder(id) {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.delete(this._apiURL + 'orders/' + id, { headers: headers })
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    getOrderByShop() {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'orderbyshop', { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
