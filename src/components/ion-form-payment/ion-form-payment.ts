@@ -33,37 +33,12 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 })
 export class IonFormPaymentComponent {
   data: any = {};
-  // @Input() paymentgateway: any;
+  @Input() paymentgateway: any;
   @Input() datashipping: any;
   datapayment: any = {};
   @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
   @Output() datapaymentData: EventEmitter<any> = new EventEmitter<any>();
 
-
-  paymentgateway: any = {
-    payment: [
-      {
-        name: '1'
-      },
-      {
-        name: '2'
-      },
-      {
-        name: '3'
-      }
-    ],
-    counterservice: [
-      {
-        name: '1'
-      },
-      {
-        name: '2'
-      },
-      {
-        name: '3'
-      }
-    ]
-  };
   channel: string = 'bank';
 
   constructor() {
