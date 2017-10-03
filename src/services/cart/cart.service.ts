@@ -73,7 +73,7 @@ export class CartService {
                     item.discount = product.promotionprice ? (product.price - product.promotionprice) * item.qty : 0;
                     item.totalamount = item.amount - item.discount;
                     window.localStorage.setItem('gCart', JSON.stringify(cartStorage));
-                    this.cartStorage();
+                    this.getCartStorage();
                 }
             }
 
@@ -91,11 +91,11 @@ export class CartService {
             totalamount: product.promotionprice
         });
         window.localStorage.setItem('gCart', JSON.stringify(cartStorage));
-        this.cartStorage();
+        this.getCartStorage();
 
     }
 
-    cartStorage() {
+    getCartStorage() {
         return window.localStorage.getItem('gCart') ? JSON.parse(window.localStorage.getItem('gCart')) : null;
     }
 
