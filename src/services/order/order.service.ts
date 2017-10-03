@@ -12,7 +12,7 @@ export class OrderService {
         this._apiURL = apiURL;
     }
 
-    getOrderList(token): Promise<Array<OrderModel>> {
+    getOrderList(): Promise<Array<OrderModel>> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'orders/', { headers: headers })
             .toPromise()
@@ -20,7 +20,7 @@ export class OrderService {
             .catch(this.handleError);
     }
 
-    createOrder(Order, token): Promise<OrderModel> {
+    createOrder(Order): Promise<OrderModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.post(this._apiURL + 'orders/', Order, { headers: headers })
             .toPromise()
@@ -28,7 +28,7 @@ export class OrderService {
             .catch(this.handleError);
     }
 
-    getOrderByID(id, token): Promise<OrderModel> {
+    getOrderByID(id): Promise<OrderModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'orders/' + id, { headers: headers })
             .toPromise()
@@ -36,7 +36,7 @@ export class OrderService {
             .catch(this.handleError);
     }
 
-    updateOrder(Order, token): Promise<OrderModel> {
+    updateOrder(Order): Promise<OrderModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.put(this._apiURL + 'orders/' + Order._id, Order, { headers: headers })
             .toPromise()
@@ -44,7 +44,7 @@ export class OrderService {
             .catch(this.handleError);
     }
 
-    deleteOrder(id, token): Promise<OrderModel> {
+    deleteOrder(id): Promise<OrderModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.delete(this._apiURL + 'orders/' + id, { headers: headers })
             .toPromise()
