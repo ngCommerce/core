@@ -38,6 +38,7 @@ import { IonFormPaymentOptionComponent } from "./components/ion-form-paymentopti
 import { IonDetailOrderComponent } from "./components/ion-detail-order/ion-detail-order";
 import { IonListOrderComponent } from "./components/ion-list-order/ion-list-order";
 import { IonSegmentOrderComponent } from "./components/ion-segment-order/ion-segment-order";
+import { IonOrdersComponent } from "./components/ion-orders/ion-orders";
 @NgModule()
 export class EcommerceCoreModule {
 
