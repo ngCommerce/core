@@ -94,6 +94,9 @@ IonDetailProductComponent = __decorate([
         </ion-col>
     </ion-row>
 </ion-grid>
+<ion-footer>
+<button ion-button block color="danger">Add Cart</button>
+</ion-footer>
     `,
         styles: [`
   ion-detail-product {
