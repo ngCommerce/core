@@ -23,7 +23,7 @@ export { PaymentModel } from "./models/payment.model";
 export { ShippingModel } from "./models/shipping.model";
 export { FavoriteListModel } from "./models/favorite.model";
 export { CartModel } from "./models/cart.model";
-export { OrderModel } from "./models/order.model";
+export { OrderModel, ItemByOrderByShopModel } from "./models/order.model";
 
 
 
