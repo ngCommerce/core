@@ -1,1 +1,1 @@
-{"version":3,"file":"core.model.js","sourceRoot":"","sources":["core.model.ts"],"names":[],"mappings":";;AAAa,QAAA,OAAO,GAAG,EAAE,CAAC"}
+{"version":3,"sources":["core.model.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,OAAO,GAAG,EAAE,CAAC","file":"core.model.js","sourceRoot":"","sourcesContent":["export const API_URL = \"\";\n\nexport interface ReviewsModel {\n  topic: string;\n  comment: string;\n  rate: number;\n  created: Date;\n  user: any;\n}"]}

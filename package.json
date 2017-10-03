@@ -1,6 +1,6 @@
 {
   "name": "@ngcommerce/core",
-  "version": "1.0.61",
+  "version": "1.0.86",
   "description": "Great repository ng2+ lib of ecommerce platform by c@net",
   "main": "bundles/core.umd.js",
   "module": "index.js",
@@ -50,7 +50,9 @@
     "url": "https://github.com/ngCommerce/core/issues"
   },
   "homepage": "https://github.com/ngCommerce/core#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@angular/http": "^4.4.4"
+  },
   "devDependencies": {
     "@angular/common": "4.0.1",
     "@angular/compiler": "4.0.1",
@@ -60,7 +62,7 @@
     "@angular/platform-browser-dynamic": "4.0.1",
     "@angular/tsc-wrapped": "4.0.1",
     "@types/jasmine": "2.5.47",
-    "ionic-angular":"3.5.0",
+    "ionic-angular": "3.5.0",
     "concurrently": "3.4.0",
     "core-js": "2.4.1",
     "jasmine-core": "2.5.2",

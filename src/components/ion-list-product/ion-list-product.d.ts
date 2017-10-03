@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -6,5 +7,7 @@
  */
 export declare class IonListProductComponent {
     items: any;
+    selectedProduct: EventEmitter<any>;
     constructor();
+    add(item: any): void;
 }

@@ -5,9 +5,9 @@ import { EventEmitter } from '@angular/core';
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-export declare class IonFormProfileComponent {
+export declare class IonDetailProductComponent {
     item: any;
-    itemClicked: EventEmitter<any>;
+    selectedFavorite: EventEmitter<any>;
     constructor();
-    logout(): void;
+    favorite(item: any): void;
 }
