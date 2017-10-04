@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -93,7 +93,6 @@ IonFormProductComponent.decorators = [
 /** @nocollapse */
 IonFormProductComponent.ctorParameters = () => [];
 IonFormProductComponent.propDecorators = {
-    'items': [{ type: Input },],
     'itemClicked': [{ type: Output },],
 };
 //# sourceMappingURL=ion-form-product.js.map
