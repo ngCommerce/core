@@ -1,6 +1,6 @@
 {
   "name": "@ngcommerce/core",
-  "version": "1.1.28",
+  "version": "1.1.29",
   "description": "Great repository ng2+ lib of ecommerce platform by c@net",
   "main": "bundles/core.umd.js",
   "module": "index.js",
