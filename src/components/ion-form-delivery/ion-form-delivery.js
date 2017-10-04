@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment';
+import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-form-paymentoption';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -31,7 +31,7 @@ IonFormDeliveryComponent.decorators = [
 ];
 /** @nocollapse */
 IonFormDeliveryComponent.ctorParameters = () => [
-    { type: IonFormPaymentComponent, },
+    { type: IonFormPaymentOptionComponent, },
 ];
 IonFormDeliveryComponent.propDecorators = {
     'value': [{ type: Input },],
