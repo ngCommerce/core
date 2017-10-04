@@ -16,8 +16,10 @@ import { Component, Input } from '@angular/core';
           <ion-row>
             <ion-col text-center>
               <ion-segment color="light" [(ngModel)]="currentstep">
+              <p>{{step.title}}</p>
                 <ion-segment-button [value]="step.value">{{step.value}}</ion-segment-button>
-              </ion-segment>
+                <p>{{step.title}}</p>
+                </ion-segment>
               <p>{{step.title}}</p>
             </ion-col>
           </ion-row>
