@@ -15,9 +15,10 @@ import { Component, Input } from '@angular/core';
       <ion-col *ngFor="let step of steps">
         <ion-row>
           <ion-col text-center>
-            <ion-segment color="light" class="md" [(ngModel)]="channel">
-              <ion-segment-button [ngClass]="channel >= step.value ? 'active' : '' " [value]="step.value">{{step.title}}</ion-segment-button>
+            <ion-segment color="light" [(ngModel)]="channel">
+              <ion-segment-button [value]="step.value">{{step.value}}</ion-segment-button>
             </ion-segment>
+            <p>{{step.title}}</p>
           </ion-col>
         </ion-row>
       </ion-col>
