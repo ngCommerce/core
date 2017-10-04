@@ -52,11 +52,11 @@ export class CartService {
             .catch(this.handleError);
     }
 
-    getCartByUser(userId): Promise<Array<CartModel>> {
+    getCartByUser(userId): Promise<CartModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'cartbyuser/' + userId, { headers: headers })
             .toPromise()
-            .then(response => response.json() as Array<CartModel>)
+            .then(response => response.json() as CartModel)
             .catch(this.handleError);
     }
 
