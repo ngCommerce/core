@@ -1,5 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment';
+import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-form-paymentoption';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -7,10 +7,10 @@ import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment'
  * Components.
  */
 export declare class IonFormCreditComponent {
-    parent: IonFormPaymentComponent;
+    parent: IonFormPaymentOptionComponent;
     value: string;
     datacredit: EventEmitter<any>;
     data: any;
-    constructor(parent: IonFormPaymentComponent);
+    constructor(parent: IonFormPaymentOptionComponent);
     formcredit(data: any): void;
 }
