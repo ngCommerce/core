@@ -8,6 +8,8 @@ import { EventEmitter } from '@angular/core';
 export declare class IonDetailProductComponent {
     item: any;
     selectedFavorite: EventEmitter<any>;
+    review: EventEmitter<any>;
     constructor();
     favorite(item: any): void;
+    createReview(): void;
 }
