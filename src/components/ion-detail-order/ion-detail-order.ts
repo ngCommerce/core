@@ -13,7 +13,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 <ion-grid id="gridDetail">
     <ion-row>
         <ion-col id="colProduct">
-            <p>{{item.name}}</p>    
+            <p id="pName">{{item.name}}</p>    
             <h4 *ngIf="!item.promotionprice">{{item.price}} {{item.currency}}</h4>
         </ion-col>
     </ion-row>
@@ -28,24 +28,24 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 <ion-list>
 <ion-item>
 <h3>
-  <ion-icon name="md-car"></ion-icon>Shipping</h3>
+  <ion-icon name="md-car"></ion-icon> Shipping</h3>
 <div>
 
-  <span>จัดส่ง : {{item.delivery.name}}</span>
-  <span>  {{item.delivery.detail}} </span>
-  <span> ค่าจัดส่ง {{item.delivery.price}} บาท</span>
+  <span id="delName">จัดส่ง : {{item.delivery.name}}</span>
+  <span id="delDetail">  {{item.delivery.detail}} </span>
+  <span id="delPrice"> ค่าจัดส่ง {{item.delivery.price}} บาท</span>
 
 </div>
 </ion-item>
 <ion-item>
 <h3>
-  <ion-icon name="ios-cash"></ion-icon>Delivery</h3>
+  <ion-icon name="ios-cash"></ion-icon> Delivery</h3>
 <div *ngIf="item.shipping">
-  <span>ที่อยู่ : {{item.shipping.address}}</span>
-  <span>  ตำบล {{item.shipping.subdistrict}} </span>
-  <span> อำเภอ {{item.shipping.district}} </span>
-  <span> จังหวัด {{item.shipping.province}} </span>
-  <span> รหัสไปรษณีย์ {{item.shipping.postcode}} </span>
+  <span id="shipAddress">ที่อยู่ : {{item.shipping.address}}</span>
+  <span id="shipSubdistrict">  ตำบล {{item.shipping.subdistrict}} </span>
+  <span id="shipDistrict"> อำเภอ {{item.shipping.district}} </span>
+  <span id="shipProvince"> จังหวัด {{item.shipping.province}} </span>
+  <span id="shipPostcode"> รหัสไปรษณีย์ {{item.shipping.postcode}} </span>
 </div>
 </ion-item>
 </ion-list>
