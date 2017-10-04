@@ -113,7 +113,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 </ion-row>
 <ion-row>
     <ion-col>
-        <button ion-button block outline >Write Review</button>
+        <button ion-button block outline (click)="createReview()">Write Review</button>
     </ion-col>
 </ion-row>
 </ion-grid>
@@ -152,10 +152,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class IonDetailProductComponent {
     @Input() item: any;
     @Output() selectedFavorite: EventEmitter<any> = new EventEmitter<any>();
+    @Output() review:EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonListCategoryComponent Component');
     }
     favorite(item) {
         this.selectedFavorite.emit(item);
+    }
+    createReview(){
+        this.review.emit('createReview');
     }
 }

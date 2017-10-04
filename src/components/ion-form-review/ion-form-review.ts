@@ -9,7 +9,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 @Component({
     selector: 'ion-form-review',
     template: `
-    <form (ngSubmit)="addReview()">
+    <form>
     <ion-item>
       <ion-label>Topic</ion-label>
       <ion-input type="text" [(ngModel)]="reviewData.topic" name="Topic"></ion-input>
