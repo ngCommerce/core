@@ -91,7 +91,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </ion-row>
         <ion-row>
             <ion-col>
-                <span>{{items ? items.length : 0}} รีวิว</span>
+                <span>{{item ? item.reviews.length : 0}} รีวิว</span>
             </ion-col>
         </ion-row>
     </ion-col>
@@ -117,9 +117,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </ion-col>
 </ion-row>
 </ion-grid>
-<hr *ngIf="items">
-<ion-list *ngIf="items">
-<ion-item-divider *ngFor="let review of items">
+<hr *ngIf="item">
+<ion-list *ngIf="item && item.reviews && item.reviews.length >0">
+<ion-item-divider *ngFor="let review of item.reviews">
     <p>
         <ion-row>
             <ion-col no-padding width-60 text-left>

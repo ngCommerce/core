@@ -30,7 +30,7 @@ export class IonFormConfirmComponent {
         else {
             this.confirmgateway.order.totalamount = ((this.confirmgateway.order.tran || 0) + (this.confirmgateway.order.amount || 0));
         }
-        this.gotoNext.emit(this.confirmgateway);
+        this.gotoNext.emit(this.confirmgateway.order);
     }
 }
 IonFormConfirmComponent.decorators = [
