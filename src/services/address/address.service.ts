@@ -13,11 +13,11 @@ export class AddressService {
         this._apiURL = apiURL;
     }
 
-    getAddressList(): Promise<AddressModel> {
+    getAddressList(): Promise<Array<AddressModel>> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'addresses/', { headers: headers })
             .toPromise()
-            .then(response => response.json() as AddressModel)
+            .then(response => response.json() as Array<AddressModel>)
             .catch(this.handleError);
     }
 
@@ -50,6 +50,14 @@ export class AddressService {
         return this.http.delete(this._apiURL + 'addresses/' + id, { headers: headers })
             .toPromise()
             .then(response => response.json() as AddressModel)
+            .catch(this.handleError);
+    }
+
+    getAddressByUser(): Promise<Array<AddressModel>> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'addressbyuser/', { headers: headers })
+            .toPromise()
+            .then(response => response.json() as Array<AddressModel>)
             .catch(this.handleError);
     }
 

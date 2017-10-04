@@ -52,6 +52,14 @@ export class ShopService {
             .catch(this.handleError);
     }
 
+    getShopListByUser(): Promise<Array<ShopModel>> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'shopbyuser/', { headers: headers })
+            .toPromise()
+            .then(response => response.json() as Array<ShopModel>)
+            .catch(this.handleError);
+    }
+
     private handleError(error: any): Promise<any> {
         return Promise.reject(error.message || error);
     }
