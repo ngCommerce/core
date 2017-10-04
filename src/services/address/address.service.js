@@ -44,6 +44,13 @@ export class AddressService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+    getAddressByUser() {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'addressbyuser/', { headers: headers })
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
     handleError(error) {
         return Promise.reject(error.message || error);
     }

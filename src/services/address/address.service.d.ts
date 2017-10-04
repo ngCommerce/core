@@ -7,10 +7,11 @@ export declare class AddressService {
     corService: CorService;
     private _apiURL;
     constructor(apiURL: String, http: Http, corService: CorService);
-    getAddressList(): Promise<AddressModel>;
+    getAddressList(): Promise<Array<AddressModel>>;
     getAddressByID(id: any): Promise<AddressModel>;
     createAddress(product: any): Promise<AddressModel>;
     updateAddress(product: any): Promise<AddressModel>;
     deleteAddress(id: any): Promise<AddressModel>;
+    getAddressByUser(): Promise<Array<AddressModel>>;
     private handleError(error);
 }
