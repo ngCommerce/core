@@ -66,8 +66,6 @@ IonFormPaymentComponent.decorators = [
                 template: `
   <ion-form-paymentoption [paymentgateway]="paymentgateway.payment" [datashipping]="datashipping" (datapayment)="paymentType($event)"
   [(channel)]="channel">
-  
-  <p>testValue : {{channel}}</p>
   <ion-form-credit [value]="'credit'" (datacredit)="formcredit($event)"></ion-form-credit>
   <ion-form-delivery [value]="'delivery'"></ion-form-delivery>
   <ion-form-counterservice [value]="'bank'" [paymentgateway]="paymentgateway.counterservice" [datapayment]="datapayment"></ion-form-counterservice>

@@ -76,7 +76,7 @@ IonFormShippingComponent.decorators = [
                 selector: 'ion-form-shipping',
                 template: `
     <ion-content>
-    <ion-label> {{'SHIPPING'}} </ion-label>
+    <ion-label> {{'การจัดส่งสินค้า'}} </ion-label>
     <ion-list radio-group>
         <ion-item *ngFor="let item of listaddress.address" (click)="selectaddress(item)">
             <ion-label>
@@ -99,8 +99,8 @@ IonFormShippingComponent.decorators = [
             <ion-radio (click)="selectaddress(item)"></ion-radio>
         </ion-item>
     </ion-list>
-    <ion-label (click)="openModal()">{{'ADD_NEW_ADDRESS'}}</ion-label>
-    <ion-label> {{'PLEASE_SELECT_THE_TYPE_OF_SHIPMENT'}} </ion-label>
+    <ion-label (click)="openModal()">{{'เพิ่มที่อยู่ใหม่'}}</ion-label>
+    <ion-label> {{'โปรดเลือกแบบของการส่งสินค้า'}} </ion-label>
     <ion-list>
         <div *ngFor="let item of listshipping.items">
             <ion-item>
@@ -117,20 +117,21 @@ IonFormShippingComponent.decorators = [
                         <p>{{item.product.name}}</p>
                         <p>{{item.qty}} {{'QTY'}}</p>
                         <p>{{item.product.price | number}} Baht</p>
-                        <p text-right>รวม {{item.product.price * item.qty | number}} {{'CURRENCY'}}</p>
+                        <p text-right>รวม {{item.product.price * item.qty | number}} {{'บาท'}}</p>
                     </ion-col>
                 </ion-row>
             </ion-item>
             <ion-row>
                 <ion-col width-100>
-                    <p>{{'SHIPPINGMETHOD'}}</p>
+                    <p>{{'วิธีจัดส่ง'}}</p>
                 </ion-col>
             </ion-row>
+            
             <ion-list radio-group>
                 <ion-item *ngFor="let itm of item.product.shippings" (click)="setproduct(item,itm)">
                     <ion-label>
-                        <p>{{itm.shipping.name}}</p>
-                        <p>{{itm.shipping.detail}}</p>
+                        <p>{{itm.name}}</p>
+                        <p>{{itm.detail}}</p>
                     </ion-label>
                     <ion-radio (click)="setproduct(item,itm)"></ion-radio>
                 </ion-item>
@@ -141,20 +142,20 @@ IonFormShippingComponent.decorators = [
         <div *ngIf="listshipping.items && listshipping.items.length > 0">
             <ion-row>
                 <ion-col width-50>
-                    <p>{{'TOTAL_PRICE'}}</p>
-                    <p>{{'DISCOUNT'}}</p>
-                    <p>{{'TOTAL_NET'}}</p>
+                    <p>{{'ราคารวม'}}</p>
+                    <p>{{'ส่วนลด'}}</p>
+                    <p>{{'รวมสุทธิ'}}</p>
                 </ion-col>
                 <ion-col width-50>
-                    <p text-right>{{listshipping.amount | number}} {{currency}}</p>
-                    <p text-right>{{listshipping.discount | number}} {{currency}}</p>
-                    <p text-right>{{listshipping.totalamount | number}} {{currency}}</p>
+                    <p text-right>{{listshipping.amount | number}} {{'บาท'}}</p>
+                    <p text-right>{{listshipping.discount | number}} {{'บาท'}}</p>
+                    <p text-right>{{listshipping.totalamount | number}} {{'บาท'}}</p>
                 </ion-col>
             </ion-row>
         </div>
     </ion-grid>
     <ion-grid>
-        <button ion-button full color="danger" (click)="stepValidation()">{{'PAYMENT'}}</button>
+        <button ion-button full color="danger" (click)="stepValidation()">{{'ดำเนินการชำระเงิน'}}</button>
     </ion-grid>
 </ion-content>
     `,
