@@ -143,7 +143,7 @@ export class IonFormShippingComponent {
           this.data.order.items.push({
             product: product.product,
             qty: product.qty,
-            amount: (product.amount || 0) * (product.qty),
+            amount: (product.product.price || 0) * (product.qty),
             delivery: shipping,
             price: product.product.price,
             discount: product.discount,
