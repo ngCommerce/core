@@ -13,7 +13,6 @@ export class IonFormPaymentComponent {
         this.datapaymentData = new EventEmitter();
         this.channel = 'credit';
         // console.log('Hello IonFormPaymentComponent Component');
-        console.log(this.paymentgateway);
     }
     paymentType(e) {
         this.datapayment = e;
