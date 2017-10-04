@@ -60,6 +60,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     <p>{{'วิธีจัดส่ง'}}</p>
                 </ion-col>
             </ion-row>
+            
             <ion-list radio-group>
                 <ion-item *ngFor="let itm of item.product.shippings" (click)="setproduct(item,itm)">
                     <ion-label>
