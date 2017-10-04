@@ -20,8 +20,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             <p>{{item.name}}</p>
             <p>{{item.detail}}</p>
             <p *ngIf="item.promotionprice">
-                <span>{{item.promotionprice | number}} {{item.currency}}</span>
-                <span>{{item.price | number}} {{item.currency}}</span>
+                <span>{{item.promotionprice}} {{item.currency}}</span>
+                <span>{{item.price}} {{item.currency}}</span>
                 <span>-{{item.percentofdiscount}} %</span>
             </p>
             <h4 *ngIf="!item.promotionprice">{{item.price}} {{item.currency}}</h4>
@@ -126,7 +126,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
                 <p>{{review.topic}}</p>
             </ion-col>
             <ion-col width-40 text-right>
-                <p>{{review.created | moment: 'LL'}}</p>
+                <p>{{review.created}}</p>
                 <p>{{review.user ? review.user.displayname : ''}}</p>
             </ion-col>
         </ion-row>
