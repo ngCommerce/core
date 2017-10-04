@@ -12,7 +12,7 @@ export declare class CartService {
     getCartByID(id: any): Promise<CartModel>;
     updateCart(Cart: any): Promise<CartModel>;
     deleteCart(id: any): Promise<CartModel>;
-    getCartByUser(userId: any): Promise<Array<CartModel>>;
+    getCartByUser(userId: any): Promise<CartModel>;
     addToCart(product: any): void;
     getCartStorage(): any;
     saveCartStorage(cart: any): void;
