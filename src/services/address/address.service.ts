@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { API_URL } from "../../models/core.model";
 import { CorService } from "../../core.service";
-import { AddressModel } from "../../models/address.model";
+import { AddressModel, ListAddressModel } from "../../models/address.model";
 
 @Injectable()
 export class AddressService {
@@ -53,11 +53,11 @@ export class AddressService {
             .catch(this.handleError);
     }
 
-    getAddressByUser(): Promise<Array<AddressModel>> {
+    getAddressByUser(): Promise<ListAddressModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'addressbyuser/', { headers: headers })
             .toPromise()
-            .then(response => response.json() as Array<AddressModel>)
+            .then(response => response.json() as ListAddressModel)
             .catch(this.handleError);
     }
 
