@@ -8,10 +8,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class IonDetailProductComponent {
     constructor() {
         this.selectedFavorite = new EventEmitter();
+        this.review = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
     }
     favorite(item) {
         this.selectedFavorite.emit(item);
+    }
+    createReview() {
+        this.review.emit('createReview');
     }
 }
 IonDetailProductComponent.decorators = [
@@ -29,8 +33,8 @@ IonDetailProductComponent.decorators = [
             <p>{{item.name}}</p>
             <p>{{item.detail}}</p>
             <p *ngIf="item.promotionprice">
-                <span>{{item.promotionprice | number}} {{item.currency}}</span>
-                <span>{{item.price | number}} {{item.currency}}</span>
+                <span>{{item.promotionprice}} {{item.currency}}</span>
+                <span>{{item.price}} {{item.currency}}</span>
                 <span>-{{item.percentofdiscount}} %</span>
             </p>
             <h4 *ngIf="!item.promotionprice">{{item.price}} {{item.currency}}</h4>
@@ -83,6 +87,74 @@ IonDetailProductComponent.decorators = [
         </ion-col>
     </ion-row>
 </ion-grid>
+
+<ion-grid *ngIf="item">
+<ion-row>
+    <ion-col width-50>
+        <ion-row>
+            <ion-col>
+                <rating [(ngModel)]="rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                    starIconName="star" nullable="false"></rating>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <span> {{item.rate}} </span> <span>From 5</span>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <span>{{item ? item.reviews.length : 0}} รีวิว</span>
+            </ion-col>
+        </ion-row>
+    </ion-col>
+    <ion-col width-50>
+        <p *ngFor="let group of groups">
+            <ion-row>
+                <ion-col width-30>
+                    <span>{{group.name}}Star</span>
+                </ion-col>
+                <ion-col width-60>
+                    <span [style.width]="group.percent"></span>
+                </ion-col>
+                <ion-col width-10>
+                    <span>{{group.sum}}</span>
+                </ion-col>
+            </ion-row>
+        </p>
+    </ion-col>
+</ion-row>
+<ion-row>
+    <ion-col>
+        <button ion-button block outline (click)="createReview()">Write Review</button>
+    </ion-col>
+</ion-row>
+</ion-grid>
+<hr *ngIf="item">
+<ion-list *ngIf="item && item.reviews && item.reviews.length >0">
+<ion-item-divider *ngFor="let review of item.reviews">
+    <p>
+        <ion-row>
+            <ion-col no-padding width-60 text-left>
+                <p>{{review.topic}}</p>
+            </ion-col>
+            <ion-col width-40 text-right>
+                <p>{{review.created}}</p>
+                <p>{{review.user ? review.user.displayname : ''}}</p>
+            </ion-col>
+        </ion-row>
+    </p>
+    <p>
+        <rating [(ngModel)]="review.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+            starIconName="star" nullable="false"></rating>
+    </p>
+    <p>{{review.comment}}</p>
+    <p></p>
+</ion-item-divider>
+</ion-list>
+
+
+
     `,
                 styles: [`
   ion-detail-product {
@@ -96,5 +168,6 @@ IonDetailProductComponent.ctorParameters = () => [];
 IonDetailProductComponent.propDecorators = {
     'item': [{ type: Input },],
     'selectedFavorite': [{ type: Output },],
+    'review': [{ type: Output },],
 };
 //# sourceMappingURL=ion-detail-product.js.map

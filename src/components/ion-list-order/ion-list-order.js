@@ -36,10 +36,10 @@ IonListOrderComponent.decorators = [
               <img src="{{item.image}}">
             </ion-col>
             <ion-col *ngIf="item.status === status">
-              <p>{{item.name}}</p>
-              <p>{{item.qty}} qty</p>
-              <p class="color-orenge-custom">{{item.price | number}} Baht</p>
-              <p text-right class="color-green-custom">{{item.status}}</p>
+              <p id="pName">{{item.name}}</p>
+              <p id="pQty">{{item.qty}} qty</p>
+              <p id="pPrice">{{item.price | number}} Baht</p>
+              <p text-right id="pStatus" >{{item.status}}</p>
             </ion-col>
           </ion-row>
         </ion-item>

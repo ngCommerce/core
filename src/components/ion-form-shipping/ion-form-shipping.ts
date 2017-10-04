@@ -114,7 +114,7 @@ export class IonFormShippingComponent {
             amount: 0,
             discount: 0,
             totalamount: 0,
-            tran: 0
+            deliveryprice: 0
         }
     };
     constructor() {
@@ -127,33 +127,38 @@ export class IonFormShippingComponent {
     openModal() {
         this.createAddress.emit('push model');
     }
+    
     setproduct(product, shipping) {
-        let checkProduct = false;
+        var checkProduct = false;
         if (this.data.order.items && this.data.order.items.length > 0) {
-            this.data.order.items.forEach(itm => {
-                if (itm.product.name === product.product.name) {
-                    itm.delivery = shipping.shipping;
-                    checkProduct = true;
-                }
-            });
+          // console.log('+++++++++++++++++++++++++++++++++');
+          this.data.order.items.forEach(itm => {
+            if (itm.product.name === product.product.name) {
+              itm.delivery = shipping;
+              checkProduct = true;
+            }
+          });
         }
         if (!checkProduct) {
-            this.data.order.items.push({
-                product: product.product,
-                qty: product.qty,
-                amount: (product.amount || 0) * (product.qty),
-                delivery: shipping.shipping,
-                price: product.product.price,
-                discount: product.discount,
-                afterdiscount: (product.amount || 0) - (product.discount || 0)
-            });
+          this.data.order.items.push({
+            product: product.product,
+            qty: product.qty,
+            amount: (product.amount || 0) * (product.qty),
+            delivery: shipping,
+            price: product.product.price,
+            discount: product.discount,
+            afterdiscount: (product.amount || 0) - (product.discount || 0)
+    
+          });
         }
-    }
+        console.log(this.data.order);
+      }
     stepValidation() {
         if (this.data.order.shipping && this.data.order.shipping.address) {
             if (this.data.order.items.length === this.listshipping.items.length) {
                 this.data.order.items.forEach(itm => {
-                    this.data.order.tran += itm.delivery.price || 0;
+                    console.log(itm);
+                    this.data.order.deliveryprice += itm.delivery.price || 0;
                     this.data.order.discount += itm.discount || 0;
                     this.data.order.amount += itm.amount || 0;
                     this.data.order.totalamount += itm.afterdiscount || 0;

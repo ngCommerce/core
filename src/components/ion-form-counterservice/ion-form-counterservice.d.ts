@@ -1,4 +1,4 @@
-import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment';
+import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-form-paymentoption';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -6,10 +6,10 @@ import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment'
  * Components.
  */
 export declare class IonFormCounterserviceComponent {
-    parent: IonFormPaymentComponent;
+    parent: IonFormPaymentOptionComponent;
     paymentgateway: any;
     value: string;
     datapayment: any;
-    constructor(parent: IonFormPaymentComponent);
+    constructor(parent: IonFormPaymentOptionComponent);
     selectcounter(data: any): void;
 }

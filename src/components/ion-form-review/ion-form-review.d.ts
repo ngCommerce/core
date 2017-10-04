@@ -5,11 +5,13 @@ import { EventEmitter } from '@angular/core';
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-export declare class IonDetailProductComponent {
-    item: any;
-    selectedFavorite: EventEmitter<any>;
-    review: EventEmitter<any>;
+export declare class IonFormReviewComponent {
+    selectedReview: EventEmitter<any>;
+    reviewData: {
+        topic: string;
+        comment: string;
+        rate: string;
+    };
     constructor();
-    favorite(item: any): void;
-    createReview(): void;
+    writereview(reviewData: any): void;
 }

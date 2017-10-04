@@ -54,6 +54,23 @@ export class ProductService {
             .catch(this.handleError);
     }
 
+    getProductListByShop(shopId): Promise<ProductListModel> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'productsbyshop/' + shopId, { headers: headers })
+            .toPromise()
+            .then(response => response.json() as ProductListModel)
+            .catch(this.handleError);
+    }
+
+    reviewProduct(productId, review): Promise<ProductModel> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'products/review/' + productId, review, { headers: headers })
+            .toPromise()
+            .then(response => response.json() as ProductModel)
+            .catch(this.handleError);
+    }
+
+
     private handleError(error: any): Promise<any> {
         return Promise.reject(error.message || error);
     }

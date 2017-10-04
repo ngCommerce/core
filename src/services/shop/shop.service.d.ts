@@ -13,5 +13,6 @@ export declare class ShopService {
     updateShopByID(data: any): Promise<ShopModel>;
     getShopByID(id: any): Promise<ShopModel>;
     deleteShopByID(id: any): Promise<ShopModel>;
+    getShopListByUser(): Promise<Array<ShopModel>>;
     private handleError(error);
 }
