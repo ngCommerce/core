@@ -1,4 +1,5 @@
 import { EventEmitter } from '@angular/core';
+import { ProductModel } from '../../index';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -6,7 +7,10 @@ import { EventEmitter } from '@angular/core';
  * Components.
  */
 export declare class IonFormProductComponent {
-    items: any;
+    item: ProductModel;
+    categories: any;
+    shippings: any;
+    shops: any;
     itemClicked: EventEmitter<any>;
     constructor();
     onClick(item: any): void;
