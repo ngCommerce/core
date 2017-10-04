@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
  * Components.
  */
 @Component({
-  selector: 'ion-form-wizard',
-  template: `
+    selector: 'ion-form-wizard',
+    template: `
     <ion-navbar>
     <ion-grid text-right>
       <ion-row>
@@ -16,10 +16,9 @@ import { Component, Input } from '@angular/core';
           <ion-row>
             <ion-col text-center>
               <ion-segment color="light" [(ngModel)]="currentstep">
-              
-                <ion-segment-button [value]="step.value">{{step.title}} </ion-segment-button>
-                </ion-segment>
-            
+                <ion-segment-button [value]="step.value">{{step.value}}</ion-segment-button>
+              </ion-segment>
+              <p>{{step.title}}</p>
             </ion-col>
           </ion-row>
         </ion-col>
@@ -28,21 +27,21 @@ import { Component, Input } from '@angular/core';
   </ion-navbar>
   <ng-content></ng-content>
     `,
-  styles: [`
+    styles: [`
   ion-form-wizard {
     
   }`
-  ]
+    ]
 })
 export class IonFormWizardComponent {
-  @Input() currentstep: any;
-  @Input() steps: Array<any>;
-  // @Input() items: any;
-  // @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
-  constructor() {
-    // console.log('Hello IonFormWizardComponent Component');
-  }
-  // onClick(item) {
-  //     this.itemClicked.emit(item);
-  // }
+    @Input() currentstep: any;
+    @Input() steps:Array<any>;
+    // @Input() items: any;
+    // @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
+    constructor() {
+        // console.log('Hello IonFormWizardComponent Component');
+    }
+    // onClick(item) {
+    //     this.itemClicked.emit(item);
+    // }
 }
