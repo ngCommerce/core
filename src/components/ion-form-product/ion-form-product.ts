@@ -81,7 +81,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     ]
 })
 export class IonFormProductComponent {
-    @Input() items: any;
+    items: any;
     @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonListCategoryComponent Component');
