@@ -45,6 +45,13 @@ export class ProductService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+    getProductListByShop(shopId) {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'productsbyshop/' + shopId, { headers: headers })
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
     handleError(error) {
         return Promise.reject(error.message || error);
     }

@@ -1,7 +1,7 @@
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { CorService } from "../../core.service";
-import { AddressModel } from "../../models/address.model";
+import { AddressModel, ListAddressModel } from "../../models/address.model";
 export declare class AddressService {
     http: Http;
     corService: CorService;
@@ -12,6 +12,6 @@ export declare class AddressService {
     createAddress(product: any): Promise<AddressModel>;
     updateAddress(product: any): Promise<AddressModel>;
     deleteAddress(id: any): Promise<AddressModel>;
-    getAddressByUser(): Promise<Array<AddressModel>>;
+    getAddressByUser(): Promise<ListAddressModel>;
     private handleError(error);
 }
