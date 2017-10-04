@@ -13,11 +13,11 @@ export class ShippingService {
         this._apiURL = apiURL;
     }
 
-    getShippingList(): Promise<ShippingModel> {
+    getShippingList(): Promise<Array<ShippingModel>> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'shippings/', { headers: headers })
             .toPromise()
-            .then(response => response.json() as ShippingModel)
+            .then(response => response.json() as Array<ShippingModel>)
             .catch(this.handleError);
     }
 
