@@ -55,6 +55,7 @@ export class IonFormShippingComponent {
         if (this.data.order.shipping && this.data.order.shipping.address) {
             if (this.data.order.items.length === this.listshipping.items.length) {
                 this.data.order.items.forEach(itm => {
+                    console.log(itm);
                     this.data.order.tran += itm.delivery.price || 0;
                     this.data.order.discount += itm.discount || 0;
                     this.data.order.amount += itm.amount || 0;
