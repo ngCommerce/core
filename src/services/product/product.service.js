@@ -52,6 +52,13 @@ export class ProductService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+    reviewProduct(productId, review) {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'products/review/' + productId, review, { headers: headers })
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
     handleError(error) {
         return Promise.reject(error.message || error);
     }
