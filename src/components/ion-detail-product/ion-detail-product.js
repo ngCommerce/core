@@ -8,10 +8,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class IonDetailProductComponent {
     constructor() {
         this.selectedFavorite = new EventEmitter();
+        this.review = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
     }
     favorite(item) {
         this.selectedFavorite.emit(item);
+    }
+    createReview() {
+        this.review.emit('createReview');
     }
 }
 IonDetailProductComponent.decorators = [
@@ -122,7 +126,7 @@ IonDetailProductComponent.decorators = [
 </ion-row>
 <ion-row>
     <ion-col>
-        <button ion-button block outline >Write Review</button>
+        <button ion-button block outline (click)="createReview()">Write Review</button>
     </ion-col>
 </ion-row>
 </ion-grid>
@@ -164,5 +168,6 @@ IonDetailProductComponent.ctorParameters = () => [];
 IonDetailProductComponent.propDecorators = {
     'item': [{ type: Input },],
     'selectedFavorite': [{ type: Output },],
+    'review': [{ type: Output },],
 };
 //# sourceMappingURL=ion-detail-product.js.map
