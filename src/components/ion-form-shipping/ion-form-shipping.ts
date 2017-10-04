@@ -160,7 +160,7 @@ export class IonFormShippingComponent {
                     console.log(itm);
                     this.data.order.deliveryprice += itm.delivery.price || 0;
                     this.data.order.discount += itm.discount || 0;
-                    this.data.order.amount += itm.amount || 0;
+                    this.data.order.amount = itm.amount || 0;
                     this.data.order.totalamount += itm.afterdiscount || 0;
                 });
                 this.gotoNext.emit(this.data);
