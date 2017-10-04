@@ -46,7 +46,7 @@ IonDetailProductComponent.decorators = [
             <button ion-button color="danger" clear icon-only>
                 <ion-icon name='ios-share-outline' is-active="false"></ion-icon>
             </button>
-            <button ion-button color="danger" clear icon-only>
+            <button ion-button color="danger" clear icon-only (click)="favorite(item)">
                     <ion-icon name='ios-heart-outline' is-active="false" ></ion-icon>
             </button>
         </ion-col>
