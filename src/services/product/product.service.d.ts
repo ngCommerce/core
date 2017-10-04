@@ -13,5 +13,6 @@ export declare class ProductService {
     createProduct(product: any): Promise<ProductModel>;
     updateProduct(product: any): Promise<ProductModel>;
     deleteProduct(id: any): Promise<ProductModel>;
+    getProductListByShop(shopId: any): Promise<ProductListModel>;
     private handleError(error);
 }

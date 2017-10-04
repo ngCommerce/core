@@ -29,8 +29,8 @@ IonDetailProductComponent.decorators = [
             <p>{{item.name}}</p>
             <p>{{item.detail}}</p>
             <p *ngIf="item.promotionprice">
-                <span>{{item.promotionprice | number}} {{item.currency}}</span>
-                <span>{{item.price | number}} {{item.currency}}</span>
+                <span>{{item.promotionprice}} {{item.currency}}</span>
+                <span>{{item.price}} {{item.currency}}</span>
                 <span>-{{item.percentofdiscount}} %</span>
             </p>
             <h4 *ngIf="!item.promotionprice">{{item.price}} {{item.currency}}</h4>
@@ -83,6 +83,7 @@ IonDetailProductComponent.decorators = [
         </ion-col>
     </ion-row>
 </ion-grid>
+
 <ion-grid *ngIf="item">
 <ion-row>
     <ion-col width-50>
@@ -99,7 +100,7 @@ IonDetailProductComponent.decorators = [
         </ion-row>
         <ion-row>
             <ion-col>
-                <span>{{item ? item.length : 0}} รีวิว</span>
+                <span>{{items ? items.length : 0}} รีวิว</span>
             </ion-col>
         </ion-row>
     </ion-col>
@@ -107,7 +108,7 @@ IonDetailProductComponent.decorators = [
         <p *ngFor="let group of groups">
             <ion-row>
                 <ion-col width-30>
-                    <span>{{group.name}}STAR</span>
+                    <span>{{group.name}}Star</span>
                 </ion-col>
                 <ion-col width-60>
                     <span [style.width]="group.percent"></span>
@@ -121,7 +122,7 @@ IonDetailProductComponent.decorators = [
 </ion-row>
 <ion-row>
     <ion-col>
-        <button ion-button block outline>Write Review</button>
+        <button ion-button block outline >Write Review</button>
     </ion-col>
 </ion-row>
 </ion-grid>
@@ -134,7 +135,7 @@ IonDetailProductComponent.decorators = [
                 <p>{{review.topic}}</p>
             </ion-col>
             <ion-col width-40 text-right>
-                <p>{{review.created | moment: 'LL'}}</p>
+                <p>{{review.created}}</p>
                 <p>{{review.user ? review.user.displayname : ''}}</p>
             </ion-col>
         </ion-row>
@@ -147,6 +148,9 @@ IonDetailProductComponent.decorators = [
     <p></p>
 </ion-item-divider>
 </ion-list>
+
+
+
     `,
                 styles: [`
   ion-detail-product {
