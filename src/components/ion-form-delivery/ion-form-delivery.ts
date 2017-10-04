@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment';
+import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-form-paymentoption';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -24,7 +24,7 @@ import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment'
 })
 export class IonFormDeliveryComponent {
   @Input() value: string;
-  constructor(public parent: IonFormPaymentComponent) {
+  constructor(public parent: IonFormPaymentOptionComponent) {
     // console.log('Hello IonFormPaymentComponent Component');
   }
 

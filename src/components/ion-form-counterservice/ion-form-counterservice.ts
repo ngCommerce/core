@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { IonFormPaymentComponent } from './../ion-form-payment/ion-form-payment';
+import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-form-paymentoption';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -42,7 +42,7 @@ export class IonFormCounterserviceComponent {
   @Input() value: string;
   @Input() datapayment: any;
 
-  constructor(public parent: IonFormPaymentComponent) {
+  constructor(public parent: IonFormPaymentOptionComponent) {
     // console.log('Hello IonFormPaymentComponent Component');
   }
   selectcounter(data) {
