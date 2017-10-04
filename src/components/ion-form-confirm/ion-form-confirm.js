@@ -25,10 +25,10 @@ export class IonFormConfirmComponent {
     }
     stepValidation() {
         if (this.confirmgateway.order.discount && this.confirmgateway.order.discount > 0 && !undefined) {
-            this.confirmgateway.order.totalamount = ((this.confirmgateway.order.tran || 0) + (this.confirmgateway.order.amount || 0)) - (this.confirmgateway.order.discount || 0);
+            this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0)) - (this.confirmgateway.order.discount || 0);
         }
         else {
-            this.confirmgateway.order.totalamount = ((this.confirmgateway.order.tran || 0) + (this.confirmgateway.order.amount || 0));
+            this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0));
         }
         this.gotoNext.emit(this.confirmgateway.order);
     }
@@ -48,7 +48,7 @@ IonFormConfirmComponent.decorators = [
             </ion-item>
             <ion-item>
               <p>ค่าธรรมเนียมการจัดส่งสินค้า</p>
-              <p item-end>{{confirmgateway.order.tran | number}} บาท</p>
+              <p item-end>{{confirmgateway.order.deliveryprice | number}} บาท</p>
             </ion-item>
             <ion-row>
               <ion-col col-8>
@@ -62,7 +62,7 @@ IonFormConfirmComponent.decorators = [
             </ion-row>
             <ion-item>
               <p><b>ยอดสุทธิ (รวมภาษีมูลค่าเพิ่ม)</b></p>
-              <p item-end><b>{{((confirmgateway.order.tran || 0) + (confirmgateway.order.amount || 0)) - (confirmgateway.order.discount || 0) | number}} บาท</b></p>
+              <p item-end><b>{{((confirmgateway.order.deliveryprice || 0) + (confirmgateway.order.amount || 0)) - (confirmgateway.order.discount || 0) | number}} บาท</b></p>
             </ion-item>
           </ion-list>
           <ion-item-group>

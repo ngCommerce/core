@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { ProductModel } from '../../index';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -7,8 +8,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-form-product',
-    template: `
+  selector: 'ion-form-product',
+  template: `
     <ion-list>
     
       <ion-item>
@@ -58,7 +59,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
       <ion-item>
         <ion-label floating>Shop</ion-label>
         <ion-select [(ngModel)]="item.shop">
-          <ion-option *ngFor="let item of item.items" [value]="item">{{item.name}}</ion-option>
+          <ion-option *ngFor="let item of shops" [value]="item">{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
     
@@ -74,19 +75,22 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     </div>
     
     `,
-    styles: [`
+  styles: [`
   ion-form-product {
     background-color: red;
   }`
-    ]
+  ]
 })
 export class IonFormProductComponent {
-    @Input() items: any;
-    @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
-    constructor() {
-        // console.log('Hello IonListCategoryComponent Component');
-    }
-    onClick(item) {
-        this.itemClicked.emit(item);
-    }
+  item = {} as ProductModel;
+  @Input() categories: any;
+  @Input() shippings: any;
+  @Input() shops: any;
+  @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
+  constructor() {
+    // console.log('Hello IonListCategoryComponent Component');
+  }
+  onClick(item) {
+    this.itemClicked.emit(item);
+  }
 }
