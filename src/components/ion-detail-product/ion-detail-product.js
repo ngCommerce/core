@@ -9,6 +9,33 @@ export class IonDetailProductComponent {
     constructor() {
         this.selectedFavorite = new EventEmitter();
         this.review = new EventEmitter();
+        this.groups = [
+            {
+                name: '5',
+                percent: '0%',
+                sum: 0
+            },
+            {
+                name: '4',
+                percent: '0%',
+                sum: 0
+            },
+            {
+                name: '3',
+                percent: '0%',
+                sum: 0
+            },
+            {
+                name: '2',
+                percent: '0%',
+                sum: 0
+            },
+            {
+                name: '1',
+                percent: '0%',
+                sum: 0
+            }
+        ];
         // console.log('Hello IonListCategoryComponent Component');
     }
     favorite(item) {
@@ -158,7 +185,22 @@ IonDetailProductComponent.decorators = [
     `,
                 styles: [`
   ion-detail-product {
- 
+    .progress-box {
+        border-spacing: 1px;
+    }
+        .progress-bar {
+            background-color: silver;
+            height: 15px;
+            width: 90%;
+            padding-top: 0.1px;
+            padding-bottom: 0.1px;
+            padding-left: 0.1px;
+            padding-right: 0.1px; 
+            margin-top: 7px;
+            border-radius: 2px;
+           
+        }
+       
   }`
                 ]
             },] },
