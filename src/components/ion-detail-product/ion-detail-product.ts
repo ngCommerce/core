@@ -101,12 +101,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
                 <ion-col width-30>
                     <span>{{group.name}}Star</span>
                 </ion-col>
-                <ion-col width-60 class="xxx">
-                <div>
-                <p>TEST COLOR</p>
+                <ion-col width-60 class="progress-bar">
                     <span [style.width]="group.percent"></span>
-                    </div>
-                    </ion-col>
+                </ion-col>
                 <ion-col width-10>
                     <span>{{group.sum}}</span>
                 </ion-col>
@@ -142,57 +139,62 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <p></p>
 </ion-item-divider>
 </ion-list>
-
+<div class="xxx">
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+</div>
 
 
     `,
     styles: [`
-    .xxx {
-        color:red !important;
-        background-color: silver !important;
-    }
   ion-detail-product {
-    .xxx {
-        color:red !important;
-        background-color: silver !important;
-    }
+      .xxx {
+        color: green !important;
+        background-color: red !important;
+      }
   }`
     ]
 })
 export class IonDetailProductComponent {
     @Input() item: any;
     @Input() isReview: Boolean;
-     groups: Array<any>;
     @Output() selectedFavorite: EventEmitter<any> = new EventEmitter<any>();
     @Output() review:EventEmitter<any> = new EventEmitter<any>();
+    groups:Array<any>=[
+        {
+          name: '5',
+          percent: '0%',
+          sum: 0
+        },
+        {
+          name: '4',
+          percent: '0%',
+          sum: 0
+        },
+        {
+          name: '3',
+          percent: '0%',
+          sum: 0
+        },
+        {
+          name: '2',
+          percent: '0%',
+          sum: 0
+        },
+        {
+          name: '1',
+          percent: '0%',
+          sum: 0
+        }
+      ];
     constructor() {
-        this.groups = [
-            {
-              name: '5',
-              percent: '0%',
-              sum: 0
-            },
-            {
-              name: '4',
-              percent: '0%',
-              sum: 0
-            },
-            {
-              name: '3',
-              percent: '0%',
-              sum: 0
-            },
-            {
-              name: '2',
-              percent: '0%',
-              sum: 0
-            },
-            {
-              name: '1',
-              percent: '0%',
-              sum: 0
-            }
-          ];
+      
         // console.log('Hello IonListCategoryComponent Component');
     }
     favorite(item) {
