@@ -8,12 +8,16 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 export class IonFormProfileComponent {
     constructor() {
         this.itemClicked = new EventEmitter();
+        this.settingClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
     }
     logout() {
         window.localStorage.removeItem('token');
         window.localStorage.removeItem('gCart');
         this.itemClicked.emit('logout');
+    }
+    setting() {
+        this.settingClicked.emit('setting');
     }
 }
 IonFormProfileComponent.decorators = [
@@ -45,7 +49,7 @@ IonFormProfileComponent.decorators = [
       </button>
 </ion-list>
 <ion-list >
-  <button ion-item>
+  <button ion-item (click)="setting()">
           <ion-icon name="ios-settings-outline" item-start></ion-icon>
           Setting
       </button>
@@ -85,5 +89,6 @@ IonFormProfileComponent.ctorParameters = () => [];
 IonFormProfileComponent.propDecorators = {
     'item': [{ type: Input },],
     'itemClicked': [{ type: Output },],
+    'settingClicked': [{ type: Output },],
 };
 //# sourceMappingURL=ion-form-profile.js.map
