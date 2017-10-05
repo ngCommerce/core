@@ -102,8 +102,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
                     <span>{{group.name}}Star</span>
                 </ion-col>
                 <ion-col width-60 class="xxx">
+                <div>
+                <p>TEST COLOR</p>
                     <span [style.width]="group.percent"></span>
-                </ion-col>
+                    </div>
+                    </ion-col>
                 <ion-col width-10>
                     <span>{{group.sum}}</span>
                 </ion-col>
@@ -144,9 +147,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
     `,
     styles: [`
+    .xxx {
+        color:red !important;
+        background-color: silver !important;
+    }
   ion-detail-product {
-    .xxx{
-        background-color: silver;
+    .xxx {
+        color:red !important;
+        background-color: silver !important;
     }
   }`
     ]
