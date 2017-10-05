@@ -145,17 +145,59 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     `,
     styles: [`
   ion-detail-product {
-    background-color: red;
+    .progress-box {
+        border-spacing: 1px;
+    }
+        .progress-bar {
+            background-color: silver;
+            height: 15px;
+            width: 90%;
+            padding-top: 0.1px;
+            padding-bottom: 0.1px;
+            padding-left: 0.1px;
+            padding-right: 0.1px; 
+            margin-top: 7px;
+            border-radius: 2px;
+           
+        }
+       
   }`
     ]
 })
 export class IonDetailProductComponent {
     @Input() item: any;
     @Input() isReview: Boolean;
-    
+    groups: Array<any>;
     @Output() selectedFavorite: EventEmitter<any> = new EventEmitter<any>();
     @Output() review:EventEmitter<any> = new EventEmitter<any>();
     constructor() {
+        this.groups = [
+            {
+              name: '5',
+              percent: '0%',
+              sum: 0
+            },
+            {
+              name: '4',
+              percent: '0%',
+              sum: 0
+            },
+            {
+              name: '3',
+              percent: '0%',
+              sum: 0
+            },
+            {
+              name: '2',
+              percent: '0%',
+              sum: 0
+            },
+            {
+              name: '1',
+              percent: '0%',
+              sum: 0
+            }
+          ];
         // console.log('Hello IonListCategoryComponent Component');
     }
     favorite(item) {
