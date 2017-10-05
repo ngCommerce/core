@@ -141,7 +141,7 @@ IonDetailProductComponent.decorators = [
                 <ion-col width-30>
                     <span>{{group.name}}Star</span>
                 </ion-col>
-                <ion-col width-60 class="xxx">
+                <ion-col width-60 class="progress-bar">
                     <span [style.width]="group.percent"></span>
                 </ion-col>
                 <ion-col width-10>
@@ -179,15 +179,25 @@ IonDetailProductComponent.decorators = [
     <p></p>
 </ion-item-divider>
 </ion-list>
-
+<div class="xxx">
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+<p class="xxx">test</p>
+</div>
 
 
     `,
                 styles: [`
   ion-detail-product {
-    .xxx{
-        background-color: silver;
-    }
+      .xxx {
+        color: green !important;
+        background-color: red !important;
+      }
   }`
                 ]
             },] },
