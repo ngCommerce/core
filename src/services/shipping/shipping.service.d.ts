@@ -7,7 +7,7 @@ export declare class ShippingService {
     corService: CorService;
     private _apiURL;
     constructor(apiURL: String, http: Http, corService: CorService);
-    getShippingList(): Promise<ShippingModel>;
+    getShippingList(): Promise<Array<ShippingModel>>;
     getShippingByID(id: any): Promise<ShippingModel>;
     createShipping(shipping: any): Promise<ShippingModel>;
     updateShipping(shipping: any): Promise<ShippingModel>;

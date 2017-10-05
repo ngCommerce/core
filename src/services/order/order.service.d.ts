@@ -13,5 +13,9 @@ export declare class OrderService {
     updateOrder(Order: any): Promise<OrderModel>;
     deleteOrder(id: any): Promise<OrderModel>;
     getOrderByShop(): Promise<ItemByOrderByShopModel>;
+    updateItemToAccept(orderId: any, itemId: any): Promise<OrderModel>;
+    updateItemToSent(orderId: any, itemId: any): Promise<OrderModel>;
+    updateItemToComplete(orderId: any, itemId: any): Promise<OrderModel>;
+    updateItemToReject(orderId: any, itemId: any): Promise<OrderModel>;
     private handleError(error);
 }

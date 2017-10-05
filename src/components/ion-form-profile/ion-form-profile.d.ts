@@ -8,6 +8,10 @@ import { EventEmitter } from '@angular/core';
 export declare class IonFormProfileComponent {
     item: any;
     itemClicked: EventEmitter<any>;
+    settingClicked: EventEmitter<any>;
+    notificationClicked: EventEmitter<any>;
     constructor();
     logout(): void;
+    onNotification(): void;
+    setting(): void;
 }

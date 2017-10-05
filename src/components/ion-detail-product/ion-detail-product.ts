@@ -91,17 +91,17 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </ion-row>
         <ion-row>
             <ion-col>
-                <span>{{item ? item.reviews.length : 0}} รีวิว</span>
+                <span>{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
             </ion-col>
         </ion-row>
     </ion-col>
-    <ion-col width-50>
+    <ion-col width-50 class="progress-box">
         <p *ngFor="let group of groups">
             <ion-row>
                 <ion-col width-30>
                     <span>{{group.name}}Star</span>
                 </ion-col>
-                <ion-col width-60>
+                <ion-col width-60 class="progress-bar">
                     <span [style.width]="group.percent"></span>
                 </ion-col>
                 <ion-col width-10>
@@ -111,7 +111,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </p>
     </ion-col>
 </ion-row>
-<ion-row>
+<ion-row *ngIf="isReview">
     <ion-col>
         <button ion-button block outline (click)="createReview()">Write Review</button>
     </ion-col>
@@ -139,21 +139,47 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <p></p>
 </ion-item-divider>
 </ion-list>
-
-
-
     `,
     styles: [`
   ion-detail-product {
-    background-color: red;
+      
   }`
     ]
 })
 export class IonDetailProductComponent {
     @Input() item: any;
+    @Input() isReview: Boolean;
     @Output() selectedFavorite: EventEmitter<any> = new EventEmitter<any>();
     @Output() review:EventEmitter<any> = new EventEmitter<any>();
+    groups:Array<any>=[
+        {
+          name: '5',
+          percent: '0%',
+          sum: 0
+        },
+        {
+          name: '4',
+          percent: '0%',
+          sum: 0
+        },
+        {
+          name: '3',
+          percent: '0%',
+          sum: 0
+        },
+        {
+          name: '2',
+          percent: '0%',
+          sum: 0
+        },
+        {
+          name: '1',
+          percent: '0%',
+          sum: 0
+        }
+      ];
     constructor() {
+      
         // console.log('Hello IonListCategoryComponent Component');
     }
     favorite(item) {

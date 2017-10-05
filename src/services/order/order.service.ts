@@ -60,6 +60,39 @@ export class OrderService {
             .catch(this.handleError);
     }
 
+    updateItemToAccept(orderId, itemId): Promise<OrderModel> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'updateorderaccept/' + orderId + '/' + itemId, { headers: headers })
+            .toPromise()
+            .then(response => response.json() as OrderModel)
+            .catch(this.handleError);
+    }
+
+    updateItemToSent(orderId, itemId): Promise<OrderModel> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'updateordersent/' + orderId + '/' + itemId, { headers: headers })
+            .toPromise()
+            .then(response => response.json() as OrderModel)
+            .catch(this.handleError);
+    }
+
+    updateItemToComplete(orderId, itemId): Promise<OrderModel> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'updateordercomplete/' + orderId + '/' + itemId, { headers: headers })
+            .toPromise()
+            .then(response => response.json() as OrderModel)
+            .catch(this.handleError);
+    }
+
+    updateItemToReject(orderId, itemId): Promise<OrderModel> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'updateorderreject/' + orderId + '/' + itemId, { headers: headers })
+            .toPromise()
+            .then(response => response.json() as OrderModel)
+            .catch(this.handleError);
+    }
+
+
 
     private handleError(error: any): Promise<any> {
         return Promise.reject(error.message || error);
