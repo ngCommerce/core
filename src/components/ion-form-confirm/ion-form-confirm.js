@@ -89,7 +89,7 @@ IonFormConfirmComponent.decorators = [
                   </ion-col>
                 </ion-row>
                 <ion-row no-padding>
-                  <ion-col padding width-100 text-center>
+                  <ion-col no-padding width-100>
                     <p>{{item.delivery.name}}</p>
                     <p>{{item.delivery.detail}}</p>
                   </ion-col>
