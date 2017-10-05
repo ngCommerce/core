@@ -91,7 +91,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </ion-row>
         <ion-row>
             <ion-col>
-                <span>{{item ? item.reviews.length : 0}} รีวิว</span>
+                <span>{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
             </ion-col>
         </ion-row>
     </ion-col>
