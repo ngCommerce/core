@@ -20,9 +20,9 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
       </button>
 </ion-list>
 <ion-list>
-  <button ion-item>
+  <button ion-item (click)="onNotification()">
           <ion-icon name="ios-notifications-outline" item-start></ion-icon>
-          Push notification
+          Notification
       </button>
   <button ion-item>
           <ion-icon name="ios-filing-outline" item-start></ion-icon>
@@ -72,6 +72,7 @@ export class IonFormProfileComponent {
     @Input() item: any;
     @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() settingClicked: EventEmitter<any> = new EventEmitter<any>();
+    @Output() notificationClicked: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonListCategoryComponent Component');
     }
@@ -81,6 +82,11 @@ export class IonFormProfileComponent {
         window.localStorage.removeItem('gCart');
         this.itemClicked.emit('logout');
     }
+
+    onNotification(){
+        this.notificationClicked.emit('onNotification');
+    }
+
     setting(){
         this.settingClicked.emit('setting');
     }
