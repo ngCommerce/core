@@ -1,3 +1,4 @@
+import { ShopModel } from '../../..';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 /**
@@ -28,7 +29,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     ]
 })
 export class IonFormShopComponent {
-    @Input() item: any;
+    item = {} as ShopModel;
     @Output() createShop: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonFormShopComponent Component');

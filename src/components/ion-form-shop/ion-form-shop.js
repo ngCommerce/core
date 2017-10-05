@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -7,6 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
  */
 export class IonFormShopComponent {
     constructor() {
+        this.item = {};
         this.createShop = new EventEmitter();
         // console.log('Hello IonFormShopComponent Component');
     }
@@ -40,7 +41,6 @@ IonFormShopComponent.decorators = [
 /** @nocollapse */
 IonFormShopComponent.ctorParameters = () => [];
 IonFormShopComponent.propDecorators = {
-    'item': [{ type: Input },],
     'createShop': [{ type: Output },],
 };
 //# sourceMappingURL=ion-form-shop.js.map
