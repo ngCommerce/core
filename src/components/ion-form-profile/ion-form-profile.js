@@ -45,7 +45,7 @@ IonFormProfileComponent.decorators = [
       </button>
 </ion-list>
 <ion-list >
-  <button ion-item (click)="createshop()">
+  <button ion-item>
           <ion-icon name="ios-settings-outline" item-start></ion-icon>
           Setting
       </button>
