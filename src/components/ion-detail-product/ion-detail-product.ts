@@ -139,25 +139,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <p></p>
 </ion-item-divider>
 </ion-list>
-<div class="xxx">
-<p class="xxx">test</p>
-<p class="xxx">test</p>
-<p class="xxx">test</p>
-<p class="xxx">test</p>
-<p class="xxx">test</p>
-<p class="xxx">test</p>
-<p class="xxx">test</p>
-<p class="xxx">test</p>
-</div>
-
-
     `,
     styles: [`
   ion-detail-product {
-      .xxx {
-        color: green !important;
-        background-color: red !important;
-      }
+      
   }`
     ]
 })
