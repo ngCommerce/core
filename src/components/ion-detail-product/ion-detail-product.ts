@@ -111,7 +111,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </p>
     </ion-col>
 </ion-row>
-<ion-row>
+<ion-row *ngIf="isReview">
     <ion-col>
         <button ion-button block outline (click)="createReview()">Write Review</button>
     </ion-col>
@@ -151,6 +151,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class IonDetailProductComponent {
     @Input() item: any;
+    @Input() isReview: Boolean;
+    
     @Output() selectedFavorite: EventEmitter<any> = new EventEmitter<any>();
     @Output() review:EventEmitter<any> = new EventEmitter<any>();
     constructor() {

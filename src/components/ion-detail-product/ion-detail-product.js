@@ -124,7 +124,7 @@ IonDetailProductComponent.decorators = [
         </p>
     </ion-col>
 </ion-row>
-<ion-row>
+<ion-row *ngIf="isReview">
     <ion-col>
         <button ion-button block outline (click)="createReview()">Write Review</button>
     </ion-col>
@@ -167,6 +167,7 @@ IonDetailProductComponent.decorators = [
 IonDetailProductComponent.ctorParameters = () => [];
 IonDetailProductComponent.propDecorators = {
     'item': [{ type: Input },],
+    'isReview': [{ type: Input },],
     'selectedFavorite': [{ type: Output },],
     'review': [{ type: Output },],
 };
