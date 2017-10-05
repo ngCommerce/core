@@ -36,12 +36,7 @@ import { Component, Input } from '@angular/core';
 export class IonFormWizardComponent {
     @Input() currentstep: any;
     @Input() steps:Array<any>;
-    // @Input() items: any;
-    // @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonFormWizardComponent Component');
     }
-    // onClick(item) {
-    //     this.itemClicked.emit(item);
-    // }
 }
