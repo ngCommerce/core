@@ -96,13 +96,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </ion-row>
     </ion-col>
     <ion-col width-50 class="progress-box">
-        <p *ngFor="let group of groups">
+        <p id="pReview" *ngFor="let group of groups">
             <ion-row>
                 <ion-col width-30>
                     <span>{{group.name}}Star</span>
                 </ion-col>
                 <ion-col width-60 class="progress-bar">
-                    <span [style.width]="group.percent"></span>
+                    <span id="spanReview" [style.width]="group.percent"></span>
                 </ion-col>
                 <ion-col width-10>
                     <span>{{group.sum}}</span>
@@ -159,6 +159,19 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             margin-top: 7px;
             border-radius: 2px;
            
+        }
+        #spanReview {
+            text-align: center;
+            display: inline-block;
+            height: 100%;
+            border-radius: 2px;
+            background-color: #ffb400;
+            transition: width .4s ease-in-out;
+        }
+        #pReview {
+            ion-row {
+                height: 15px;
+            }
         }
        
   }`
