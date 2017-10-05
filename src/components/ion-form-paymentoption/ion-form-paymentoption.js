@@ -27,7 +27,7 @@ IonFormPaymentOptionComponent.decorators = [
         <ion-row>
           <ion-col text-center *ngFor="let payment of paymentgateway" (click)="selectpayment(payment)">
             <ion-segment color="light" [(ngModel)]="channel">
-              <ion-segment-button [value]="payment.name">
+              <ion-segment-button id="segmentPayment" [value]="payment.name">
               <img src="{{payment.image}}">
               </ion-segment-button>
             </ion-segment>
