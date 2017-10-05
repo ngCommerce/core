@@ -101,7 +101,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
                 <ion-col width-30>
                     <span>{{group.name}}Star</span>
                 </ion-col>
-                <ion-col width-60 class="progress-bar">
+                <ion-col width-60 class="xxx">
                     <span [style.width]="group.percent"></span>
                 </ion-col>
                 <ion-col width-10>
@@ -145,7 +145,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     `,
     styles: [`
   ion-detail-product {
-    background-color: red;
+    .xxx{
+        background-color: silver;
+    }
   }`
     ]
 })
