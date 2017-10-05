@@ -104,17 +104,17 @@ IonDetailProductComponent.decorators = [
         </ion-row>
         <ion-row>
             <ion-col>
-                <span>{{item ? item.reviews.length : 0}} รีวิว</span>
+                <span>{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
             </ion-col>
         </ion-row>
     </ion-col>
-    <ion-col width-50>
+    <ion-col width-50 class="progress-box">
         <p *ngFor="let group of groups">
             <ion-row>
                 <ion-col width-30>
                     <span>{{group.name}}Star</span>
                 </ion-col>
-                <ion-col width-60>
+                <ion-col width-60 class="progress-bar">
                     <span [style.width]="group.percent"></span>
                 </ion-col>
                 <ion-col width-10>
@@ -124,7 +124,7 @@ IonDetailProductComponent.decorators = [
         </p>
     </ion-col>
 </ion-row>
-<ion-row>
+<ion-row *ngIf="isReview">
     <ion-col>
         <button ion-button block outline (click)="createReview()">Write Review</button>
     </ion-col>
@@ -158,7 +158,7 @@ IonDetailProductComponent.decorators = [
     `,
                 styles: [`
   ion-detail-product {
-    background-color: red;
+ 
   }`
                 ]
             },] },
@@ -167,6 +167,7 @@ IonDetailProductComponent.decorators = [
 IonDetailProductComponent.ctorParameters = () => [];
 IonDetailProductComponent.propDecorators = {
     'item': [{ type: Input },],
+    'isReview': [{ type: Input },],
     'selectedFavorite': [{ type: Output },],
     'review': [{ type: Output },],
 };

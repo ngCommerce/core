@@ -106,24 +106,15 @@ IonFormShippingComponent.decorators = [
     <ion-label> {{'โปรดเลือกแบบของการส่งสินค้า'}} </ion-label>
     <ion-list>
         <div *ngFor="let item of listshipping.items">
-            <ion-item>
-                <ion-row>
-                    <ion-col width-15>
-                        <p>{{item.product.shop.name}}</p>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col no-padding width-33 class="magin-right-10-custom">
-                    <p>preload-image</p>
-                    </ion-col>
-                    <ion-col>
-                        <p>{{item.product.name}}</p>
-                        <p>{{item.qty}} {{'QTY'}}</p>
-                        <p>{{item.product.price | number}} Baht</p>
-                        <p text-right>รวม {{item.product.price * item.qty | number}} {{'บาท'}}</p>
-                    </ion-col>
-                </ion-row>
-            </ion-item>
+        <b padding-left>{{item.product.shop.name}}</b>
+        <ion-item>
+        <ion-thumbnail item-start>
+        <img src="{{item.product.images[0]}}">
+      </ion-thumbnail>
+            <h2>{{item.product.name}}</h2>
+            <p> {{item.qty}} {{'QTY'}}</p>
+            <h3 text-right>รวม {{item.totalamount | number}} {{'บาท'}}</h3>
+        </ion-item>
             <ion-row>
                 <ion-col width-100>
                     <p>{{'วิธีจัดส่ง'}}</p>
