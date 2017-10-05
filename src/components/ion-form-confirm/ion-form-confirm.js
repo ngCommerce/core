@@ -88,12 +88,31 @@ IonFormConfirmComponent.decorators = [
                     <p>{{item.product.price}} บาท</p>
                   </ion-col>
                 </ion-row>
+
+
+
                 <ion-row no-padding>
                   <ion-col no-padding width-100>
                     <p>{{item.delivery.name}}</p>
                     <p>{{item.delivery.detail}}</p>
                   </ion-col>
                 </ion-row>
+
+                <ion-row>
+                  <ion-col width-100>
+                    <p>{{'วิธีจัดส่ง'}}</p>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                <ion-col width-100>
+                <ion-label>
+                <p>{{item.delivery.name}}</p>
+                <p>{{item.delivery.detail}}</p>
+                </ion-label>
+                </ion-col>
+              </ion-row>
+
               </ion-item>
             </ion-list>
             <ion-row>
