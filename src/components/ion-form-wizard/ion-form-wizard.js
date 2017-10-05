@@ -6,15 +6,10 @@ import { Component, Input } from '@angular/core';
  * Components.
  */
 export class IonFormWizardComponent {
-    // @Input() items: any;
-    // @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonFormWizardComponent Component');
     }
 }
-// onClick(item) {
-//     this.itemClicked.emit(item);
-// }
 IonFormWizardComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-form-wizard',
