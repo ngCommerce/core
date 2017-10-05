@@ -37,24 +37,15 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     <ion-label> {{'โปรดเลือกแบบของการส่งสินค้า'}} </ion-label>
     <ion-list>
         <div *ngFor="let item of listshipping.items">
-            <ion-item>
-                <ion-row>
-                    <ion-col width-15>
-                        <p>{{item.product.shop.name}}</p>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col no-padding width-33 class="magin-right-10-custom">
-                    <p>preload-image</p>
-                    </ion-col>
-                    <ion-col>
-                        <p>{{item.product.name}}</p>
-                        <p>{{item.qty}} {{'QTY'}}</p>
-                        <p>{{item.product.price | number}} Baht</p>
-                        <p text-right>รวม {{item.product.price * item.qty | number}} {{'บาท'}}</p>
-                    </ion-col>
-                </ion-row>
-            </ion-item>
+        <b padding-left>{{item.product.shop.name}}</b>
+        <ion-item>
+        <ion-thumbnail item-start>
+        <img src="{{item.product.images[0]}}">
+      </ion-thumbnail>
+            <h2>{{item.product.name}}</h2>
+            <p> {{item.qty}} {{'QTY'}}</p>
+            <h3 text-right>รวม {{item.totalamount | number}} {{'บาท'}}</h3>
+        </ion-item>
             <ion-row>
                 <ion-col width-100>
                     <p>{{'วิธีจัดส่ง'}}</p>
@@ -127,32 +118,32 @@ export class IonFormShippingComponent {
     openModal() {
         this.createAddress.emit('push model');
     }
-    
+
     setproduct(product, shipping) {
         var checkProduct = false;
         if (this.data.order.items && this.data.order.items.length > 0) {
-          // console.log('+++++++++++++++++++++++++++++++++');
-          this.data.order.items.forEach(itm => {
-            if (itm.product.name === product.product.name) {
-              itm.delivery = shipping;
-              checkProduct = true;
-            }
-          });
+            // console.log('+++++++++++++++++++++++++++++++++');
+            this.data.order.items.forEach(itm => {
+                if (itm.product.name === product.product.name) {
+                    itm.delivery = shipping;
+                    checkProduct = true;
+                }
+            });
         }
         if (!checkProduct) {
-          this.data.order.items.push({
-            product: product.product,
-            qty: product.qty,
-            amount: (product.product.price || 0) * (product.qty),
-            delivery: shipping,
-            price: product.product.price,
-            discount: product.discount,
-            afterdiscount: (product.amount || 0) - (product.discount || 0)
-    
-          });
+            this.data.order.items.push({
+                product: product.product,
+                qty: product.qty,
+                amount: (product.product.price || 0) * (product.qty),
+                delivery: shipping,
+                price: product.product.price,
+                discount: product.discount,
+                afterdiscount: (product.amount || 0) - (product.discount || 0)
+
+            });
         }
         console.log(this.data.order);
-      }
+    }
     stepValidation() {
         if (this.data.order.shipping && this.data.order.shipping.address) {
             if (this.data.order.items.length === this.listshipping.items.length) {

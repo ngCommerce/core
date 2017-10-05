@@ -152,6 +152,9 @@ IonDetailProductComponent.decorators = [
     <p></p>
 </ion-item-divider>
 </ion-list>
+
+
+
     `,
                 styles: [`
   ion-detail-product {
