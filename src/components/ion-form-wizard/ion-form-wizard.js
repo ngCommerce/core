@@ -6,15 +6,10 @@ import { Component, Input } from '@angular/core';
  * Components.
  */
 export class IonFormWizardComponent {
-    // @Input() items: any;
-    // @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonFormWizardComponent Component');
     }
 }
-// onClick(item) {
-//     this.itemClicked.emit(item);
-// }
 IonFormWizardComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-form-wizard',
@@ -26,7 +21,7 @@ IonFormWizardComponent.decorators = [
           <ion-row>
             <ion-col text-center>
               <ion-segment color="light" [(ngModel)]="currentstep">
-                <ion-segment-button [value]="step.value">{{step.value}}</ion-segment-button>
+                <ion-segment-button id="segmentStep" [value]="step.value">{{step.value}}</ion-segment-button>
               </ion-segment>
               <p>{{step.title}}</p>
             </ion-col>
