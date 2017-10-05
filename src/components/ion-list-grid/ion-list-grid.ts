@@ -22,14 +22,14 @@ import { Component, Input } from "@angular/core";
         <ion-row>
           <ion-col col-6 *ngIf="items && items.length > 1">
             <img src="{{items[1].image}}">
-            <div lass="p-margin-top-40">
+            <div class="p-margin-top-40">
             <p>{{items[1].name}}</p>
             <p>{{items[1].price}}</p>
             </div>
           </ion-col>
           <ion-col col-6 *ngIf="items && items.length > 2">
             <img src="{{items[2].image}}">
-            <div lass="p-margin-top-40">
+            <div class="p-margin-top-40">
             <p>{{items[2].name}}</p>
             <p>{{items[2].price}}</p>
             </div>
@@ -38,14 +38,14 @@ import { Component, Input } from "@angular/core";
         <ion-row>
           <ion-col col-6 *ngIf="items && items.length > 3">
             <img src="{{items[3].image}}">
-            <div lass="p-margin-top-40">
+            <div class="p-margin-top-40">
             <p>{{items[3].name}}</p>
             <p>{{items[3].price}}</p>
             </div>
           </ion-col>
           <ion-col col-6 *ngIf="items && items.length > 4">
             <img src="{{items[4].image}}">
-            <div lass="p-margin-top-40">
+            <div class="p-margin-top-40">
             <p>{{items[4].name}}</p>
             <p>{{items[4].price}}</p>
             </div>
