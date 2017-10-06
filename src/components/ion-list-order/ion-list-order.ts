@@ -11,17 +11,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   template: `
       <ion-list *ngIf="items">
         <ion-item *ngFor="let item of items; let i = index" (click)="selectOrder(item)">
-          <ion-row>
-            <ion-col no-padding width-33 class="magin-right-10-custom">
-              <img src="{{item.image}}">
-            </ion-col>
-            <ion-col *ngIf="item.status === status">
-              <p id="pName">{{item.name}}</p>
-              <p id="pQty">{{item.qty}} qty</p>
-              <p id="pPrice">{{item.price | number}} Baht</p>
-              <p text-right id="pStatus" >{{item.status}}</p>
-            </ion-col>
-          </ion-row>
+            <ion-thumbnail item-start>
+            <img src="{{item.image}}">
+        </ion-thumbnail>
+        <div *ngIf="item.status === status">
+        <p id="pName">{{item.name}}</p>
+        <p id="pQty">{{item.qty}} qty</p>
+        <p id="pPrice">{{item.price | number}} Baht</p>
+        <p text-right id="pStatus" >{{item.status}}</p>
+        </div>
         </ion-item>
       </ion-list>
     `,
