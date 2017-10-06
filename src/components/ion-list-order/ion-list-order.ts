@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'ion-list-order',
   template: `
       <ion-list *ngIf="items">
-      <p>Ord : {{item._id}}</p>
+      <p>Ord : {{item.order._id}}</p>
         <ion-item *ngFor="let item of items; let i = index" (click)="selectOrder(item)">
             <ion-thumbnail item-start>
             <img src="{{item.image}}">
