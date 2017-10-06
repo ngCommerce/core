@@ -73,6 +73,26 @@ export class ProductService {
             .catch(this.handleError);
     }
 
+    private saveLastVisit(product) {
+        let lastVisit = window.localStorage.getItem('gLastVisit') ? JSON.parse(window.localStorage.getItem('gLastVisit')) : [];
+        let duplicate = lastVisit.array.forEach((obj, index) => {
+            if (obj._id === product._id) return index;
+        });
+
+        if (duplicate) {
+            lastVisit.splice(duplicate, 1);
+        }
+
+        lastVisit.unshift(product);
+
+        if (lastVisit.length > 5) {
+            lastVisit = lastVisit.slice(0, 5);
+            window.localStorage.setItem('gLastVisit', JSON.stringify(lastVisit));
+            return;
+        }
+
+    }
+
     private updateHitoryLog(id) {
         let headers = this.corService.createAuthorizationHeader();
         this.http.get(this._apiURL + 'productupdatehitorylog/' + id, { headers: headers })
