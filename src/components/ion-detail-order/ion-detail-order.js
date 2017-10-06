@@ -37,9 +37,9 @@ IonDetailOrderComponent.decorators = [
   <ion-icon name="md-car"></ion-icon> Shipping</h3>
 <div>
 
-  <span id="delName">จัดส่ง : {{item.delivery.name}}</span>
-  <span id="delDetail">  {{item.delivery.detail}} </span>
-  <span id="delPrice"> ค่าจัดส่ง {{item.delivery.price}} บาท</span>
+  <p id="delName">จัดส่ง : {{item.delivery.name}}</p>
+  <p id="delDetail">  {{item.delivery.detail}} </p>
+  <p id="delPrice"> ค่าจัดส่ง {{item.delivery.price}} บาท</p>
 
 </div>
 </ion-item>
@@ -47,11 +47,11 @@ IonDetailOrderComponent.decorators = [
 <h3>
   <ion-icon name="ios-cash"></ion-icon> Delivery</h3>
 <div *ngIf="item.shipping">
-  <span id="shipAddress">ที่อยู่ : {{item.shipping.address}}</span>
-  <span id="shipSubdistrict">  ตำบล {{item.shipping.subdistrict}} </span>
-  <span id="shipDistrict"> อำเภอ {{item.shipping.district}} </span>
-  <span id="shipProvince"> จังหวัด {{item.shipping.province}} </span>
-  <span id="shipPostcode"> รหัสไปรษณีย์ {{item.shipping.postcode}} </span>
+  <p id="shipAddress">ที่อยู่ : {{item.shipping.address}}</p>
+  <p id="shipSubdistrict">  ตำบล {{item.shipping.subdistrict}} </p>
+  <p id="shipDistrict"> อำเภอ {{item.shipping.district}} </p>
+  <p id="shipProvince"> จังหวัด {{item.shipping.province}} </p>
+  <p id="shipPostcode"> รหัสไปรษณีย์ {{item.shipping.postcode}} </p>
 </div>
 </ion-item>
 </ion-list>

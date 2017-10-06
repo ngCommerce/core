@@ -9,12 +9,16 @@ export class IonFormProfileComponent {
     constructor() {
         this.itemClicked = new EventEmitter();
         this.settingClicked = new EventEmitter();
+        this.notificationClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
     }
     logout() {
         window.localStorage.removeItem('token');
         window.localStorage.removeItem('gCart');
         this.itemClicked.emit('logout');
+    }
+    onNotification() {
+        this.notificationClicked.emit('onNotification');
     }
     setting() {
         this.settingClicked.emit('setting');
@@ -35,9 +39,9 @@ IonFormProfileComponent.decorators = [
       </button>
 </ion-list>
 <ion-list>
-  <button ion-item>
+  <button ion-item (click)="onNotification()">
           <ion-icon name="ios-notifications-outline" item-start></ion-icon>
-          Push notification
+          Notification
       </button>
   <button ion-item>
           <ion-icon name="ios-filing-outline" item-start></ion-icon>
@@ -90,5 +94,6 @@ IonFormProfileComponent.propDecorators = {
     'item': [{ type: Input },],
     'itemClicked': [{ type: Output },],
     'settingClicked': [{ type: Output },],
+    'notificationClicked': [{ type: Output },],
 };
 //# sourceMappingURL=ion-form-profile.js.map

@@ -72,7 +72,7 @@ IonFormConfirmComponent.decorators = [
             <ion-list *ngFor="let item of confirmgateway.order.items">
               <ion-item>
                 <ion-row>
-                  <ion-col col-12>
+                  <ion-col col-12 id="shopName-col">
                     <p>{{item.product.shop.name}}</p>
                   </ion-col>
                 </ion-row>
@@ -88,12 +88,20 @@ IonFormConfirmComponent.decorators = [
                     <p>{{item.product.price}} บาท</p>
                   </ion-col>
                 </ion-row>
-                <ion-row no-padding>
-                  <ion-col padding width-100 text-center>
+
+                <ion-row>
+                <ion-col id="shippingMethod-col">
+                  <p>{{'วิธีจัดส่ง'}}</p>
+                </ion-col>
+                </ion-row>
+                
+                <ion-row>
+                  <ion-col>
                     <p>{{item.delivery.name}}</p>
                     <p>{{item.delivery.detail}}</p>
                   </ion-col>
                 </ion-row>
+
               </ion-item>
             </ion-list>
             <ion-row>

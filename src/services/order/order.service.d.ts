@@ -1,5 +1,5 @@
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import { Http } from "@angular/http";
+import "rxjs/add/operator/toPromise";
 import { CorService } from "../../core.service";
 import { OrderModel, ItemByOrderByShopModel } from "../../models/Order.model";
 export declare class OrderService {
