@@ -62,6 +62,31 @@ export class ProductService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+    saveLastVisit(product) {
+        let lastVisit = window.localStorage.getItem('gLastVisit') ? JSON.parse(window.localStorage.getItem('gLastVisit')) : [];
+        let duplicate = lastVisit.array.forEach((obj, index) => {
+            if (obj._id === product._id)
+                return index;
+        });
+        if (duplicate) {
+            lastVisit.splice(duplicate, 1);
+        }
+        lastVisit.unshift({
+            _id: product._id,
+            name: product.name,
+            image: product.images[0],
+            price: product.price,
+            promotionprice: product.promotionprice,
+            percentofdiscount: product.percentofdiscount,
+            currency: product.currency,
+            rate: product.rate,
+        });
+        if (lastVisit.length > 5) {
+            lastVisit = lastVisit.slice(0, 5);
+            window.localStorage.setItem('gLastVisit', JSON.stringify(lastVisit));
+            return;
+        }
+    }
     updateHitoryLog(id) {
         let headers = this.corService.createAuthorizationHeader();
         this.http.get(this._apiURL + 'productupdatehitorylog/' + id, { headers: headers })
