@@ -1,25 +1,14 @@
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonDetailProductComponent = class IonDetailProductComponent {
+export class IonDetailProductComponent {
     constructor() {
-        this.selectedFavorite = new core_1.EventEmitter();
-        this.review = new core_1.EventEmitter();
+        this.selectedFavorite = new EventEmitter();
+        this.review = new EventEmitter();
         this.groups = [
             {
                 name: '5',
@@ -55,27 +44,11 @@ let IonDetailProductComponent = class IonDetailProductComponent {
     createReview() {
         this.review.emit('createReview');
     }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], IonDetailProductComponent.prototype, "item", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
-], IonDetailProductComponent.prototype, "isReview", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], IonDetailProductComponent.prototype, "selectedFavorite", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], IonDetailProductComponent.prototype, "review", void 0);
-IonDetailProductComponent = __decorate([
-    core_1.Component({
-        selector: 'ion-detail-product',
-        template: `
+}
+IonDetailProductComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'ion-detail-product',
+                template: `
   <ion-slides pager="true" *ngIf="item.images && item.images.length > 0">
   <ion-slide *ngFor="let image of item.images">
     <img src="{{image}}">
@@ -207,13 +180,19 @@ IonDetailProductComponent = __decorate([
 </ion-item-divider>
 </ion-list>
     `,
-        styles: [`
+                styles: [`
   ion-detail-product {
       
   }`
-        ]
-    }),
-    __metadata("design:paramtypes", [])
-], IonDetailProductComponent);
-exports.IonDetailProductComponent = IonDetailProductComponent;
+                ]
+            },] },
+];
+/** @nocollapse */
+IonDetailProductComponent.ctorParameters = () => [];
+IonDetailProductComponent.propDecorators = {
+    'item': [{ type: Input },],
+    'isReview': [{ type: Input },],
+    'selectedFavorite': [{ type: Output },],
+    'review': [{ type: Output },],
+};
 //# sourceMappingURL=ion-detail-product.js.map

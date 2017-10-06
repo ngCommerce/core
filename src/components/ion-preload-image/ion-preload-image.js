@@ -1,23 +1,12 @@
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const util_1 = require("ionic-angular/util/util");
+import { Component, Input, ElementRef, Renderer } from '@angular/core';
+import { isPresent } from 'ionic-angular/util/util';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonPreloadImageComponent = class IonPreloadImageComponent {
+export class IonPreloadImageComponent {
     constructor(_elementRef, _renderer) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
@@ -25,7 +14,7 @@ let IonPreloadImageComponent = class IonPreloadImageComponent {
         this._img = new Image();
     }
     set src(val) {
-        this._src = util_1.isPresent(val) ? val : '';
+        this._src = isPresent(val) ? val : '';
     }
     set ratio(ratio) {
         this._ratio = ratio || null;
@@ -39,10 +28,10 @@ let IonPreloadImageComponent = class IonPreloadImageComponent {
         // console.log(changes['src'].isFirstChange());
     }
     _update() {
-        if (util_1.isPresent(this.alt)) {
+        if (isPresent(this.alt)) {
             this._img.alt = this.alt;
         }
-        if (util_1.isPresent(this.title)) {
+        if (isPresent(this.title)) {
             this._img.title = this.title;
         }
         this._img.addEventListener('load', () => {
@@ -55,33 +44,15 @@ let IonPreloadImageComponent = class IonPreloadImageComponent {
     _loaded(isLoaded) {
         this._elementRef.nativeElement.classList[isLoaded ? 'add' : 'remove']('img-loaded');
     }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], IonPreloadImageComponent.prototype, "alt", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], IonPreloadImageComponent.prototype, "title", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String),
-    __metadata("design:paramtypes", [String])
-], IonPreloadImageComponent.prototype, "src", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], IonPreloadImageComponent.prototype, "ratio", null);
-IonPreloadImageComponent = __decorate([
-    core_1.Component({
-        selector: 'ion-preload-image',
-        template: `
+}
+IonPreloadImageComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'ion-preload-image',
+                template: `
     <ion-spinner name="bubbles"></ion-spinner>
     <ng-content></ng-content>
     `,
-        styles: [`
+                styles: [`
     position: relative;
     width: 100%;
       display: block;
@@ -124,8 +95,17 @@ IonPreloadImageComponent = __decorate([
       min-height: inherit !important;
     }
   `]
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer])
-], IonPreloadImageComponent);
-exports.IonPreloadImageComponent = IonPreloadImageComponent;
+            },] },
+];
+/** @nocollapse */
+IonPreloadImageComponent.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: Renderer, },
+];
+IonPreloadImageComponent.propDecorators = {
+    'alt': [{ type: Input },],
+    'title': [{ type: Input },],
+    'src': [{ type: Input },],
+    'ratio': [{ type: Input },],
+};
 //# sourceMappingURL=ion-preload-image.js.map
