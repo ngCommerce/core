@@ -21,7 +21,10 @@ export class ProductService {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'products/' + id, { headers: headers })
             .toPromise()
-            .then(response => response.json())
+            .then((response) => {
+            this.updateHitoryLog(id);
+            return response.json();
+        })
             .catch(this.handleError);
     }
     createProduct(product) {
@@ -58,6 +61,17 @@ export class ProductService {
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
+    }
+    updateHitoryLog(id) {
+        let headers = this.corService.createAuthorizationHeader();
+        this.http.get(this._apiURL + 'productupdatehitorylog/' + id, { headers: headers })
+            .toPromise()
+            .then(response => {
+            console.log('Update log : ', response);
+        })
+            .catch((error) => {
+            console.log('Update log error : ', error);
+        });
     }
     handleError(error) {
         return Promise.reject(error.message || error);
