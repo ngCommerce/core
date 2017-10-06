@@ -83,7 +83,16 @@ export class ProductService {
             lastVisit.splice(duplicate, 1);
         }
 
-        lastVisit.unshift(product);
+        lastVisit.unshift({
+            _id: product._id,
+            name: product.name,
+            image: product.images[0],
+            price: product.price,
+            promotionprice: product.promotionprice,
+            percentofdiscount: product.percentofdiscount,
+            currency: product.currency,
+            rate: product.rate,
+        });
 
         if (lastVisit.length > 5) {
             lastVisit = lastVisit.slice(0, 5);
