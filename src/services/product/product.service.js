@@ -84,9 +84,9 @@ export class ProductService {
         });
         if (lastVisit.length > 5) {
             lastVisit = lastVisit.slice(0, 5);
-            window.localStorage.setItem('gLastVisit', JSON.stringify(lastVisit));
-            return;
         }
+        window.localStorage.setItem('gLastVisit', JSON.stringify(lastVisit));
+        return;
     }
     updateHitoryLog(id) {
         let headers = this.corService.createAuthorizationHeader();
