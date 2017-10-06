@@ -12,6 +12,7 @@ export { ShippingService } from './services/shipping/shipping.service';
 export { CartService } from './services/cart/cart.service';
 export { OrderService } from './services/order/order.service';
 export { FavoriteService } from './services/favorite/favorite.service';
+export { HomeService } from './services/home/home.service'
 
 export { CategoryModel } from "./models/category.model";
 export { ShopListModel, ShopModel } from "./models/shop.model";
@@ -25,6 +26,8 @@ export { FavoriteListModel } from "./models/favorite.model";
 export { CartModel } from "./models/cart.model";
 export { OrderModel, ItemByOrderByShopModel } from "./models/order.model";
 export { CheckoutModel } from "./models/checkout.model";
+export { HomeCategoryModel } from "./models/home.model";
+
 
 
 

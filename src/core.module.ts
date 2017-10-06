@@ -13,6 +13,7 @@ import { ShippingService } from './services/shipping/shipping.service';
 import { CartService } from './services/cart/cart.service';
 import { OrderService } from './services/order/order.service';
 import { FavoriteService } from './services/favorite/favorite.service';
+import { HomeService } from "./services/home/home.service";
 
 import { IonListCategoryComponent } from "./components/ion-list-category/ion-list-category";
 import { IonListShopComponent } from "./components/ion-list-shop/ion-list-shop";
@@ -64,6 +65,7 @@ export class EcommerceCoreModule {
                 CartService,
                 OrderService,
                 FavoriteService,
+                HomeService,
                 // HttpModule,
 
                 // IonItemCategoryComponent,
