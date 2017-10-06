@@ -9,9 +9,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'ion-list-order',
   template: `
-    <div *ngIf="items">
-      <ion-list *ngFor="let item of items; let i = index">
-        <ion-item (click)="selectOrder(item)">
+      <ion-list *ngIf="items">
+        <ion-item *ngFor="let item of items; let i = index" (click)="selectOrder(item)">
           <ion-row>
             <ion-col no-padding width-33 class="magin-right-10-custom">
               <img src="{{item.image}}">
@@ -25,7 +24,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
           </ion-row>
         </ion-item>
       </ion-list>
-    </div>
     `,
   styles: [`
   ion-list-order {
