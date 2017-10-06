@@ -23,6 +23,7 @@ export class ProductService {
             .toPromise()
             .then((response) => {
             this.updateHitoryLog(id);
+            this.saveLastVisit(response.json());
             return response.json();
         })
             .catch(this.handleError);
