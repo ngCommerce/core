@@ -76,7 +76,7 @@ export class ProductService {
 
     private saveLastVisit(product) {
         let lastVisit = window.localStorage.getItem('gLastVisit') ? JSON.parse(window.localStorage.getItem('gLastVisit')) : [];
-        let duplicate = lastVisit.array.forEach((obj, index) => {
+        let duplicate = lastVisit.forEach((obj, index) => {
             if (obj._id === product._id) return index;
         });
 
