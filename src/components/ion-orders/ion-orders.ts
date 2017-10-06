@@ -15,7 +15,7 @@ import { Component, Input } from '@angular/core';
       <ion-col *ngFor="let step of steps">
         <ion-row>
           <ion-col text-center>
-            <ion-segment color="light" [(ngModel)]="channel">
+            <ion-segment mode="ios" color="light" [(ngModel)]="channel">
               <ion-segment-button [value]="step.value">{{step.title}}</ion-segment-button>
             </ion-segment>
           </ion-col>
