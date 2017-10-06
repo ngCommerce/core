@@ -17,7 +17,7 @@ export { HomeService } from './services/home/home.service'
 export { CategoryModel } from "./models/category.model";
 export { ShopListModel, ShopModel } from "./models/shop.model";
 export { ReviewsModel } from "./models/core.model";
-export { ProductModel, ProductListModel } from "./models/product.model";
+export { ProductModel, ProductListModel, ProductItemModel } from "./models/product.model";
 export { SigninModel, SignupModel, UserModel } from "./models/authen.model";
 export { ListAddressModel, AddressModel } from "./models/address.model";
 export { PaymentModel } from "./models/payment.model";
