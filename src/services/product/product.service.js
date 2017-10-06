@@ -66,8 +66,9 @@ export class ProductService {
     saveLastVisit(product) {
         let lastVisit = window.localStorage.getItem('gLastVisit') ? JSON.parse(window.localStorage.getItem('gLastVisit')) : [];
         let duplicate = lastVisit.forEach((obj, index) => {
-            if (obj._id === product._id)
+            if (obj._id === product._id) {
                 return index;
+            }
         });
         if (duplicate) {
             lastVisit.splice(duplicate, 1);
@@ -93,10 +94,10 @@ export class ProductService {
         this.http.get(this._apiURL + 'productupdatehitorylog/' + id, { headers: headers })
             .toPromise()
             .then(response => {
-            console.log('Update log : ', response);
+            // console.log('Update log : ', response);
         })
             .catch((error) => {
-            console.log('Update log error : ', error);
+            // console.log('Update log error : ', error);
         });
     }
     handleError(error) {
