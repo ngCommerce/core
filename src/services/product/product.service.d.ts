@@ -15,5 +15,6 @@ export declare class ProductService {
     deleteProduct(id: any): Promise<ProductModel>;
     getProductListByShop(shopId: any): Promise<ProductListModel>;
     reviewProduct(productId: any, review: any): Promise<ProductModel>;
+    private updateHitoryLog(id);
     private handleError(error);
 }

@@ -20,10 +20,10 @@ IonOrdersComponent.decorators = [
       <ion-col *ngFor="let step of steps">
         <ion-row>
           <ion-col text-center>
-            <ion-segment mode="ios" color="light" [(ngModel)]="channel">
-              <ion-segment-button [value]="step.value">{{step.title}}</ion-segment-button>
+            <ion-segment id="segmentOrd" mode="md" color="light" [(ngModel)]="channel">
+              <ion-segment-button id="segmentOrdBtn" [value]="step.value">{{step.title}}</ion-segment-button>
             </ion-segment>
-          </ion-col>
+          </ion-col> 
         </ion-row>
       </ion-col>
     </ion-row>
