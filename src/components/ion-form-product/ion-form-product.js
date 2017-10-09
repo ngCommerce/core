@@ -74,10 +74,11 @@ IonFormProductComponent.decorators = [
           <ion-option *ngFor="let item of shops" [value]="item">{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
+
+      <p>Upload images</p>
+      <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
       
     </ion-list>
-    <p>Upload images</p>
-    <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
     
     <div padding>
       <button ion-button block (click)="onClick(item)">Submit</button>
