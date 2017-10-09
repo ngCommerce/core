@@ -52,7 +52,7 @@ export class CartService {
             .catch(this.handleError);
     }
     addToCart(product) {
-        let cartStorage = window.localStorage.getItem('gCart') ? JSON.parse(window.localStorage.getItem('gCart')) : [];
+        let cartStorage = window.localStorage.getItem('gCart') ? JSON.parse(window.localStorage.getItem('gCart')) : null;
         if (cartStorage && cartStorage.items && cartStorage.items.length > 0) {
             for (var i = 0; i < cartStorage.items.length; i++) {
                 var item = cartStorage.items[i];
@@ -68,9 +68,11 @@ export class CartService {
             }
         }
         if (!cartStorage) {
-            cartStorage = {
-                items: []
-            };
+            if (!cartStorage.items) {
+                cartStorage = {
+                    items: []
+                };
+            }
         }
         cartStorage.items.push({
             product: product,
