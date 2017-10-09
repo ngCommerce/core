@@ -18,7 +18,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         <div *ngIf="item.status === status">
         <p id="pName">{{item.name}}</p>
         <p id="pQty">{{item.qty}} qty</p>
-        <p id="pPrice">{{(item.amount || 0) - (item.discount || 0) | number}} Baht</p>
+        <p id="pPrice">{{item.price | number}} Baht</p>
         <p text-right id="pStatus" >{{item.status}}</p>
         </div>
         </ion-item>
