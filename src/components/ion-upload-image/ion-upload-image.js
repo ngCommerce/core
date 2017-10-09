@@ -9,12 +9,6 @@ import { LoadingController } from 'ionic-angular';
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-// <ion-row>
-// <ion-col class="right ion-icon-cust">
-//   <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
-//   <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
-// </ion-col>
-// </ion-row>
 export class IonUploadImageComponent {
     constructor(uploadXServiceProvider, imagePicker, base64, loadingCtrl) {
         this.uploadXServiceProvider = uploadXServiceProvider;
@@ -117,12 +111,12 @@ IonUploadImageComponent.decorators = [
         <span id="imageTrash" class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
       </ion-col>
     </ion-row>
-  <ion-row>
-    <ion-col class="right ion-icon-cust">
-      <ion-icon id="selectImg" name="md-image" (click)="selectImage()"></ion-icon>
-      <ion-icon id="uploadImg" name="md-cloud-upload" (click)="uploadImage()"></ion-icon>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+        <ion-col class="right ion-icon-cust">
+            <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
+            <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
+        </ion-col>
+    </ion-row>
     `,
                 styles: [`
   ion-upload-image {
