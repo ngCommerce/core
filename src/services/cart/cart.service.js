@@ -52,7 +52,7 @@ export class CartService {
             .catch(this.handleError);
     }
     addToCart(product) {
-        let cartStorage = window.localStorage.getItem('gCart') ? JSON.parse(window.localStorage.getItem('gCart')) : null;
+        let cartStorage = window.localStorage.getItem('gCart') ? JSON.parse(window.localStorage.getItem('gCart')) : [];
         if (cartStorage && cartStorage.items && cartStorage.items.length > 0) {
             for (var i = 0; i < cartStorage.items.length; i++) {
                 var item = cartStorage.items[i];
