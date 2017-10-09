@@ -104,12 +104,12 @@ IonUploadImageComponent.decorators = [
     <ion-row>
       <ion-col width-30  *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
-        <span (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
+        <span class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
       </ion-col>
     </ion-row>
   </ion-scroll>
   <ion-row>
-    <ion-col>
+    <ion-col class="right ion-icon-cust">
       <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
       <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
     </ion-col>
@@ -117,7 +117,19 @@ IonUploadImageComponent.decorators = [
     `,
                 styles: [`
   ion-upload-image {
-    
+    .right{
+        text-align: right !important;
+    }
+    .ion-icon-cust {
+        font-size: 2.2em !important;
+        right: 10px !important;
+    }
+    .trash {
+        right: 2px !important;
+        position: absolute !important;
+        top: 0px !important;
+        color: #ffffff !important;
+    }
   }`
                 ]
             },] },
