@@ -44,7 +44,6 @@ import { UploadImageService } from './../../services/uploadimage/uploadimage.ser
     ]
 })
 export class IonUploadImageComponent {
-    items: Array<any> = [];
     public imageList: Array<any> = [];
     public allowUpload: number = 0;
     @Input() maxImage: number;
@@ -54,12 +53,12 @@ export class IonUploadImageComponent {
 
     }
     uploadImage() {
-        // this.items = [];
+        let items = [];
         this.uploadXServiceProvider.uploadImages(this.imageList).then(data => {
-            // data.forEach(function (img) {
-            //     this.items.push(img.imgURL);
-            // });
-            this.imageOutList.emit(data);
+            data.forEach(function (img) {
+                items.push(img.imgURL);
+            });
+            this.imageOutList.emit(items);
             this.allowUpload = 0;
             alert('อัพโหลดสำเร็จ');
         }).catch(err => {
