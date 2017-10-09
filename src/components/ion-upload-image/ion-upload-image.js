@@ -20,6 +20,7 @@ export class IonUploadImageComponent {
     }
     uploadImage() {
         this.uploadXServiceProvider.uploadImages(this.imageList).then(data => {
+            this.items = [];
             data.forEach(function (img) {
                 this.items.push(img.imgURL);
             });
