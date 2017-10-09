@@ -98,7 +98,7 @@ export class IonUploadImageComponent {
 }
 IonUploadImageComponent.decorators = [
     { type: Component, args: [{
-                selector: 'ion-segment-order',
+                selector: 'ion-upload-image',
                 template: `
     <ion-scroll scrollX="true" class="horizontal-categories">
     <ion-row class="categories-row">
@@ -116,7 +116,7 @@ IonUploadImageComponent.decorators = [
   </ion-row>
     `,
                 styles: [`
-  ion-segment-order {
+  ion-upload-image {
     
   }`
                 ]
