@@ -14,6 +14,7 @@ import { CartService } from './services/cart/cart.service';
 import { OrderService } from './services/order/order.service';
 import { FavoriteService } from './services/favorite/favorite.service';
 import { HomeService } from "./services/home/home.service";
+import { UploadImageService } from './services/uploadimage/uploadimage.service';
 
 import { IonListCategoryComponent } from "./components/ion-list-category/ion-list-category";
 import { IonListShopComponent } from "./components/ion-list-shop/ion-list-shop";
@@ -41,6 +42,8 @@ import { IonListOrderComponent } from "./components/ion-list-order/ion-list-orde
 import { IonSegmentOrderComponent } from "./components/ion-segment-order/ion-segment-order";
 import { IonOrdersComponent } from "./components/ion-orders/ion-orders";
 import { IonFormReviewComponent } from "./components/ion-form-review/ion-form-review";
+import { IonUploadImageComponent } from "./components/ion-upload-image/ion-upload-image";
+
 @NgModule()
 export class EcommerceCoreModule {
 
@@ -66,6 +69,7 @@ export class EcommerceCoreModule {
                 OrderService,
                 FavoriteService,
                 HomeService,
+                UploadImageService,
                 // HttpModule,
 
                 // IonItemCategoryComponent,

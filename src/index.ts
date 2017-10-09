@@ -13,6 +13,7 @@ export { CartService } from './services/cart/cart.service';
 export { OrderService } from './services/order/order.service';
 export { FavoriteService } from './services/favorite/favorite.service';
 export { HomeService } from './services/home/home.service'
+import { UploadImageService } from './services/uploadimage/uploadimage.service';
 
 export { CategoryModel } from "./models/category.model";
 export { ShopListModel, ShopModel } from "./models/shop.model";
@@ -60,5 +61,6 @@ export * from "./components/ion-segment-order/ion-segment-order";
 export * from "./components/ion-list-order/ion-list-order";
 export * from "./components/ion-orders/ion-orders"
 export * from "./components/ion-form-review/ion-form-review"
+export * from "./components/ion-upload-image/ion-upload-image"
 
 

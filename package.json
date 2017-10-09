@@ -51,7 +51,9 @@
   },
   "homepage": "https://github.com/ngCommerce/core#readme",
   "dependencies": {
-    "@angular/http": "^4.4.4"
+    "@angular/http": "^4.4.4",
+    "@ionic-native/base64": "^4.3.1",
+    "@ionic-native/image-picker": "^4.3.1"
   },
   "devDependencies": {
     "@angular/common": "4.0.1",

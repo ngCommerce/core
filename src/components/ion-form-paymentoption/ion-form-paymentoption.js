@@ -1,13 +1,24 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = require("@angular/core");
 /**
  * Generated class for the IonListCategoryComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-export class IonFormPaymentOptionComponent {
+let IonFormPaymentOptionComponent = class IonFormPaymentOptionComponent {
     constructor() {
-        this.datapayment = new EventEmitter();
+        this.datapayment = new core_1.EventEmitter();
         // console.log('Hello IonFormPaymentComponent Component');
     }
     selectpayment(data) {
@@ -16,11 +27,27 @@ export class IonFormPaymentOptionComponent {
         };
         this.datapayment.emit(this.datashipping);
     }
-}
-IonFormPaymentOptionComponent.decorators = [
-    { type: Component, args: [{
-                selector: 'ion-form-paymentoption',
-                template: `
+};
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], IonFormPaymentOptionComponent.prototype, "paymentgateway", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], IonFormPaymentOptionComponent.prototype, "datashipping", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], IonFormPaymentOptionComponent.prototype, "channel", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], IonFormPaymentOptionComponent.prototype, "datapayment", void 0);
+IonFormPaymentOptionComponent = __decorate([
+    core_1.Component({
+        selector: 'ion-form-paymentoption',
+        template: `
     <ion-grid text-right>
     <ion-row>
       <ion-col>
@@ -39,19 +66,13 @@ IonFormPaymentOptionComponent.decorators = [
   </ion-grid>
   <ng-content></ng-content>
     `,
-                styles: [`
+        styles: [`
   ion-form-paymentoption {
     
   }`
-                ]
-            },] },
-];
-/** @nocollapse */
-IonFormPaymentOptionComponent.ctorParameters = () => [];
-IonFormPaymentOptionComponent.propDecorators = {
-    'paymentgateway': [{ type: Input },],
-    'datashipping': [{ type: Input },],
-    'channel': [{ type: Input },],
-    'datapayment': [{ type: Output },],
-};
+        ]
+    }),
+    __metadata("design:paramtypes", [])
+], IonFormPaymentOptionComponent);
+exports.IonFormPaymentOptionComponent = IonFormPaymentOptionComponent;
 //# sourceMappingURL=ion-form-paymentoption.js.map

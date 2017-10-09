@@ -63,11 +63,8 @@ import { ProductModel } from '../../index';
         </ion-select>
       </ion-item>
     
-      <ion-item>
-        <ion-label floating>Image</ion-label>
-        <ion-input type="text" [(ngModel)]="item.image"></ion-input>
-      </ion-item>
-    
+      <ion-upload-image (imageOutList)="imageList($event)"></ion-upload-image>
+      
     </ion-list>
     
     <div padding>
@@ -92,5 +89,8 @@ export class IonFormProductComponent {
   }
   onClick(item) {
     this.itemClicked.emit(item);
+  }
+  imageList(e) {
+    this.item.images = e;
   }
 }
