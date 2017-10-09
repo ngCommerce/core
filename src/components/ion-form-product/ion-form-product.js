@@ -75,8 +75,10 @@ IonFormProductComponent.decorators = [
         </ion-select>
       </ion-item>
 
-      <p>Upload images</p>
-      <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
+      <ion-item>
+        <ion-label>Images</ion-label>
+        <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
+      </ion-item>
       
     </ion-list>
     
