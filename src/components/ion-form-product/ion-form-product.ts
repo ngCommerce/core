@@ -66,7 +66,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
       
     </ion-list>
     <p>Upload images</p>
-    <ion-upload-image (imageOutList)="imageList($event)"></ion-upload-image>
+    <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
     
     <div padding>
       <button ion-button block (click)="onClick(item)">Submit</button>
