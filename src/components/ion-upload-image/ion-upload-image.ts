@@ -20,8 +20,8 @@ import { UploadImageService } from './../../services/uploadimage/uploadimage.ser
     </ion-row>
   <ion-row>
     <ion-col class="right ion-icon-cust">
-      <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
-      <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
+      <ion-icon name="md-image" (click)="selectImage()"></ion-icon>
+      <ion-icon name="md-cloud-upload" (click)="uploadImage()"></ion-icon>
     </ion-col>
   </ion-row>
     `,
@@ -31,6 +31,12 @@ import { UploadImageService } from './../../services/uploadimage/uploadimage.ser
   }`
     ]
 })
+// <ion-row>
+// <ion-col class="right ion-icon-cust">
+//   <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
+//   <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
+// </ion-col>
+// </ion-row>
 export class IonUploadImageComponent {
     public imageList: Array<any> = [];
     public allowUpload: number = 0;
