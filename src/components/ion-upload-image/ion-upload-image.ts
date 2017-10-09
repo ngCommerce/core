@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ImagePicker } from "@ionic-native/image-picker";
 import { Base64 } from "@ionic-native/base64";
 import { UploadImageService } from './../../services/uploadimage/uploadimage.service';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -43,10 +44,12 @@ export class IonUploadImageComponent {
     @Input() maxImage: number;
     @Output() imageOutList: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor(public uploadXServiceProvider: UploadImageService, public imagePicker: ImagePicker, public base64: Base64) {
+    constructor(public uploadXServiceProvider: UploadImageService, public imagePicker: ImagePicker, public base64: Base64, public loadingCtrl:LoadingController) {
 
     }
     uploadImage() {
+        let loading = this.loadingCtrl.create();
+        loading.present();
         let items = [];
         this.uploadXServiceProvider.uploadImages(this.imageList).then(data => {
             data.forEach(function (img) {
@@ -54,7 +57,7 @@ export class IonUploadImageComponent {
             });
             this.imageOutList.emit(items);
             this.allowUpload = 0;
-            alert('อัพโหลดสำเร็จ');
+            loading.dismiss();
         }).catch(err => {
             alert(err);
         });
