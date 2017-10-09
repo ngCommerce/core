@@ -79,12 +79,12 @@ export class CartService {
             }
 
         }
-        if (!cartStorage && !cartStorage.items) {
+        if (!cartStorage || !cartStorage.items) {
             cartStorage = {
                 items: []
             }
         }
-        
+
         cartStorage.items.push({
             product: product,
             qty: 1,
