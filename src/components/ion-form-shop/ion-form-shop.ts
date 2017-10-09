@@ -16,7 +16,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             <ion-input type="text" [(ngModel)]="item.name"></ion-input>
         </ion-item>
 
-        <p>Images</p>
+        <p id="shopImg">Images</p>
         <ion-upload-image [maxImage]="1" (imageOutList)="imageList($event)"></ion-upload-image>
 
         <button ion-button block color="dark" (click)="addShop(item)">Add</button>
