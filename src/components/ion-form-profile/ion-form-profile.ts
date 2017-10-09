@@ -10,7 +10,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     selector: 'ion-form-profile',
     template: ` 
   <ion-list>
-  <button ion-item  *ngIf="!item">
+  <button ion-item  *ngIf="!item" (click)="login()">
           <ion-icon name="ios-happy-outline" item-start></ion-icon>
           Sign in
       </button>
@@ -73,21 +73,26 @@ export class IonFormProfileComponent {
     @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() settingClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() notificationClicked: EventEmitter<any> = new EventEmitter<any>();
+    @Output() loginClicked: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonListCategoryComponent Component');
     }
 
-    logout(){
+    logout() {
         window.localStorage.removeItem('token');
         window.localStorage.removeItem('gCart');
         this.itemClicked.emit('logout');
     }
 
-    onNotification(){
+    onNotification() {
         this.notificationClicked.emit('onNotification');
     }
 
-    setting(){
+    setting() {
         this.settingClicked.emit('setting');
+    }
+
+    login() {
+        this.loginClicked.emit('login');
     }
 }
