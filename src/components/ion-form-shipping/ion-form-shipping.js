@@ -1,25 +1,14 @@
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonFormShippingComponent = class IonFormShippingComponent {
+export class IonFormShippingComponent {
     constructor() {
-        this.gotoNext = new core_1.EventEmitter();
-        this.createAddress = new core_1.EventEmitter();
+        this.gotoNext = new EventEmitter();
+        this.createAddress = new EventEmitter();
         this.address = {};
         this.data = {
             order: {
@@ -84,27 +73,11 @@ let IonFormShippingComponent = class IonFormShippingComponent {
             alert('Please select shipping');
         }
     }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Array)
-], IonFormShippingComponent.prototype, "listaddress", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], IonFormShippingComponent.prototype, "listshipping", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], IonFormShippingComponent.prototype, "gotoNext", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], IonFormShippingComponent.prototype, "createAddress", void 0);
-IonFormShippingComponent = __decorate([
-    core_1.Component({
-        selector: 'ion-form-shipping',
-        template: `
+}
+IonFormShippingComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'ion-form-shipping',
+                template: `
     <ion-content>
     <ion-label id="hDelivery"> {{'การจัดส่งสินค้า'}} </ion-label>
     <ion-list radio-group id="listRadioGroup">
@@ -180,13 +153,19 @@ IonFormShippingComponent = __decorate([
     </ion-grid>
 </ion-content>
     `,
-        styles: [`
+                styles: [`
   ion-form-shipping {
     
   }`
-        ]
-    }),
-    __metadata("design:paramtypes", [])
-], IonFormShippingComponent);
-exports.IonFormShippingComponent = IonFormShippingComponent;
+                ]
+            },] },
+];
+/** @nocollapse */
+IonFormShippingComponent.ctorParameters = () => [];
+IonFormShippingComponent.propDecorators = {
+    'listaddress': [{ type: Input },],
+    'listshipping': [{ type: Input },],
+    'gotoNext': [{ type: Output },],
+    'createAddress': [{ type: Output },],
+};
 //# sourceMappingURL=ion-form-shipping.js.map
