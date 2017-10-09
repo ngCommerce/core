@@ -12,14 +12,12 @@ import { UploadImageService } from './../../services/uploadimage/uploadimage.ser
 @Component({
     selector: 'ion-upload-image',
     template: `
-    <ion-scroll scrollX="true">
     <ion-row>
       <ion-col width-30  *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
         <span class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
       </ion-col>
     </ion-row>
-  </ion-scroll>
   <ion-row>
     <ion-col class="right ion-icon-cust">
       <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
