@@ -1,18 +1,7 @@
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const http_1 = require("@angular/http");
-require("rxjs/add/operator/toPromise");
-let UploadImageService = class UploadImageService {
+import { Injectable } from "@angular/core";
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+export class UploadImageService {
     constructor(http) {
         this.http = http;
     }
@@ -26,10 +15,12 @@ let UploadImageService = class UploadImageService {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
-};
-UploadImageService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], UploadImageService);
-exports.UploadImageService = UploadImageService;
+}
+UploadImageService.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+UploadImageService.ctorParameters = () => [
+    { type: Http, },
+];
 //# sourceMappingURL=uploadimage.service.js.map

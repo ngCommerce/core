@@ -1,25 +1,14 @@
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const image_picker_1 = require("@ionic-native/image-picker");
-const base64_1 = require("@ionic-native/base64");
-const uploadimage_service_1 = require("./../../services/uploadimage/uploadimage.service");
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ImagePicker } from "@ionic-native/image-picker";
+import { Base64 } from "@ionic-native/base64";
+import { UploadImageService } from './../../services/uploadimage/uploadimage.service';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-let IonUploadImageComponent = class IonUploadImageComponent {
+export class IonUploadImageComponent {
     constructor(uploadXServiceProvider, imagePicker, base64) {
         this.uploadXServiceProvider = uploadXServiceProvider;
         this.imagePicker = imagePicker;
@@ -27,7 +16,7 @@ let IonUploadImageComponent = class IonUploadImageComponent {
         this.items = [];
         this.imageList = [];
         this.allowUpload = 0;
-        this.imageOutList = new core_1.EventEmitter();
+        this.imageOutList = new EventEmitter();
     }
     uploadImage() {
         this.uploadXServiceProvider.uploadImages(this.imageList).then(data => {
@@ -106,19 +95,11 @@ let IonUploadImageComponent = class IonUploadImageComponent {
         }
         this.allowUpload = this.imageList.length;
     }
-};
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], IonUploadImageComponent.prototype, "maxImage", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], IonUploadImageComponent.prototype, "imageOutList", void 0);
-IonUploadImageComponent = __decorate([
-    core_1.Component({
-        selector: 'ion-segment-order',
-        template: `
+}
+IonUploadImageComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'ion-segment-order',
+                template: `
     <ion-scroll scrollX="true" class="horizontal-categories">
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
@@ -134,13 +115,21 @@ IonUploadImageComponent = __decorate([
     </ion-col>
   </ion-row>
     `,
-        styles: [`
+                styles: [`
   ion-segment-order {
     
   }`
-        ]
-    }),
-    __metadata("design:paramtypes", [uploadimage_service_1.UploadImageService, image_picker_1.ImagePicker, base64_1.Base64])
-], IonUploadImageComponent);
-exports.IonUploadImageComponent = IonUploadImageComponent;
+                ]
+            },] },
+];
+/** @nocollapse */
+IonUploadImageComponent.ctorParameters = () => [
+    { type: UploadImageService, },
+    { type: ImagePicker, },
+    { type: Base64, },
+];
+IonUploadImageComponent.propDecorators = {
+    'maxImage': [{ type: Input },],
+    'imageOutList': [{ type: Output },],
+};
 //# sourceMappingURL=ion-upload-image.js.map

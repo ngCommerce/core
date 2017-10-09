@@ -14,4 +14,5 @@ export declare class IonFormProductComponent {
     itemClicked: EventEmitter<any>;
     constructor();
     onClick(item: any): void;
+    imageList(e: any): void;
 }
