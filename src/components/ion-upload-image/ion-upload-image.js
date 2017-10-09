@@ -13,18 +13,17 @@ export class IonUploadImageComponent {
         this.uploadXServiceProvider = uploadXServiceProvider;
         this.imagePicker = imagePicker;
         this.base64 = base64;
-        this.items = [];
         this.imageList = [];
         this.allowUpload = 0;
         this.imageOutList = new EventEmitter();
     }
     uploadImage() {
-        // this.items = [];
+        let items = [];
         this.uploadXServiceProvider.uploadImages(this.imageList).then(data => {
-            // data.forEach(function (img) {
-            //     this.items.push(img.imgURL);
-            // });
-            this.imageOutList.emit(data);
+            data.forEach(function (img) {
+                items.push(img.imgURL);
+            });
+            this.imageOutList.emit(items);
             this.allowUpload = 0;
             alert('อัพโหลดสำเร็จ');
         }).catch(err => {
