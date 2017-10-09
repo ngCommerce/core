@@ -28,8 +28,11 @@ IonFormShopComponent.decorators = [
             <ion-input type="text" [(ngModel)]="item.name"></ion-input>
         </ion-item>
 
-        <p>Upload images</p>
-        <ion-upload-image [maxImage]="1" (imageOutList)="imageList($event)"></ion-upload-image>
+        <ion-item>
+            <ion-label>Images</ion-label>
+            <ion-upload-image [maxImage]="1" (imageOutList)="imageList($event)"></ion-upload-image>
+        </ion-item>
+
         <button ion-button block color="dark" (click)="addShop(item)">Add</button>
     </ion-list>
     `,
