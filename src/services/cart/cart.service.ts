@@ -79,9 +79,11 @@ export class CartService {
             }
 
         }
-        if (!cartStorage && !cartStorage.items) {
-            cartStorage = {
-                items: []
+        if (!cartStorage) {
+            if (!cartStorage.items) {
+                cartStorage = {
+                    items: []
+                }
             }
         }
         cartStorage.items.push({
@@ -107,7 +109,7 @@ export class CartService {
     }
 
     onCalculate(cart) {
-        
+
         if (cart && cart.items) {
             cart.amount = 0;
             cart.discount = 0;
