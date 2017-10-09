@@ -100,16 +100,16 @@ IonUploadImageComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-upload-image',
                 template: `
-    <ion-scroll scrollX="true" class="horizontal-categories">
-    <ion-row class="categories-row">
-      <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
-        <preload-image [ratio]="{w:4, h:4}" [src]="data.imgUrl"></preload-image>
-        <span class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
+    <ion-scroll scrollX="true">
+    <ion-row>
+      <ion-col width-30  *ngFor="let data of imageList">
+        <img src="{{data.imgUrl}}">
+        <span (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
       </ion-col>
     </ion-row>
   </ion-scroll>
   <ion-row>
-    <ion-col class="right ion-icon-cust">
+    <ion-col>
       <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
       <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
     </ion-col>
