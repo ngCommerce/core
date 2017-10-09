@@ -100,12 +100,14 @@ IonUploadImageComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-upload-image',
                 template: `
-    <ion-row>
-      <ion-col width-30  *ngFor="let data of imageList">
+    <ion-scroll scrollX="true" class="horizontal-categories">
+    <ion-row class="categories-row">
+      <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
         <span class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
       </ion-col>
     </ion-row>
+    </ion-scroll>
   <ion-row>
     <ion-col class="right ion-icon-cust">
       <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
@@ -115,19 +117,7 @@ IonUploadImageComponent.decorators = [
     `,
                 styles: [`
   ion-upload-image {
-    .right{
-        text-align: right !important;
-    }
-    .ion-icon-cust {
-        font-size: 2.2em !important;
-        right: 10px !important;
-    }
-    .trash {
-        right: 2px !important;
-        position: absolute !important;
-        top: 0px !important;
-        color: #ffffff !important;
-    }
+    
   }`
                 ]
             },] },
