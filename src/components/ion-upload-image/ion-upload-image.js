@@ -35,6 +35,7 @@ export class IonUploadImageComponent {
             });
             this.imageOutList.emit(items);
             this.allowUpload = 0;
+            alert('อัพโหลดสำเร็จ');
             loading.dismiss();
         }).catch(err => {
             alert(err);
