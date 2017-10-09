@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { ProductModel } from '../../index';
-import { IonUploadImageComponent } from "../ion-upload-image/ion-upload-image";
+import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image";
 
 /**
  * Generated class for the IonListCategoryComponent component.
