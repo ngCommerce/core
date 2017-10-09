@@ -62,7 +62,7 @@ export class CartService {
 
 
     addToCart(product) {
-        let cartStorage = window.localStorage.getItem('gCart') ? JSON.parse(window.localStorage.getItem('gCart')) : [];
+        let cartStorage = window.localStorage.getItem('gCart') ? JSON.parse(window.localStorage.getItem('gCart')) : null;
         if (cartStorage && cartStorage.items && cartStorage.items.length > 0) {
 
             for (var i = 0; i < cartStorage.items.length; i++) {
@@ -79,7 +79,7 @@ export class CartService {
             }
 
         }
-        if (!cartStorage) {
+        if (!cartStorage && !cartStorage.items) {
             cartStorage = {
                 items: []
             }
