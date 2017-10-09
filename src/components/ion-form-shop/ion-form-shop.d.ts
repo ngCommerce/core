@@ -11,4 +11,5 @@ export declare class IonFormShopComponent {
     createShop: EventEmitter<any>;
     constructor();
     addShop(item: any): void;
+    imageList(e: any): void;
 }
