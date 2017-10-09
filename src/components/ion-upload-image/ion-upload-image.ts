@@ -16,13 +16,13 @@ import { LoadingController } from 'ionic-angular';
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
-        <span class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
+        <span id="imageTrash" class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
       </ion-col>
     </ion-row>
   <ion-row>
     <ion-col class="right ion-icon-cust">
-      <ion-icon name="md-image" (click)="selectImage()"></ion-icon>
-      <ion-icon name="md-cloud-upload" (click)="uploadImage()"></ion-icon>
+      <ion-icon id="selectImg" name="md-image" (click)="selectImage()"></ion-icon>
+      <ion-icon id="uploadImg" name="md-cloud-upload" (click)="uploadImage()"></ion-icon>
     </ion-col>
   </ion-row>
     `,
@@ -57,6 +57,7 @@ export class IonUploadImageComponent {
             });
             this.imageOutList.emit(items);
             this.allowUpload = 0;
+            alert('อัพโหลดสำเร็จ');
             loading.dismiss();
         }).catch(err => {
             alert(err);
