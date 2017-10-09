@@ -10,7 +10,7 @@ import { UploadImageService } from './../../services/uploadimage/uploadimage.ser
  * Components.
  */
 @Component({
-    selector: 'ion-segment-order',
+    selector: 'ion-upload-image',
     template: `
     <ion-scroll scrollX="true" class="horizontal-categories">
     <ion-row class="categories-row">
@@ -28,7 +28,7 @@ import { UploadImageService } from './../../services/uploadimage/uploadimage.ser
   </ion-row>
     `,
     styles: [`
-  ion-segment-order {
+  ion-upload-image {
     
   }`
     ]
