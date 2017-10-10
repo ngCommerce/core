@@ -12,6 +12,9 @@ export class IonFormProductComponent {
         // console.log('Hello IonListCategoryComponent Component');
         // this.item.shop = this.shops[0];
     }
+    checkedShop() {
+        return true;
+    }
     onClick(item) {
         if (!item.name) {
             alert('Please Enter Your Name!');
@@ -103,7 +106,7 @@ IonFormProductComponent.decorators = [
       <ion-item>
         <ion-label floating>Shop*</ion-label>
         <ion-select [(ngModel)]="item.shop">
-          <ion-option *ngFor="let items of shops" [value]="items" checked="{{items._id == item.shop._id ? 'true' : 'false'}}">{{items.name}}</ion-option>
+          <ion-option *ngFor="let items of shops" [value]="items" selected="{{ checkedShop() }}">{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
 
