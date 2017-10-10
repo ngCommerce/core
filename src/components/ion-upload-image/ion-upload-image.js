@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ImagePicker } from "@ionic-native/image-picker";
 import { Base64 } from "@ionic-native/base64";
 import { UploadImageService } from './../../services/uploadimage/uploadimage.service';
+import { LoadingController } from 'ionic-angular';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -9,15 +10,18 @@ import { UploadImageService } from './../../services/uploadimage/uploadimage.ser
  * Components.
  */
 export class IonUploadImageComponent {
-    constructor(uploadXServiceProvider, imagePicker, base64) {
+    constructor(uploadXServiceProvider, imagePicker, base64, loadingCtrl) {
         this.uploadXServiceProvider = uploadXServiceProvider;
         this.imagePicker = imagePicker;
         this.base64 = base64;
+        this.loadingCtrl = loadingCtrl;
         this.imageList = [];
         this.allowUpload = 0;
         this.imageOutList = new EventEmitter();
     }
     uploadImage() {
+        let loading = this.loadingCtrl.create();
+        loading.present();
         let items = [];
         this.uploadXServiceProvider.uploadImages(this.imageList).then(data => {
             data.forEach(function (img) {
@@ -26,6 +30,7 @@ export class IonUploadImageComponent {
             this.imageOutList.emit(items);
             this.allowUpload = 0;
             alert('อัพโหลดสำเร็จ');
+            loading.dismiss();
         }).catch(err => {
             alert(err);
         });
@@ -103,15 +108,15 @@ IonUploadImageComponent.decorators = [
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
-        <span class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
+        <span id="imageTrash" class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
       </ion-col>
     </ion-row>
-  <ion-row>
-    <ion-col class="right ion-icon-cust">
-      <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
-      <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+        <ion-col class="right ion-icon-cust">
+            <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
+            <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
+        </ion-col>
+    </ion-row>
     `,
                 styles: [`
   ion-upload-image {
@@ -125,6 +130,7 @@ IonUploadImageComponent.ctorParameters = () => [
     { type: UploadImageService, },
     { type: ImagePicker, },
     { type: Base64, },
+    { type: LoadingController, },
 ];
 IonUploadImageComponent.propDecorators = {
     'maxImage': [{ type: Input },],

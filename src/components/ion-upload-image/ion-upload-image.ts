@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ImagePicker } from "@ionic-native/image-picker";
 import { Base64 } from "@ionic-native/base64";
 import { UploadImageService } from './../../services/uploadimage/uploadimage.service';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -15,15 +16,15 @@ import { UploadImageService } from './../../services/uploadimage/uploadimage.ser
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
-        <span class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
+        <span id="imageTrash" class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
       </ion-col>
     </ion-row>
-  <ion-row>
-    <ion-col class="right ion-icon-cust">
-      <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
-      <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+        <ion-col class="right ion-icon-cust">
+            <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
+            <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
+        </ion-col>
+    </ion-row>
     `,
     styles: [`
   ion-upload-image {
@@ -31,16 +32,19 @@ import { UploadImageService } from './../../services/uploadimage/uploadimage.ser
   }`
     ]
 })
+
 export class IonUploadImageComponent {
     public imageList: Array<any> = [];
     public allowUpload: number = 0;
     @Input() maxImage: number;
     @Output() imageOutList: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor(public uploadXServiceProvider: UploadImageService, public imagePicker: ImagePicker, public base64: Base64) {
+    constructor(public uploadXServiceProvider: UploadImageService, public imagePicker: ImagePicker, public base64: Base64, public loadingCtrl:LoadingController) {
 
     }
     uploadImage() {
+        let loading = this.loadingCtrl.create();
+        loading.present();
         let items = [];
         this.uploadXServiceProvider.uploadImages(this.imageList).then(data => {
             data.forEach(function (img) {
@@ -49,6 +53,7 @@ export class IonUploadImageComponent {
             this.imageOutList.emit(items);
             this.allowUpload = 0;
             alert('อัพโหลดสำเร็จ');
+            loading.dismiss();
         }).catch(err => {
             alert(err);
         });

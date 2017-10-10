@@ -23,6 +23,18 @@ export class AuthenService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+    updateUser(user) {
+        return this.http.put(this._apiURL + 'api/users', user)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+    pushNotificationUser(notiArr) {
+        return this.http.put(this._apiURL + 'api/user/notification', notiArr)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
     handleError(error) {
         return Promise.reject(error.message || error);
     }
