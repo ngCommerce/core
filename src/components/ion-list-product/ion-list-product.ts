@@ -14,12 +14,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <ion-item>
       Item
     </ion-item>
-    <ion-item-options side="left">
-      <button ion-button color="danger" (click)="delete(item)">Delete</button>
-    </ion-item-options>
-  </ion-item-sliding>
-
-      <ion-item *ngFor="let item of items" (click)="add(item)">
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="deleteProduct(item)">
         <ion-thumbnail item-start>
             <img src="{{item.image}}">
         </ion-thumbnail>
@@ -38,11 +34,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class IonListProductComponent {
   @Input() items: any;
   @Output() selectedProduct: EventEmitter<any> = new EventEmitter<any>();
+  @Output() delete: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListProductComponent Component');
   }
   add(item) {
     this.selectedProduct.emit(item);
   }
-
+  deleteProduct(item){
+    this.delete.emit(item._id);
+  }
 }
