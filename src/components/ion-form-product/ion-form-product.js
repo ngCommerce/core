@@ -115,7 +115,7 @@ IonFormProductComponent.decorators = [
     </ion-list>
     
     <div padding>
-      <button ion-button block (click)="onClick(product)">Submit</button>
+      <button ion-button block (click)="onClick(item)">Submit</button>
     </div>
     
     `,
