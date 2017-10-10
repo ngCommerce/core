@@ -8,6 +8,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 export class IonFormProductComponent {
     constructor() {
         this.item = {};
+        this.product = {};
         this.itemClicked = new EventEmitter();
         this.product = this.item;
         console.log(this.product);
