@@ -82,7 +82,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
 })
 export class IonFormProductComponent {
   item = {} as ProductModel;
-  product = {} as ProductModel;
+  @Input() product :any;
   @Input() categories: any;
   @Input() shippings: any;
   @Input() shops: any;
