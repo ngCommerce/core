@@ -11,6 +11,8 @@ export class IonFormProductComponent {
         this.product = {};
         this.itemClicked = new EventEmitter();
         this.product = JSON.parse(JSON.stringify(this.item));
+        console.log(this.product);
+        console.log(this.item);
         // console.log('Hello IonListCategoryComponent Component');
     }
     onClick(item) {
