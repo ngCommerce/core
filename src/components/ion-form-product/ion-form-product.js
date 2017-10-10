@@ -89,21 +89,21 @@ IonFormProductComponent.decorators = [
       <ion-item>
         <ion-label floating>Categories*</ion-label>
         <ion-select [(ngModel)]="item.categories" multiple="true">
-          <ion-option *ngFor="let item of categories" [value]="item">{{item.name}}</ion-option>
+          <ion-option *ngFor="let items of categories" [value]="items">{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Shippings*</ion-label>
         <ion-select [(ngModel)]="item.shippings" multiple="true">
-          <ion-option *ngFor="let item of shippings" [value]="item">{{item.name}}</ion-option>
+          <ion-option *ngFor="let items of shippings" [value]="items" >{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Shop*</ion-label>
         <ion-select [(ngModel)]="item.shop">
-          <ion-option *ngFor="let item of shops" [value]="item">{{item.name}}</ion-option>
+          <ion-option *ngFor="let items of shops" [value]="items" [selected]="items._id === item.shop._id">{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
 
