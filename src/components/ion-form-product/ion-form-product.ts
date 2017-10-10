@@ -70,7 +70,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     </ion-list>
     
     <div padding>
-      <button ion-button block (click)="onClick(product)">Submit</button>
+      <button ion-button block (click)="onClick(item)">Submit</button>
     </div>
     
     `,
