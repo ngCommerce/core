@@ -10,7 +10,7 @@ export class IonFormProductComponent {
         this.item = {};
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
-        this.item.shop = this.shops[0];
+        // this.item.shop = this.shops[0];
     }
     onClick(item) {
         if (!item.name) {

@@ -16,7 +16,7 @@ IonListGridComponent.decorators = [
                 template: `
     <ion-grid>
     <ion-row *ngIf="items && items.length === 1">
-    <ion-col *ngIf="items && items.length > 0">
+    <ion-col col-12 *ngIf="items && items.length > 0">
       <img src="{{items[0].image}}">
       <p class="p-margin-top-50">{{items[0].name}} {{items[0].price}}</p>
     </ion-col>
@@ -70,7 +70,7 @@ IonListGridComponent.decorators = [
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col *ngIf="items && items.length > 3">
+        <ion-col col-6 *ngIf="items && items.length > 3">
           <img src="{{items[3].image}}">
           <p class="p-margin-top-40">{{items[3].name}} {{items[3].price}}</p>
         </ion-col>
