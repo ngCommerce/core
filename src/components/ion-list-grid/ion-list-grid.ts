@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
   selector: 'ion-list-grid',
   template: `
   <ion-grid>
-  <ion-row>
+  <ion-row *ngIf="items && items.length > 5">
     <ion-col col-6 *ngIf="items && items.length > 0">
       <img src="{{items[0].image}}">
       <p class="p-margin-top-50">{{items[0].name}} {{items[0].price}}</p>
