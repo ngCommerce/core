@@ -15,32 +15,32 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Name*</ion-label>
-        <ion-input type="text" value="{{product.name}}" [(ngModel)]="product.name"></ion-input>
+        <ion-input type="text" value="{{item.name}}" [(ngModel)]="product.name"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Detail*</ion-label>
-        <ion-input type="text"  value="{{product.detail}}" [(ngModel)]="product.detail"></ion-input>
+        <ion-input type="text"  value="{{item.detail}}" [(ngModel)]="product.detail"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number"  value="{{product.price}}" [(ngModel)]="product.price"></ion-input>
+        <ion-input type="number"  value="{{item.price}}" [(ngModel)]="product.price"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Promotion Price</ion-label>
-        <ion-input type="number"  value="{{product.promotionprice}}" [(ngModel)]="product.promotionprice"></ion-input>
+        <ion-input type="number"  value="{{item.promotionprice}}" [(ngModel)]="product.promotionprice"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Percent of discount</ion-label>
-        <ion-input type="number"  value="{{product.percentofdiscount}}" [(ngModel)]="product.percentofdiscount"></ion-input>
+        <ion-input type="number"  value="{{item.percentofdiscount}}" [(ngModel)]="product.percentofdiscount"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Currency*</ion-label>
-        <ion-input type="text"   value="{{product.currency}}" [(ngModel)]="product.currency"></ion-input>
+        <ion-input type="text"   value="{{item.currency}}" [(ngModel)]="product.currency"></ion-input>
       </ion-item>
     
       <ion-item>
@@ -89,6 +89,7 @@ export class IonFormProductComponent {
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     this.product = this.item;
+    console.log(this.product);
     // console.log('Hello IonListCategoryComponent Component');
   }
   onClick(item) {
