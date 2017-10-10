@@ -30,6 +30,14 @@ export class AuthenService {
             .catch(this.handleError);
     }
 
+
+    updateUser(user): Promise<UserModel> {
+        return this.http.put(this._apiURL + 'api/users', user)
+            .toPromise()
+            .then(response => response.json() as UserModel)
+            .catch(this.handleError);
+    }
+
     private handleError(error: any): Promise<any> {
         return Promise.reject(error.message || error);
     }
