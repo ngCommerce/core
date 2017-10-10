@@ -10,6 +10,7 @@ export class IonFormProductComponent {
         this.item = {};
         this.product = {};
         this.itemClicked = new EventEmitter();
+        this.product = this.item;
         // console.log('Hello IonListCategoryComponent Component');
     }
     onClick(item) {
@@ -41,7 +42,7 @@ export class IonFormProductComponent {
             alert('Please Enter Your Shop!');
             return;
         }
-        else if (!this.item.images && this.item.images.length === 0) {
+        else if (!this.item.images || this.item.images.length === 0) {
             alert('Please Enter Your Upload Image!');
             return;
         }
@@ -128,7 +129,7 @@ IonFormProductComponent.decorators = [
 /** @nocollapse */
 IonFormProductComponent.ctorParameters = () => [];
 IonFormProductComponent.propDecorators = {
-    'product': [{ type: Input },],
+    'item': [{ type: Input },],
     'categories': [{ type: Input },],
     'shippings': [{ type: Input },],
     'shops': [{ type: Input },],
