@@ -19,7 +19,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         <p id="shopImg">Images</p>
         <ion-upload-image [maxImage]="1" (imageOutList)="imageList($event)"></ion-upload-image>
 
-        <button ion-button block color="dark" (click)="addShop(item)">Add</button>
+        <button ion-button block (click)="addShop(item)">Add</button>
     </ion-list>
     `,
     styles: [`
