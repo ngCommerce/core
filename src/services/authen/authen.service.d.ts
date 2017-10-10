@@ -8,5 +8,6 @@ export declare class AuthenService {
     signIn(authen: any): Promise<UserModel>;
     signUp(user: any): Promise<UserModel>;
     updateUser(user: any): Promise<UserModel>;
+    pushNotificationUser(notiArr: any): Promise<UserModel>;
     private handleError(error);
 }

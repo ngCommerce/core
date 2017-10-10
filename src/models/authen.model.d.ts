@@ -23,5 +23,5 @@ export interface UserModel {
     loginExpires: string;
     loginToken: string;
     rolse: Array<string>;
-    pushnotification: Array<string>;
+    pushnotifications: Array<string>;
 }
