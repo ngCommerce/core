@@ -8,6 +8,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 export class IonFormProductComponent {
     constructor() {
         this.item = {};
+        this.product = {};
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
     }
@@ -58,7 +59,7 @@ IonFormProductComponent.decorators = [
     
       <ion-item>
         <ion-label floating>Name*</ion-label>
-        <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+        <ion-input type="text" value="{{item.name}}" [(ngModel)]="product.name"></ion-input>
       </ion-item>
     
       <ion-item>

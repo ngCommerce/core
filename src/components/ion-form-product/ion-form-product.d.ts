@@ -8,6 +8,7 @@ import { ProductModel } from '../../index';
  */
 export declare class IonFormProductComponent {
     item: ProductModel;
+    product: ProductModel;
     categories: any;
     shippings: any;
     shops: any;
