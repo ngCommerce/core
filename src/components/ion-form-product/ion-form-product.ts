@@ -89,6 +89,8 @@ export class IonFormProductComponent {
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     this.product = JSON.parse(JSON.stringify(this.item));
+    console.log(this.product);
+    console.log(this.item);
     // console.log('Hello IonListCategoryComponent Component');
   }
   onClick(item) {
