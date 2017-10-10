@@ -37,8 +37,8 @@ export class AuthenService {
             .catch(this.handleError);
     }
 
-    pushNotificationUser(notiArr): Promise<UserModel> {
-        return this.http.put(this._apiURL + 'api/user/notification', notiArr)
+    pushNotificationUser(notiUserID): Promise<UserModel> {
+        return this.http.put(this._apiURL + 'api/user/notification', notiUserID)
             .toPromise()
             .then(response => response.json() as UserModel)
             .catch(this.handleError);
