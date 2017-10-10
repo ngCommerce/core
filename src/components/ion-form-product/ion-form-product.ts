@@ -58,7 +58,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
       </ion-item>
       <ion-item>
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="item.shop">
+        <ion-select [(ngModel)]="item.shop.name">
           <ion-option *ngFor="let items of shops" [value]="items" >{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
