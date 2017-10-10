@@ -17,6 +17,9 @@ export class HomeService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+    getLastVisit() {
+        return window.localStorage.getItem('gLastVisit') ? JSON.parse(window.localStorage.getItem('gLastVisit')) : [];
+    }
     handleError(error) {
         return Promise.reject(error.message || error);
     }

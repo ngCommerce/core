@@ -15,11 +15,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             <ion-label floating >Name</ion-label>
             <ion-input type="text" [(ngModel)]="item.name"></ion-input>
         </ion-item>
-        <ion-item>
-            <ion-label floating >Image</ion-label>
-            <ion-input type="text" [(ngModel)]="item.image"></ion-input>
-        </ion-item>
-        <button ion-button block color="dark" (click)="addShop(item)">Add</button>
+
+        <p id="shopImg">Images</p>
+        <ion-upload-image [maxImage]="1" (imageOutList)="imageList($event)"></ion-upload-image>
+
+        <button ion-button block (click)="addShop(item)">Add</button>
     </ion-list>
     `,
     styles: [`
@@ -37,6 +37,9 @@ export class IonFormShopComponent {
 
     addShop(item) {
         this.createShop.emit(item);
+    }
+    imageList(e) {
+        this.item.image = e[0];
     }
 
 }

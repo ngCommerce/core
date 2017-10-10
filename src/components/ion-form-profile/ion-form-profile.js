@@ -10,6 +10,7 @@ export class IonFormProfileComponent {
         this.itemClicked = new EventEmitter();
         this.settingClicked = new EventEmitter();
         this.notificationClicked = new EventEmitter();
+        this.loginClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
     }
     logout() {
@@ -23,13 +24,16 @@ export class IonFormProfileComponent {
     setting() {
         this.settingClicked.emit('setting');
     }
+    login() {
+        this.loginClicked.emit('login');
+    }
 }
 IonFormProfileComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-form-profile',
                 template: ` 
   <ion-list>
-  <button ion-item  *ngIf="!item">
+  <button ion-item  *ngIf="!item" (click)="login()">
           <ion-icon name="ios-happy-outline" item-start></ion-icon>
           Sign in
       </button>
@@ -95,5 +99,6 @@ IonFormProfileComponent.propDecorators = {
     'itemClicked': [{ type: Output },],
     'settingClicked': [{ type: Output },],
     'notificationClicked': [{ type: Output },],
+    'loginClicked': [{ type: Output },],
 };
 //# sourceMappingURL=ion-form-profile.js.map

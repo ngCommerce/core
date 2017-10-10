@@ -12,12 +12,17 @@ export class HomeService {
     constructor( @Inject(API_URL) apiURL: String, public http: Http, public corService: CorService) {
         this._apiURL = apiURL;
     }
+
     getHome(): Promise<HomeCategoryModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'homes/', { headers: headers })
             .toPromise()
             .then(response => response.json() as HomeCategoryModel)
             .catch(this.handleError);
+    }
+
+    getLastVisit() {
+        return window.localStorage.getItem('gLastVisit') ? JSON.parse(window.localStorage.getItem('gLastVisit')) : [];
     }
 
     private handleError(error: any): Promise<any> {

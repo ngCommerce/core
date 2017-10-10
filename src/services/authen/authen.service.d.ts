@@ -7,5 +7,7 @@ export declare class AuthenService {
     constructor(apiURL: String, http: Http);
     signIn(authen: any): Promise<UserModel>;
     signUp(user: any): Promise<UserModel>;
+    updateUser(user: any): Promise<UserModel>;
+    pushNotificationUser(notiUserID: any): Promise<UserModel>;
     private handleError(error);
 }

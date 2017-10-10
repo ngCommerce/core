@@ -9,5 +9,6 @@ export declare class HomeService {
     private _apiURL;
     constructor(apiURL: String, http: Http, corService: CorService);
     getHome(): Promise<HomeCategoryModel>;
+    getLastVisit(): any;
     private handleError(error);
 }

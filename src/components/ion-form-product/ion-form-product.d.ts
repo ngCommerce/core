@@ -8,10 +8,12 @@ import { ProductModel } from '../../index';
  */
 export declare class IonFormProductComponent {
     item: ProductModel;
+    private product;
     categories: any;
     shippings: any;
     shops: any;
     itemClicked: EventEmitter<any>;
     constructor();
     onClick(item: any): void;
+    imageList(e: any): void;
 }

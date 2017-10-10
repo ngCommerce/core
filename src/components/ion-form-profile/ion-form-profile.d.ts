@@ -10,8 +10,10 @@ export declare class IonFormProfileComponent {
     itemClicked: EventEmitter<any>;
     settingClicked: EventEmitter<any>;
     notificationClicked: EventEmitter<any>;
+    loginClicked: EventEmitter<any>;
     constructor();
     logout(): void;
     onNotification(): void;
     setting(): void;
+    login(): void;
 }

@@ -53,7 +53,7 @@ export class CartService {
     }
     addToCart(product) {
         let cartStorage = window.localStorage.getItem('gCart') ? JSON.parse(window.localStorage.getItem('gCart')) : null;
-        if (cartStorage && cartStorage.items.length > 0) {
+        if (cartStorage && cartStorage.items && cartStorage.items.length > 0) {
             for (var i = 0; i < cartStorage.items.length; i++) {
                 var item = cartStorage.items[i];
                 if (product._id === item.product._id) {
@@ -67,7 +67,7 @@ export class CartService {
                 }
             }
         }
-        if (!cartStorage) {
+        if (!cartStorage || !cartStorage.items) {
             cartStorage = {
                 items: []
             };
@@ -91,10 +91,10 @@ export class CartService {
         return;
     }
     onCalculate(cart) {
-        cart.amount = 0;
-        cart.discount = 0;
-        cart.totalamount = 0;
         if (cart && cart.items) {
+            cart.amount = 0;
+            cart.discount = 0;
+            cart.totalamount = 0;
             for (var i = 0; i < cart.items.length; i++) {
                 let item = cart.items[i];
                 let promotionprice = item.product.promotionprice ? item.product.promotionprice : 0;
