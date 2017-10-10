@@ -10,8 +10,6 @@ export class IonFormProductComponent {
         this.item = {};
         this.product = {};
         this.itemClicked = new EventEmitter();
-        this.product = this.item;
-        console.log(this.product);
         // console.log('Hello IonListCategoryComponent Component');
     }
     onClick(item) {
@@ -61,51 +59,51 @@ IonFormProductComponent.decorators = [
     
       <ion-item>
         <ion-label floating>Name*</ion-label>
-        <ion-input type="text" value="{{item.name}}" [(ngModel)]="product.name"></ion-input>
+        <ion-input type="text" value="{{product.name}}" [(ngModel)]="item.name"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Detail*</ion-label>
-        <ion-input type="text"  value="{{item.detail}}" [(ngModel)]="product.detail"></ion-input>
+        <ion-input type="text"  value="{{product.detail}}" [(ngModel)]="item.detail"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number"  value="{{item.price}}" [(ngModel)]="product.price"></ion-input>
+        <ion-input type="number"  value="{{product.price}}" [(ngModel)]="item.price"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Promotion Price</ion-label>
-        <ion-input type="number"  value="{{item.promotionprice}}" [(ngModel)]="product.promotionprice"></ion-input>
+        <ion-input type="number"  value="{{product.promotionprice}}" [(ngModel)]="item.promotionprice"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Percent of discount</ion-label>
-        <ion-input type="number"  value="{{item.percentofdiscount}}" [(ngModel)]="product.percentofdiscount"></ion-input>
+        <ion-input type="number"  value="{{product.percentofdiscount}}" [(ngModel)]="item.percentofdiscount"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Currency*</ion-label>
-        <ion-input type="text"   value="{{item.currency}}" [(ngModel)]="product.currency"></ion-input>
+        <ion-input type="text"   value="{{product.currency}}" [(ngModel)]="item.currency"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Categories*</ion-label>
-        <ion-select  [(ngModel)]="product.categories" multiple="true">
+        <ion-select  [(ngModel)]="item.categories" multiple="true">
           <ion-option *ngFor="let item of categories" [value]="item">{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Shippings*</ion-label>
-        <ion-select  [(ngModel)]="product.shippings" multiple="true">
+        <ion-select  [(ngModel)]="item.shippings" multiple="true">
           <ion-option *ngFor="let item of shippings" [value]="item">{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="product.shop">
+        <ion-select [(ngModel)]="item.shop">
           <ion-option *ngFor="let item of shops" [value]="item">{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
@@ -130,7 +128,7 @@ IonFormProductComponent.decorators = [
 /** @nocollapse */
 IonFormProductComponent.ctorParameters = () => [];
 IonFormProductComponent.propDecorators = {
-    'item': [{ type: Input },],
+    'product': [{ type: Input },],
     'categories': [{ type: Input },],
     'shippings': [{ type: Input },],
     'shops': [{ type: Input },],
