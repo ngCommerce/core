@@ -15,7 +15,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Name*</ion-label>
-        <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+        <ion-input type="text" value="{{item.name}}" [(ngModel)]="product.name"></ion-input>
       </ion-item>
     
       <ion-item>
@@ -82,6 +82,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
 })
 export class IonFormProductComponent {
   item = {} as ProductModel;
+  product = {} as ProductModel;
   @Input() categories: any;
   @Input() shippings: any;
   @Input() shops: any;
