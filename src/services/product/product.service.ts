@@ -44,7 +44,7 @@ export class ProductService {
 
     updateProduct(product): Promise<ProductModel> {
         let headers = this.corService.createAuthorizationHeader();
-        return this.http.post(this._apiURL + 'products/' + product._id, product, { headers: headers })
+        return this.http.put(this._apiURL + 'products/' + product._id, product, { headers: headers })
             .toPromise()
             .then(response => response.json() as ProductModel)
             .catch(this.handleError);
