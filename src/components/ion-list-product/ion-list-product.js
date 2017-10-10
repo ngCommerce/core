@@ -8,10 +8,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class IonListProductComponent {
     constructor() {
         this.selectedProduct = new EventEmitter();
+        this.delete = new EventEmitter();
         // console.log('Hello IonListProductComponent Component');
     }
     add(item) {
         this.selectedProduct.emit(item);
+    }
+    deleteProduct(item) {
+        this.delete.emit(item._id);
     }
 }
 IonListProductComponent.decorators = [
@@ -19,7 +23,12 @@ IonListProductComponent.decorators = [
                 selector: 'ion-list-product',
                 template: `
     <ion-list >
-      <ion-item *ngFor="let item of items" (click)="add(item)">
+    <ion-item-sliding>
+    <ion-item>
+      Item
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="deleteProduct(item)">
         <ion-thumbnail item-start>
             <img src="{{item.image}}">
         </ion-thumbnail>
@@ -41,5 +50,6 @@ IonListProductComponent.ctorParameters = () => [];
 IonListProductComponent.propDecorators = {
     'items': [{ type: Input },],
     'selectedProduct': [{ type: Output },],
+    'delete': [{ type: Output },],
 };
 //# sourceMappingURL=ion-list-product.js.map
