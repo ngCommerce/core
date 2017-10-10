@@ -8,6 +8,8 @@ import { EventEmitter } from '@angular/core';
 export declare class IonListProductComponent {
     items: any;
     selectedProduct: EventEmitter<any>;
+    delete: EventEmitter<any>;
     constructor();
     add(item: any): void;
+    deleteProduct(item: any): void;
 }
