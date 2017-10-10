@@ -81,13 +81,14 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
   ]
 })
 export class IonFormProductComponent {
-  item = {} as ProductModel;
-  @Input()  product = {} as ProductModel;
+  @Input() item = {} as ProductModel;
+  private product = {} as ProductModel;
   @Input() categories: any;
   @Input() shippings: any;
   @Input() shops: any;
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
+    this.product = this.item;
     // console.log('Hello IonListCategoryComponent Component');
   }
   onClick(item) {
@@ -113,7 +114,7 @@ export class IonFormProductComponent {
     } else if (!item.shop) {
       alert('Please Enter Your Shop!');
       return;
-    } else if (!this.item.images && this.item.images.length === 0) {
+    } else if (!this.item.images || this.item.images.length === 0) {
       alert('Please Enter Your Upload Image!');
       return;
     }
