@@ -22,21 +22,22 @@ IonListProductComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-list-product',
                 template: `
-    <ion-list >
-    <ion-item-sliding>
-    <ion-item>
-      Item
-    </ion-item>
-    <ion-item-options side="right">
-      <button ion-button color="danger" (click)="deleteProduct(item)">
-        <ion-thumbnail item-start>
-            <img src="{{item.image}}">
-        </ion-thumbnail>
-        <h2>{{item.name}}</h2>
-        <p>{{item.price | number}} {{item.currency}}</p>
-        <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
+    <ion-list>
+    <ion-item-sliding *ngFor="let item of items" (click)="add(item)">
+      <ion-item>
+      <ion-thumbnail item-start>
+      <img src="{{item.image}}">
+  </ion-thumbnail>
+  <h2>{{item.name}}</h2>
+  <p>{{item.price | number}} {{item.currency}}</p>
+  <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
+
       </ion-item>
-    </ion-list>
+      <ion-item-options side="right">
+      <button ion-button color="danger" (click)="deleteProduct(item)">
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
     `,
                 styles: [`
   ion-list-product {
