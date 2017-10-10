@@ -23,28 +23,28 @@ IonListGridComponent.decorators = [
   </ion-row>
 
   <ion-row *ngIf="items && items.length === 2">
-    <ion-col *ngIf="items && items.length > 0">
+    <ion-col col-6 *ngIf="items && items.length > 0">
       <img src="{{items[0].image}}">
       <p class="p-margin-top-50">{{items[0].name}} {{items[0].price}}</p>
     </ion-col>
-    <ion-col *ngIf="items && items.length > 1">
+    <ion-col col-6 *ngIf="items && items.length > 1">
       <img src="{{items[1].image}}">
       <p class="p-margin-top-50">{{items[1].name}} {{items[1].price}}</p>
     </ion-col>
   </ion-row>
 
   <ion-row *ngIf="items && items.length === 3">
-    <ion-col *ngIf="items && items.length > 0">
+    <ion-col col-6 *ngIf="items && items.length > 0">
       <img src="{{items[0].image}}">
       <p class="p-margin-top-50">{{items[0].name}} {{items[0].price}}</p>
     </ion-col>
-    <ion-col>
+    <ion-col col-6>
       <ion-row>
-        <ion-col *ngIf="items && items.length > 1">
+        <ion-col col-6 *ngIf="items && items.length > 1">
           <img src="{{items[1].image}}">
           <p class="p-margin-top-40">{{items[1].name}} {{items[1].price}}</p>
         </ion-col>
-        <ion-col *ngIf="items && items.length > 2">
+        <ion-col col-6 *ngIf="items && items.length > 2">
           <img src="{{items[2].image}}">
           <p class="p-margin-top-40">{{items[2].name}} {{items[2].price}}</p>
         </ion-col>
@@ -54,17 +54,17 @@ IonListGridComponent.decorators = [
 
 
   <ion-row *ngIf="items && items.length === 4">
-    <ion-col *ngIf="items && items.length > 0">
+    <ion-col col-6 *ngIf="items && items.length > 0">
       <img src="{{items[0].image}}">
       <p class="p-margin-top-50">{{items[0].name}} {{items[0].price}}</p>
     </ion-col>
-    <ion-col>
+    <ion-col col-6>
       <ion-row>
-        <ion-col *ngIf="items && items.length > 1">
+        <ion-col col-6 *ngIf="items && items.length > 1">
           <img src="{{items[1].image}}">
           <p class="p-margin-top-40">{{items[1].name}} {{items[1].price}}</p>
         </ion-col>
-        <ion-col *ngIf="items && items.length > 2">
+        <ion-col col-6 *ngIf="items && items.length > 2">
           <img src="{{items[2].image}}">
           <p class="p-margin-top-40">{{items[2].name}} {{items[2].price}}</p>
         </ion-col>
