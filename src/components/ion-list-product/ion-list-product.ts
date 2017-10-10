@@ -10,6 +10,15 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector: 'ion-list-product',
   template: `
     <ion-list >
+    <ion-item-sliding>
+    <ion-item>
+      Item
+    </ion-item>
+    <ion-item-options side="left">
+      <button ion-button color="danger" (click)="delete(item)">Delete</button>
+    </ion-item-options>
+  </ion-item-sliding>
+
       <ion-item *ngFor="let item of items" (click)="add(item)">
         <ion-thumbnail item-start>
             <img src="{{item.image}}">
