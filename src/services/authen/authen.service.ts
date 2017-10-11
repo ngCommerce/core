@@ -32,7 +32,8 @@ export class AuthenService {
     }
 
     updateUser(user): Promise<UserModel> {
-        return this.http.put(this._apiURL + 'users', user)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'users', user, { headers: headers })
             .toPromise()
             .then(response => response.json() as UserModel)
             .catch(this.handleError);
@@ -40,7 +41,6 @@ export class AuthenService {
 
     changePassword(password): Promise<UserModel> {
         let headers = this.corService.createAuthorizationHeader();
-
         return this.http.post(this._apiURL + 'users/password', password, { headers: headers })
             .toPromise()
             .then(response => response.json() as UserModel)
