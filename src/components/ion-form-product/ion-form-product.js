@@ -8,19 +8,12 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 export class IonFormProductComponent {
     constructor() {
         this.item = {};
+        this.shops = {};
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
         this.item.shop = this.shops;
-        console.log(JSON.stringify("1" + " " + this.shops));
+        console.log(this.shops);
         // this.item.shop = this.shops[0];
-    }
-    ionViewWillEnter() {
-        console.log(JSON.stringify("2" + " " + this.shops));
-        console.log("3" + " " + this.shops);
-    }
-    ionViewDidLoad() {
-        console.log(JSON.stringify("4" + " " + this.shops));
-        console.log("5" + " " + this.shops);
     }
     checkedShop() {
         return true;
