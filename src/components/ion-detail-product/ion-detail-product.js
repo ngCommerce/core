@@ -113,6 +113,7 @@ IonDetailProductComponent.decorators = [
     </ion-col>
 </ion-row>
 <ion-grid *ngIf="item.shop" id="gridShop">
+    <ion-item>
     <ion-row>
         <ion-col>
             <span >{{item.shop.name}}</span>
@@ -124,19 +125,10 @@ IonDetailProductComponent.decorators = [
                 starIconName="star" nullable="false"></rating>
         </ion-col>
     </ion-row>
+    </ion-item>
 </ion-grid>
 
 <ion-grid *ngIf="item">
-<ion-row>
-    <ion-col width-50>
-        <ion-row>
-            <ion-col>
-                <rating [(ngModel)]="rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
-                    starIconName="star" nullable="false"></rating>
-            </ion-col>
-        </ion-row>
-    </ion-col>
-</ion-row>
 <ion-row *ngIf="isReview">
     <ion-col>
         <button ion-button block outline (click)="createReview()">Write Review</button>
