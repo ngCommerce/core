@@ -87,9 +87,11 @@ IonFormProductComponent.decorators = [
       </ion-item>
     
       <ion-item>
-        <ion-label floating>Currency*</ion-label>
-        <ion-input type="text" [(ngModel)]="item.currency"></ion-input>
-      </ion-item>
+      <ion-label floating>Currency*</ion-label>
+      <ion-select [(ngModel)]="item.currency" multiple="true">
+        <ion-option *ngFor="let items of currency" [value]="items._id">{{items.name}}</ion-option>
+      </ion-select>
+    </ion-item>
     
       <ion-item>
         <ion-label floating>Categories*</ion-label>
@@ -143,6 +145,7 @@ IonFormProductComponent.propDecorators = {
     'categories': [{ type: Input },],
     'shippings': [{ type: Input },],
     'shops': [{ type: Input },],
+    'currency': [{ type: Input },],
     'itemClicked': [{ type: Output },],
 };
 //# sourceMappingURL=ion-form-product.js.map
