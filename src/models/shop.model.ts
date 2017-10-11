@@ -8,6 +8,7 @@ export interface ItemModel {
     _id: string;
     image: string;
     name: string;
+    rate: number;
 }
 
 export interface ShopModel {
