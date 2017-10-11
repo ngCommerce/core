@@ -16,6 +16,14 @@ export class FavoriteService {
         if (this.favorite.items && this.favorite.items.length > 0) {
             let chkFavorite = this.favorite.items.filter(function (obj) { return obj._id == product._id; });
             if (chkFavorite.length > 0) {
+                for (var i = 0; i < this.favorite.items.length; i++) {
+                    var element = this.favorite.items[i];
+                    if (element._id === product._id) {
+                        this.favorite.items.splice(i, 1);
+                        window.localStorage.setItem('favproduct', JSON.stringify(this.favorite));
+                        break;
+                    }
+                }
                 return this.getFavoriteList();
             }
             else {
