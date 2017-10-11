@@ -11,10 +11,13 @@ import { Component, Input } from '@angular/core';
     template: `
     <ion-list >
       <ion-item *ngFor="let item of items">
-        <ion-avatar item-left>
+        <ion-thumbnail item-start>
             <img src="{{item.image}}">
-        </ion-avatar>
+        </ion-thumbnail>
         <h2>{{item.name}}</h2>
+        <div *ngIf="item.rate">
+        <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
+        </div>
       </ion-item>
     </ion-list>
     `,
