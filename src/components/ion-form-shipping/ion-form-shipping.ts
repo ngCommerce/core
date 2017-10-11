@@ -76,9 +76,9 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     <p>{{'รวมสุทธิ'}}</p>
                 </ion-col>
                 <ion-col width-50>
-                    <p text-right>{{listshipping.amount | number}} {{currencyprod}}</p>
-                    <p text-right>{{listshipping.discount | number}} {{currencyprod}}</p>
-                    <p text-right>{{listshipping.totalamount | number}} {{currencyprod}}</p>
+                    <p text-right>{{listshipping.amount | number}} {{'THB'}}</p>
+                    <p text-right>{{listshipping.discount | number}} {{'THB'}}</p>
+                    <p text-right>{{listshipping.totalamount | number}} {{'THB'}}</p>
                 </ion-col>
             </ion-row>
         </div>
@@ -95,7 +95,6 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     ]
 })
 export class IonFormShippingComponent {
-    currencyprod: any;
     @Input() listaddress: Array<any>;
     @Input() listshipping: any;
     @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
@@ -115,12 +114,6 @@ export class IonFormShippingComponent {
     };
     constructor() {
         // console.log('Hello IonFormShippingComponent Component');
-        this.currencyProduct();
-    }
-    currencyProduct(){
-        this.listshipping.items.forEach(element => {
-           this.currencyprod =  element.product.currency;
-        });
     }
 
     selectaddress(data) {
