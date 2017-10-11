@@ -13,6 +13,8 @@ export declare class IonFormProductComponent {
     shops: any;
     itemClicked: EventEmitter<any>;
     constructor();
+    ionViewWillEnter(): void;
+    ionViewDidLoad(): void;
     checkedShop(): boolean;
     onClick(item: any): void;
     imageList(e: any): void;

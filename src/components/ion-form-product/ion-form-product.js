@@ -11,8 +11,16 @@ export class IonFormProductComponent {
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
         this.item.shop = this.shops;
-        console.log(JSON.stringify(this.shops));
+        console.log(JSON.stringify("1" + " " + this.shops));
         // this.item.shop = this.shops[0];
+    }
+    ionViewWillEnter() {
+        console.log(JSON.stringify("2" + " " + this.shops));
+        console.log("3" + " " + this.shops);
+    }
+    ionViewDidLoad() {
+        console.log(JSON.stringify("4" + " " + this.shops));
+        console.log("5" + " " + this.shops);
     }
     checkedShop() {
         return true;
