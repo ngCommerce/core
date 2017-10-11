@@ -144,9 +144,9 @@ IonFormShippingComponent.decorators = [
                     <p>{{'รวมสุทธิ'}}</p>
                 </ion-col>
                 <ion-col width-50>
-                    <p text-right>{{listshipping.amount | number}} {{'บาท'}}</p>
-                    <p text-right>{{listshipping.discount | number}} {{'บาท'}}</p>
-                    <p text-right>{{listshipping.totalamount | number}} {{'บาท'}}</p>
+                    <p text-right>{{listshipping.amount | number}} {{item.product.currency}}</p>
+                    <p text-right>{{listshipping.discount | number}} {{item.product.currency}}</p>
+                    <p text-right>{{listshipping.totalamount | number}} {{item.product.currency}}</p>
                 </ion-col>
             </ion-row>
         </div>
