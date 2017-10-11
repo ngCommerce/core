@@ -10,9 +10,9 @@ export class IonFormProductComponent {
         this.item = {};
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
-        // this.item.shop = this.shops;
-        // console.log(this.shops);
         // this.item.shop = this.shops[0];
+        console.log(this.item);
+        console.log(this.shops);
     }
     checkedShop() {
         return true;
@@ -50,9 +50,6 @@ export class IonFormProductComponent {
             alert('Please Enter Your Upload Image!');
             return;
         }
-        console.log(item.shop + "++++++++++" + this.shops);
-        item.shop = this.shops;
-        console.log(item);
         this.itemClicked.emit(item);
     }
     imageList(e) {
@@ -110,7 +107,7 @@ IonFormProductComponent.decorators = [
       </ion-item>
       <ion-item *ngIf="shops && shops.length > 0">
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="shops">
+        <ion-select [(ngModel)]="item.shop">
           <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
