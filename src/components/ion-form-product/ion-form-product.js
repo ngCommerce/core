@@ -59,7 +59,6 @@ IonFormProductComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-form-product',
                 template: `
-  {{item.shop.name}}
     <ion-list>
     
       <ion-item>
@@ -107,8 +106,8 @@ IonFormProductComponent.decorators = [
       </ion-item>
       <ion-item *ngIf="item && item.shop.name">
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="item.shop">
-          <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
+        <ion-select [(ngModel)]="item.shop.name">
+          <ion-option *ngFor="let items of shops" [value]="items.name">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
 
@@ -132,7 +131,7 @@ IonFormProductComponent.decorators = [
 /** @nocollapse */
 IonFormProductComponent.ctorParameters = () => [];
 IonFormProductComponent.propDecorators = {
-    'item': [{ type: Input, args: ['item',] },],
+    'item': [{ type: Input },],
     'categories': [{ type: Input },],
     'shippings': [{ type: Input },],
     'shops': [{ type: Input },],
