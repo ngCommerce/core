@@ -26,7 +26,8 @@ export class AuthenService {
             .catch(this.handleError);
     }
     updateUser(user) {
-        return this.http.put(this._apiURL + 'users', user)
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'users', user, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

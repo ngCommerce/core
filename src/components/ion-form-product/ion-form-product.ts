@@ -39,9 +39,11 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
       </ion-item>
     
       <ion-item>
-        <ion-label floating>Currency*</ion-label>
-        <ion-input type="text" [(ngModel)]="item.currency"></ion-input>
-      </ion-item>
+      <ion-label floating>Currency*</ion-label>
+      <ion-select [(ngModel)]="item.currency" multiple="true">
+        <ion-option *ngFor="let items of currency" [value]="items._id">{{items.name}}</ion-option>
+      </ion-select>
+    </ion-item>
     
       <ion-item>
         <ion-label floating>Categories*</ion-label>
@@ -57,12 +59,19 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
         </ion-select>
       </ion-item>
       
-      <ion-item>
+      <ion-item *ngIf="!item.shop">
         <ion-label floating>Shop*</ion-label>
         <ion-select [(ngModel)]="item.shop">
           <ion-option *ngFor="let items of shops" [value]="items._id">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
+
+      <ion-item *ngIf="item.shop && item.shop._id">
+      <ion-label floating>Shop*</ion-label>
+      <ion-select [(ngModel)]="item.shop._id">
+        <ion-option *ngFor="let items of shops" [value]="items._id">{{items.name}}</ion-option>
+        </ion-select>
+    </ion-item>
 
       <p id="productImg">Images*</p>
       <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
@@ -85,6 +94,7 @@ export class IonFormProductComponent {
   @Input() categories: any;
   @Input() shippings: any;
   @Input() shops: any;
+  @Input() currency: any;
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
