@@ -7,8 +7,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-form-confirm',
-    template: `
+  selector: 'ion-form-confirm',
+  template: `
     <ion-content *ngIf="confirmgateway.order">
     <ion-grid>
       <ion-row>
@@ -16,11 +16,11 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           <ion-list no-lines>
             <ion-item>
               <p>มูลค่าสินค้า</p>
-              <p item-end>{{confirmgateway.order.amount | number}} บาท</p>
+              <p item-end>{{confirmgateway.order.amount | number}} {{currencyprod}}</p>
             </ion-item>
             <ion-item>
               <p>ค่าธรรมเนียมการจัดส่งสินค้า</p>
-              <p item-end>{{confirmgateway.order.deliveryprice | number}} บาท</p>
+              <p item-end>{{confirmgateway.order.deliveryprice | number}} {{currencyprod}}</p>
             </ion-item>
             <ion-row>
               <ion-col col-8>
@@ -34,7 +34,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             </ion-row>
             <ion-item>
               <p><b>ยอดสุทธิ (รวมภาษีมูลค่าเพิ่ม)</b></p>
-              <p item-end><b>{{((confirmgateway.order.deliveryprice || 0) + (confirmgateway.order.amount || 0)) - (confirmgateway.order.discount || 0) | number}} บาท</b></p>
+              <p item-end><b>{{((confirmgateway.order.deliveryprice || 0) + (confirmgateway.order.amount || 0)) - (confirmgateway.order.discount || 0) | number}} {{currencyprod}}</b></p>
             </ion-item>
           </ion-list>
           <ion-item-group>
@@ -57,7 +57,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     <p>จำนวน: {{item.qty}}</p>
                   </ion-col>
                   <ion-col no-padding width-20>
-                    <p>{{item.product.price}} บาท</p>
+                    <p>{{item.product.price}} {{item.product.currency}}</p>
                   </ion-col>
                 </ion-row>
 
@@ -97,39 +97,45 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     </ion-grid>
   </ion-content>
     `,
-    styles: [`
+  styles: [`
   ion-form-confirm {
     
   }`
-    ]
+  ]
 })
 export class IonFormConfirmComponent {
-    data: any;
-    @Input() confirmgateway: any;
-    @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
-    confirmdiscount: number;
-    constructor() {
-        // console.log('Hello IonFormConfirmComponent Component');
+  currencyprod: any;
+  data: any;
+  @Input() confirmgateway: any;
+  @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
+  confirmdiscount: number;
+  constructor() {
+    // console.log('Hello IonFormConfirmComponent Component');
+  }
+  currencyProduct() {
+    this.confirmgateway.order.items.forEach(element => {
+      this.currencyprod = element.product.currency;
+    });
+  }
+  discount(data) {
+    if (data && data > 0) {
+      if (this.confirmgateway.order.amount && this.confirmgateway.order.amount >= data) {
+        this.confirmgateway.order.discount = data;
+      } else {
+        this.confirmgateway.order.discount = this.confirmgateway.order.amount;
+      }
+    } else {
+      this.confirmgateway.order.discount = 0;
     }
-    discount(data) {
-        if (data && data > 0) {
-            if (this.confirmgateway.order.amount && this.confirmgateway.order.amount >= data) {
-                this.confirmgateway.order.discount = data;
-            } else {
-                this.confirmgateway.order.discount = this.confirmgateway.order.amount;
-            }
-        } else {
-            this.confirmgateway.order.discount = 0;
-        }
-    }
-    stepValidation() {
+  }
+  stepValidation() {
 
-        if (this.confirmgateway.order.discount && this.confirmgateway.order.discount > 0 && !undefined) {
-            this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0)) - (this.confirmgateway.order.discount || 0);
-        } else {
-            this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0));
-        }
-        this.gotoNext.emit(this.confirmgateway.order);
+    if (this.confirmgateway.order.discount && this.confirmgateway.order.discount > 0 && !undefined) {
+      this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0)) - (this.confirmgateway.order.discount || 0);
+    } else {
+      this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0));
     }
+    this.gotoNext.emit(this.confirmgateway.order);
+  }
 
 }
