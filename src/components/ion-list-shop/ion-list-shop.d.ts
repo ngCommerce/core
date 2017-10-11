@@ -7,7 +7,7 @@ import { EventEmitter } from '@angular/core';
  */
 export declare class IonListShopComponent {
     items: any;
-    selectedProduct: EventEmitter<any>;
+    selectedShop: EventEmitter<any>;
     constructor();
     gotoShop(item: any): void;
 }

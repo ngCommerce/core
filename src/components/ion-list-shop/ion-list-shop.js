@@ -7,11 +7,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
  */
 export class IonListShopComponent {
     constructor() {
-        this.selectedProduct = new EventEmitter();
+        this.selectedShop = new EventEmitter();
         // console.log('Hello IonListShopComponent Component');
     }
     gotoShop(item) {
-        this.selectedProduct.emit(item);
+        this.selectedShop.emit(item);
     }
 }
 IonListShopComponent.decorators = [
@@ -41,6 +41,6 @@ IonListShopComponent.decorators = [
 IonListShopComponent.ctorParameters = () => [];
 IonListShopComponent.propDecorators = {
     'items': [{ type: Input },],
-    'selectedProduct': [{ type: Output },],
+    'selectedShop': [{ type: Output },],
 };
 //# sourceMappingURL=ion-list-shop.js.map
