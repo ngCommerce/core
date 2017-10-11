@@ -134,22 +134,7 @@ IonFormShippingComponent.decorators = [
                     <ion-radio (click)="setproduct(item,itm)"></ion-radio>
                 </ion-item>
             </ion-list>
-        </div>
-        <div *ngIf="listshipping.items && listshipping.items.length > 0">
-        <ion-row>
-            <ion-col width-50>
-                <p>{{'ราคารวม'}}</p>
-                <p>{{'ส่วนลด'}}</p>
-                <p>{{'รวมสุทธิ'}}</p>
-            </ion-col>
-            <ion-col width-50>
-                <p text-right>{{listshipping.amount | number}} {{item.product.currency}}</p>
-                <p text-right>{{listshipping.discount | number}} {{item.product.currency}}</p>
-                <p text-right>{{listshipping.totalamount | number}} {{item.product.currency}}</p>
-            </ion-col>
-        </ion-row>
-    </div>
-    </ion-list>
+        
     <ion-grid>
         <div *ngIf="listshipping.items && listshipping.items.length > 0">
             <ion-row>
@@ -159,13 +144,15 @@ IonFormShippingComponent.decorators = [
                     <p>{{'รวมสุทธิ'}}</p>
                 </ion-col>
                 <ion-col width-50>
-                    <p text-right>{{listshipping.amount | number}} {{'บาท'}}</p>
-                    <p text-right>{{listshipping.discount | number}} {{'บาท'}}</p>
-                    <p text-right>{{listshipping.totalamount | number}} {{'บาท'}}</p>
+                    <p text-right>{{listshipping.amount | number}} {{item.product.currency}}</p>
+                    <p text-right>{{listshipping.discount | number}} {{item.product.currency}}</p>
+                    <p text-right>{{listshipping.totalamount | number}} {{item.product.currency}}</p>
                 </ion-col>
             </ion-row>
         </div>
     </ion-grid>
+    </div>
+    </ion-list>
     <ion-grid>
         <button ion-button full color="danger" (click)="stepValidation()">{{'ดำเนินการชำระเงิน'}}</button>
     </ion-grid>
