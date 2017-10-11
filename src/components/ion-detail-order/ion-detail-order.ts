@@ -18,10 +18,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         <p *ngIf="item.promotionprice">
             <span id="promotionprice" *ngIf="item.promotionprice">{{item.promotionprice}} {{item.currency}}</span>
             <span *ngIf="item.promotionprice && item.percentofdiscount" id="price">{{item.price}} {{item.currency}}</span>
-            <span *ngIf="!item.promotionprice && !item.percentofdiscount" id="priceNormal">{{item.price}} {{item.currency}}</span> 
             <span id="percentofdiscount" *ngIf="item.percentofdiscount">-{{item.percentofdiscount}} %</span>
         </p>
-        <h4 *ngIf="!item.promotionprice">{{item.price}} {{item.currency}}</h4>
+        <span *ngIf="!item.promotionprice && !item.percentofdiscount" id="priceNormal">{{item.price}} {{item.currency}}</span> 
         </ion-col>
     </ion-row>
     <ion-row *ngIf="item.rate">
