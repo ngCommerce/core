@@ -3,12 +3,13 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { API_URL } from "../../models/core.model";
 import { SigninModel, SignupModel, UserModel } from "../../models/authen.model";
+import { CorService } from "../../core.service";
 
 @Injectable()
 export class AuthenService {
     private _apiURL: String;
 
-    constructor( @Inject(API_URL) apiURL: String, public http: Http) {
+    constructor( @Inject(API_URL) apiURL: String, public http: Http, public corService: CorService) {
         this._apiURL = apiURL;
     }
 
@@ -32,6 +33,15 @@ export class AuthenService {
 
     updateUser(user): Promise<UserModel> {
         return this.http.put(this._apiURL + 'users', user)
+            .toPromise()
+            .then(response => response.json() as UserModel)
+            .catch(this.handleError);
+    }
+
+    changePassword(password): Promise<UserModel> {
+        let headers = this.corService.createAuthorizationHeader();
+
+        return this.http.post(this._apiURL + 'users/password', password, { headers: headers })
             .toPromise()
             .then(response => response.json() as UserModel)
             .catch(this.handleError);
