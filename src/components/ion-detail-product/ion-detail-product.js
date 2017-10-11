@@ -78,7 +78,8 @@ IonDetailProductComponent.decorators = [
                 <ion-icon name='ios-share-outline' is-active="false"></ion-icon>
             </button>
             <button ion-button color="danger" clear icon-only (click)="favorite(item)">
-                    <ion-icon name='ios-heart-outline' is-active="false" ></ion-icon>
+                    <ion-icon name='ios-heart' is-active="false" ngIf="item.isFavorite"></ion-icon>
+                    <ion-icon name='ios-heart-outline' is-active="false" ngIf="!item.isFavorite"></ion-icon>
             </button>
         </ion-col>
     </ion-row>
