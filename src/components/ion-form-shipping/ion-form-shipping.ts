@@ -34,7 +34,9 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
         </ion-item>
     </ion-list>
 
+    <div id="button-round-center">
     <button id="button-round" ion-button round outline (click)="openModal()">{{'เพิ่มที่อยู่ใหม่'}}</button>
+    </div>
 
     <ion-label id="labelShipping"> {{'โปรดเลือกแบบของการส่งสินค้า'}} </ion-label>
     <ion-list>
