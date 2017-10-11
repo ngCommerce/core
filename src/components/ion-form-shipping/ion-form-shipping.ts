@@ -76,9 +76,9 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     <p>{{'รวมสุทธิ'}}</p>
                 </ion-col>
                 <ion-col width-50>
-                    <p text-right>{{listshipping.amount | number}} {{'บาท'}}</p>
-                    <p text-right>{{listshipping.discount | number}} {{'บาท'}}</p>
-                    <p text-right>{{listshipping.totalamount | number}} {{'บาท'}}</p>
+                    <p text-right>{{listshipping.amount | number}} {{'THB'}}</p>
+                    <p text-right>{{listshipping.discount | number}} {{'THB'}}</p>
+                    <p text-right>{{listshipping.totalamount | number}} {{'THB'}}</p>
                 </ion-col>
             </ion-row>
         </div>
