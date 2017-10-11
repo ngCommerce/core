@@ -15,7 +15,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Name*</ion-label>
-        <ion-input type="text" [(ngModel)]="productBind.name"></ion-input>
+        <ion-input type="text" [(ngModel)]="item.name"></ion-input>
       </ion-item>
     
       <ion-item>
@@ -56,9 +56,9 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
           <ion-option *ngFor="let items of shippings" [value]="items" >{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
-      <ion-item *ngIf="shops && shops.length > 0">
+      <ion-item *ngIf="item && item.shop.name">
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="productBind.shop">
+        <ion-select [(ngModel)]="item.shop">
           <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
@@ -69,7 +69,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     </ion-list>
     
     <div padding>
-      <button ion-button block (click)="onClick(productBind)">Submit</button>
+      <button ion-button block (click)="onClick(item)">Submit</button>
     </div>
     
     `,
@@ -80,7 +80,6 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
   ]
 })
 export class IonFormProductComponent {
-  @Input() productBind = {} as ProductModel;
   @Input() item = {} as ProductModel;
   @Input() categories: any;
   @Input() shippings: any;
@@ -89,15 +88,6 @@ export class IonFormProductComponent {
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
     // this.item.shop = this.shops[0];
-
-    setTimeout(function () {
-      this.ionViewDidLoad();
-    }, 13000);
-  }
-
-  ionViewDidLoad() {
-    console.log('productBind');
-    console.log(this.productBind);
   }
 
   checkedShop() {
@@ -105,7 +95,6 @@ export class IonFormProductComponent {
   }
 
   onClick(item) {
-    console.log(this.productBind);
 
     if (!item.name) {
       alert('Please Enter Your Name!');
@@ -133,7 +122,7 @@ export class IonFormProductComponent {
       return;
     }
 
-    // this.itemClicked.emit(item);
+    this.itemClicked.emit(item);
   }
   imageList(e) {
     this.item.images = e;
