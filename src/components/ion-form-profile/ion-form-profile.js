@@ -8,7 +8,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 export class IonFormProfileComponent {
     constructor() {
         this.itemClicked = new EventEmitter();
-        this.settingClicked = new EventEmitter();
+        this.settingProfileClicked = new EventEmitter();
+        this.manageShopClicked = new EventEmitter();
         this.notificationClicked = new EventEmitter();
         this.loginClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
@@ -21,11 +22,14 @@ export class IonFormProfileComponent {
     onNotification() {
         this.notificationClicked.emit('onNotification');
     }
-    setting() {
-        this.settingClicked.emit('setting');
+    manageShop() {
+        this.manageShopClicked.emit('manageShop');
     }
     login() {
         this.loginClicked.emit('login');
+    }
+    settingProfile() {
+        this.settingProfileClicked.emit('settingProfile');
     }
 }
 IonFormProfileComponent.decorators = [
@@ -57,10 +61,14 @@ IonFormProfileComponent.decorators = [
       </button>
 </ion-list>
 <ion-list >
-  <button ion-item (click)="setting()">
+    <button ion-item (click)="settingProfile()">
+        <ion-icon name="ios-settings-outline" item-start></ion-icon>
+            Setting Profile
+    </button>
+    <button ion-item (click)="manageShop()">
           <ion-icon name="ios-settings-outline" item-start></ion-icon>
-          Setting
-      </button>
+          Manage Shop
+    </button>
 </ion-list>
 <ion-list>
   <button ion-item>
@@ -97,7 +105,8 @@ IonFormProfileComponent.ctorParameters = () => [];
 IonFormProfileComponent.propDecorators = {
     'item': [{ type: Input },],
     'itemClicked': [{ type: Output },],
-    'settingClicked': [{ type: Output },],
+    'settingProfileClicked': [{ type: Output },],
+    'manageShopClicked': [{ type: Output },],
     'notificationClicked': [{ type: Output },],
     'loginClicked': [{ type: Output },],
 };
