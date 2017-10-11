@@ -42,7 +42,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             </button>
         </ion-col>
     </ion-row>
-    <ion-row>
+<ion-row>
     <ion-col>
         <span> {{item.rate}} </span> <span>From 5</span>
     </ion-col>
