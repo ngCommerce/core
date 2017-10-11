@@ -83,6 +83,16 @@ IonDetailProductComponent.decorators = [
             </button>
         </ion-col>
     </ion-row>
+    <ion-row>
+    <ion-col>
+        <span> {{item.rate}} </span> <span>From 5</span>
+    </ion-col>
+</ion-row>
+<ion-row>
+    <ion-col>
+        <span>{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
+    </ion-col>
+</ion-row>
 </ion-grid>
 <ion-row  *ngIf="item.shippings && item.shippings.length > 0">
     <ion-col text-left id="colShipping">
@@ -114,16 +124,6 @@ IonDetailProductComponent.decorators = [
                 starIconName="star" nullable="false"></rating>
         </ion-col>
     </ion-row>
-    <ion-row>
-    <ion-col>
-        <span> {{item.rate}} </span> <span>From 5</span>
-    </ion-col>
-</ion-row>
-<ion-row>
-    <ion-col>
-        <span>{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
-    </ion-col>
-</ion-row>
 </ion-grid>
 
 <ion-grid *ngIf="item">
