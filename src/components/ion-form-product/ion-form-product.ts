@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { ProductModel } from '../../index';
+import { ProductModel } from './../../models/product.model';
+import { ShopModel } from '../../models/shop.model';
 import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image";
 
 /**
@@ -83,24 +84,13 @@ export class IonFormProductComponent {
   @Input() item = {} as ProductModel;
   @Input() categories: any;
   @Input() shippings: any;
-  @Input() shops: any;
+  @Input() shops = {} as ShopModel;
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
     this.item.shop = this.shops;
-    console.log(JSON.stringify("1" + " "+this.shops));
+    console.log(this.shops);
     // this.item.shop = this.shops[0];
-  }
-
-  ionViewWillEnter(){
-    console.log(JSON.stringify("2" + " "+this.shops));
-    console.log("3" + " "+this.shops);
-    
-  }
-  ionViewDidLoad(){
-    console.log(JSON.stringify("4" + " "+this.shops));
-    console.log("5" + " "+this.shops);
-    
   }
 
   checkedShop() {
