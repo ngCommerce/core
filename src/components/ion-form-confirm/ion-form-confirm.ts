@@ -57,7 +57,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     <p>จำนวน: {{item.qty}}</p>
                   </ion-col>
                   <ion-col no-padding width-20>
-                    <p>{{item.product.price}} บาท</p>
+                    <p>{{item.product.price}} {{item.product.currency}}</p>
                   </ion-col>
                 </ion-row>
 

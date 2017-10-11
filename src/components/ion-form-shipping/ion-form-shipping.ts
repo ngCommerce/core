@@ -65,7 +65,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     <ion-radio (click)="setproduct(item,itm)"></ion-radio>
                 </ion-item>
             </ion-list>
-        
+        </div>
+    </ion-list>
     <ion-grid>
         <div *ngIf="listshipping.items && listshipping.items.length > 0">
             <ion-row>
@@ -75,15 +76,13 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     <p>{{'รวมสุทธิ'}}</p>
                 </ion-col>
                 <ion-col width-50>
-                    <p text-right>{{listshipping.amount | number}} {{item.product.currency}}</p>
-                    <p text-right>{{listshipping.discount | number}} {{item.product.currency}}</p>
-                    <p text-right>{{listshipping.totalamount | number}} {{item.product.currency}}</p>
+                    <p text-right>{{listshipping.amount | number}} {{currencyprod}}</p>
+                    <p text-right>{{listshipping.discount | number}} {{currencyprod}}</p>
+                    <p text-right>{{listshipping.totalamount | number}} {{currencyprod}}</p>
                 </ion-col>
             </ion-row>
         </div>
     </ion-grid>
-    </div>
-    </ion-list>
     <ion-grid>
         <button ion-button full color="danger" (click)="stepValidation()">{{'ดำเนินการชำระเงิน'}}</button>
     </ion-grid>
@@ -96,6 +95,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     ]
 })
 export class IonFormShippingComponent {
+    currencyprod: any;
     @Input() listaddress: Array<any>;
     @Input() listshipping: any;
     @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
@@ -115,6 +115,12 @@ export class IonFormShippingComponent {
     };
     constructor() {
         // console.log('Hello IonFormShippingComponent Component');
+        this.currencyProduct();
+    }
+    currencyProduct(){
+        this.listshipping.items.forEach(element => {
+           this.currencyprod =  element.product.currency;
+        });
     }
 
     selectaddress(data) {
