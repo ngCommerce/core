@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { ProductModel } from './../../models/product.model';
-import { ShopModel } from '../../models/shop.model';
+import { ProductModel } from '../../index';
 import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image";
 
 /**
@@ -12,11 +11,13 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
 @Component({
   selector: 'ion-form-product',
   template: `
+  {{productBind}}
+  
     <ion-list>
     
       <ion-item>
         <ion-label floating>Name*</ion-label>
-        <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+        <ion-input type="text" [(ngModel)]="productBind.name"></ion-input>
       </ion-item>
     
       <ion-item>
@@ -59,7 +60,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
       </ion-item>
       <ion-item *ngIf="shops && shops.length > 0">
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="shops">
+        <ion-select [(ngModel)]="productBind.shop">
           <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
@@ -70,7 +71,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     </ion-list>
     
     <div padding>
-      <button ion-button block (click)="onClick(item)">Submit</button>
+      <button ion-button block (click)="onClick(productBind)">Submit</button>
     </div>
     
     `,
@@ -81,6 +82,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
   ]
 })
 export class IonFormProductComponent {
+  @Input() productBind = {} as ProductModel;
   @Input() item = {} as ProductModel;
   @Input() categories: any;
   @Input() shippings: any;
@@ -88,9 +90,14 @@ export class IonFormProductComponent {
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
-    // this.item.shop = this.shops;
-    // console.log(this.shops);
     // this.item.shop = this.shops[0];
+    console.log(this.item);
+    console.log(this.shops);
+  }
+
+  ionViewDidLoad() {
+    console.log('productBind');
+    console.log(this.productBind);
   }
 
   checkedShop() {
@@ -98,6 +105,7 @@ export class IonFormProductComponent {
   }
 
   onClick(item) {
+    console.log(this.productBind);
 
     if (!item.name) {
       alert('Please Enter Your Name!');
@@ -124,10 +132,8 @@ export class IonFormProductComponent {
       alert('Please Enter Your Upload Image!');
       return;
     }
-    console.log(item.shop + "++++++++++" + this.shops);
-    item.shop = this.shops;
-    console.log(item);
-    this.itemClicked.emit(item);
+
+    // this.itemClicked.emit(item);
   }
   imageList(e) {
     this.item.images = e;
