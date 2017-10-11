@@ -88,6 +88,7 @@ export class IonFormProductComponent {
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
     // this.item.shop = this.shops[0];
+    console.log(this.item);
   }
 
   checkedShop() {
