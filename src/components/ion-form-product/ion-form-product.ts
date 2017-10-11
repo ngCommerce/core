@@ -11,6 +11,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
 @Component({
   selector: 'ion-form-product',
   template: `
+  {{item.shop.name}}
     <ion-list>
     
       <ion-item>
@@ -80,7 +81,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
   ]
 })
 export class IonFormProductComponent {
-  @Input() item = {} as ProductModel;
+  @Input('item') item = {} as ProductModel;
   @Input() categories: any;
   @Input() shippings: any;
   @Input() shops: any;
