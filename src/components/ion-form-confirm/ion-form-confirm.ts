@@ -25,7 +25,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             <ion-row>
               <ion-col col-8>
                 <ion-item>
-                  <ion-input type="text" [(ngModel)]="confirmgateway.order.discount" (ngModelChange)="discount(confirmgateway.order.discount)" placeholder="ใส่โค้ดส่วนลดตรงนี้"></ion-input>
+                  <ion-input type="text" placeholder="ใส่โค้ดส่วนลด"></ion-input>
                 </ion-item>
               </ion-col>
               <ion-col col-4>
