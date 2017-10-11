@@ -4,6 +4,7 @@ export { API_URL } from "./models/core.model";
 export { AuthenService } from "./services/authen/authen.service";
 export { CorService } from "./core.service";
 export { CategoryService } from "./services/category/category.service";
+export { CurrencyService } from "./services/currency/currency.service";
 export { ProductService } from "./services/product/product.service";
 export { ShopService } from "./services/shop/shop.service";
 export { AddressService } from './services/address/address.service';
@@ -28,6 +29,7 @@ export { CartModel } from "./models/cart.model";
 export { OrderModel, ItemByOrderByShopModel } from "./models/order.model";
 export { CheckoutModel } from "./models/checkout.model";
 export { HomeCategoryModel } from "./models/home.model";
+export { CurrencyModel } from "./models/currency.model";
 
 
 
