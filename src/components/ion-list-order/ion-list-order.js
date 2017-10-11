@@ -35,7 +35,7 @@ IonListOrderComponent.decorators = [
         <div *ngIf="item.status === status">
         <p id="pName">{{item.name}}</p>
         <p id="pQty">{{item.qty}} qty</p>
-        <p id="pPrice">{{item.price | number}} Baht</p>
+        <p id="pPrice">{{item.price | number}} {{item.currency}}</p>
         <p text-right id="pStatus" >{{item.status}}</p>
         </div>
         </ion-item>

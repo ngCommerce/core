@@ -16,11 +16,11 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           <ion-list no-lines>
             <ion-item>
               <p>มูลค่าสินค้า</p>
-              <p item-end>{{confirmgateway.order.amount | number}} บาท</p>
+              <p item-end>{{confirmgateway.order.amount | number}} THB</p>
             </ion-item>
             <ion-item>
               <p>ค่าธรรมเนียมการจัดส่งสินค้า</p>
-              <p item-end>{{confirmgateway.order.deliveryprice | number}} บาท</p>
+              <p item-end>{{confirmgateway.order.deliveryprice | number}} THB</p>
             </ion-item>
             <ion-row>
               <ion-col col-8>
@@ -34,7 +34,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             </ion-row>
             <ion-item>
               <p><b>ยอดสุทธิ (รวมภาษีมูลค่าเพิ่ม)</b></p>
-              <p item-end><b>{{((confirmgateway.order.deliveryprice || 0) + (confirmgateway.order.amount || 0)) - (confirmgateway.order.discount || 0) | number}} บาท</b></p>
+              <p item-end><b>{{((confirmgateway.order.deliveryprice || 0) + (confirmgateway.order.amount || 0)) - (confirmgateway.order.discount || 0) | number}} THB</b></p>
             </ion-item>
           </ion-list>
           <ion-item-group>
@@ -57,7 +57,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     <p>จำนวน: {{item.qty}}</p>
                   </ion-col>
                   <ion-col no-padding width-20>
-                    <p>{{item.product.price}} บาท</p>
+                    <p>{{item.product.price}} {{item.product.currency}}</p>
                   </ion-col>
                 </ion-row>
 
