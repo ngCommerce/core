@@ -29,11 +29,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class IonListShopComponent {
     @Input() items: any;
-    @Output() selectedProduct: EventEmitter<any> = new EventEmitter<any>();
+    @Output() selectedShop: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
         // console.log('Hello IonListShopComponent Component');
     }
     gotoShop(item){
-      this.selectedProduct.emit(item);
+      this.selectedShop.emit(item);
     }
 }
