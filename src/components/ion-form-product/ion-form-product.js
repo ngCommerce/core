@@ -12,8 +12,7 @@ export class IonFormProductComponent {
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
         // this.item.shop = this.shops[0];
-        console.log(this.item);
-        console.log(this.shops);
+        this.ionViewDidLoad();
     }
     ionViewDidLoad() {
         console.log('productBind');
@@ -66,8 +65,6 @@ IonFormProductComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-form-product',
                 template: `
-  {{productBind}}
-  
     <ion-list>
     
       <ion-item>
