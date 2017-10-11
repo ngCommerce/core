@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { API_URL } from "./models/core.model";
 import { CorService } from "./core.service";
 import { CategoryService } from "./services/category/category.service";
+import { CurrencyService } from './services/currency/currency.service';
 import { ShopService } from "./services/shop/shop.service";
 import { ProductService } from './services/product/product.service';
 import { AddressService } from './services/address/address.service';
@@ -71,6 +72,7 @@ export class EcommerceCoreModule {
                 FavoriteService,
                 HomeService,
                 UploadImageService,
+                CurrencyService,
                 // HttpModule,
 
                 // IonItemCategoryComponent,
