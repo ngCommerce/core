@@ -27,7 +27,7 @@ export class HomeService {
 
     seeAllProduct(name): Promise<ProductListModel> {
         let headers = this.corService.createAuthorizationHeader();
-        return this.http.get(this._apiURL + 'api/seeallproduct/' + name, { headers: headers })
+        return this.http.get(this._apiURL + 'seeallproduct/' + name, { headers: headers })
             .toPromise()
             .then(response => response.json() as ProductListModel)
             .catch(this.handleError);
@@ -35,7 +35,7 @@ export class HomeService {
 
     seeAllShop(name): Promise<ShopListModel> {
         let headers = this.corService.createAuthorizationHeader();
-        return this.http.get(this._apiURL + 'api/seeallshop/' + name, { headers: headers })
+        return this.http.get(this._apiURL + 'seeallshop/' + name, { headers: headers })
             .toPromise()
             .then(response => response.json() as ShopListModel)
             .catch(this.handleError);
