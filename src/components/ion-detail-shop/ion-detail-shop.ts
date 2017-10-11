@@ -37,26 +37,49 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       </ion-item>
     </ion-list>
     <ion-list>
-    <ion-col width-50 class="progress-box">
-    <p *ngFor="let group of groups">
-        <ion-row>
-            <ion-col width-30>
-                <span>{{group.name}}Star</span>
-            </ion-col>
-            <ion-col width-60 class="progress-bar">
-                <span [style.width]="group.percent"></span>
-            </ion-col>
-            <ion-col width-10>
-                <span>{{group.sum}}</span>
-            </ion-col>
-        </ion-row>
-    </p>
-</ion-col>
+    <ion-grid *ngIf="item">
+    <ion-row>
+        <ion-col width-50>
+            <ion-row>
+                <ion-col>
+                    <rating [(ngModel)]="rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+                        starIconName="star" nullable="false"></rating>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <span> {{item.rate}} </span> <span>From 5</span>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <span>{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col width-50 class="progress-box">
+            <p *ngFor="let group of groups">
+                <ion-row>
+                    <ion-col width-30>
+                        <span>{{group.name}}Star</span>
+                    </ion-col>
+                    <ion-col width-60 class="progress-bar">
+                        <span [style.width]="group.percent"></span>
+                    </ion-col>
+                    <ion-col width-10>
+                        <span>{{group.sum}}</span>
+                    </ion-col>
+                </ion-row>
+            </p>
+        </ion-col>
+    </ion-row>
     <ion-row *ngIf="isReview">
-    <ion-col>
-        <button ion-button block outline (click)="createReview()">Write Review</button>
-    </ion-col>
-</ion-row>
+        <ion-col>
+            <button ion-button block outline (click)="createReview()">Write Review</button>
+        </ion-col>
+    </ion-row>
+    </ion-grid>
+
 <hr *ngIf="item">
 <ion-list *ngIf="item && item.reviews && item.reviews.length >0">
 <ion-item-divider *ngFor="let review of item.reviews">
