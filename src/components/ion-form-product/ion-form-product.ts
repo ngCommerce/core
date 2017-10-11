@@ -84,7 +84,7 @@ export class IonFormProductComponent {
   @Input() item = {} as ProductModel;
   @Input() categories: any;
   @Input() shippings: any;
-  @Input() shops = {} as ShopModel;
+  @Input() shops: any;
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
