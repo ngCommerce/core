@@ -9,6 +9,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'ion-list-product',
   template: `
+    <div *ngIf="showSearch">
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    </div>
     <ion-list >
       <ion-item *ngFor="let item of items" (click)="add(item)">
         <ion-thumbnail item-start>
@@ -29,13 +32,32 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   ]
 })
 export class IonListProductComponent {
+  posts: any;
   @Input() items: any;
+  @Input() showSearch: Boolean;
   @Output() selectedProduct: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListProductComponent Component');
   }
   add(item) {
     this.selectedProduct.emit(item);
+  }
+
+  getItems(e) {
+    if (!this.posts) {
+      this.posts = this.items;
+    } else {
+      this.items = this.posts;
+    }
+    // set val to the value of the searchbar
+    let val = e.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 
 }
