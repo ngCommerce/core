@@ -24,7 +24,9 @@ IonListProductComponent.decorators = [
             <img src="{{item.image}}">
         </ion-thumbnail>
         <h2>{{item.name}}</h2>
-        <p>{{item.price | number}} {{item.currency}}</p>
+        <p *ngIf="item.promotionprice">{{item.promotionprice | number}} {{item.currency}}</p>
+        <p> <span> {{item.price | number}} {{item.currency}}</span> <span *ngIf="item.percentofdiscount">-{{item.percentofdiscount}} %</span>
+        </p>
         <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
       </ion-item>
     </ion-list>

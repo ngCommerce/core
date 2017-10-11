@@ -33,7 +33,11 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             <ion-radio (click)="selectaddress(item)"></ion-radio>
         </ion-item>
     </ion-list>
-    <ion-label id="labelModol" (click)="openModal()">{{'เพิ่มที่อยู่ใหม่'}}</ion-label>
+
+    <div id="button-round-center">
+    <button id="button-round" ion-button round outline (click)="openModal()">{{'เพิ่มที่อยู่ใหม่'}}</button>
+    </div>
+
     <ion-label id="labelShipping"> {{'โปรดเลือกแบบของการส่งสินค้า'}} </ion-label>
     <ion-list>
         <div *ngFor="let item of listshipping.items">
@@ -44,7 +48,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
       </ion-thumbnail>
             <h2  id="pProName">{{item.product.name}}</h2>
             <p> {{item.qty}} {{'QTY'}}</p>
-            <h3 text-right>รวม {{item.totalamount | number}} {{'บาท'}}</h3>
+            <h3 text-right>รวม {{item.totalamount | number}} {{item.product.currency}}</h3>
         </ion-item>
             <ion-row>
                 <ion-col width-100>
