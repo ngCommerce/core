@@ -19,8 +19,14 @@ IonDetailOrderComponent.decorators = [
 <ion-grid id="gridDetail">
     <ion-row>
         <ion-col id="colProduct">
-            <p id="pName">{{item.name}}</p>    
-            <h4 *ngIf="!item.promotionprice">{{item.price}} {{item.currency}}</h4>
+        <p>{{item.name}}</p>
+        <p>{{item.detail}}</p>
+        <p *ngIf="item.promotionprice">
+            <span *ngIf="item.promotionprice">{{item.promotionprice}} {{item.currency}}</span>
+            <span>{{item.price}} {{item.currency}}</span>
+            <span *ngIf="item.percentofdiscount">-{{item.percentofdiscount}} %</span>
+        </p>
+        <h4 *ngIf="!item.promotionprice">{{item.price}} {{item.currency}}</h4>
         </ion-col>
     </ion-row>
     <ion-row *ngIf="item.rate">
