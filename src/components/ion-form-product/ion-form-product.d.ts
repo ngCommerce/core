@@ -11,6 +11,7 @@ export declare class IonFormProductComponent {
     categories: any;
     shippings: any;
     shops: any;
+    currency: any;
     itemClicked: EventEmitter<any>;
     constructor();
     checkedShop(): boolean;
