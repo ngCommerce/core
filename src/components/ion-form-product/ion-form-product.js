@@ -10,6 +10,7 @@ export class IonFormProductComponent {
         this.item = {};
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
+        this.item.shop = this.shops;
         console.log(JSON.stringify(this.shops));
         // this.item.shop = this.shops[0];
     }
@@ -106,7 +107,7 @@ IonFormProductComponent.decorators = [
       </ion-item>
       <ion-item *ngIf="shops && shops.length > 0">
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="shops">
+        <ion-select [(ngModel)]="item.shop">
           <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
