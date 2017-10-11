@@ -1,6 +1,5 @@
 import { EventEmitter } from '@angular/core';
 import { ProductModel } from './../../models/product.model';
-import { ShopModel } from '../../models/shop.model';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -11,7 +10,7 @@ export declare class IonFormProductComponent {
     item: ProductModel;
     categories: any;
     shippings: any;
-    shops: ShopModel;
+    shops: any;
     itemClicked: EventEmitter<any>;
     constructor();
     checkedShop(): boolean;
