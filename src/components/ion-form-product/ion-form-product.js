@@ -15,8 +15,10 @@ export class IonFormProductComponent {
         this.ionViewDidLoad();
     }
     ionViewDidLoad() {
-        console.log('productBind');
-        console.log(this.productBind);
+        setTimeout(function () {
+            console.log('productBind');
+            console.log(this.productBind);
+        }, 3000);
     }
     checkedShop() {
         return true;
