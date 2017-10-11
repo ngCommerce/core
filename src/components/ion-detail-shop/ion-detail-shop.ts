@@ -37,6 +37,21 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       </ion-item>
     </ion-list>
     <ion-list>
+    <ion-col width-50 class="progress-box">
+    <p *ngFor="let group of groups">
+        <ion-row>
+            <ion-col width-30>
+                <span>{{group.name}}Star</span>
+            </ion-col>
+            <ion-col width-60 class="progress-bar">
+                <span [style.width]="group.percent"></span>
+            </ion-col>
+            <ion-col width-10>
+                <span>{{group.sum}}</span>
+            </ion-col>
+        </ion-row>
+    </p>
+</ion-col>
     <ion-row *ngIf="isReview">
     <ion-col>
         <button ion-button block outline (click)="createReview()">Write Review</button>
