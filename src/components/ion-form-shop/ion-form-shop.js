@@ -27,7 +27,18 @@ IonFormShopComponent.decorators = [
             <ion-label floating >Name</ion-label>
             <ion-input type="text" [(ngModel)]="item.name"></ion-input>
         </ion-item>
-
+        <ion-item>
+            <ion-label floating >Detail</ion-label>
+            <ion-input type="text" [(ngModel)]="item.detail"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating >Tel</ion-label>
+            <ion-input type="text" [(ngModel)]="item.tel"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating >Email</ion-label>
+            <ion-input type="text" [(ngModel)]="item.email"></ion-input>
+        </ion-item>
         <p id="shopImg">Images</p>
         <ion-upload-image [maxImage]="1" (imageOutList)="imageList($event)"></ion-upload-image>
 
