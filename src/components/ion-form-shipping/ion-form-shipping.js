@@ -117,7 +117,7 @@ IonFormShippingComponent.decorators = [
       </ion-thumbnail>
             <h2  id="pProName">{{item.product.name}}</h2>
             <p> {{item.qty}} {{'QTY'}}</p>
-            <h3 text-right>รวม {{item.totalamount | number}} {{'บาท'}}</h3>
+            <h3 text-right>รวม {{item.totalamount | number}} {{item.product.currency}}</h3>
         </ion-item>
             <ion-row>
                 <ion-col width-100>
@@ -135,6 +135,20 @@ IonFormShippingComponent.decorators = [
                 </ion-item>
             </ion-list>
         </div>
+        <div *ngIf="listshipping.items && listshipping.items.length > 0">
+        <ion-row>
+            <ion-col width-50>
+                <p>{{'ราคารวม'}}</p>
+                <p>{{'ส่วนลด'}}</p>
+                <p>{{'รวมสุทธิ'}}</p>
+            </ion-col>
+            <ion-col width-50>
+                <p text-right>{{listshipping.amount | number}} {{item.product.currency}}</p>
+                <p text-right>{{listshipping.discount | number}} {{item.product.currency}}</p>
+                <p text-right>{{listshipping.totalamount | number}} {{item.product.currency}}</p>
+            </ion-col>
+        </ion-row>
+    </div>
     </ion-list>
     <ion-grid>
         <div *ngIf="listshipping.items && listshipping.items.length > 0">
