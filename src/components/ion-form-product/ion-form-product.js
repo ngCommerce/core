@@ -11,6 +11,7 @@ export class IonFormProductComponent {
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
         // this.item.shop = this.shops[0];
+        console.log(this.item);
     }
     checkedShop() {
         return true;
@@ -58,6 +59,7 @@ IonFormProductComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-form-product',
                 template: `
+  {{item.shop.name}}
     <ion-list>
     
       <ion-item>
@@ -130,7 +132,7 @@ IonFormProductComponent.decorators = [
 /** @nocollapse */
 IonFormProductComponent.ctorParameters = () => [];
 IonFormProductComponent.propDecorators = {
-    'item': [{ type: Input },],
+    'item': [{ type: Input, args: ['item',] },],
     'categories': [{ type: Input },],
     'shippings': [{ type: Input },],
     'shops': [{ type: Input },],

@@ -11,7 +11,7 @@ export declare class ShopService {
     getShopList(): Promise<ShopListModel>;
     createShop(data: any): Promise<ShopModel>;
     updateShopByID(data: any): Promise<ShopModel>;
-    reviewShop(data: any): Promise<ShopModel>;
+    reviewShop(shopId: any, data: any): Promise<ShopModel>;
     getShopByID(id: any): Promise<ShopModel>;
     deleteShopByID(id: any): Promise<ShopModel>;
     getShopListByUser(): Promise<Array<ShopModel>>;
