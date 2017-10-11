@@ -7,12 +7,14 @@ import { ProductModel } from '../../index';
  * Components.
  */
 export declare class IonFormProductComponent {
+    productBind: ProductModel;
     item: ProductModel;
     categories: any;
     shippings: any;
     shops: any;
     itemClicked: EventEmitter<any>;
     constructor();
+    ionViewDidLoad(): void;
     checkedShop(): boolean;
     onClick(item: any): void;
     imageList(e: any): void;
