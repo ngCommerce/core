@@ -48,7 +48,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
       </ion-thumbnail>
             <h2  id="pProName">{{item.product.name}}</h2>
             <p> {{item.qty}} {{'QTY'}}</p>
-            <h3 text-right>รวม {{item.totalamount | number}} {{'บาท'}}</h3>
+            <h3 text-right>รวม {{item.totalamount | number}} {{item.product.currency}}</h3>
         </ion-item>
             <ion-row>
                 <ion-col width-100>
@@ -65,8 +65,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
                     <ion-radio (click)="setproduct(item,itm)"></ion-radio>
                 </ion-item>
             </ion-list>
-        </div>
-    </ion-list>
+        
     <ion-grid>
         <div *ngIf="listshipping.items && listshipping.items.length > 0">
             <ion-row>
@@ -83,6 +82,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             </ion-row>
         </div>
     </ion-grid>
+    </div>
+    </ion-list>
     <ion-grid>
         <button ion-button full color="danger" (click)="stepValidation()">{{'ดำเนินการชำระเงิน'}}</button>
     </ion-grid>
