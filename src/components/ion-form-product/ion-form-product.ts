@@ -11,8 +11,6 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
 @Component({
   selector: 'ion-form-product',
   template: `
-  {{productBind}}
-  
     <ion-list>
     
       <ion-item>
@@ -91,8 +89,7 @@ export class IonFormProductComponent {
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
     // this.item.shop = this.shops[0];
-    console.log(this.item);
-    console.log(this.shops);
+    this.ionViewDidLoad();
   }
 
   ionViewDidLoad() {
