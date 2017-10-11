@@ -11,7 +11,6 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
 @Component({
   selector: 'ion-form-product',
   template: `
-  {{item.shop.name}}
     <ion-list>
     
       <ion-item>
@@ -59,8 +58,8 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
       </ion-item>
       <ion-item *ngIf="item && item.shop.name">
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="item.shop">
-          <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
+        <ion-select [(ngModel)]="item.shop.name">
+          <ion-option *ngFor="let items of shops" [value]="items.name">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
 
@@ -81,7 +80,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
   ]
 })
 export class IonFormProductComponent {
-  @Input('item') item = {} as ProductModel;
+  @Input() item = {} as ProductModel;
   @Input() categories: any;
   @Input() shippings: any;
   @Input() shops: any;
