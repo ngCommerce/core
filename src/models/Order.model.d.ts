@@ -11,6 +11,9 @@ export interface OrderModel {
     deliveryprice: number;
     discountcode: string;
     status: string;
+    promotionprice: number;
+    currency: string;
+    percentofdiscount: number;
 }
 export interface OrderItemModel {
     _id: string;

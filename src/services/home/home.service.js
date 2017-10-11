@@ -19,14 +19,14 @@ export class HomeService {
     }
     seeAllProduct(name) {
         let headers = this.corService.createAuthorizationHeader();
-        return this.http.get(this._apiURL + 'api/seeallproduct/' + name, { headers: headers })
+        return this.http.get(this._apiURL + 'seeallproduct/' + name, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
     }
     seeAllShop(name) {
         let headers = this.corService.createAuthorizationHeader();
-        return this.http.get(this._apiURL + 'api/seeallshop/' + name, { headers: headers })
+        return this.http.get(this._apiURL + 'seeallshop/' + name, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);
