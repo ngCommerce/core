@@ -8,6 +8,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 export class IonFormProductComponent {
     constructor() {
         this.item = {};
+        this.shops = {};
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
         // this.item.shop = this.shops[0];
@@ -104,10 +105,10 @@ IonFormProductComponent.decorators = [
           <ion-option *ngFor="let items of shippings" [value]="items" >{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
-      <ion-item *ngIf="item && item.shop.name">
+      <ion-item>
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="item.shop.name">
-          <ion-option *ngFor="let items of shops" [value]="items.name">{{items.name}}</ion-option>
+        <ion-select [(ngModel)]="item.shop">
+          <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
 

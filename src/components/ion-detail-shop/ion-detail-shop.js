@@ -45,6 +45,21 @@ IonDetailShopComponent.decorators = [
                 selector: 'ion-detail-shop',
                 template: `
     <img src="{{item.image}}">
+    <ion-row wrap>
+    <ion-col no-padding width-65>
+      <h2>{{item.name}}</h2>
+    </ion-col>
+  
+    <ion-col no-padding width-60>
+      <p>
+        {{item.detail}}
+      </p>
+    </ion-col>
+    <ion-col no-padding width-40>
+      <rating [(ngModel)]="item.rate" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+        starIconName="star" nullable="false"></rating>
+    </ion-col>
+  </ion-row>
     <div>
       <button ion-button primary>
         <ion-icon name="call"></ion-icon>

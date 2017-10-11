@@ -14,10 +14,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <ion-col no-padding width-65>
       <h2>{{item.name}}</h2>
     </ion-col>
-    <ion-col no-padding width-35>
-      <ion-icon (click)="onClickF()" *ngIf="!status" name="md-heart" color="danger"></ion-icon>
-      <ion-icon (click)="onClick()" *ngIf="status" name="md-heart-outline" color="danger"></ion-icon>
-    </ion-col>
   
     <ion-col no-padding width-60>
       <p>
