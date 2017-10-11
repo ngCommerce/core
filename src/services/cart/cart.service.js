@@ -67,7 +67,7 @@ export class CartService {
                 }
             }
         }
-        if (!cartStorage) {
+        if (!cartStorage || !cartStorage.items) {
             cartStorage = {
                 items: []
             };

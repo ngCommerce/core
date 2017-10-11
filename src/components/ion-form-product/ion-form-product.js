@@ -10,8 +10,49 @@ export class IonFormProductComponent {
         this.item = {};
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
+        // this.item.shop = this.shops;
+        // console.log(this.shops);
+        // this.item.shop = this.shops[0];
+    }
+    checkedShop() {
+        return true;
     }
     onClick(item) {
+        if (!item.name) {
+            alert('Please Enter Your Name!');
+            return;
+        }
+        else if (!item.detail) {
+            alert('Please Enter Your Detail!');
+            return;
+        }
+        else if (!item.price) {
+            alert('Please Enter Your Price!');
+            return;
+        }
+        else if (!item.currency) {
+            alert('Please Enter Your Currency!');
+            return;
+        }
+        else if (!item.shippings) {
+            alert('Please Enter Your Shippings!');
+            return;
+        }
+        else if (!item.categories) {
+            alert('Please Enter Your Categories!');
+            return;
+        }
+        else if (!item.shop) {
+            alert('Please Enter Your Shop!');
+            return;
+        }
+        else if (!this.item.images && this.item.images.length === 0) {
+            alert('Please Enter Your Upload Image!');
+            return;
+        }
+        console.log(item.shop + "++++++++++" + this.shops);
+        item.shop = this.shops;
+        console.log(item);
         this.itemClicked.emit(item);
     }
     imageList(e) {
@@ -25,17 +66,17 @@ IonFormProductComponent.decorators = [
     <ion-list>
     
       <ion-item>
-        <ion-label floating>Name</ion-label>
+        <ion-label floating>Name*</ion-label>
         <ion-input type="text" [(ngModel)]="item.name"></ion-input>
       </ion-item>
     
       <ion-item>
-        <ion-label floating>Detail</ion-label>
+        <ion-label floating>Detail*</ion-label>
         <ion-input type="text" [(ngModel)]="item.detail"></ion-input>
       </ion-item>
     
       <ion-item>
-        <ion-label floating>Price</ion-label>
+        <ion-label floating>Price*</ion-label>
         <ion-input type="number" [(ngModel)]="item.price"></ion-input>
       </ion-item>
     
@@ -50,35 +91,32 @@ IonFormProductComponent.decorators = [
       </ion-item>
     
       <ion-item>
-        <ion-label floating>Currency</ion-label>
+        <ion-label floating>Currency*</ion-label>
         <ion-input type="text" [(ngModel)]="item.currency"></ion-input>
       </ion-item>
     
       <ion-item>
-        <ion-label floating>Categories</ion-label>
+        <ion-label floating>Categories*</ion-label>
         <ion-select [(ngModel)]="item.categories" multiple="true">
-          <ion-option *ngFor="let item of categories" [value]="item">{{item.name}}</ion-option>
+          <ion-option *ngFor="let items of categories" [value]="items">{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
     
       <ion-item>
-        <ion-label floating>Shippings</ion-label>
+        <ion-label floating>Shippings*</ion-label>
         <ion-select [(ngModel)]="item.shippings" multiple="true">
-          <ion-option *ngFor="let item of shippings" [value]="item">{{item.name}}</ion-option>
+          <ion-option *ngFor="let items of shippings" [value]="items" >{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
-    
-      <ion-item>
-        <ion-label floating>Shop</ion-label>
-        <ion-select [(ngModel)]="item.shop">
-          <ion-option *ngFor="let item of shops" [value]="item">{{item.name}}</ion-option>
-        </ion-select>
+      <ion-item *ngIf="shops && shops.length > 0">
+        <ion-label floating>Shop*</ion-label>
+        <ion-select [(ngModel)]="shops">
+          <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
+          </ion-select>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Images</ion-label>
-        <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
-      </ion-item>
+      <p id="productImg">Images*</p>
+      <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
       
     </ion-list>
     
@@ -97,6 +135,7 @@ IonFormProductComponent.decorators = [
 /** @nocollapse */
 IonFormProductComponent.ctorParameters = () => [];
 IonFormProductComponent.propDecorators = {
+    'item': [{ type: Input },],
     'categories': [{ type: Input },],
     'shippings': [{ type: Input },],
     'shops': [{ type: Input },],

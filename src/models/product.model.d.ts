@@ -15,6 +15,7 @@ export interface ProductModel {
     shippings: Array<Shipping>;
     shop: ShopModel;
     cod: Boolean;
+    isFavorite: Boolean;
 }
 export interface Shipping {
     _id: string;

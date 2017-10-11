@@ -2,6 +2,7 @@ import { EventEmitter } from '@angular/core';
 import { ImagePicker } from "@ionic-native/image-picker";
 import { Base64 } from "@ionic-native/base64";
 import { UploadImageService } from './../../services/uploadimage/uploadimage.service';
+import { LoadingController } from 'ionic-angular';
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -12,11 +13,12 @@ export declare class IonUploadImageComponent {
     uploadXServiceProvider: UploadImageService;
     imagePicker: ImagePicker;
     base64: Base64;
+    loadingCtrl: LoadingController;
     imageList: Array<any>;
     allowUpload: number;
     maxImage: number;
     imageOutList: EventEmitter<any>;
-    constructor(uploadXServiceProvider: UploadImageService, imagePicker: ImagePicker, base64: Base64);
+    constructor(uploadXServiceProvider: UploadImageService, imagePicker: ImagePicker, base64: Base64, loadingCtrl: LoadingController);
     uploadImage(): void;
     selectImage(): void;
     convertImgUrlToBase64(imgUrl: any): void;

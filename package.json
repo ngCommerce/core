@@ -1,6 +1,6 @@
 {
   "name": "@ngcommerce/core",
-  "version": "1.2.23",
+  "version": "1.2.93",
   "description": "Great repository ng2+ lib of ecommerce platform by c@net",
   "main": "bundles/core.umd.js",
   "module": "index.js",
@@ -53,7 +53,8 @@
   "dependencies": {
     "@angular/http": "^4.4.4",
     "@ionic-native/base64": "^4.3.1",
-    "@ionic-native/image-picker": "^4.3.1"
+    "@ionic-native/image-picker": "^4.3.1",
+    "ionic-angular": "^3.5.0"
   },
   "devDependencies": {
     "@angular/common": "4.0.1",

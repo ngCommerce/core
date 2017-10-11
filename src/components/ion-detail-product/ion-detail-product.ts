@@ -38,7 +38,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
                 <ion-icon name='ios-share-outline' is-active="false"></ion-icon>
             </button>
             <button ion-button color="danger" clear icon-only (click)="favorite(item)">
-                    <ion-icon name='ios-heart-outline' is-active="false" ></ion-icon>
+                    <ion-icon name='ios-heart' is-active="false" ngIf="item.isFavorite"></ion-icon>
+                    <ion-icon name='ios-heart-outline' is-active="false" ngIf="!item.isFavorite"></ion-icon>
             </button>
         </ion-col>
     </ion-row>
@@ -150,42 +151,42 @@ export class IonDetailProductComponent {
     @Input() item: any;
     @Input() isReview: Boolean;
     @Output() selectedFavorite: EventEmitter<any> = new EventEmitter<any>();
-    @Output() review:EventEmitter<any> = new EventEmitter<any>();
-    groups:Array<any>=[
+    @Output() review: EventEmitter<any> = new EventEmitter<any>();
+    groups: Array<any> = [
         {
-          name: '5',
-          percent: '0%',
-          sum: 0
+            name: '5',
+            percent: '0%',
+            sum: 0
         },
         {
-          name: '4',
-          percent: '0%',
-          sum: 0
+            name: '4',
+            percent: '0%',
+            sum: 0
         },
         {
-          name: '3',
-          percent: '0%',
-          sum: 0
+            name: '3',
+            percent: '0%',
+            sum: 0
         },
         {
-          name: '2',
-          percent: '0%',
-          sum: 0
+            name: '2',
+            percent: '0%',
+            sum: 0
         },
         {
-          name: '1',
-          percent: '0%',
-          sum: 0
+            name: '1',
+            percent: '0%',
+            sum: 0
         }
-      ];
+    ];
     constructor() {
-      
+
         // console.log('Hello IonListCategoryComponent Component');
     }
     favorite(item) {
         this.selectedFavorite.emit(item);
     }
-    createReview(){
+    createReview() {
         this.review.emit('createReview');
     }
 }
