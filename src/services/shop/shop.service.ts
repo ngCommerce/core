@@ -36,6 +36,14 @@ export class ShopService {
             .catch(this.handleError);
     }
 
+    reviewShop(data): Promise<ShopModel> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.put(this._apiURL + 'shops/review/' + data._id, data, { headers: headers })
+            .toPromise()
+            .then(response => response.json() as ShopModel)
+            .catch(this.handleError);
+    }
+
     getShopByID(id): Promise<ShopModel> {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'shops/' + id, { headers: headers })
