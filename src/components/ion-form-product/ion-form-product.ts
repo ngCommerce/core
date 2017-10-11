@@ -58,7 +58,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
       </ion-item>
       <ion-item *ngIf="shops && shops.length > 0">
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="shops">
+        <ion-select [(ngModel)]="item.shop">
           <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
@@ -87,6 +87,7 @@ export class IonFormProductComponent {
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
+    this.item.shop = this.shops;
     console.log(JSON.stringify(this.shops));
     // this.item.shop = this.shops[0];
   }
