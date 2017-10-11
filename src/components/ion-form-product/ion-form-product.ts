@@ -11,8 +11,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
 @Component({
   selector: 'ion-form-product',
   template: `
-  {{item}}
-  {{JSON.stringify(item)}}
+  {{productBind}}
   
     <ion-list>
     
