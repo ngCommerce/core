@@ -42,7 +42,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         <button ion-button block outline (click)="createReview()">Write Review</button>
     </ion-col>
 </ion-row>
-</ion-grid>
 <hr *ngIf="item">
 <ion-list *ngIf="item && item.reviews && item.reviews.length >0">
 <ion-item-divider *ngFor="let review of item.reviews">
