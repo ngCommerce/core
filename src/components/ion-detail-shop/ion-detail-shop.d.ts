@@ -5,9 +5,11 @@ import { EventEmitter } from '@angular/core';
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-export declare class IonListGridComponent {
-    items: Array<any>;
-    itemClicked: EventEmitter<any>;
+export declare class IonDetailShopComponent {
+    item: any;
+    isReview: Boolean;
+    review: EventEmitter<any>;
+    groups: Array<any>;
     constructor();
-    selectProduct(item: any): void;
+    createReview(): void;
 }

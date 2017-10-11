@@ -43,6 +43,7 @@ import { IonSegmentOrderComponent } from "./components/ion-segment-order/ion-seg
 import { IonOrdersComponent } from "./components/ion-orders/ion-orders";
 import { IonFormReviewComponent } from "./components/ion-form-review/ion-form-review";
 import { IonUploadImageComponent } from "./components/ion-upload-image/ion-upload-image";
+import { IonDetailShopComponent } from "./components/ion-detail-shop/ion-detail-shop";
 
 @NgModule()
 export class EcommerceCoreModule {
