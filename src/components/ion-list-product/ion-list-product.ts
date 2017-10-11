@@ -14,9 +14,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         <ion-thumbnail item-start>
             <img src="{{item.image}}">
         </ion-thumbnail>
-        <h2>{{item.name}}</h2>
-        <p *ngIf="item.promotionprice">{{item.promotionprice | number}} {{item.currency}}</p>
-        <p> <span> {{item.price | number}} {{item.currency}}</span> <span *ngIf="item.percentofdiscount">-{{item.percentofdiscount}} %</span>
+        <h2 id="name">{{item.name}}</h2>
+        <p *ngIf="item.promotionprice"  id="promotionprice">{{item.promotionprice | number}} {{item.currency}}</p>
+        <p> <span id="price"> {{item.price | number}} {{item.currency}}</span> <span  id="percentofdiscount"  *ngIf="item.percentofdiscount">-{{item.percentofdiscount}} %</span>
         </p>
         <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
       </ion-item>
