@@ -33,7 +33,9 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             <ion-radio (click)="selectaddress(item)"></ion-radio>
         </ion-item>
     </ion-list>
-    <ion-label id="labelModol" (click)="openModal()">{{'เพิ่มที่อยู่ใหม่'}}</ion-label>
+
+    <button ion-button round  (click)="openModal()">{{'เพิ่มที่อยู่ใหม่'}}</button>
+
     <ion-label id="labelShipping"> {{'โปรดเลือกแบบของการส่งสินค้า'}} </ion-label>
     <ion-list>
         <div *ngFor="let item of listshipping.items">
