@@ -7,24 +7,15 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
  */
 export class IonFormProductComponent {
     constructor() {
-        // console.log('Hello IonListCategoryComponent Component');
-        // this.item.shop = this.shops[0];
-        this.productBind = {};
         this.item = {};
         this.itemClicked = new EventEmitter();
-        setTimeout(function () {
-            this.ionViewDidLoad();
-        }, 13000);
-    }
-    ionViewDidLoad() {
-        console.log('productBind');
-        console.log(this.productBind);
+        // console.log('Hello IonListCategoryComponent Component');
+        // this.item.shop = this.shops[0];
     }
     checkedShop() {
         return true;
     }
     onClick(item) {
-        console.log(this.productBind);
         if (!item.name) {
             alert('Please Enter Your Name!');
             return;
@@ -57,7 +48,7 @@ export class IonFormProductComponent {
             alert('Please Enter Your Upload Image!');
             return;
         }
-        // this.itemClicked.emit(item);
+        this.itemClicked.emit(item);
     }
     imageList(e) {
         this.item.images = e;
@@ -71,7 +62,7 @@ IonFormProductComponent.decorators = [
     
       <ion-item>
         <ion-label floating>Name*</ion-label>
-        <ion-input type="text" [(ngModel)]="productBind.name"></ion-input>
+        <ion-input type="text" [(ngModel)]="item.name"></ion-input>
       </ion-item>
     
       <ion-item>
@@ -112,9 +103,9 @@ IonFormProductComponent.decorators = [
           <ion-option *ngFor="let items of shippings" [value]="items" >{{items.name}}</ion-option>
         </ion-select>
       </ion-item>
-      <ion-item *ngIf="shops && shops.length > 0">
+      <ion-item *ngIf="item && item.shop.name">
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="productBind.shop">
+        <ion-select [(ngModel)]="item.shop">
           <ion-option *ngFor="let items of shops" [value]="items">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
@@ -125,7 +116,7 @@ IonFormProductComponent.decorators = [
     </ion-list>
     
     <div padding>
-      <button ion-button block (click)="onClick(productBind)">Submit</button>
+      <button ion-button block (click)="onClick(item)">Submit</button>
     </div>
     
     `,
@@ -139,7 +130,6 @@ IonFormProductComponent.decorators = [
 /** @nocollapse */
 IonFormProductComponent.ctorParameters = () => [];
 IonFormProductComponent.propDecorators = {
-    'productBind': [{ type: Input },],
     'item': [{ type: Input },],
     'categories': [{ type: Input },],
     'shippings': [{ type: Input },],
