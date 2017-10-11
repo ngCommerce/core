@@ -7,18 +7,18 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
  */
 export class IonFormProductComponent {
     constructor() {
+        // console.log('Hello IonListCategoryComponent Component');
+        // this.item.shop = this.shops[0];
         this.productBind = {};
         this.item = {};
         this.itemClicked = new EventEmitter();
-        // console.log('Hello IonListCategoryComponent Component');
-        // this.item.shop = this.shops[0];
-        this.ionViewDidLoad();
+        setTimeout(function () {
+            this.ionViewDidLoad();
+        }, 13000);
     }
     ionViewDidLoad() {
-        setTimeout(function () {
-            console.log('productBind');
-            console.log(this.productBind);
-        }, 3000);
+        console.log('productBind');
+        console.log(this.productBind);
     }
     checkedShop() {
         return true;
