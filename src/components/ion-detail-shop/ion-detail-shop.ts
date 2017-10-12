@@ -28,12 +28,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   </ion-row>
   <ion-row>
     <ion-col id="divBtn">
-      <button ion-button primary id="btnCall">
+      <button ion-button block primary id="btnCall">
         <ion-icon name="call"></ion-icon>
       </button>
       </ion-col>
       <ion-col>
-      <button ion-button primary id="btnMail">
+      <button ion-button block primary id="btnMail">
         <ion-icon name="mail"></ion-icon>
       </button>
       </ion-col>   
