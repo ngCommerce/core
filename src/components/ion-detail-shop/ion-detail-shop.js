@@ -109,7 +109,7 @@ IonDetailShopComponent.decorators = [
             </ion-col>
         </ion-row>
     </p>
-    <p>
+    <p id="pRate">
         <rating [(ngModel)]="review.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
             starIconName="star" nullable="false"></rating>
     </p>
