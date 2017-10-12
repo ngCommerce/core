@@ -108,7 +108,7 @@ IonDetailShopComponent.decorators = [
                 <p>{{review.topic}}</p>
             </ion-col>
             <ion-col width-40 text-right>
-                <p>{{review.created}}</p>
+                <p>{{review.created | date:'dd/MMMM/yyyy hh:mm a'}}</p>
                 <p>{{review.user ? review.user.displayname : ''}}</p>
             </ion-col>
         </ion-row>
