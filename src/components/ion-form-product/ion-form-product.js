@@ -122,7 +122,7 @@ IonFormProductComponent.decorators = [
           </ion-select>
       </ion-item>
 
-      <ion-item *ngIf="item.shop && item.shop._id">
+      <ion-item *ngIf="item.shop">
       <ion-label floating>Shop*</ion-label>
       <ion-select [(ngModel)]="item.shop._id">
         <ion-option *ngFor="let items of shops" [value]="items._id">{{items.name}}</ion-option>
