@@ -6,6 +6,7 @@ import { EventEmitter } from '@angular/core';
  * Components.
  */
 export declare class IonFormProfileComponent {
+    isShop: Boolean;
     item: any;
     itemClicked: EventEmitter<any>;
     settingProfileClicked: EventEmitter<any>;

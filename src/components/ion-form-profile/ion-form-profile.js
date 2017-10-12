@@ -65,7 +65,7 @@ IonFormProfileComponent.decorators = [
         <ion-icon name="ios-contact-outline" item-start></ion-icon>
             Setting Profile
     </button>
-    <button ion-item (click)="manageShop()">
+    <button ion-item (click)="manageShop()" *ngIf="isShop">
           <ion-icon name="ios-settings-outline" item-start></ion-icon>
           Manage Shop
     </button>
@@ -103,6 +103,7 @@ IonFormProfileComponent.decorators = [
 /** @nocollapse */
 IonFormProfileComponent.ctorParameters = () => [];
 IonFormProfileComponent.propDecorators = {
+    'isShop': [{ type: Input },],
     'item': [{ type: Input },],
     'itemClicked': [{ type: Output },],
     'settingProfileClicked': [{ type: Output },],
