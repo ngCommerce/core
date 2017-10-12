@@ -1,6 +1,7 @@
 import { ShopModel } from './shop.model';
 import { ReviewsModel } from './core.model';
 import { CategoryModel } from './category.model';
+import { CurrencyModel } from './currency.model';
 
 export interface ProductModel {
     _id: string;
@@ -9,7 +10,7 @@ export interface ProductModel {
     price: number;
     promotionprice: number; //calculate from active promotions
     percentofdiscount: number; //calculate from active promotions
-    currency: string;
+    currency: Array<CurrencyModel>;
     categories: Array<CategoryModel>;
     images: Array<string>;
     reviews: Array<ReviewsModel>; // relate of Reviews
