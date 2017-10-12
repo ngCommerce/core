@@ -10,7 +10,7 @@ export interface ProductModel {
     price: number;
     promotionprice: number; //calculate from active promotions
     percentofdiscount: number; //calculate from active promotions
-    currency: Array<CurrencyModel>;
+    currency: CurrencyModel;
     categories: Array<CategoryModel>;
     images: Array<string>;
     reviews: Array<ReviewsModel>; // relate of Reviews
@@ -19,7 +19,7 @@ export interface ProductModel {
     shippings: Array<Shipping>;
     shop: ShopModel;
     cod: Boolean;
-    isFavorite:Boolean;
+    isFavorite: Boolean;
 }
 
 // export interface QuestionModel {
