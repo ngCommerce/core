@@ -45,8 +45,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </ion-avatar>
         <span>{{item.tel}}</span>
       </ion-item>
-      <ion-item *ngIf="item.email">
-        <ion-avatar item-left id="itemMail">
+      <ion-item *ngIf="item.email" id="itemMail">
+        <ion-avatar item-left >
           <ion-icon name="mail"></ion-icon>
         </ion-avatar>
         <span>{{item.email}}</span>
