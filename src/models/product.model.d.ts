@@ -1,7 +1,6 @@
 import { ShopModel } from './shop.model';
 import { ReviewsModel } from './core.model';
 import { CategoryModel } from './category.model';
-import { CurrencyModel } from './currency.model';
 export interface ProductModel {
     _id: string;
     name: string;
@@ -9,7 +8,7 @@ export interface ProductModel {
     price: number;
     promotionprice: number;
     percentofdiscount: number;
-    currency: CurrencyModel;
+    currency: string;
     categories: Array<CategoryModel>;
     images: Array<string>;
     reviews: Array<ReviewsModel>;
