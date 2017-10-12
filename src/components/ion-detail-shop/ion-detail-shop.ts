@@ -10,42 +10,42 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     selector: 'ion-detail-shop',
     template: `
     <img src="{{item.image}}">
-    <ion-row wrap>
-    <ion-col no-padding width-65>
-      <h2>{{item.name}}</h2>
+    <ion-row wrap id="wrap">
+    <ion-col no-padding width-65 id="colName">
+      <h2 id="h2Name">{{item.name}}</h2>
     </ion-col>
   
-    <ion-col no-padding width-60>
-      <p>
+    <ion-col no-padding width-60 id="colDetail">
+      <p id="pDetail">
         {{item.detail}}
       </p>
     </ion-col>
-    <ion-col no-padding width-40>
+    <ion-col no-padding width-40 id="colRating">
       <rating [(ngModel)]="item.rate" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
         starIconName="star" nullable="false"></rating>
     </ion-col>
   </ion-row>
-    <div>
-      <button ion-button primary>
+    <div id="divBtn">
+      <button ion-button primary id="btnCall">
         <ion-icon name="call"></ion-icon>
       </button>
-      <button ion-button primary>
+      <button ion-button primary id="btnMail">
         <ion-icon name="mail"></ion-icon>
       </button>
     </div>
-    <div *ngIf="item.map && item.map.lat && item.map.long">
+    <div *ngIf="item.map && item.map.lat && item.map.long" id="divMap">
       <img src="https://maps.googleapis.com/maps/api/staticmap?center={{item.map.lat}},{{item.map.lng}}&zoom=15&size=400x300&scale=2&markers=icon:https://s3-us-west-2.amazonaws.com/ionicthemes-apps-assets/ion2FullApp/pin.min.png|{{item.map.lat}},{{item.map.long}}"
         alt="location map" title="shop name - shop detail">
     </div>
-    <ion-list>
-      <ion-item *ngIf="item.tel">
+    <ion-list id="listTel">
+      <ion-item *ngIf="item.tel" id="itemTel">
         <ion-avatar item-left>
           <ion-icon name="call"></ion-icon>
         </ion-avatar>
         <span>{{item.tel}}</span>
       </ion-item>
       <ion-item *ngIf="item.email">
-        <ion-avatar item-left>
+        <ion-avatar item-left id="itemMail">
           <ion-icon name="mail"></ion-icon>
         </ion-avatar>
         <span>{{item.email}}</span>
@@ -53,30 +53,30 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </ion-list>
     <ion-list>
     <ion-row>
-    <ion-col>
-        <span> {{item.rate}} </span> <span>From 5</span>
+    <ion-col id="colRate">
+        <span id="spanRate"> {{item.rate}} </span> <span>From 5</span>
     </ion-col>
 </ion-row>
 <ion-row>
-    <ion-col>
-        <span>{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
+    <ion-col id="colReviews">
+        <span id="spanItemReview">{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
     </ion-col>
 </ion-row>
     <ion-grid *ngIf="item">
     <ion-row>
         <ion-col width-50>
             <ion-row>
-                <ion-col>
+                <ion-col id="colRating">
                     <rating [(ngModel)]="rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
-                        starIconName="star" nullable="false"></rating>
+                        starIconName="star" nullable="false" id="ratingRate"></rating>
                 </ion-col>
             </ion-row>
         </ion-col>
         
     </ion-row>
-    <ion-row *ngIf="isReview">
-        <ion-col>
-            <button ion-button block outline (click)="createReview()">Write Review</button>
+    <ion-row *ngIf="isReview" id="rowIsreview">
+        <ion-col id="colBtnReview">
+            <button ion-button block outline (click)="createReview()" id="btnCeateReview">Write Review</button>
         </ion-col>
     </ion-row>
     </ion-grid>
@@ -85,7 +85,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 <ion-list *ngIf="item && item.reviews && item.reviews.length >0">
 <ion-item-divider *ngFor="let review of item.reviews">
     <p>
-        <ion-row>
+        <ion-row >
             <ion-col no-padding width-60 text-left>
                 <p>{{review.topic}}</p>
             </ion-col>
