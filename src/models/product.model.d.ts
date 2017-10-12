@@ -9,7 +9,7 @@ export interface ProductModel {
     price: number;
     promotionprice: number;
     percentofdiscount: number;
-    currency: Array<CurrencyModel>;
+    currency: CurrencyModel;
     categories: Array<CategoryModel>;
     images: Array<string>;
     reviews: Array<ReviewsModel>;
