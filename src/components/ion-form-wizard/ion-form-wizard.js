@@ -20,7 +20,7 @@ IonFormWizardComponent.decorators = [
         <ion-col *ngFor="let step of steps">
           <ion-row>
             <ion-col text-center>
-              <ion-segment color="light" [(ngModel)]="currentstep">
+              <ion-segment mode="md" color="light" [(ngModel)]="currentstep">
                 <ion-segment-button id="segmentStep" [value]="step.value">{{step.value}}</ion-segment-button>
               </ion-segment>
               <p>{{step.title}}</p>
