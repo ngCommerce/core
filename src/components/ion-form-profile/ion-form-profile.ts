@@ -38,7 +38,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
         <ion-icon name="ios-contact-outline" item-start></ion-icon>
             Setting Profile
     </button>
-    <button ion-item (click)="manageShop()">
+    <button ion-item (click)="manageShop()" *ngIf="isShop">
           <ion-icon name="ios-settings-outline" item-start></ion-icon>
           Manage Shop
     </button>
@@ -73,10 +73,11 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     ]
 })
 export class IonFormProfileComponent {
+    @Input() isShop: Boolean;
     @Input() item: any;
     @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() settingProfileClicked: EventEmitter<any> = new EventEmitter<any>();
-    @Output() manageShopClicked: EventEmitter<any> = new EventEmitter<any>();    
+    @Output() manageShopClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() notificationClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() loginClicked: EventEmitter<any> = new EventEmitter<any>();
     constructor() {
@@ -100,7 +101,7 @@ export class IonFormProfileComponent {
     login() {
         this.loginClicked.emit('login');
     }
-    settingProfile(){
+    settingProfile() {
         this.settingProfileClicked.emit('settingProfile');
     }
 }
