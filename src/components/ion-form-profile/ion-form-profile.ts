@@ -35,7 +35,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 </ion-list>
 <ion-list >
     <button ion-item (click)="settingProfile()">
-        <ion-icon name="ios-settings-outline" item-start></ion-icon>
+        <ion-icon name="ios-contact-outline" item-start></ion-icon>
             Setting Profile
     </button>
     <button ion-item (click)="manageShop()">
