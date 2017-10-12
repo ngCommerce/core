@@ -11,7 +11,7 @@ export class IonFormProductComponent {
         this.itemClicked = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
         // this.item.shop = this.shops[0];
-        console.log(this.item);
+        // console.log(this.item);
     }
     checkedShop() {
         return true;

@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { ProductModel, ShopModel } from '../../index';
+import { ProductModel } from '../../index';
 import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image";
 
 /**
@@ -107,7 +107,7 @@ export class IonFormProductComponent {
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
     // this.item.shop = this.shops[0];
-    console.log(this.item);
+    // console.log(this.item);
   }
 
   checkedShop() {
