@@ -46,7 +46,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
       </ion-select>
   </ion-item>
 
-  <ion-item *ngIf="item.currency && item.currency._id">
+  <ion-item *ngIf="item.currency">
   <ion-label floating>Currency*</ion-label>
   <ion-select [(ngModel)]="item.currency">
     <ion-option *ngFor="let items of currency" [value]="items.name">{{items.name}}</ion-option>
@@ -74,7 +74,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
           </ion-select>
       </ion-item>
 
-      <ion-item *ngIf="item.shop && item.shop._id">
+      <ion-item *ngIf="item.shop">
       <ion-label floating>Shop*</ion-label>
       <ion-select [(ngModel)]="item.shop._id">
         <ion-option *ngFor="let items of shops" [value]="items._id">{{items.name}}</ion-option>
