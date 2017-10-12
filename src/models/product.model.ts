@@ -11,6 +11,7 @@ export interface ProductModel {
     promotionprice: number; //calculate from active promotions
     percentofdiscount: number; //calculate from active promotions
     currency: CurrencyModel;
+    // currency: string;    
     categories: Array<CategoryModel>;
     images: Array<string>;
     reviews: Array<ReviewsModel>; // relate of Reviews

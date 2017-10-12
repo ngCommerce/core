@@ -90,14 +90,14 @@ IonFormProductComponent.decorators = [
     <ion-item *ngIf="!item.currency">
     <ion-label floating>Currency*</ion-label>
     <ion-select [(ngModel)]="item.currency">
-      <ion-option *ngFor="let items of currency" [value]="items._id">{{items.name}}</ion-option>
+      <ion-option *ngFor="let items of currency" [value]="items.name">{{items.name}}</ion-option>
       </ion-select>
   </ion-item>
 
   <ion-item *ngIf="item.currency && item.currency._id">
   <ion-label floating>Currency*</ion-label>
   <ion-select [(ngModel)]="item.currency._id">
-    <ion-option *ngFor="let items of currency" [value]="items._id">{{items.name}}</ion-option>
+    <ion-option *ngFor="let items of currency" [value]="items.name">{{items.name}}</ion-option>
     </ion-select>
 </ion-item>
 
