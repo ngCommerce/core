@@ -11,19 +11,20 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     template: `
     <img src="{{item.image}}">
     <ion-row wrap id="wrap">
-    <ion-col no-padding width-65 id="colName">
+    <ion-col no-padding width-60 id="colName">
       <h2 id="h2Name">{{item.name}}</h2>
-    </ion-col>
-  
-    <ion-col no-padding width-60 id="colDetail">
-      <p id="pDetail">
-        {{item.detail}}
-      </p>
     </ion-col>
     <ion-col no-padding width-40 id="colRating">
       <rating [(ngModel)]="item.rate" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
         starIconName="star" nullable="false"></rating>
     </ion-col>
+  </ion-row>
+  <ion-row id="detail">
+  <ion-col no-padding width-60 id="colDetail">
+  <p id="pDetail">
+    {{item.detail}}
+  </p>
+</ion-col>
   </ion-row>
     <div id="divBtn">
       <button ion-button primary id="btnCall">
