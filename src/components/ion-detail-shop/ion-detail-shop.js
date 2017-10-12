@@ -87,36 +87,14 @@ IonDetailShopComponent.decorators = [
         <span>{{item.email}}</span>
       </ion-item>
     </ion-list>
-    <ion-list>
-    <ion-row>
-    <ion-col id="colRate">
-        <span id="spanRate"> {{item.rate}} </span> <span>From 5</span>
-    </ion-col>
-</ion-row>
-<ion-row>
-    <ion-col id="colReviews">
-        <span id="spanItemReview">{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
-    </ion-col>
-</ion-row>
-    <ion-grid *ngIf="item">
-    <ion-row>
-        <ion-col width-50>
-            <ion-row>
-                <ion-col id="colRating">
-                    <rating [(ngModel)]="rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
-                        starIconName="star" nullable="false" id="ratingRate"></rating>
-                </ion-col>
-            </ion-row>
-        </ion-col>
-        
-    </ion-row>
+<ion-list>
+<ion-grid *ngIf="item">
     <ion-row *ngIf="isReview" id="rowIsreview">
         <ion-col id="colBtnReview">
             <button ion-button block outline (click)="createReview()" id="btnCeateReview">Write Review</button>
         </ion-col>
     </ion-row>
     </ion-grid>
-
 <hr *ngIf="item">
 <ion-list *ngIf="item && item.reviews && item.reviews.length >0">
 <ion-item-divider *ngFor="let review of item.reviews">
