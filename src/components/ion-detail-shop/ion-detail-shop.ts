@@ -26,14 +26,18 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   </p>
 </ion-col>
   </ion-row>
-    <div id="divBtn">
+  <ion-row>
+    <ion-col id="divBtn">
       <button ion-button primary id="btnCall">
         <ion-icon name="call"></ion-icon>
       </button>
+      </ion-col>
+      <ion-col>
       <button ion-button primary id="btnMail">
         <ion-icon name="mail"></ion-icon>
       </button>
-    </div>
+      </ion-col>   
+  </ion-row>  
     <div *ngIf="item.map && item.map.lat && item.map.long" id="divMap">
       <img src="https://maps.googleapis.com/maps/api/staticmap?center={{item.map.lat}},{{item.map.lng}}&zoom=15&size=400x300&scale=2&markers=icon:https://s3-us-west-2.amazonaws.com/ionicthemes-apps-assets/ion2FullApp/pin.min.png|{{item.map.lat}},{{item.map.long}}"
         alt="location map" title="shop name - shop detail">
