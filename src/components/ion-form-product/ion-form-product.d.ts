@@ -14,7 +14,6 @@ export declare class IonFormProductComponent {
     currency: any;
     itemClicked: EventEmitter<any>;
     cancelCreate: EventEmitter<any>;
-    editImg: Array<any>;
     constructor();
     checkedShop(): boolean;
     onClick(item: any): void;

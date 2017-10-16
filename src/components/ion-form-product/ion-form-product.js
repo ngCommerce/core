@@ -10,18 +10,6 @@ export class IonFormProductComponent {
         this.item = {};
         this.itemClicked = new EventEmitter();
         this.cancelCreate = new EventEmitter();
-        this.editImg = [];
-        if (this.item.images) {
-            alert(JSON.stringify(this.item.images));
-            for (let i = 0; i < this.item.images.length; i++) {
-                this.editImg.push({
-                    imgUrl: this.item.images[i]
-                });
-            }
-        }
-        else {
-            alert('no img');
-        }
         // console.log('Hello IonListCategoryComponent Component');
         // this.item.shop = this.shops[0];
         // console.log(this.item);
@@ -199,9 +187,14 @@ IonFormProductComponent.decorators = [
     </ion-item>
 
 
-    <ion-item>
+    <ion-item *ngIf="!item.images">
     <p id="productImg">Images*</p>
-    <ion-upload-image [maxImage]="5" [editImg]="editImg" (imageOutList)="imageList($event)"></ion-upload-image>
+    <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
+    </ion-item>
+
+    <ion-item *ngIf="item.images">
+    <p id="productImg">Images*</p>
+    <ion-upload-image [maxImage]="5" [editImg]="item.images" (imageOutList)="imageList($event)"></ion-upload-image>
     </ion-item>
 
     </ion-list>
