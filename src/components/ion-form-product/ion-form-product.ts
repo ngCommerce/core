@@ -153,38 +153,43 @@ export class IonFormProductComponent {
 
   discountpromotion() {
     if (this.item.price > 0) {
-      if(this.item.promotionprice > 0){
+      if (this.item.promotionprice > 0) {
         if (this.item.price - this.item.promotionprice >= 0) {
           let per = (this.item.promotionprice / this.item.price) * 100;
           this.item.percentofdiscount = 100 - per;
         } else {
           alert('ส่วนลดมากกว่าราคาขายจริง');
-          this.item.percentofdiscount = 0;
-          this.item.promotionprice = 0;
+          this.item.percentofdiscount = undefined;
+          this.item.promotionprice = undefined;
         }
-      }else {
-        this.item.promotionprice = 0;
-        this.item.percentofdiscount = 0;
+      } else {
+        this.item.promotionprice = undefined;
+        this.item.percentofdiscount = undefined;
       }
     } else {
-      this.item.promotionprice = 0;
-      this.item.percentofdiscount = 0;
+      this.item.promotionprice = undefined;
+      this.item.percentofdiscount = undefined;
     }
 
   }
   discountpercent() {
     if (this.item.price > 0) {
-      if (this.item.percentofdiscount <= 100) {
-        let pro = (this.item.percentofdiscount * this.item.price) / 100;
-        this.item.promotionprice = this.item.price - pro;
+      if (this.item.percentofdiscount > 0) {
+        if (this.item.percentofdiscount <= 100) {
+          let pro = (this.item.percentofdiscount * this.item.price) / 100;
+          this.item.promotionprice = this.item.price - pro;
+        } else {
+          alert('มากกว่า 100 เปอร์เซ็นต์');
+          this.item.promotionprice = undefined;
+          this.item.percentofdiscount = undefined;
+        }
       } else {
-        alert('มากกว่า 100 เปอร์เซ็นต์');
-        this.item.percentofdiscount = 0;
-        this.item.promotionprice = this.item.price;
+        this.item.promotionprice = undefined;
+        this.item.percentofdiscount = undefined;
       }
     } else {
-      this.item.promotionprice = 0;
-      this.item.percentofdiscount = 0;
+      this.item.promotionprice = undefined;
+      this.item.percentofdiscount = undefined;
     }
   }
 
