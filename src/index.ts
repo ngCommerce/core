@@ -28,7 +28,7 @@ export { FavoriteListModel } from "./models/favorite.model";
 export { CartModel } from "./models/cart.model";
 export { OrderModel, ItemByOrderByShopModel } from "./models/order.model";
 export { CheckoutModel } from "./models/checkout.model";
-export { HomeCategoryModel } from "./models/home.model";
+export { HomeCategoryModel, HomeSellerModel } from "./models/home.model";
 export { CurrencyModel } from "./models/currency.model";
 
 

@@ -20,16 +20,17 @@ export class IonUploadImageComponent {
         this.editImg = [];
         this.imageOutList = new EventEmitter();
         alert('editImg');
-        if (this.editImg) {
-            for (let i = 0; i < this.editImg.length; i++) {
-                this.imageList.push({
-                    imgUrl: this.editImg[i]
-                });
-            }
-        }
-        else {
-            alert('no img');
-        }
+        alert(JSON.stringify(this.editImg));
+        alert(JSON.stringify(this.imageList));
+        // if (this.editImg) {
+        //     for (let i = 0; i < this.editImg.length; i++) {
+        //         this.imageList.push({
+        //             imgUrl: this.editImg[i]
+        //         });
+        //     }
+        // } else {
+        //     alert('no img');
+        // }
     }
     uploadImage() {
         let loading = this.loadingCtrl.create();
