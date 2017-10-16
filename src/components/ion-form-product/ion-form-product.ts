@@ -25,17 +25,17 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price" [value]="0" (ngModelChange)="discount()"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discount()"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Promotion Price</ion-label>
-        <ion-input type="number" [(ngModel)]="item.promotionprice" [value]="0" (ngModelChange)="discount()"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.promotionprice" (ngModelChange)="discount()"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Percent of discount</ion-label>
-        <ion-input type="number" [(ngModel)]="item.percentofdiscount" [value]="0" (ngModelChange)="discount()"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.percentofdiscount" (ngModelChange)="discount()"></ion-input>
       </ion-item>
     
 
@@ -108,6 +108,9 @@ export class IonFormProductComponent {
     // console.log('Hello IonListCategoryComponent Component');
     // this.item.shop = this.shops[0];
     // console.log(this.item);
+    this.item.price = 0;
+    this.item.promotionprice = 0;
+    this.item.percentofdiscount = 0;
   }
 
   checkedShop() {
@@ -147,28 +150,12 @@ export class IonFormProductComponent {
   imageList(e) {
     this.item.images = e;
   }
+  // this.item.price
+  // this.item.promotionprice
+  // this.item.percentofdiscount
   discount() {
-    //%
-    if (this.item.price > 0 && this.item.promotionprice > 0 && this.item.percentofdiscount === 0) {
-      if (this.item.price >= this.item.promotionprice) {
-        this.item.percentofdiscount = (this.item.promotionprice / this.item.price) * 100;
-      } else {
-        this.item.price = 0;
-        this.item.promotionprice = 0;
-        this.item.percentofdiscount = 0;
-      }
-    }
-    //promotion
-    if (this.item.price > 0 && this.item.promotionprice === 0 && this.item.percentofdiscount > 0) {
-      if (this.item.percentofdiscount > 100) {
-        this.item.promotionprice = (this.item.percentofdiscount * this.item.price) / 100;
-      } else {
-        this.item.price = 0;
-        this.item.promotionprice = 0;
-        this.item.percentofdiscount = 0;
-      }
-    }
-
+    this.item.promotionprice = (this.item.percentofdiscount * this.item.price) / 100;
+    this.item.percentofdiscount = (this.item.promotionprice / this.item.price) * 100;
   }
 
 }
