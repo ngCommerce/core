@@ -88,6 +88,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
     <div padding>
       <button ion-button block (click)="onClick(item)">Submit</button>
+      <button ion-button block color="danger" (click)="canceldissmis()">Cancel</button>
     </div>
     
     `,
@@ -104,6 +105,7 @@ export class IonFormProductComponent {
   @Input() shops: any;
   @Input() currency: any;
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() cancelCreate: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
     // this.item.shop = this.shops[0];
@@ -191,6 +193,10 @@ export class IonFormProductComponent {
       this.item.promotionprice = 0;
       this.item.percentofdiscount = 0;
     }
+  }
+
+  canceldissmis(){
+    this.cancelCreate.emit('cancelCreate');
   }
 
   // discountprice() {
