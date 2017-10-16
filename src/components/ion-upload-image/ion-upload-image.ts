@@ -47,6 +47,8 @@ export class IonUploadImageComponent {
                     imgUrl: this.editImg[i]
                 });
             }
+        }else{
+            alert('no img');
         }
 
     }
