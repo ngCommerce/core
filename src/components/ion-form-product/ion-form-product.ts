@@ -82,8 +82,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     </ion-item>
 
       <p id="productImg">Images*</p>
-      <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
-      
+      <ion-upload-image [maxImage]="5" [editImg]="items.images" (imageOutList)="imageList($event)"></ion-upload-image>
     </ion-list>
     
     <div padding>
