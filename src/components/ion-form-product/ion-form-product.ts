@@ -150,9 +150,7 @@ export class IonFormProductComponent {
   imageList(e) {
     this.item.images = e;
   }
-  // this.item.price
-  // this.item.promotionprice
-  // this.item.percentofdiscount
+
   discountpromotion() {
     if (this.item.price > 0) {
       if (this.item.price - this.item.promotionprice >= 0) {
