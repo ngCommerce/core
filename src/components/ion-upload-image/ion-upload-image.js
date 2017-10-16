@@ -17,7 +17,19 @@ export class IonUploadImageComponent {
         this.loadingCtrl = loadingCtrl;
         this.imageList = [];
         this.allowUpload = 0;
+        this.editImg = [];
         this.imageOutList = new EventEmitter();
+        alert('editImg');
+        if (this.editImg) {
+            for (let i = 0; i < this.editImg.length; i++) {
+                this.imageList.push({
+                    imgUrl: this.editImg[i]
+                });
+            }
+        }
+        else {
+            alert('no img');
+        }
     }
     uploadImage() {
         let loading = this.loadingCtrl.create();
@@ -134,6 +146,7 @@ IonUploadImageComponent.ctorParameters = () => [
 ];
 IonUploadImageComponent.propDecorators = {
     'maxImage': [{ type: Input },],
+    'editImg': [{ type: Input },],
     'imageOutList': [{ type: Output },],
 };
 //# sourceMappingURL=ion-upload-image.js.map

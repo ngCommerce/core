@@ -9,3 +9,23 @@ export interface HomeModel {
     bestseller: Array<ProductListModel>;
     popularshops: Array<ShopListModel>;
 }
+export interface HomeSellerModel {
+    items: ItemsHomeSellerModel;
+    report: Array<ReportModel>;
+}
+export interface ItemsHomeSellerModel {
+    day: ItemHomeSellerModel;
+    month: ItemHomeSellerModel;
+    year: ItemHomeSellerModel;
+    categories: Array<cateHomeSellerModel>;
+}
+export interface cateHomeSellerModel {
+    cate: string;
+}
+export interface ItemHomeSellerModel {
+    amount: number;
+}
+export interface ReportModel {
+    title: string;
+    amount: number;
+}

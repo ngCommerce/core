@@ -17,6 +17,13 @@ export class HomeService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+    getHomeSeller(shopId) {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'homeseller/' + shopId, { headers: headers })
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
     seeAllProduct(name) {
         let headers = this.corService.createAuthorizationHeader();
         return this.http.get(this._apiURL + 'seeallproduct/' + name, { headers: headers })

@@ -13,11 +13,12 @@ export declare class IonFormProductComponent {
     shops: any;
     currency: any;
     itemClicked: EventEmitter<any>;
+    cancelCreate: EventEmitter<any>;
     constructor();
     checkedShop(): boolean;
     onClick(item: any): void;
     imageList(e: any): void;
     discountpromotion(): void;
     discountpercent(): void;
-    discountprice(): void;
+    canceldissmis(): void;
 }
