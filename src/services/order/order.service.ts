@@ -61,10 +61,10 @@ export class OrderService {
       .catch(this.handleError);
   }
 
-  getOrderByShop(): Promise<ItemByOrderByShopModel> {
+  getOrderByShop(shopId): Promise<ItemByOrderByShopModel> {
     let headers = this.corService.createAuthorizationHeader();
     return this.http
-      .get(this._apiURL + "orderbyshop", { headers: headers })
+      .get(this._apiURL + "orderbyshop/" + shopId, { headers: headers })
       .toPromise()
       .then(response => response.json() as ItemByOrderByShopModel)
       .catch(this.handleError);
@@ -96,9 +96,9 @@ export class OrderService {
     let headers = this.corService.createAuthorizationHeader();
     return this.http
       .put(
-        this._apiURL + "updateordercomplete/" + orderId + "/" + itemId,
-        null,
-        { headers: headers }
+      this._apiURL + "updateordercomplete/" + orderId + "/" + itemId,
+      null,
+      { headers: headers }
       )
       .toPromise()
       .then(response => response.json() as OrderModel)
