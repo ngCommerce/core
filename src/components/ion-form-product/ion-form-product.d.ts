@@ -17,4 +17,6 @@ export declare class IonFormProductComponent {
     checkedShop(): boolean;
     onClick(item: any): void;
     imageList(e: any): void;
+    discountpromotion(): void;
+    discountpercent(): void;
 }
