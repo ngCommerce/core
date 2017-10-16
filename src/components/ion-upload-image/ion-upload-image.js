@@ -17,12 +17,10 @@ export class IonUploadImageComponent {
         this.loadingCtrl = loadingCtrl;
         this.imageList = [];
         this.allowUpload = 0;
-        this.editImg = [];
         this.imageOutList = new EventEmitter();
-        alert('editImg');
-        alert(JSON.stringify(this.editImg));
-        alert(JSON.stringify(this.imageList));
+        alert(this.editImg);
         // if (this.editImg) {
+        //     alert(JSON.stringify(this.editImg));
         //     for (let i = 0; i < this.editImg.length; i++) {
         //         this.imageList.push({
         //             imgUrl: this.editImg[i]

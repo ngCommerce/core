@@ -17,7 +17,7 @@ export declare class IonUploadImageComponent {
     imageList: Array<any>;
     allowUpload: number;
     maxImage: number;
-    editImg: Array<any>;
+    editImg: any;
     imageOutList: EventEmitter<any>;
     constructor(uploadXServiceProvider: UploadImageService, imagePicker: ImagePicker, base64: Base64, loadingCtrl: LoadingController);
     uploadImage(): void;
