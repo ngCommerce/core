@@ -27,6 +27,7 @@ export class IonUploadImageComponent {
         this.loadingCtrl = loadingCtrl;
         this.imageList = [];
         this.allowUpload = 0;
+        this.editImg = [];
         this.imageOutList = new EventEmitter();
     }
     uploadImage() {
@@ -115,6 +116,7 @@ IonUploadImageComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-upload-image',
                 template: `
+    <div *ngIf="editImg.length > 0">
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
@@ -127,6 +129,7 @@ IonUploadImageComponent.decorators = [
             <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
         </ion-col>
     </ion-row>
+    </div>
     `,
                 styles: [`
   ion-upload-image {
@@ -144,6 +147,7 @@ IonUploadImageComponent.ctorParameters = () => [
 ];
 IonUploadImageComponent.propDecorators = {
     'maxImage': [{ type: Input },],
+    'editImg': [{ type: Input },],
     'imageOutList': [{ type: Output },],
 };
 //# sourceMappingURL=ion-upload-image.js.map
