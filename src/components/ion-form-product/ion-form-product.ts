@@ -159,7 +159,8 @@ export class IonFormProductComponent {
       } else {
         alert('ส่วนลดมากกว่าราคาขายจริง');
         this.item.percentofdiscount = 0;
-        this.discountpercent();
+        this.item.promotionprice = 0;
+        // this.discountpercent();
       }
     } else {
       this.item.promotionprice = 0;
