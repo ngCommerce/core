@@ -57,9 +57,6 @@ export class IonFormProductComponent {
     imageList(e) {
         this.item.images = e;
     }
-    // this.item.price
-    // this.item.promotionprice
-    // this.item.percentofdiscount
     discountpromotion() {
         if (this.item.price > 0) {
             if (this.item.price - this.item.promotionprice >= 0) {
@@ -68,6 +65,8 @@ export class IonFormProductComponent {
             }
             else {
                 alert('ส่วนลดมากกว่าราคาขายจริง');
+                this.item.percentofdiscount = 0;
+                this.discountpercent();
             }
         }
         else {
@@ -83,13 +82,18 @@ export class IonFormProductComponent {
             }
             else {
                 alert('มากกว่า 100 เปอร์เซ็นต์');
-                this.item.promotionprice = 0;
+                this.item.percentofdiscount = 0;
+                this.item.promotionprice = this.item.price;
             }
         }
         else {
             this.item.promotionprice = 0;
             this.item.percentofdiscount = 0;
         }
+    }
+    discountprice() {
+        this.item.percentofdiscount = 0;
+        this.discountpercent();
     }
 }
 IonFormProductComponent.decorators = [
@@ -110,7 +114,7 @@ IonFormProductComponent.decorators = [
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice()"></ion-input>
       </ion-item>
     
       <ion-item>

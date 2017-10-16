@@ -19,4 +19,5 @@ export declare class IonFormProductComponent {
     imageList(e: any): void;
     discountpromotion(): void;
     discountpercent(): void;
+    discountprice(): void;
 }
