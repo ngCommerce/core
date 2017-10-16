@@ -49,10 +49,10 @@ export class OrderService {
             .then(response => response.json())
             .catch(this.handleError);
     }
-    getOrderByShop() {
+    getOrderByShop(shopId) {
         let headers = this.corService.createAuthorizationHeader();
         return this.http
-            .get(this._apiURL + "orderbyshop", { headers: headers })
+            .get(this._apiURL + "orderbyshop/" + shopId, { headers: headers })
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

@@ -12,7 +12,7 @@ export declare class OrderService {
     getOrderByID(id: any): Promise<OrderModel>;
     updateOrder(Order: any): Promise<OrderModel>;
     deleteOrder(id: any): Promise<OrderModel>;
-    getOrderByShop(): Promise<ItemByOrderByShopModel>;
+    getOrderByShop(shopId: any): Promise<ItemByOrderByShopModel>;
     updateItemToAccept(orderId: any, itemId: any): Promise<OrderModel>;
     updateItemToSent(orderId: any, itemId: any): Promise<OrderModel>;
     updateItemToComplete(orderId: any, itemId: any): Promise<OrderModel>;
