@@ -11,14 +11,6 @@ import { LoadingController } from 'ionic-angular';
  */
 export class IonUploadImageComponent {
     constructor(uploadXServiceProvider, imagePicker, base64, loadingCtrl) {
-        this.uploadXServiceProvider = uploadXServiceProvider;
-        this.imagePicker = imagePicker;
-        this.base64 = base64;
-        this.loadingCtrl = loadingCtrl;
-        this.imageList = [];
-        this.allowUpload = 0;
-        this.imageOutList = new EventEmitter();
-        alert(this.editImg);
         // if (this.editImg) {
         //     alert(JSON.stringify(this.editImg));
         //     for (let i = 0; i < this.editImg.length; i++) {
@@ -29,6 +21,13 @@ export class IonUploadImageComponent {
         // } else {
         //     alert('no img');
         // }
+        this.uploadXServiceProvider = uploadXServiceProvider;
+        this.imagePicker = imagePicker;
+        this.base64 = base64;
+        this.loadingCtrl = loadingCtrl;
+        this.imageList = [];
+        this.allowUpload = 0;
+        this.imageOutList = new EventEmitter();
     }
     uploadImage() {
         let loading = this.loadingCtrl.create();
@@ -145,7 +144,6 @@ IonUploadImageComponent.ctorParameters = () => [
 ];
 IonUploadImageComponent.propDecorators = {
     'maxImage': [{ type: Input },],
-    'editImg': [{ type: Input },],
     'imageOutList': [{ type: Output },],
 };
 //# sourceMappingURL=ion-upload-image.js.map
