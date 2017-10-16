@@ -159,16 +159,16 @@ export class IonFormProductComponent {
           this.item.percentofdiscount = 100 - per;
         } else {
           alert('ส่วนลดมากกว่าราคาขายจริง');
-          this.item.percentofdiscount = undefined;
-          this.item.promotionprice = undefined;
+          this.item.percentofdiscount = 0;
+          this.item.promotionprice = 0;
         }
       } else {
-        this.item.promotionprice = undefined;
-        this.item.percentofdiscount = undefined;
+        this.item.promotionprice = 0;
+        this.item.percentofdiscount = 0;
       }
     } else {
-      this.item.promotionprice = undefined;
-      this.item.percentofdiscount = undefined;
+      this.item.promotionprice = 0;
+      this.item.percentofdiscount = 0;
     }
 
   }
@@ -180,16 +180,16 @@ export class IonFormProductComponent {
           this.item.promotionprice = this.item.price - pro;
         } else {
           alert('มากกว่า 100 เปอร์เซ็นต์');
-          this.item.promotionprice = undefined;
-          this.item.percentofdiscount = undefined;
+          this.item.promotionprice = 0;
+          this.item.percentofdiscount = 0;
         }
       } else {
-        this.item.promotionprice = undefined;
-        this.item.percentofdiscount = undefined;
+        this.item.promotionprice = 0;
+        this.item.percentofdiscount = 0;
       }
     } else {
-      this.item.promotionprice = undefined;
-      this.item.percentofdiscount = undefined;
+      this.item.promotionprice = 0;
+      this.item.percentofdiscount = 0;
     }
   }
 
