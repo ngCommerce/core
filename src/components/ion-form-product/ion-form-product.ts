@@ -154,8 +154,10 @@ export class IonFormProductComponent {
   // this.item.promotionprice
   // this.item.percentofdiscount
   discount() {
-    this.item.promotionprice = (this.item.percentofdiscount * this.item.price) / 100;
+    let pro = (this.item.percentofdiscount * this.item.price) / 100;
     this.item.percentofdiscount = (this.item.promotionprice / this.item.price) * 100;
+    this.item.promotionprice = this.item.price - pro;
+    
   }
 
 }
