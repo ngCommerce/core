@@ -13,7 +13,7 @@ import { LoadingController } from 'ionic-angular';
 @Component({
     selector: 'ion-upload-image',
     template: `
-    <div *ngIf="editImg.length > 0">
+    <div>
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
@@ -28,22 +28,6 @@ import { LoadingController } from 'ionic-angular';
     </ion-row>
     </div>
     
-
-
-    <div *ngIf="editImg.length > 0">
-    <ion-row class="categories-row">
-      <ion-col width-30 class="horizontal-item" *ngFor="let data of editImg">
-        <img src="{{data.imgUrl}}">
-        <span id="imageTrash" class="trash" (click)="deleteImage(data.id)"><ion-icon name="trash"></ion-icon></span>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-        <ion-col class="right ion-icon-cust">
-            <ion-icon name="md-image" (click)="selectImage()" *ngIf="imageList.length < maxImage"></ion-icon>
-            <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
-        </ion-col>
-    </ion-row>
-    </div>
     `,
     styles: [`
   ion-upload-image {
