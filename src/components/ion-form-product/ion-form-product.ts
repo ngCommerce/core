@@ -160,8 +160,8 @@ export class IonFormProductComponent {
         this.item.percentofdiscount = 100 - per;
       } else {
         alert('ส่วนลดมากกว่าราคาขายจริง');
-        this.item.promotionprice = this.item.price;
         this.item.percentofdiscount = 0;
+        this.discountpercent();
       }
     } else {
       this.item.promotionprice = 0;
@@ -176,7 +176,7 @@ export class IonFormProductComponent {
       } else {
         alert('มากกว่า 100 เปอร์เซ็นต์');
         this.item.percentofdiscount = 0;
-        this.item.promotionprice = 100;
+        this.item.promotionprice = this.item.price;
       }
     } else {
       this.item.promotionprice = 0;
@@ -184,7 +184,8 @@ export class IonFormProductComponent {
     }
   }
 
-  discountprice(){
+  discountprice() {
+    this.item.percentofdiscount = 0;
     this.discountpercent();
   }
 
