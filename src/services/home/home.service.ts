@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { CorService } from "../../core.service";
 import { API_URL } from "../../models/core.model";
-import { HomeCategoryModel } from "../../models/home.model";
+import { HomeCategoryModel, HomeSellerModel } from "../../models/home.model";
 import { ShopListModel } from '../../models/shop.model';
 import { ProductListModel } from './../../models/product.model';
 
@@ -22,6 +22,14 @@ export class HomeService {
         return this.http.get(this._apiURL + 'homes/', { headers: headers })
             .toPromise()
             .then(response => response.json() as HomeCategoryModel)
+            .catch(this.handleError);
+    }
+
+    getHomeSeller(shopId): Promise<HomeSellerModel> {
+        let headers = this.corService.createAuthorizationHeader();
+        return this.http.get(this._apiURL + 'homeseller/' + shopId, { headers: headers })
+            .toPromise()
+            .then(response => response.json() as HomeSellerModel)
             .catch(this.handleError);
     }
 
