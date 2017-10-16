@@ -37,7 +37,7 @@ export class IonUploadImageComponent {
     public imageList: Array<any> = [];
     public allowUpload: number = 0;
     @Input() maxImage: number;
-    @Input() editImg: any;
+    @Input() editImg: Array<any> = [];
     @Output() imageOutList: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(public uploadXServiceProvider: UploadImageService, public imagePicker: ImagePicker, public base64: Base64, public loadingCtrl: LoadingController) {
