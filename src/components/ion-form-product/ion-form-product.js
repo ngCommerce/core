@@ -12,6 +12,9 @@ export class IonFormProductComponent {
         // console.log('Hello IonListCategoryComponent Component');
         // this.item.shop = this.shops[0];
         // console.log(this.item);
+        this.item.price = 0;
+        this.item.promotionprice = 0;
+        this.item.percentofdiscount = 0;
     }
     checkedShop() {
         return true;
@@ -54,6 +57,44 @@ export class IonFormProductComponent {
     imageList(e) {
         this.item.images = e;
     }
+    discountpromotion() {
+        if (this.item.price > 0) {
+            if (this.item.price - this.item.promotionprice >= 0) {
+                let per = (this.item.promotionprice / this.item.price) * 100;
+                this.item.percentofdiscount = 100 - per;
+            }
+            else {
+                alert('ส่วนลดมากกว่าราคาขายจริง');
+                this.item.percentofdiscount = 0;
+                this.discountpercent();
+            }
+        }
+        else {
+            this.item.promotionprice = 0;
+            this.item.percentofdiscount = 0;
+        }
+    }
+    discountpercent() {
+        if (this.item.price > 0) {
+            if (this.item.percentofdiscount <= 100) {
+                let pro = (this.item.percentofdiscount * this.item.price) / 100;
+                this.item.promotionprice = this.item.price - pro;
+            }
+            else {
+                alert('มากกว่า 100 เปอร์เซ็นต์');
+                this.item.percentofdiscount = 0;
+                this.item.promotionprice = this.item.price;
+            }
+        }
+        else {
+            this.item.promotionprice = 0;
+            this.item.percentofdiscount = 0;
+        }
+    }
+    discountprice() {
+        this.item.percentofdiscount = 0;
+        this.discountpercent();
+    }
 }
 IonFormProductComponent.decorators = [
     { type: Component, args: [{
@@ -73,17 +114,17 @@ IonFormProductComponent.decorators = [
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice()"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Promotion Price</ion-label>
-        <ion-input type="number" [(ngModel)]="item.promotionprice"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.promotionprice" (ngModelChange)="discountpromotion()"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Percent of discount</ion-label>
-        <ion-input type="number" [(ngModel)]="item.percentofdiscount"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.percentofdiscount" (ngModelChange)="discountpercent()"></ion-input>
       </ion-item>
     
 

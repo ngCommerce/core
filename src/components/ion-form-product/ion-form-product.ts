@@ -30,12 +30,12 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Promotion Price</ion-label>
-        <ion-input type="number" [(ngModel)]="item.promotionprice"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.promotionprice" (ngModelChange)="discountpromotion()"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Percent of discount</ion-label>
-        <ion-input type="number" [(ngModel)]="item.percentofdiscount"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.percentofdiscount" (ngModelChange)="discountpercent()"></ion-input>
       </ion-item>
     
 
@@ -82,12 +82,18 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     </ion-item>
 
       <p id="productImg">Images*</p>
-      <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
-      
+      <ion-upload-image [maxImage]="5" [editImg]="item.images" (imageOutList)="imageList($event)"></ion-upload-image>
     </ion-list>
     
     <div padding>
-      <button ion-button block (click)="onClick(item)">Submit</button>
+    <ion-row>
+      <ion-col width-50>
+        <button ion-button block (click)="onClick(item)">Submit</button>
+      </ion-col>
+      <ion-col width-50>
+        <button ion-button block color="danger" (click)="canceldissmis()">Cancel</button>
+      </ion-col>
+    </ion-row>
     </div>
     
     `,
@@ -104,10 +110,14 @@ export class IonFormProductComponent {
   @Input() shops: any;
   @Input() currency: any;
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() cancelCreate: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListCategoryComponent Component');
     // this.item.shop = this.shops[0];
     // console.log(this.item);
+    this.item.price = 0;
+    this.item.promotionprice = 0;
+    this.item.percentofdiscount = 0;
   }
 
   checkedShop() {
@@ -147,4 +157,56 @@ export class IonFormProductComponent {
   imageList(e) {
     this.item.images = e;
   }
+
+  discountpromotion() {
+    if (this.item.price > 0) {
+      if (this.item.promotionprice > 0) {
+        if (this.item.price - this.item.promotionprice >= 0) {
+          let per = (this.item.promotionprice / this.item.price) * 100;
+          this.item.percentofdiscount = 100 - per;
+        } else {
+          alert('ส่วนลดมากกว่าราคาขายจริง');
+          this.item.percentofdiscount = null;
+          this.item.promotionprice = null;
+        }
+      } else {
+        this.item.promotionprice = null;
+        this.item.percentofdiscount = null;
+      }
+    } else {
+      this.item.promotionprice = null;
+      this.item.percentofdiscount = null;
+    }
+
+  }
+  discountpercent() {
+    if (this.item.price > 0) {
+      if (this.item.percentofdiscount > 0) {
+        if (this.item.percentofdiscount <= 100) {
+          let pro = (this.item.percentofdiscount * this.item.price) / 100;
+          this.item.promotionprice = this.item.price - pro;
+        } else {
+          alert('มากกว่า 100 เปอร์เซ็นต์');
+          this.item.promotionprice = null;
+          this.item.percentofdiscount = null;
+        }
+      } else {
+        this.item.promotionprice = null;
+        this.item.percentofdiscount = null;
+      }
+    } else {
+      this.item.promotionprice = null;
+      this.item.percentofdiscount = null;
+    }
+  }
+
+  canceldissmis(){
+    this.cancelCreate.emit('cancelCreate');
+  }
+
+  // discountprice() {
+  //   this.item.percentofdiscount = 0;
+  //   this.discountpercent();
+  // }
+
 }
