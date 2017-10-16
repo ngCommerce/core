@@ -41,6 +41,7 @@ export class IonUploadImageComponent {
     @Output() imageOutList: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(public uploadXServiceProvider: UploadImageService, public imagePicker: ImagePicker, public base64: Base64, public loadingCtrl: LoadingController) {
+        alert('editImg');
         if (this.editImg) {
             for (let i = 0; i < this.editImg.length; i++) {
                 this.imageList.push({
