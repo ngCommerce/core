@@ -25,17 +25,17 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discount()"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Promotion Price</ion-label>
-        <ion-input type="number" [(ngModel)]="item.promotionprice" (ngModelChange)="discount()"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.promotionprice" (ngModelChange)="discountpromotion()"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Percent of discount</ion-label>
-        <ion-input type="number" [(ngModel)]="item.percentofdiscount" (ngModelChange)="discount()"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.percentofdiscount" (ngModelChange)="discountpercent()"></ion-input>
       </ion-item>
     
 
@@ -153,11 +153,22 @@ export class IonFormProductComponent {
   // this.item.price
   // this.item.promotionprice
   // this.item.percentofdiscount
-  discount() {
-    let pro = (this.item.percentofdiscount * this.item.price) / 100;
-    this.item.percentofdiscount = (this.item.promotionprice / this.item.price) * 100;
-    this.item.promotionprice = this.item.price - pro;
-    
+  discountpromotion() {
+    if (this.item.price > 0) {
+      this.item.percentofdiscount = (this.item.promotionprice / this.item.price) * 100;
+    } else {
+      this.item.promotionprice = 0;
+      this.item.percentofdiscount = 0;
+    }
+  }
+  discountpercent() {
+    if (this.item.price > 0) {
+      let pro = (this.item.percentofdiscount * this.item.price) / 100;
+      this.item.promotionprice = this.item.price - pro;
+    } else {
+      this.item.promotionprice = 0;
+      this.item.percentofdiscount = 0;
+    }
   }
 
 }
