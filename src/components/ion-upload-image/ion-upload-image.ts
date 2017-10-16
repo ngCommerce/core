@@ -3,7 +3,6 @@ import { ImagePicker } from "@ionic-native/image-picker";
 import { Base64 } from "@ionic-native/base64";
 import { UploadImageService } from './../../services/uploadimage/uploadimage.service';
 import { LoadingController } from 'ionic-angular';
-import { ProductModel } from './../../models/product.model';
 
 /**
  * Generated class for the IonListCategoryComponent component.
@@ -38,12 +37,12 @@ export class IonUploadImageComponent {
     public imageList: Array<any> = [];
     public allowUpload: number = 0;
     @Input() maxImage: number;
-    @Input() editImg = {} as ProductModel;
+    @Input() editImg: any;
     @Output() imageOutList: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(public uploadXServiceProvider: UploadImageService, public imagePicker: ImagePicker, public base64: Base64, public loadingCtrl: LoadingController) {
-        alert(JSON.stringify(this.editImg));
-        
+        alert(this.editImg);
+
         // if (this.editImg) {
         //     alert(JSON.stringify(this.editImg));
         //     for (let i = 0; i < this.editImg.length; i++) {

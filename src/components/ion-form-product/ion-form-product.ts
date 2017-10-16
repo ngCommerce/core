@@ -84,7 +84,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
 
     <ion-item>
     <p id="productImg">Images*</p>
-    <ion-upload-image [maxImage]="5" [editImg]="item" (imageOutList)="imageList($event)"></ion-upload-image>
+    <ion-upload-image [maxImage]="5" [editImg]="xx" (imageOutList)="imageList($event)"></ion-upload-image>
     </ion-item>
 
     </ion-list>
@@ -115,7 +115,9 @@ export class IonFormProductComponent {
   @Input() currency: any;
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   @Output() cancelCreate: EventEmitter<any> = new EventEmitter<any>();
+  xx: any;
   constructor() {
+    this.xx = 'aaaaaaaa';
     // console.log('Hello IonListCategoryComponent Component');
     // this.item.shop = this.shops[0];
     // console.log(this.item);
