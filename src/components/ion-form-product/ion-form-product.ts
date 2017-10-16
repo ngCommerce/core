@@ -87,8 +87,14 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     </ion-list>
     
     <div padding>
-      <button ion-button block (click)="onClick(item)">Submit</button>
-      <button ion-button block color="danger" (click)="canceldissmis()">Cancel</button>
+    <ion-row>
+      <ion-col width-50>
+        <button ion-button block (click)="onClick(item)">Submit</button>
+      </ion-col>
+      <ion-col width-50>
+        <button ion-button block color="danger" (click)="canceldissmis()">Cancel</button>
+      </ion-col>
+    </ion-row>
     </div>
     
     `,
@@ -161,16 +167,16 @@ export class IonFormProductComponent {
           this.item.percentofdiscount = 100 - per;
         } else {
           alert('ส่วนลดมากกว่าราคาขายจริง');
-          this.item.percentofdiscount = 0;
-          this.item.promotionprice = 0;
+          this.item.percentofdiscount = null;
+          this.item.promotionprice = null;
         }
       } else {
-        this.item.promotionprice = 0;
-        this.item.percentofdiscount = 0;
+        this.item.promotionprice = null;
+        this.item.percentofdiscount = null;
       }
     } else {
-      this.item.promotionprice = 0;
-      this.item.percentofdiscount = 0;
+      this.item.promotionprice = null;
+      this.item.percentofdiscount = null;
     }
 
   }
@@ -182,16 +188,16 @@ export class IonFormProductComponent {
           this.item.promotionprice = this.item.price - pro;
         } else {
           alert('มากกว่า 100 เปอร์เซ็นต์');
-          this.item.promotionprice = 0;
-          this.item.percentofdiscount = 0;
+          this.item.promotionprice = null;
+          this.item.percentofdiscount = null;
         }
       } else {
-        this.item.promotionprice = 0;
-        this.item.percentofdiscount = 0;
+        this.item.promotionprice = null;
+        this.item.percentofdiscount = null;
       }
     } else {
-      this.item.promotionprice = 0;
-      this.item.percentofdiscount = 0;
+      this.item.promotionprice = null;
+      this.item.percentofdiscount = null;
     }
   }
 
