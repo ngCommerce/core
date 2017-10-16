@@ -42,17 +42,18 @@ export class IonUploadImageComponent {
 
     constructor(public uploadXServiceProvider: UploadImageService, public imagePicker: ImagePicker, public base64: Base64, public loadingCtrl: LoadingController) {
         alert('editImg');
-        if (this.editImg) {
-            alert(JSON.stringify(this.editImg));
-            for (let i = 0; i < this.editImg.length; i++) {
-                this.imageList.push({
-                    imgUrl: this.editImg[i]
-                });
-            }
-            alert(JSON.stringify(this.imageList));
-        } else {
-            alert('no img');
-        }
+        alert(JSON.stringify(this.editImg));
+        alert(JSON.stringify(this.imageList));
+
+        // if (this.editImg) {
+        //     for (let i = 0; i < this.editImg.length; i++) {
+        //         this.imageList.push({
+        //             imgUrl: this.editImg[i]
+        //         });
+        //     }
+        // } else {
+        //     alert('no img');
+        // }
 
     }
     uploadImage() {
