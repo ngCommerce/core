@@ -128,13 +128,13 @@ export class IonFormProductComponent {
             }
         });
         if (!status) {
-            if (field === 'price') {
+            if (field.toString() === 'price') {
                 this.item.price = parseFloat(this.item.price.toString().slice(0, this.item.price.toString().length - 1));
             }
-            else if (field === 'promotionprice') {
+            else if (field.toString() === 'promotionprice') {
                 this.item.promotionprice = parseFloat(this.item.promotionprice.toString().slice(0, this.item.promotionprice.toString().length - 1));
             }
-            else if (field === 'percentofdiscount') {
+            else if (field.toString() === 'percentofdiscount') {
                 this.item.percentofdiscount = parseFloat(this.item.percentofdiscount.toString().slice(0, this.item.percentofdiscount.toString().length - 1));
             }
         }
@@ -203,14 +203,14 @@ IonFormProductComponent.decorators = [
       
       <ion-item *ngIf="!item.shop">
         <ion-label floating>Shop*</ion-label>
-        <ion-select [(ngModel)]="item.shop" disabled="true">
+        <ion-select [(ngModel)]="item.shop" [disabled]="true">
           <ion-option *ngFor="let items of shops" [value]="items._id">{{items.name}}</ion-option>
           </ion-select>
       </ion-item>
 
       <ion-item *ngIf="item.shop">
       <ion-label floating>Shop*</ion-label>
-      <ion-select [(ngModel)]="item.shop" disabled="true">
+      <ion-select [(ngModel)]="item.shop" [disabled]="true">
         <ion-option *ngFor="let items of shops" [value]="items._id">{{items.name}}</ion-option>
         </ion-select>
     </ion-item>
