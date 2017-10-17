@@ -13,7 +13,6 @@ import { LoadingController } from 'ionic-angular';
 @Component({
     selector: 'ion-upload-image',
     template: `
-    <div>
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
@@ -26,8 +25,6 @@ import { LoadingController } from 'ionic-angular';
             <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
         </ion-col>
     </ion-row>
-    </div>
-    
     `,
     styles: [`
   ion-upload-image {
@@ -44,17 +41,6 @@ export class IonUploadImageComponent {
     @Output() imageOutList: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(public uploadXServiceProvider: UploadImageService, public imagePicker: ImagePicker, public base64: Base64, public loadingCtrl: LoadingController) {
-
-        // if (this.editImg) {
-        //     alert(JSON.stringify(this.editImg));
-        //     for (let i = 0; i < this.editImg.length; i++) {
-        //         this.imageList.push({
-        //             imgUrl: this.editImg[i]
-        //         });
-        //     }
-        // } else {
-        //     alert('no img');
-        // }
 
     }
     uploadImage() {
