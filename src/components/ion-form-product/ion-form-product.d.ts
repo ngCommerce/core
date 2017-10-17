@@ -21,4 +21,5 @@ export declare class IonFormProductComponent {
     discountpromotion(): void;
     discountpercent(): void;
     canceldissmis(): void;
+    discountprice(): void;
 }

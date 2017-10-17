@@ -11,16 +11,6 @@ import { LoadingController } from 'ionic-angular';
  */
 export class IonUploadImageComponent {
     constructor(uploadXServiceProvider, imagePicker, base64, loadingCtrl) {
-        // if (this.editImg) {
-        //     alert(JSON.stringify(this.editImg));
-        //     for (let i = 0; i < this.editImg.length; i++) {
-        //         this.imageList.push({
-        //             imgUrl: this.editImg[i]
-        //         });
-        //     }
-        // } else {
-        //     alert('no img');
-        // }
         this.uploadXServiceProvider = uploadXServiceProvider;
         this.imagePicker = imagePicker;
         this.base64 = base64;
@@ -116,7 +106,6 @@ IonUploadImageComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-upload-image',
                 template: `
-    <div>
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
@@ -129,8 +118,6 @@ IonUploadImageComponent.decorators = [
             <ion-icon name="md-cloud-upload" (click)="uploadImage()" *ngIf="allowUpload > 0"></ion-icon>
         </ion-col>
     </ion-row>
-    </div>
-    
     `,
                 styles: [`
   ion-upload-image {

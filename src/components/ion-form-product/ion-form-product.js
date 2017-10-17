@@ -107,11 +107,11 @@ export class IonFormProductComponent {
     canceldissmis() {
         this.cancelCreate.emit('cancelCreate');
     }
+    discountprice() {
+        this.item.promotionprice = null;
+        this.item.percentofdiscount = null;
+    }
 }
-// discountprice() {
-//   this.item.percentofdiscount = 0;
-//   this.discountpercent();
-// }
 IonFormProductComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-form-product',
@@ -130,7 +130,7 @@ IonFormProductComponent.decorators = [
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice()"></ion-input>
       </ion-item>
     
       <ion-item>
@@ -186,15 +186,9 @@ IonFormProductComponent.decorators = [
         </ion-select>
     </ion-item>
 
-
-    <ion-item *ngIf="!item.images">
+    <ion-item>
     <p id="productImg">Images*</p>
     <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
-    </ion-item>
-
-    <ion-item *ngIf="item.images">
-    <p id="productImg">Images*</p>
-    <ion-upload-image [maxImage]="5" [editImg]="item.images" (imageOutList)="imageList($event)"></ion-upload-image>
     </ion-item>
 
     </ion-list>
