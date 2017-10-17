@@ -11,6 +11,7 @@ export declare class IonFormProductComponent {
     categories: any;
     shippings: any;
     shops: any;
+    chkformimg: boolean;
     currency: any;
     itemClicked: EventEmitter<any>;
     cancelCreate: EventEmitter<any>;
@@ -22,4 +23,5 @@ export declare class IonFormProductComponent {
     discountpercent(): void;
     canceldissmis(): void;
     discountprice(): void;
+    chkNumber(num: any): void;
 }

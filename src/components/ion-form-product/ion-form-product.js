@@ -111,6 +111,27 @@ export class IonFormProductComponent {
         this.item.promotionprice = null;
         this.item.percentofdiscount = null;
     }
+    chkNumber(num) {
+        let nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+        let status = false;
+        let numID = num.toString();
+        nums.forEach(function (num) {
+            if (numID.length > 1) {
+                if (numID.substr(numID.length - 1) === num) {
+                    status = true;
+                }
+            }
+            else {
+                if (numID === num) {
+                    status = true;
+                }
+            }
+        });
+        if (!status) {
+            this.item.price = parseFloat(this.item.price.toString().slice(0, this.item.price.toString().length - 1));
+        }
+    }
+    ;
 }
 IonFormProductComponent.decorators = [
     { type: Component, args: [{
@@ -130,7 +151,7 @@ IonFormProductComponent.decorators = [
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice()"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price);"></ion-input>
       </ion-item>
     
       <ion-item>
@@ -185,8 +206,7 @@ IonFormProductComponent.decorators = [
         <ion-option *ngFor="let items of shops" [value]="items._id">{{items.name}}</ion-option>
         </ion-select>
     </ion-item>
-
-    <ion-item *ngIf="!item.images">
+    <ion-item *ngIf="chkformimg">
     <p id="productImg">Images*</p>
     <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
     </ion-item>
@@ -219,6 +239,7 @@ IonFormProductComponent.propDecorators = {
     'categories': [{ type: Input },],
     'shippings': [{ type: Input },],
     'shops': [{ type: Input },],
+    'chkformimg': [{ type: Input },],
     'currency': [{ type: Input },],
     'itemClicked': [{ type: Output },],
     'cancelCreate': [{ type: Output },],
