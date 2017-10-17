@@ -45,6 +45,7 @@ import { IonOrdersComponent } from "./components/ion-orders/ion-orders";
 import { IonFormReviewComponent } from "./components/ion-form-review/ion-form-review";
 import { IonUploadImageComponent } from "./components/ion-upload-image/ion-upload-image";
 import { IonDetailShopComponent } from "./components/ion-detail-shop/ion-detail-shop";
+import { IonBackgroundImageComponent } from "./components/ion-background-image/ion-background-image";
 
 @NgModule()
 export class EcommerceCoreModule {
