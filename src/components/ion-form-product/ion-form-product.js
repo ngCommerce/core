@@ -58,7 +58,8 @@ export class IonFormProductComponent {
     imageList(e) {
         this.item.images = e;
     }
-    toFixedNum(num, field) {
+    toFixedNum(numbe, field) {
+        let num = parseFloat(numbe);
         if (field.toString() === 'price') {
             this.item.price = parseFloat(num.toFixed(2));
         }
