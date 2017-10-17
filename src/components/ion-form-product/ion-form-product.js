@@ -114,28 +114,41 @@ export class IonFormProductComponent {
     chkNumber(num, field) {
         let nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
         let status = false;
-        let numID = num.toString();
-        nums.forEach(function (num) {
-            if (numID.length > 1) {
-                if (numID.substr(numID.length - 1) === num) {
-                    status = true;
+        if (num !== null) {
+            let numID = num.toString();
+            nums.forEach(function (num) {
+                if (numID.length > 1) {
+                    if (numID.substr(numID.length - 1) === num) {
+                        status = true;
+                    }
+                }
+                else {
+                    if (numID === num) {
+                        status = true;
+                    }
+                }
+            });
+            if (!status) {
+                if (field.toString() === 'price') {
+                    this.item.price = parseFloat(this.item.price.toString().slice(0, this.item.price.toString().length - 1));
+                }
+                else if (field.toString() === 'promotionprice') {
+                    this.item.promotionprice = parseFloat(this.item.promotionprice.toString().slice(0, this.item.promotionprice.toString().length - 1));
+                }
+                else if (field.toString() === 'percentofdiscount') {
+                    this.item.percentofdiscount = parseFloat(this.item.percentofdiscount.toString().slice(0, this.item.percentofdiscount.toString().length - 1));
                 }
             }
-            else {
-                if (numID === num) {
-                    status = true;
-                }
-            }
-        });
-        if (!status) {
+        }
+        else {
             if (field.toString() === 'price') {
-                this.item.price = parseFloat(this.item.price.toString().slice(0, this.item.price.toString().length - 1));
+                this.item.price = null;
             }
             else if (field.toString() === 'promotionprice') {
-                this.item.promotionprice = parseFloat(this.item.promotionprice.toString().slice(0, this.item.promotionprice.toString().length - 1));
+                this.item.promotionprice = null;
             }
             else if (field.toString() === 'percentofdiscount') {
-                this.item.percentofdiscount = parseFloat(this.item.percentofdiscount.toString().slice(0, this.item.percentofdiscount.toString().length - 1));
+                this.item.percentofdiscount = null;
             }
         }
     }
