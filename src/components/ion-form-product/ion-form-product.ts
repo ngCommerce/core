@@ -80,7 +80,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
         <ion-option *ngFor="let items of shops" [value]="items._id">{{items.name}}</ion-option>
         </ion-select>
     </ion-item>
-
+{{chkformimg}}
     <ion-item *ngIf="chkformimg">
     <p id="productImg">Images*</p>
     <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
