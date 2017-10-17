@@ -163,6 +163,7 @@ export class IonFormProductComponent {
   }
 
   discountpromotion() {
+    this.item.price = this.item.price ? this.item.price : 0;    
     if (this.item.price > 0) {
       if (this.item.promotionprice > 0) {
         if (this.item.price - this.item.promotionprice >= 0) {
@@ -184,6 +185,7 @@ export class IonFormProductComponent {
 
   }
   discountpercent() {
+    this.item.price = this.item.price ? this.item.price : 0;
     if (this.item.price > 0) {
       if (this.item.percentofdiscount > 0) {
         if (this.item.percentofdiscount <= 100) {
