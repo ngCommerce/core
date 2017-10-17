@@ -158,6 +158,7 @@ export class IonFormProductComponent {
     this.itemClicked.emit(item);
   }
   imageList(e) {
+    alert(JSON.stringify(e));
     this.item.images = e;
   }
 
