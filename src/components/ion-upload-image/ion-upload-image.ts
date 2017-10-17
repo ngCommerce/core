@@ -13,7 +13,7 @@ import { LoadingController } from 'ionic-angular';
 @Component({
     selector: 'ion-upload-image',
     template: `
-    <div *ngIf="!editImg">
+    <div *ngIf="editImg">
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
