@@ -25,17 +25,17 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price);"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price,'price');"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Promotion Price</ion-label>
-        <ion-input type="number" [(ngModel)]="item.promotionprice" (ngModelChange)="discountpromotion()"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.promotionprice" (ngModelChange)="discountpromotion();chkNumber(item.promotionprice,'promotionprice');"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Percent of discount</ion-label>
-        <ion-input type="number" [(ngModel)]="item.percentofdiscount" (ngModelChange)="discountpercent()"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.percentofdiscount" (ngModelChange)="discountpercent();chkNumber(item.percentofdiscount,'percentofdiscount');"></ion-input>
       </ion-item>
     
 
@@ -213,7 +213,7 @@ export class IonFormProductComponent {
     this.item.percentofdiscount = null;
   }
 
-  chkNumber(num) {
+  chkNumber(num,field) {
     let nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
     let status = false;
     let numID = num.toString();
@@ -231,7 +231,13 @@ export class IonFormProductComponent {
     });
 
     if (!status) {
-      this.item.price = parseFloat(this.item.price.toString().slice(0, this.item.price.toString().length - 1));
+      if(field === 'price'){
+        this.item.price = parseFloat(this.item.price.toString().slice(0, this.item.price.toString().length - 1));
+      }else if(field === 'promotionprice'){
+        this.item.promotionprice = parseFloat(this.item.promotionprice.toString().slice(0, this.item.promotionprice.toString().length - 1));
+      }else if(field === 'percentofdiscount'){
+        this.item.percentofdiscount = parseFloat(this.item.percentofdiscount.toString().slice(0, this.item.percentofdiscount.toString().length - 1));
+      }
     }
 
   };
