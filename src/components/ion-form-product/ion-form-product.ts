@@ -216,6 +216,8 @@ export class IonFormProductComponent {
   chkNumber(num,field) {
     let nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
     let status = false;
+    if(num !== null){
+
     let numID = num.toString();
     nums.forEach(function (num) {
       if (numID.length > 1) {
@@ -239,6 +241,17 @@ export class IonFormProductComponent {
         this.item.percentofdiscount = parseFloat(this.item.percentofdiscount.toString().slice(0, this.item.percentofdiscount.toString().length - 1));
       }
     }
+
+  }else{
+    if(field.toString() === 'price'){
+      this.item.price = null;
+    }else if(field.toString() === 'promotionprice'){
+      this.item.promotionprice = null;
+    }else if(field.toString() === 'percentofdiscount'){
+      this.item.percentofdiscount = null;
+    }
+  }
+  
 
   };
 
