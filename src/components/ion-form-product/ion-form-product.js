@@ -11,7 +11,7 @@ export class IonFormProductComponent {
         this.itemClicked = new EventEmitter();
         this.cancelCreate = new EventEmitter();
         // console.log('Hello IonListCategoryComponent Component');
-        this.item.shop = this.shops[0];
+        this.item.shop = this.shops.length > 0 ? this.shops[0] : '';
         // console.log(this.item);
         this.item.price = 0;
         this.item.promotionprice = 0;
