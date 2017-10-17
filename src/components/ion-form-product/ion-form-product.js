@@ -60,13 +60,13 @@ export class IonFormProductComponent {
     }
     toFixedNum(num, field) {
         if (field.toString() === 'price') {
-            this.item.price = num.toFixed(2);
+            this.item.price = parseFloat(num.toFixed(2));
         }
         else if (field.toString() === 'promotionprice') {
-            this.item.promotionprice = num.toFixed(2);
+            this.item.promotionprice = parseFloat(num.toFixed(2));
         }
         else if (field.toString() === 'percentofdiscount') {
-            this.item.percentofdiscount = num.toFixed(2);
+            this.item.percentofdiscount = parseFloat(num.toFixed(2));
         }
     }
     discountpromotion() {
