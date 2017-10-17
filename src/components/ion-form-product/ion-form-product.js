@@ -58,12 +58,23 @@ export class IonFormProductComponent {
     imageList(e) {
         this.item.images = e;
     }
+    toFixedNum(num, field) {
+        if (field.toString() === 'price') {
+            this.item.price = num.toFixed(2);
+        }
+        else if (field.toString() === 'promotionprice') {
+            this.item.promotionprice = num.toFixed(2);
+        }
+        else if (field.toString() === 'percentofdiscount') {
+            this.item.percentofdiscount = num.toFixed(2);
+        }
+    }
     discountpromotion() {
         if (this.item.price > 0) {
             if (this.item.promotionprice > 0) {
                 if (this.item.price - this.item.promotionprice >= 0) {
                     let per = (this.item.promotionprice / this.item.price) * 100;
-                    this.item.percentofdiscount = 100 - per;
+                    this.item.percentofdiscount = parseFloat((100 - per).toFixed(2));
                 }
                 else {
                     alert('ส่วนลดมากกว่าราคาขายจริง');
@@ -86,7 +97,7 @@ export class IonFormProductComponent {
             if (this.item.percentofdiscount > 0) {
                 if (this.item.percentofdiscount <= 100) {
                     let pro = (this.item.percentofdiscount * this.item.price) / 100;
-                    this.item.promotionprice = this.item.price - pro;
+                    this.item.promotionprice = parseFloat((this.item.price - pro).toFixed(2));
                 }
                 else {
                     alert('มากกว่า 100 เปอร์เซ็นต์');
@@ -112,7 +123,7 @@ export class IonFormProductComponent {
         this.item.percentofdiscount = null;
     }
     chkNumber(num, field) {
-        let nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+        let nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
         let status = false;
         if (num !== null) {
             let numID = num.toString();
@@ -172,17 +183,17 @@ IonFormProductComponent.decorators = [
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price,'price');"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price,'price');toFixedNum(item.price,'price');"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Promotion Price</ion-label>
-        <ion-input type="number" [(ngModel)]="item.promotionprice" (ngModelChange)="discountpromotion();chkNumber(item.promotionprice,'promotionprice');"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.promotionprice" (ngModelChange)="discountpromotion();chkNumber(item.promotionprice,'promotionprice');toFixedNum(item.promotionprice,'promotionprice');"></ion-input>
       </ion-item>
     
       <ion-item>
         <ion-label floating>Percent of discount</ion-label>
-        <ion-input type="number" [(ngModel)]="item.percentofdiscount" (ngModelChange)="discountpercent();chkNumber(item.percentofdiscount,'percentofdiscount');"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.percentofdiscount" (ngModelChange)="discountpercent();chkNumber(item.percentofdiscount,'percentofdiscount');toFixedNum(item.percentofdiscount,'percentofdiscount');"></ion-input>
       </ion-item>
     
 
