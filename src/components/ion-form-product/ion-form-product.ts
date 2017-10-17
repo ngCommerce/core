@@ -81,7 +81,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
         </ion-select>
     </ion-item>
 
-    <ion-item *ngIf="!item">
+    <ion-item *ngIf="chkformimg">
     <p id="productImg">Images*</p>
     <ion-upload-image [maxImage]="5" (imageOutList)="imageList($event)"></ion-upload-image>
     </ion-item>
@@ -111,6 +111,7 @@ export class IonFormProductComponent {
   @Input() categories: any;
   @Input() shippings: any;
   @Input() shops: any;
+  @Input() chkformimg: boolean;
   @Input() currency: any;
   @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
   @Output() cancelCreate: EventEmitter<any> = new EventEmitter<any>();
@@ -158,7 +159,6 @@ export class IonFormProductComponent {
     this.itemClicked.emit(item);
   }
   imageList(e) {
-    alert(JSON.stringify(e));
     this.item.images = e;
   }
 

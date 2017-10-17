@@ -13,6 +13,7 @@ import { LoadingController } from 'ionic-angular';
 @Component({
     selector: 'ion-upload-image',
     template: `
+    <div *ngIf="xxx"></>
     <ion-row class="categories-row">
       <ion-col width-30 class="horizontal-item" *ngFor="let data of imageList">
         <img src="{{data.imgUrl}}">
@@ -38,6 +39,7 @@ export class IonUploadImageComponent {
     public imageList: Array<any> = [];
     public allowUpload: number = 0;
     @Input() maxImage: number;
+    @Input() xxx: boolean;
     @Input() editImg: Array<any> = [];
     @Output() imageOutList: EventEmitter<any> = new EventEmitter<any>();
 
