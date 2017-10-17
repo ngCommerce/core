@@ -25,7 +25,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber();"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price);"></ion-input>
       </ion-item>
     
       <ion-item>
