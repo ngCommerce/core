@@ -25,7 +25,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price,'price');"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price,'price');toFixedNum(item.price,'price');"></ion-input>
       </ion-item>
     
       <ion-item>
@@ -205,7 +205,16 @@ export class IonFormProductComponent {
       if (this.item.promotionprice > 0) {
         if (this.item.price - this.item.promotionprice >= 0) {
           let per = (this.item.promotionprice / this.item.price) * 100;
-          this.item.percentofdiscount = parseFloat((100 - per).toFixed(2));
+          let num = (100 - per).toString();
+          let numSplit = num.split('.');
+          if (numSplit && numSplit.length > 1) {
+            let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+            this.item.percentofdiscount = parseFloat(concatNum);
+          } else {
+            this.item.percentofdiscount = parseFloat(num);
+          }
+
+          // this.item.percentofdiscount = parseFloat((100 - per).toFixed(2));
         } else {
           alert('ส่วนลดมากกว่าราคาขายจริง');
           this.item.percentofdiscount = null;
@@ -225,7 +234,16 @@ export class IonFormProductComponent {
       if (this.item.percentofdiscount > 0) {
         if (this.item.percentofdiscount <= 100) {
           let pro = (this.item.percentofdiscount * this.item.price) / 100;
-          this.item.promotionprice = parseFloat((this.item.price - pro).toFixed(2));
+          
+          let num = (pro).toString();
+          let numSplit = num.split('.');
+          if (numSplit && numSplit.length > 1) {
+            let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+            this.item.promotionprice = parseFloat(concatNum);
+          } else {
+            this.item.promotionprice = parseFloat(num);
+          }
+          // this.item.promotionprice = parseFloat((this.item.price - pro).toFixed(2));
         } else {
           alert('มากกว่า 100 เปอร์เซ็นต์');
           this.item.promotionprice = null;
@@ -270,16 +288,8 @@ export class IonFormProductComponent {
       });
 
       if (!status) {
-        let numbe = num.toString();
         if (field.toString() === 'price') {
-          let numSplit = numbe.split('.');
-          if (numSplit && numSplit.length > 1) {
-            let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
-            let parseNum = parseFloat(concatNum);
-            this.item.price = parseFloat(parseNum.toString().slice(0, this.item.price.toString().length - 1));
-          } else {
-            this.item.price = parseFloat(numSplit.toString().slice(0, this.item.price.toString().length - 1));
-          }
+          this.item.price = parseFloat(this.item.price.toString().slice(0, this.item.price.toString().length - 1));
         } else if (field.toString() === 'promotionprice') {
           this.item.promotionprice = parseFloat(this.item.promotionprice.toString().slice(0, this.item.promotionprice.toString().length - 1));
         } else if (field.toString() === 'percentofdiscount') {
