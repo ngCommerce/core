@@ -172,7 +172,7 @@ export class IonFormProductComponent {
   //   }
   // }
   toFixedNum(numbe, field) {
-    if (numbe && numbe !== null){
+    if (numbe && numbe !== null) {
       let num = numbe.toString();
       if (field.toString() === 'price') {
         let numSplit = num.split('.');
@@ -266,8 +266,10 @@ export class IonFormProductComponent {
   }
 
   discountprice() {
-    this.item.promotionprice = null;
-    this.item.percentofdiscount = null;
+    if ((this.item.promotionprice && this.item.promotionprice >= 0) || (this.item.percentofdiscount && this.item.percentofdiscount >= 0)) {
+      this.item.promotionprice = null;
+      this.item.percentofdiscount = null;
+    }
   }
 
   chkNumber(num, field) {
