@@ -171,8 +171,10 @@ export class IonFormProductComponent {
         this.cancelCreate.emit('cancelCreate');
     }
     discountprice() {
-        this.item.promotionprice = null;
-        this.item.percentofdiscount = null;
+        if ((this.item.promotionprice && this.item.promotionprice >= 0) || (this.item.percentofdiscount && this.item.percentofdiscount >= 0)) {
+            this.item.promotionprice = null;
+            this.item.percentofdiscount = null;
+        }
     }
     chkNumber(num, field) {
         let nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
