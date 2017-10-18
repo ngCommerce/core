@@ -171,8 +171,12 @@ export class IonFormProductComponent {
         this.cancelCreate.emit('cancelCreate');
     }
     discountprice() {
-        if ((this.item.promotionprice && this.item.promotionprice >= 0 || null) || (this.item.percentofdiscount && this.item.percentofdiscount >= 0 || null)) {
+        if (this.item.price > 0) {
+            let setPromotion = this.item.promotionprice.toString();
+            this.item.promotionprice = parseFloat(setPromotion);
             this.item.promotionprice = null;
+            let setPercent = this.item.percentofdiscount.toString();
+            this.item.percentofdiscount = parseFloat(setPercent);
             this.item.percentofdiscount = null;
         }
     }
