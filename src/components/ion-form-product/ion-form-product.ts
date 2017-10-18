@@ -25,7 +25,7 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
     
       <ion-item>
         <ion-label floating>Price*</ion-label>
-        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price,'price');toFixedNum(item.price,'price');"></ion-input>
+        <ion-input type="number" [(ngModel)]="item.price" (ngModelChange)="discountprice();chkNumber(item.price,'price');"></ion-input>
       </ion-item>
     
       <ion-item>
@@ -270,8 +270,16 @@ export class IonFormProductComponent {
       });
 
       if (!status) {
+        let numbe = num.toString();
         if (field.toString() === 'price') {
-          this.item.price = parseFloat(this.item.price.toString().slice(0, this.item.price.toString().length - 1));
+          let numSplit = numbe.split('.');
+          if (numSplit && numSplit.length > 1) {
+            let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+            let parseNum = parseFloat(concatNum);
+            this.item.price = parseFloat(parseNum.toString().slice(0, this.item.price.toString().length - 1));
+          } else {
+            this.item.price = parseFloat(numSplit.toString().slice(0, this.item.price.toString().length - 1));
+          }
         } else if (field.toString() === 'promotionprice') {
           this.item.promotionprice = parseFloat(this.item.promotionprice.toString().slice(0, this.item.promotionprice.toString().length - 1));
         } else if (field.toString() === 'percentofdiscount') {
