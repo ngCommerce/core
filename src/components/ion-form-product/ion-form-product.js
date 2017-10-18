@@ -69,35 +69,37 @@ export class IonFormProductComponent {
     //   }
     // }
     toFixedNum(numbe, field) {
-        let num = numbe.toString();
-        if (field.toString() === 'price') {
-            let numSplit = num.split('.');
-            if (numSplit && numSplit.length > 1) {
-                let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
-                this.item.price = parseFloat(concatNum);
+        if (numbe && numbe !== null) {
+            let num = numbe.toString();
+            if (field.toString() === 'price') {
+                let numSplit = num.split('.');
+                if (numSplit && numSplit.length > 1) {
+                    let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                    this.item.price = parseFloat(concatNum);
+                }
+                else {
+                    this.item.price = parseFloat(numSplit);
+                }
             }
-            else {
-                this.item.price = parseFloat(numSplit);
+            else if (field.toString() === 'promotionprice') {
+                let numSplit = num.split('.');
+                if (numSplit && numSplit.length > 1) {
+                    let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                    this.item.promotionprice = parseFloat(concatNum);
+                }
+                else {
+                    this.item.promotionprice = parseFloat(numSplit);
+                }
             }
-        }
-        else if (field.toString() === 'promotionprice') {
-            let numSplit = num.split('.');
-            if (numSplit && numSplit.length > 1) {
-                let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
-                this.item.promotionprice = parseFloat(concatNum);
-            }
-            else {
-                this.item.promotionprice = parseFloat(numSplit);
-            }
-        }
-        else if (field.toString() === 'percentofdiscount') {
-            let numSplit = num.split('.');
-            if (numSplit && numSplit.length > 1) {
-                let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
-                this.item.percentofdiscount = parseFloat(concatNum);
-            }
-            else {
-                this.item.percentofdiscount = parseFloat(numSplit);
+            else if (field.toString() === 'percentofdiscount') {
+                let numSplit = num.split('.');
+                if (numSplit && numSplit.length > 1) {
+                    let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                    this.item.percentofdiscount = parseFloat(concatNum);
+                }
+                else {
+                    this.item.percentofdiscount = parseFloat(numSplit);
+                }
             }
         }
     }
@@ -106,7 +108,16 @@ export class IonFormProductComponent {
             if (this.item.promotionprice > 0) {
                 if (this.item.price - this.item.promotionprice >= 0) {
                     let per = (this.item.promotionprice / this.item.price) * 100;
-                    this.item.percentofdiscount = parseFloat((100 - per).toFixed(2));
+                    let num = (100 - per).toString();
+                    let numSplit = num.split('.');
+                    if (numSplit && numSplit.length > 1) {
+                        let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                        this.item.percentofdiscount = parseFloat(concatNum);
+                    }
+                    else {
+                        this.item.percentofdiscount = parseFloat(num);
+                    }
+                    // this.item.percentofdiscount = parseFloat((100 - per).toFixed(2));
                 }
                 else {
                     alert('ส่วนลดมากกว่าราคาขายจริง');
@@ -129,7 +140,16 @@ export class IonFormProductComponent {
             if (this.item.percentofdiscount > 0) {
                 if (this.item.percentofdiscount <= 100) {
                     let pro = (this.item.percentofdiscount * this.item.price) / 100;
-                    this.item.promotionprice = parseFloat((this.item.price - pro).toFixed(2));
+                    let num = (pro).toString();
+                    let numSplit = num.split('.');
+                    if (numSplit && numSplit.length > 1) {
+                        let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                        this.item.promotionprice = parseFloat(concatNum);
+                    }
+                    else {
+                        this.item.promotionprice = parseFloat(num);
+                    }
+                    // this.item.promotionprice = parseFloat((this.item.price - pro).toFixed(2));
                 }
                 else {
                     alert('มากกว่า 100 เปอร์เซ็นต์');
