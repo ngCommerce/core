@@ -172,11 +172,7 @@ export class IonFormProductComponent {
     }
     discountprice() {
         if (this.item.price > 0) {
-            let setPromotion = this.item.promotionprice.toString();
-            this.item.promotionprice = parseFloat(setPromotion);
             this.item.promotionprice = null;
-            let setPercent = this.item.percentofdiscount.toString();
-            this.item.percentofdiscount = parseFloat(setPercent);
             this.item.percentofdiscount = null;
         }
     }
