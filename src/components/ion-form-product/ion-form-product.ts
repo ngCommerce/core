@@ -266,7 +266,7 @@ export class IonFormProductComponent {
   }
 
   discountprice() {
-    if ((this.item.promotionprice && this.item.promotionprice >= 0) || (this.item.percentofdiscount && this.item.percentofdiscount >= 0)) {
+    if ((this.item.promotionprice && this.item.promotionprice >= 0 || null) || (this.item.percentofdiscount && this.item.percentofdiscount >= 0 || null)) {
       this.item.promotionprice = null;
       this.item.percentofdiscount = null;
     }
