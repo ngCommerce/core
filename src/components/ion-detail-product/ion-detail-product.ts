@@ -32,7 +32,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             <rating [(ngModel)]="item.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
                 starIconName="star" nullable="false"></rating>
         </ion-col>
-        <ion-col width-50 text-right id="colBtn">
+        <ion-col width-50 text-right id="colBtn" *ngIf="isIcon">
             <button ion-button color="danger" clear icon-only>
                 <ion-icon name='ios-share-outline' is-active="false"></ion-icon>
             </button>
@@ -126,6 +126,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class IonDetailProductComponent {
     @Input() item: any;
     @Input() isReview: Boolean;
+    @Input() isIcon: Boolean;
     @Output() selectedFavorite: EventEmitter<any> = new EventEmitter<any>();
     @Output() review: EventEmitter<any> = new EventEmitter<any>();
     groups: Array<any> = [
