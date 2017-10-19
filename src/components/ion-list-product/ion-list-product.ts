@@ -9,13 +9,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'ion-list-product',
   template: `
+    <div *ngIf="showSearch">
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    </div>
     <ion-list>
       <ion-item *ngFor="let item of items" (click)="add(item)">
         <ion-thumbnail item-start>
             <img src="{{item.image}}">
         </ion-thumbnail>
         <h2 id="name">{{item.name}}</h2>
-        <p *ngIf="item.promotionprice"  id="promotionprice">{{item.promotionprice | number}} {{item.currency}}</p>
+        <p *ngIf="item.promotionprice" id="promotionprice">{{item.promotionprice | number}} {{item.currency}}</p>
         <p *ngIf="item.promotionprice && item.percentofdiscount"> <span id="price"> {{item.price | number}} {{item.currency}}</span> <span  id="percentofdiscount">-{{item.percentofdiscount}} %</span>        
         <p *ngIf="!item.promotionprice && !item.percentofdiscount"> <span id="priceNormal"> {{item.price | number}} {{item.currency}}</span>
         </p>
