@@ -224,7 +224,6 @@ IonFormProductComponent.decorators = [
                 selector: 'ion-form-product',
                 template: `
     <ion-list>
-    
       <ion-item>
         <ion-label floating>Name*</ion-label>
         <ion-input type="text" [(ngModel)]="item.name"></ion-input>
@@ -309,7 +308,6 @@ IonFormProductComponent.decorators = [
       </ion-col>
     </ion-row>
     </div>
-    
     `,
                 styles: [`
   ion-form-product {
