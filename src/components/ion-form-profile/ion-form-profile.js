@@ -105,6 +105,7 @@ IonFormProfileComponent.ctorParameters = () => [];
 IonFormProfileComponent.propDecorators = {
     'isShop': [{ type: Input },],
     'waitFanction': [{ type: Input },],
+    'isNotification': [{ type: Input },],
     'item': [{ type: Input },],
     'itemClicked': [{ type: Output },],
     'settingProfileClicked': [{ type: Output },],
