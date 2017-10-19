@@ -24,17 +24,17 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           <ion-icon name="ios-notifications-outline" item-start></ion-icon>
           Notification
       </button>
-  <button ion-item>
+  <button ion-item *ngIf="waitFanction">
           <ion-icon name="ios-filing-outline" item-start></ion-icon>
           History log
       </button>
-  <button ion-item *ngIf="item"  >
+  <button ion-item *ngIf="item || waitFanction"  >
           <ion-icon name="ios-pin-outline" item-start></ion-icon>
           Location
       </button>
 </ion-list>
 <ion-list >
-    <button ion-item (click)="settingProfile()">
+    <button ion-item (click)="settingProfile()" *ngIf="isSettingProfile">
         <ion-icon name="ios-contact-outline" item-start></ion-icon>
             Setting Profile
     </button>
@@ -43,13 +43,13 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           Manage Shop
     </button>
 </ion-list>
-<ion-list>
+<ion-list *ngIf="waitFanction">
   <button ion-item>
           <ion-icon name="ios-create-outline" item-start></ion-icon>
           Change language
       </button>
 </ion-list>
-<ion-list>
+<ion-list *ngIf="waitFanction">
   <button ion-item>
           <ion-icon name="ios-document-outline" item-start></ion-icon>
           Policy
