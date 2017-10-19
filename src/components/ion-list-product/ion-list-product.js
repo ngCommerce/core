@@ -34,10 +34,7 @@ IonListProductComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-list-product',
                 template: `
-    <div *ngIf="showSearch">
-      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    </div>
-    <ion-list >
+    <ion-list>
       <ion-item *ngFor="let item of items" (click)="add(item)">
         <ion-thumbnail item-start>
             <img src="{{item.image}}">
