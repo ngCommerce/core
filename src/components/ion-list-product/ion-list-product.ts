@@ -12,7 +12,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <div *ngIf="showSearch">
       <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     </div>
-    <ion-row>
     <ion-list>
     <ion-item *ngFor="let item of items" (click)="add(item)">
       <ion-thumbnail item-start>
@@ -26,7 +25,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
     </ion-item>
   </ion-list>
-  </ion-row>
     
     `,
   styles: [`
