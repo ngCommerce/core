@@ -12,7 +12,6 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
   selector: 'ion-form-product',
   template: `
     <ion-list>
-    
       <ion-item>
         <ion-label floating>Name*</ion-label>
         <ion-input type="text" [(ngModel)]="item.name"></ion-input>
@@ -97,7 +96,6 @@ import { IonUploadImageComponent } from "./../ion-upload-image/ion-upload-image"
       </ion-col>
     </ion-row>
     </div>
-    
     `,
   styles: [`
   ion-form-product {

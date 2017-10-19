@@ -12,7 +12,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <div *ngIf="showSearch">
       <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     </div>
-    <ion-list >
+    <ion-list>
       <ion-item *ngFor="let item of items" (click)="add(item)">
         <ion-thumbnail item-start>
             <img src="{{item.image}}">
@@ -25,6 +25,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
       </ion-item>
     </ion-list>
+    <ion-fab bottom right>
+    <button ion-fab (click)="addProductModal()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
     `,
   styles: [`
   ion-list-product {
@@ -37,11 +42,16 @@ export class IonListProductComponent {
   @Input() items: any;
   @Input() showSearch: Boolean;
   @Output() selectedProduct: EventEmitter<any> = new EventEmitter<any>();
+  @Output() addProduct: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     // console.log('Hello IonListProductComponent Component');
   }
   add(item) {
     this.selectedProduct.emit(item);
+  }
+
+  addProductModal() {
+    this.addProduct.emit('add product');
   }
 
   getItems(e) {
