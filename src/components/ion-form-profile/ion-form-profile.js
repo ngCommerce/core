@@ -55,7 +55,7 @@ IonFormProfileComponent.decorators = [
           <ion-icon name="ios-filing-outline" item-start></ion-icon>
           History log
       </button>
-  <button ion-item *ngIf="item || waitFanction"  >
+  <button ion-item *ngIf="item && waitFanction"  >
           <ion-icon name="ios-pin-outline" item-start></ion-icon>
           Location
       </button>
@@ -106,6 +106,7 @@ IonFormProfileComponent.propDecorators = {
     'isShop': [{ type: Input },],
     'waitFanction': [{ type: Input },],
     'isNotification': [{ type: Input },],
+    'isSettingProfile': [{ type: Input },],
     'item': [{ type: Input },],
     'itemClicked': [{ type: Output },],
     'settingProfileClicked': [{ type: Output },],
