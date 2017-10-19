@@ -28,7 +28,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           <ion-icon name="ios-filing-outline" item-start></ion-icon>
           History log
       </button>
-  <button ion-item *ngIf="item || waitFanction"  >
+  <button ion-item *ngIf="item && waitFanction"  >
           <ion-icon name="ios-pin-outline" item-start></ion-icon>
           Location
       </button>
@@ -76,6 +76,7 @@ export class IonFormProfileComponent {
     @Input() isShop: Boolean;
     @Input() waitFanction: Boolean;
     @Input() isNotification: Boolean;
+    @Input() isSettingProfile: Boolean;
     @Input() item: any;
     @Output() itemClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() settingProfileClicked: EventEmitter<any> = new EventEmitter<any>();
