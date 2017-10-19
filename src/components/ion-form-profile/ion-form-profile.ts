@@ -20,7 +20,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
       </button>
 </ion-list>
 <ion-list>
-  <button ion-item (click)="onNotification()">
+  <button ion-item (click)="onNotification()" *ngIf="isNotification">
           <ion-icon name="ios-notifications-outline" item-start></ion-icon>
           Notification
       </button>
