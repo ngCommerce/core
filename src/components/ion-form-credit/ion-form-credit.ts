@@ -31,21 +31,33 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
               </ion-item>
             </ion-col>
           </ion-row>
-  
+
           <ion-row>
-            <ion-col col-6>
-              <ion-item>
-                <ion-label floating>วันที่บัตรหมดอายุ (MM/YY)</ion-label>
-                <ion-input type="text" [(ngModel)]="data.expdate" (ngModelChange)="formcredit(data)"></ion-input>
-              </ion-item>
-            </ion-col>
-            <ion-col col-6>
-              <ion-item>
-                <ion-label floating>หมายเลขตรวจสอบและยืนยันบัตร</ion-label>
-                <ion-input type="text" [(ngModel)]="data.creditcvc" (ngModelChange)="formcredit(data)"></ion-input>
-              </ion-item>
-            </ion-col>
-          </ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>เดือนที่บัตรหมดอายุ</ion-label>
+              <ion-input type="text" [(ngModel)]="data.expmonth" (ngModelChange)="formcredit(data)"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>ปีที่บัตรหมดอายุ</ion-label>
+            <ion-input type="text" [(ngModel)]="data.expyear" (ngModelChange)="formcredit(data)"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+      <ion-col>
+      <ion-item>
+      <ion-label floating>หมายเลขตรวจสอบและยืนยันบัตร</ion-label>
+      <ion-input type="text" [(ngModel)]="data.creditcvc" (ngModelChange)="formcredit(data)"></ion-input>
+    </ion-item>
+      </ion-col>
+    </ion-row>
   
         </ion-list>
       </ion-col>
