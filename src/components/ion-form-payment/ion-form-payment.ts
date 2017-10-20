@@ -52,11 +52,8 @@ export class IonFormPaymentComponent {
     if (e.creditname) {
       this.datashipping.order.payment.creditname = e.creditname
     }
-    if (e.expmonth) {
-      this.datashipping.order.payment.expmonth = e.expmonth
-    }
-    if (e.expyear) {
-      this.datashipping.order.payment.expyear = e.expyear
+    if (e.expdate) {
+      this.datashipping.order.payment.expdate = e.expdate
     }
     if (e.creditcvc) {
       this.datashipping.order.payment.creditcvc = e.creditcvc
@@ -67,7 +64,7 @@ export class IonFormPaymentComponent {
     let chk = false;
     if (this.datapayment.order && this.datapayment.order.payment && this.datapayment.order.payment.paymenttype) {
       if (this.datapayment.order.payment.paymenttype === 'credit') {
-        if (this.datapayment.order.payment.creditno && this.datapayment.order.payment.creditname && this.datapayment.order.payment.expmonth && this.datapayment.order.payment.expyear && this.datapayment.order.payment.creditcvc) {
+        if (this.datapayment.order.payment.creditno && this.datapayment.order.payment.creditname && this.datapayment.order.payment.expdate && this.datapayment.order.payment.creditcvc) {
           chk = true;
         }
       } else if (this.datapayment.order.payment.paymenttype === 'delivery') {
