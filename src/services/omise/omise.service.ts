@@ -56,7 +56,7 @@ export class OmiseService {
                 'amount': money, // 1,000 Baht
                 'currency': 'thb',
                 "offsite": bank,
-                "return_uri": "http://res.cloudinary.com/hzzat7wj2/image/upload/v1508823378/Pmss_newdsad_rv92zb.jpg"
+                "return_uri": "http://res.cloudinary.com/hzzat7wj2/image/upload/v1508831661/Pmss_new_jrnlia.png"
             }, function (err, resp) {
                 if (err) {
                     reject(err);
