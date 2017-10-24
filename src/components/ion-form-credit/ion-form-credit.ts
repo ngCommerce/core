@@ -65,12 +65,21 @@ export class IonFormCreditComponent {
   constructor(public parent: IonFormPaymentOptionComponent) {
     // console.log('Hello IonFormPaymentComponent Component');
   }
-
+  
 
 
   formcredit(data) {
     if (data.creditno) {
-      this.data.creditno = 'sssss';
+      let inputNum = data.creditno;
+      if (inputNum.length > 1) {
+        inputNum = inputNum.substr(inputNum.length - 1);
+      }
+      let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+      if (num.indexOf(inputNum) !== -1) {
+        this.data.creditno = data.creditno;
+      } else {
+        this.data.creditno = null;
+      }
     }
 
     if (data.creditcvc) {
