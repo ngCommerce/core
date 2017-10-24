@@ -2,7 +2,7 @@ import { AuthenService } from './services/authen/authen.service';
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { HttpModule } from '@angular/http';
 
-import { API_URL } from "./models/core.model";
+import { API_URL, omiseKey } from "./models/core.model";
 import { CorService } from "./core.service";
 import { CategoryService } from "./services/category/category.service";
 import { CurrencyService } from './services/currency/currency.service';
@@ -54,7 +54,7 @@ export class EcommerceCoreModule {
      * @param apiURL for service http.
      * 
      */
-    static forRoot(apiURL: String = ""): ModuleWithProviders {
+    static forRoot(apiURL: String = "", omiseKey: String = ""): ModuleWithProviders {
         console.log('in EcommerceCoreModule');
         return {
             ngModule: EcommerceCoreModule,

@@ -1,5 +1,5 @@
 export { EcommerceCoreModule } from "./core.module";
-export { API_URL } from "./models/core.model";
+export { API_URL, omiseKey } from "./models/core.model";
 
 export { AuthenService } from "./services/authen/authen.service";
 export { CorService } from "./core.service";
