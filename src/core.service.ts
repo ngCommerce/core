@@ -1,5 +1,5 @@
 import { Injectable, Inject } from "@angular/core";
-import { API_URL, OmiseKey } from "./models/core.model";
+import { API_URL } from "./models/core.model";
 import { Headers } from "@angular/http";
 @Injectable()
 export class CorService {
@@ -8,10 +8,8 @@ export class CorService {
         return this._apiURL;
     }
     private _apiURL: String;
-    private _omiseKey: String;
-    constructor( @Inject(API_URL) apiURL: String, @Inject(OmiseKey) omiseKey: String) {
+    constructor( @Inject(API_URL) apiURL: String) {
         this._apiURL = apiURL;
-        this._omiseKey = omiseKey;
     }
 
     createAuthorizationHeader() {

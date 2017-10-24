@@ -1,17 +1,14 @@
-import { OmiseKey } from './../../models/core.model';
-import { Injectable, Inject } from "@angular/core";
+import { Injectable } from "@angular/core";
 import Omise from 'omise';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class OmiseService {
-    private _omiseKey: String;
-    constructor( @Inject(OmiseKey) omiseKey: String) {
-        this._omiseKey = omiseKey;
+    constructor() {
     }
-    checkTokenByCredit(payment) {
+    checkTokenByCredit(omiseKey, payment) {
         let omise = new Omise({
-            'publicKey': this._omiseKey, //pkey_test_58zdlcecghhko63vy18
+            'publicKey': omiseKey, //pkey_test_58zdlcecghhko63vy18
             // 'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
         });
         let currentstep = null;
@@ -33,9 +30,9 @@ export class OmiseService {
             }).done();
         })
     }
-    paymenyByCredit(id, money) {
+    paymenyByCredit(omiseKey, id, money) {
         let omise = new Omise({
-            'publicKey': this._omiseKey, //pkey_test_58zdlcecghhko63vy18
+            'publicKey': omiseKey, //pkey_test_58zdlcecghhko63vy18
             // 'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
         });
         money = money * 100;
@@ -56,9 +53,9 @@ export class OmiseService {
             });
         });
     }
-    paymenyByBank(bank, money) {
+    paymenyByBank(omiseKey, bank, money) {
         let omise = new Omise({
-            'publicKey': this._omiseKey, //pkey_test_58zdlcecghhko63vy18
+            'publicKey': omiseKey, //pkey_test_58zdlcecghhko63vy18
             // 'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
         });
         money = money * 100;
