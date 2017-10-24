@@ -74,24 +74,27 @@ export class IonFormCreditComponent {
 
   checkNumber(data) {
     let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    let olddata = data;
     let length = data.length;
     if (data.length > 1) {
       data = data.substr(data.length - 1);
     }
     if (num.indexOf(data) !== -1) {
-      return data;
+      return olddata;
     } else {
-      let subdata = data.substr(0, length - 1);
+      let subdata = olddata.substr(0, length - 1);
       return subdata;
     }
   }
 
   creditno(data) {
-    this.data.creditno = this.checkNumber(data);
+    let chknum = this.checkNumber(data);
+    this.data.creditno = chknum;
   }
 
   creditcvc(data){
-    this.data.creditcvc = this.checkNumber(data);
+    let chknum = this.checkNumber(data);
+    this.data.creditcvc = chknum;
   }
 
 
