@@ -69,13 +69,14 @@ export class IonFormCreditComponent {
 
   checkNumber(data, from) {
     let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    let length = data.length;
     if (data.length > 1) {
       data = data.substr(data.length - 1);
     }
-    if (num.indexOf(data) === -1) {
+    if (num.indexOf(data) !== -1) {
       this.data.creditno = data;
     } else {
-      this.data.creditno = data.substr(0, data.length - 1);
+      this.data.creditno = data.substr(0, length - 1);
     }
   }
 
