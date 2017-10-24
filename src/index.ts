@@ -1,5 +1,5 @@
 export { EcommerceCoreModule } from "./core.module";
-export { API_URL, omiseKey } from "./models/core.model";
+export { API_URL } from "./models/core.model";
 
 export { AuthenService } from "./services/authen/authen.service";
 export { CorService } from "./core.service";
@@ -28,7 +28,7 @@ export { FavoriteListModel } from "./models/favorite.model";
 export { CartModel } from "./models/cart.model";
 export { OrderModel, ItemByOrderByShopModel } from "./models/order.model";
 export { CheckoutModel } from "./models/checkout.model";
-export { HomeCategoryModel, HomeSellerModel } from "./models/home.model";
+export { HomeCategoryModel } from "./models/home.model";
 export { CurrencyModel } from "./models/currency.model";
 
 
@@ -65,7 +65,5 @@ export * from "./components/ion-detail-shop/ion-detail-shop";
 export * from "./components/ion-orders/ion-orders"
 export * from "./components/ion-form-review/ion-form-review"
 export * from "./components/ion-upload-image/ion-upload-image"
-export * from "./components/ion-background-image/ion-background-image"
-
 
 
