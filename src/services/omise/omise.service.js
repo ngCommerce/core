@@ -75,7 +75,7 @@ export class OmiseService {
                 'amount': money,
                 'currency': 'thb',
                 "offsite": bank,
-                "return_uri": "http://res.cloudinary.com/hnprecikz/image/upload/v1508770824/bss2_gn7vn1.jpg"
+                "return_uri": "http://res.cloudinary.com/hzzat7wj2/image/upload/v1508821471/Pmss_new_oqvtlw.jpg"
             }, function (err, resp) {
                 if (err) {
                     reject(err);
