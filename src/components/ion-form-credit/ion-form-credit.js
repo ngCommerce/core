@@ -14,6 +14,12 @@ export class IonFormCreditComponent {
         // console.log('Hello IonFormPaymentComponent Component');
     }
     formcredit(data) {
+        let old = data.expdate;
+        if (data.expdate.length === 4) {
+            if (data.expdate.indexOf('/') === -1) {
+                data.expdate = old.substr(0, 2) + '/' + old.substr(2, 4);
+            }
+        }
         this.datacredit.emit(data);
     }
 }
@@ -29,7 +35,7 @@ IonFormCreditComponent.decorators = [
             <ion-col>
               <ion-item>
                 <ion-label floating>หมายเลขบัตรเครดิต</ion-label>
-                <ion-input type="text" [(ngModel)]="data.creditno" (ngModelChange)="formcredit(data)"></ion-input>
+                <ion-input type="text" maxlength="16" pattern="[0-9\/]*" [(ngModel)]="data.creditno" (ngModelChange)="formcredit(data)"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -38,7 +44,7 @@ IonFormCreditComponent.decorators = [
             <ion-col>
               <ion-item>
                 <ion-label floating>ชื่อบัตรเครดิต</ion-label>
-                <ion-input type="text" [(ngModel)]="data.creditname" (ngModelChange)="formcredit(data)"></ion-input>
+                <ion-input type="text" pattern="[A-Za-z]+" [(ngModel)]="data.creditname" (ngModelChange)="formcredit(data)"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -47,13 +53,13 @@ IonFormCreditComponent.decorators = [
             <ion-col col-6>
               <ion-item>
                 <ion-label floating>วันที่บัตรหมดอายุ (MM/YY)</ion-label>
-                <ion-input type="text" [(ngModel)]="data.expdate" (ngModelChange)="formcredit(data)"></ion-input>
+                <ion-input type="text" pattern="[0-9\/]*" maxlength="5" [(ngModel)]="data.expdate" (ngModelChange)="formcredit(data)"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-6>
               <ion-item>
                 <ion-label floating>หมายเลขตรวจสอบและยืนยันบัตร</ion-label>
-                <ion-input type="text" [(ngModel)]="data.creditcvc" (ngModelChange)="formcredit(data)"></ion-input>
+                <ion-input type="text" pattern="[0-9\/]*" [(ngModel)]="data.creditcvc" (ngModelChange)="formcredit(data)"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
