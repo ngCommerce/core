@@ -17,7 +17,7 @@ export class OmiseService {
                 name: payment.paymenttype,
                 number: payment.creditno,
                 expiration_month: payment.expdate.substr(0, 2),
-                expiration_year: payment.expdate.substr(2, 4),
+                expiration_year: payment.expdate.substr(3, 5),
                 security_code: payment.creditcvc
             }
         };
@@ -65,7 +65,7 @@ export class OmiseService {
                 'amount': money, // 1,000 Baht
                 'currency': 'thb',
                 "offsite": bank,
-                "return_uri": "http://res.cloudinary.com/hzzat7wj2/image/upload/v1508821471/Pmss_new_oqvtlw.jpg"
+                "return_uri": "http://res.cloudinary.com/hzzat7wj2/image/upload/v1508823378/Pmss_newdsad_rv92zb.jpg"
             }, function (err, resp) {
                 if (err) {
                     reject(err);

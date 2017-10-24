@@ -15,7 +15,7 @@ export interface OrderModel {
     promotionprice: number;
     currency: string;
     percentofdiscount: number;
-    omiseresponse: {}
+    omiseresponse: {};
 }
 
 export interface OrderItemModel {
