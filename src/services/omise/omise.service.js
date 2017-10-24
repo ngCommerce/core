@@ -6,17 +6,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { OmiseKey } from './../../models/core.model';
-import { Injectable, Inject } from "@angular/core";
+import { Injectable } from "@angular/core";
 import Omise from 'omise';
 import 'rxjs/add/operator/toPromise';
 export class OmiseService {
-    constructor(omiseKey) {
-        this._omiseKey = omiseKey;
+    constructor() {
     }
-    checkTokenByCredit(payment) {
+    checkTokenByCredit(omiseKey, payment) {
         let omise = new Omise({
-            'publicKey': this._omiseKey,
+            'publicKey': omiseKey,
         });
         let currentstep = null;
         let detailCard = {
@@ -41,9 +39,9 @@ export class OmiseService {
             }).done();
         });
     }
-    paymenyByCredit(id, money) {
+    paymenyByCredit(omiseKey, id, money) {
         let omise = new Omise({
-            'publicKey': this._omiseKey,
+            'publicKey': omiseKey,
         });
         money = money * 100;
         return new Promise((resolve, reject) => {
@@ -63,9 +61,9 @@ export class OmiseService {
             });
         });
     }
-    paymenyByBank(bank, money) {
+    paymenyByBank(omiseKey, bank, money) {
         let omise = new Omise({
-            'publicKey': this._omiseKey,
+            'publicKey': omiseKey,
         });
         money = money * 100;
         return new Promise((resolve, reject) => {
@@ -90,7 +88,5 @@ OmiseService.decorators = [
     { type: Injectable },
 ];
 /** @nocollapse */
-OmiseService.ctorParameters = () => [
-    { type: String, decorators: [{ type: Inject, args: [OmiseKey,] },] },
-];
+OmiseService.ctorParameters = () => [];
 //# sourceMappingURL=omise.service.js.map
