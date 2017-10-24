@@ -14,44 +14,21 @@ export class IonFormCreditComponent {
         // console.log('Hello IonFormPaymentComponent Component');
     }
     formcredit(data) {
+        let patt = new RegExp('[0-9]{1,30}');
         if (data.creditno) {
-            let inputNum = data.creditno;
-            if (inputNum.length > 1) {
-                inputNum = inputNum.substr(inputNum.length - 1);
-            }
-            let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-            if (num.indexOf(inputNum) !== -1) {
-                this.data.creditno = data.creditno;
-            }
-            else {
-                this.data.creditno = data.creditno.substr(0, data.creditno.length - 1);
-            }
+            let str = data.creditno;
+            let res = patt.exec(str);
+            this.data.creditno = res;
         }
         if (data.creditcvc) {
-            let inputNum = data.creditcvc;
-            if (inputNum.length > 1) {
-                inputNum = inputNum.substr(inputNum.length - 1);
-            }
-            let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-            if (num.indexOf(inputNum) !== -1) {
-                this.data.creditcvc = data.creditcvc;
-            }
-            else {
-                this.data.creditcvc = data.creditcvc.substr(0, data.creditcvc.length - 1);
-            }
+            let str = data.creditcvc;
+            let res = patt.exec(str);
+            this.data.creditcvc = res;
         }
         if (data.expdate) {
-            let inputNum = data.expdate;
-            if (inputNum.length > 1) {
-                inputNum = inputNum.substr(inputNum.length - 1);
-            }
-            let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-            if (num.indexOf(inputNum) !== -1) {
-                this.data.expdate = data.expdate;
-            }
-            else {
-                this.data.expdate = data.expdate.substr(0, data.expdate.length - 1);
-            }
+            let str = data.expdate;
+            let res = patt.exec(str);
+            this.data.expdate = res;
             let old = data.expdate;
             if (data.expdate.length === 4) {
                 if (data.expdate.indexOf('/') === -1) {
