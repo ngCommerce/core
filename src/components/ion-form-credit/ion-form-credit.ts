@@ -18,7 +18,7 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
             <ion-col>
               <ion-item>
                 <ion-label floating>หมายเลขบัตรเครดิต</ion-label>
-                <ion-input type="text" maxlength="16" [(ngModel)]="data.creditno" (ngModelChange)="formcredit(data); creditno(data.creditno);"></ion-input>
+                <ion-input type="text" maxlength="16" [(ngModel)]="data.creditno" (ngModelChange)="creditno(data.creditno);"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -42,7 +42,7 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
             <ion-col col-6>
               <ion-item>
                 <ion-label floating>หมายเลขตรวจสอบและยืนยันบัตร</ion-label>
-                <ion-input type="text" [(ngModel)]="data.creditcvc" (ngModelChange)="formcredit(data); creditcvc(data.creditcvc);"></ion-input>
+                <ion-input type="text" [(ngModel)]="data.creditcvc" (ngModelChange)="creditcvc(data.creditcvc);"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
