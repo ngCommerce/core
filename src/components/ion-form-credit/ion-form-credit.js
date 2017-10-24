@@ -13,19 +13,30 @@ export class IonFormCreditComponent {
         this.data = {};
         // console.log('Hello IonFormPaymentComponent Component');
     }
-    checkNumber(data, from) {
-        let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-        if (data.length > 1) {
-            data = data.substr(data.length - 1);
-        }
-        if (num.indexOf(data) === -1) {
-            this.data.creditno = data;
-        }
-        else {
-            this.data.creditno = data.substr(0, data.length - 1);
-        }
-    }
     formcredit(data) {
+        let patt = new RegExp('[0-9]{1,30}');
+        if (data.creditno) {
+            let str = data.creditno;
+            let res = patt.exec(str);
+            this.data.creditno = res;
+        }
+        if (data.creditcvc) {
+            let str = data.creditcvc;
+            let res = patt.exec(str);
+            this.data.creditcvc = res;
+        }
+        if (data.expdate) {
+            let str = data.expdate;
+            let res = patt.exec(str);
+            // this.data.expdate = res;
+            let old = data.expdate;
+            if (data.expdate.length === 4) {
+                if (data.expdate.indexOf('/') === -1) {
+                    data.expdate = old.substr(0, 2) + '/' + old.substr(2, 4);
+                }
+                this.data.expdate = data.expdate;
+            }
+        }
         this.datacredit.emit(data);
     }
 }
@@ -41,7 +52,7 @@ IonFormCreditComponent.decorators = [
             <ion-col>
               <ion-item>
                 <ion-label floating>หมายเลขบัตรเครดิต</ion-label>
-                <ion-input type="text" maxlength="16" [(ngModel)]="data.creditno" (ngModelChange)="formcredit(data); checkNumber(data.creditno);"></ion-input>
+                <ion-input type="text" maxlength="16" [(ngModel)]="data.creditno" (ngModelChange)="formcredit(data)"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
