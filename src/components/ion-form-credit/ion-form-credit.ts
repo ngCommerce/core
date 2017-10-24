@@ -69,44 +69,7 @@ export class IonFormCreditComponent {
 
 
   formcredit(data) {
-    if (data.creditno) {
-      let inputNum = data.creditno;
-      if (inputNum.length > 1) {
-        inputNum = inputNum.substr(inputNum.length - 1);
-      }
-      let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-      if (num.indexOf(inputNum) !== -1) {
-        this.data.creditno = data.creditno;
-      } else {
-        this.data.creditno = null;
-      }
-    }
-
-    if (data.creditcvc) {
-      let inputNum = data.creditcvc;
-      if (inputNum.length > 1) {
-        inputNum = inputNum.substr(inputNum.length - 1);
-      }
-      let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-      if (num.indexOf(inputNum) !== -1) {
-        this.data.creditcvc = data.creditcvc;
-      } else {
-        this.data.creditcvc = data.creditcvc.substr(0, data.creditcvc.length - 1);
-      }
-    }
-
     if (data.expdate) {
-      let inputNum = data.expdate;
-      if (inputNum.length > 1) {
-        inputNum = inputNum.substr(inputNum.length - 1);
-      }
-      let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-      if (num.indexOf(inputNum) !== -1) {
-        this.data.expdate = data.expdate;
-      } else {
-        this.data.expdate = data.expdate.substr(0, data.expdate.length - 1);
-      }
-
       let old = data.expdate;
       if (data.expdate.length === 4) {
         if (data.expdate.indexOf('/') === -1) {
