@@ -28,11 +28,11 @@ export class IonFormCreditComponent {
         if (data.expdate) {
             let str = data.expdate;
             let res = patt.exec(str);
-            // this.data.expdate = res;
-            let old = data.expdate;
-            if (data.expdate.length === 4) {
-                if (data.expdate.indexOf('/') === -1) {
-                    data.expdate = old.substr(0, 2) + '/' + old.substr(2, 4);
+            this.data.expdate = res;
+            // let old = data.expdate;
+            if (this.data.expdate.length === 4) {
+                if (this.data.expdate.indexOf('/') === -1) {
+                    data.expdate = this.data.expdate.substr(0, 2) + '/' + this.data.expdate.substr(2, 4);
                 }
                 this.data.expdate = data.expdate;
             }
