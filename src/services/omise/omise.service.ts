@@ -7,10 +7,7 @@ export class OmiseService {
     constructor() {
     }
     checkTokenByCredit(omiseKey, payment) {
-        let omise = new Omise({
-            'publicKey': omiseKey, //pkey_test_58zdlcecghhko63vy18
-            // 'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
-        });
+        let omise = new Omise(omiseKey);
         let currentstep = null;
         let detailCard = {
             card: {
@@ -31,10 +28,7 @@ export class OmiseService {
         })
     }
     paymenyByCredit(omiseKey, id, money) {
-        let omise = new Omise({
-            'publicKey': omiseKey, //pkey_test_58zdlcecghhko63vy18
-            // 'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
-        });
+        let omise = new Omise(omiseKey);
         money = money * 100;
         return new Promise((resolve, reject) => {
             omise.charges.create({
@@ -54,10 +48,7 @@ export class OmiseService {
         });
     }
     paymenyByBank(omiseKey, bank, money) {
-        let omise = new Omise({
-            'publicKey': omiseKey, //pkey_test_58zdlcecghhko63vy18
-            // 'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
-        });
+        let omise = new Omise(omiseKey);
         money = money * 100;
         return new Promise((resolve, reject) => {
             omise.charges.create({
