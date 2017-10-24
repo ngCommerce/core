@@ -35,6 +35,7 @@ export class OmiseService {
             'publicKey': 'pkey_test_59owuo5m3qynavw8mac', //pkey_test_58zdlcecghhko63vy18
             'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
         });
+        money = money * 100;
         return new Promise((resolve, reject) => {
             omise.charges.create({
                 'description': 'Charge for order ID: 888',
@@ -57,6 +58,7 @@ export class OmiseService {
             'publicKey': 'pkey_test_59owuo5m3qynavw8mac', //pkey_test_58zdlcecghhko63vy18
             'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
         });
+        money = money * 100;        
         return new Promise((resolve, reject) => {
             omise.charges.create({
                 'description': 'Charge for order ID: 888',
