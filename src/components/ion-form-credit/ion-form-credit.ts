@@ -18,7 +18,7 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
             <ion-col>
               <ion-item>
                 <ion-label floating>หมายเลขบัตรเครดิต</ion-label>
-                <ion-input type="text" maxlength="16" [(ngModel)]="data.creditno" (ngModelChange)="formcredit(data); checkNumber(data.creditno);"></ion-input>
+                <ion-input type="text" maxlength="16" [(ngModel)]="data.creditno" (ngModelChange)="formcredit(data); creditno(data.creditno);"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -42,7 +42,7 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
             <ion-col col-6>
               <ion-item>
                 <ion-label floating>หมายเลขตรวจสอบและยืนยันบัตร</ion-label>
-                <ion-input type="text" [(ngModel)]="data.creditcvc" (ngModelChange)="formcredit(data)"></ion-input>
+                <ion-input type="text" [(ngModel)]="data.creditcvc" (ngModelChange)="formcredit(data); creditcvc(data.creditcvc);"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -61,23 +61,37 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
 export class IonFormCreditComponent {
   @Input() value: string;
   @Output() datacredit: EventEmitter<any> = new EventEmitter<any>();
-  data: any = {};
+  data: any = {
+    creditno: '',
+    creditname: '',
+    expdate: '',
+    creditcvc: ''
+  };
   constructor(public parent: IonFormPaymentOptionComponent) {
     // console.log('Hello IonFormPaymentComponent Component');
   }
 
 
-  checkNumber(data, from) {
+  checkNumber(data) {
     let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     let length = data.length;
     if (data.length > 1) {
       data = data.substr(data.length - 1);
     }
     if (num.indexOf(data) !== -1) {
-      this.data.creditno = data;
+      return data;
     } else {
-      this.data.creditno = data.substr(0, length - 1);
+      let subdata = data.substr(0, length - 1);
+      return subdata;
     }
+  }
+
+  creditno(data) {
+    this.data.creditno = this.checkNumber(data);
+  }
+
+  creditcvc(data){
+    this.data.creditcvc = this.checkNumber(data);
   }
 
 
