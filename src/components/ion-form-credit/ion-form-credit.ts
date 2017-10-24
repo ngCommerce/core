@@ -65,11 +65,27 @@ export class IonFormCreditComponent {
   constructor(public parent: IonFormPaymentOptionComponent) {
     // console.log('Hello IonFormPaymentComponent Component');
   }
-  
+
 
 
   formcredit(data) {
+    let patt = new RegExp('[0-9]{1,30}');
+    if (data.creditno) {
+      let str = data.creditno;
+      let res = patt.exec(str);
+      this.data.creditno = res;
+    }
+
+    if (data.creditcvc) {
+      let str = data.creditcvc;
+      let res = patt.exec(str);
+      this.data.creditcvc = res;
+    }
+    
     if (data.expdate) {
+      let str = data.expdate;
+      let res = patt.exec(str);
+      this.data.expdate = res;
       let old = data.expdate;
       if (data.expdate.length === 4) {
         if (data.expdate.indexOf('/') === -1) {
