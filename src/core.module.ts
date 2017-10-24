@@ -2,7 +2,7 @@ import { AuthenService } from './services/authen/authen.service';
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { HttpModule } from '@angular/http';
 
-import { API_URL } from "./models/core.model";
+import { API_URL, OmiseKey } from "./models/core.model";
 import { CorService } from "./core.service";
 import { CategoryService } from "./services/category/category.service";
 import { CurrencyService } from './services/currency/currency.service';
