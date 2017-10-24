@@ -28,7 +28,7 @@ IonFormCounterserviceComponent.decorators = [
         <ion-col>
             <ion-row>
                 <ion-col text-center *ngFor="let counter of paymentgateway" (click)="selectcounter(counter)">
-                    <ion-segment color="light" [(ngModel)]="counteractive">
+                    <ion-segment mode="md" color="light" [(ngModel)]="counteractive">
                         <ion-segment-button id="segmentCounter" [value]="counter.name">
                         <img src="{{counter.image}}">
                         </ion-segment-button>

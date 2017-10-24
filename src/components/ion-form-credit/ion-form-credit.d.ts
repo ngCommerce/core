@@ -12,5 +12,6 @@ export declare class IonFormCreditComponent {
     datacredit: EventEmitter<any>;
     data: any;
     constructor(parent: IonFormPaymentOptionComponent);
-    formcredit(datares: any, from: any): void;
+    checkNumber(data: any, from: any): void;
+    formcredit(data: any): void;
 }
