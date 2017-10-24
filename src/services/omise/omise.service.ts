@@ -1,15 +1,18 @@
-import { Injectable } from "@angular/core";
+import { OmiseKey } from './../../models/core.model';
+import { Injectable, Inject } from "@angular/core";
 import Omise from 'omise';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class OmiseService {
-    constructor() {
+    private _omiseKey: String;
+    constructor( @Inject(OmiseKey) omiseKey: String) {
+        this._omiseKey = omiseKey;
     }
     checkTokenByCredit(payment) {
         let omise = new Omise({
-            'publicKey': 'pkey_test_59owuo5m3qynavw8mac', //pkey_test_58zdlcecghhko63vy18
-            'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
+            'publicKey': this._omiseKey, //pkey_test_58zdlcecghhko63vy18
+            // 'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
         });
         let currentstep = null;
         let detailCard = {
@@ -32,8 +35,8 @@ export class OmiseService {
     }
     paymenyByCredit(id, money) {
         let omise = new Omise({
-            'publicKey': 'pkey_test_59owuo5m3qynavw8mac', //pkey_test_58zdlcecghhko63vy18
-            'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
+            'publicKey': this._omiseKey, //pkey_test_58zdlcecghhko63vy18
+            // 'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
         });
         money = money * 100;
         return new Promise((resolve, reject) => {
@@ -55,10 +58,10 @@ export class OmiseService {
     }
     paymenyByBank(bank, money) {
         let omise = new Omise({
-            'publicKey': 'pkey_test_59owuo5m3qynavw8mac', //pkey_test_58zdlcecghhko63vy18
-            'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
+            'publicKey': this._omiseKey, //pkey_test_58zdlcecghhko63vy18
+            // 'secretKey': 'skey_test_59owuo5mlz8nv5s6tux'
         });
-        money = money * 100;        
+        money = money * 100;
         return new Promise((resolve, reject) => {
             omise.charges.create({
                 'description': 'Charge for order ID: 888',
