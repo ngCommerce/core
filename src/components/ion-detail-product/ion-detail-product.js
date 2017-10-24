@@ -72,7 +72,7 @@ IonDetailProductComponent.decorators = [
             <rating [(ngModel)]="item.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
                 starIconName="star" nullable="false"></rating>
         </ion-col>
-        <ion-col width-50 text-right id="colBtn">
+        <ion-col width-50 text-right id="colBtn" *ngIf="isIcon">
             <button ion-button color="danger" clear icon-only>
                 <ion-icon name='ios-share-outline' is-active="false"></ion-icon>
             </button>
@@ -169,6 +169,7 @@ IonDetailProductComponent.ctorParameters = () => [];
 IonDetailProductComponent.propDecorators = {
     'item': [{ type: Input },],
     'isReview': [{ type: Input },],
+    'isIcon': [{ type: Input },],
     'selectedFavorite': [{ type: Output },],
     'review': [{ type: Output },],
 };

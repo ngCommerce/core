@@ -26,7 +26,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   </p>
 </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row *ngIf="false">
     <ion-col id="divBtn">
       <button ion-button block primary id="btnCall">
         <ion-icon name="call"></ion-icon>
