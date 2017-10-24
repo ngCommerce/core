@@ -13,8 +13,8 @@ export { ShippingService } from './services/shipping/shipping.service';
 export { CartService } from './services/cart/cart.service';
 export { OrderService } from './services/order/order.service';
 export { FavoriteService } from './services/favorite/favorite.service';
-export { HomeService } from './services/home/home.service'
-export { OmiseService } from './services/omise/omise.service'
+export { HomeService } from './services/home/home.service';
+export { OmiseService } from './services/omise/omise.service';
 import { UploadImageService } from './services/uploadimage/uploadimage.service';
 
 export { CategoryModel } from "./models/category.model";
