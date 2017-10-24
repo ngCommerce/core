@@ -71,8 +71,7 @@ export class IonFormCreditComponent {
   formcredit(data) {
     let patt = new RegExp('[0-9]{1,30}');
     if (data.creditno) {
-      let str = data.creditno;
-      let res = patt.exec(str);
+      let res = patt.exec(data.creditno);
       this.data.creditno = res;
     }
 
@@ -83,9 +82,7 @@ export class IonFormCreditComponent {
     }
     
     if (data.expdate) {
-      let str = data.expdate;
-      let res = patt.exec(str);
-      this.data.expdate = res;
+      // let res = patt.exec(data.expdate);
       let old = data.expdate;
       if (data.expdate.length === 4) {
         if (data.expdate.indexOf('/') === -1) {
