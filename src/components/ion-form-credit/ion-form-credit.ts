@@ -18,7 +18,7 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
             <ion-col>
               <ion-item>
                 <ion-label floating>หมายเลขบัตรเครดิต</ion-label>
-                <ion-input type="text" maxlength="16" [(ngModel)]="data.creditno" (ngModelChange)="formcredit(data, 'creditno')"></ion-input>
+                <ion-input type="text" maxlength="16" [(ngModel)]="data.creditno" (ngModelChange)="formcredit(data); checkNumber(data.creditno);"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -27,7 +27,7 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
             <ion-col>
               <ion-item>
                 <ion-label floating>ชื่อบัตรเครดิต</ion-label>
-                <ion-input type="text" [(ngModel)]="data.creditname" (ngModelChange)="formcredit(data, 'creditname')"></ion-input>
+                <ion-input type="text" [(ngModel)]="data.creditname" (ngModelChange)="formcredit(data)"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -36,13 +36,13 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
             <ion-col col-6>
               <ion-item>
                 <ion-label floating>วันที่บัตรหมดอายุ (MM/YY)</ion-label>
-                <ion-input type="text" maxlength="5" [(ngModel)]="data.expdate" (ngModelChange)="formcredit(data, 'expdate')"></ion-input>
+                <ion-input type="text" maxlength="5" [(ngModel)]="data.expdate" (ngModelChange)="formcredit(data)"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col col-6>
               <ion-item>
                 <ion-label floating>หมายเลขตรวจสอบและยืนยันบัตร</ion-label>
-                <ion-input type="text" [(ngModel)]="data.creditcvc" (ngModelChange)="formcredit(data, 'creditcvc')"></ion-input>
+                <ion-input type="text" [(ngModel)]="data.creditcvc" (ngModelChange)="formcredit(data)"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -67,29 +67,20 @@ export class IonFormCreditComponent {
   }
 
 
-
-  formcredit(datares, from) {
-    let patt = new RegExp('[0-9]{1,30}');
-    let data = datares;
-    if (from === 'creditno') {
-      let str = data.creditno;
-      let res = patt.exec(str);
-      this.data.creditno = res[0];
-    } else if (from === 'creditcvc') {
-      let str = data.creditcvc;
-      let res = patt.exec(str);
-      this.data.creditcvc = res[0];
-    } else if (from === 'expdate') {
-      let str = data.expdate;
-      let res = patt.exec(str);
-      let old = res[0];
-      if (data.expdate.length === 4) {
-        if (data.expdate.indexOf('/') === -1) {
-          data.expdate = old.substr(0, 2) + '/' + old.substr(2, 4);
-        }
-        this.data.expdate = data.expdate;
-      }
+  checkNumber(data, from) {
+    let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    if (data.length > 1) {
+      data = data.substr(data.length - 1);
     }
+    if (num.indexOf(data) === -1) {
+      this.data.creditno = data;
+    } else {
+      this.data.creditno = data.substr(0, data.length - 1);
+    }
+  }
+
+
+  formcredit(data) {
     this.datacredit.emit(data);
   }
 
