@@ -7,8 +7,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-form-paymentoption',
-    template: `
+  selector: 'ion-form-paymentoption',
+  template: `
     <span class="icon-bank"></span>
     <ion-grid text-right>
     <ion-row>
@@ -17,7 +17,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           <ion-col text-center *ngFor="let payment of paymentgateway" (click)="selectpayment(payment)">
             <ion-segment mode="md" color="light" [(ngModel)]="channel">
               <ion-segment-button id="segmentPayment" [value]="payment.name">
-              <span class="{{payment.image}}"></span>
+              <span [ngClass]="{payment.image}"></span>
               </ion-segment-button>
             </ion-segment>
             <p>{{payment.name}}</p>
@@ -28,25 +28,25 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
   </ion-grid>
   <ng-content></ng-content>
     `,
-    styles: [`
+  styles: [`
   ion-form-paymentoption {
     
   }`
-    ]
+  ]
 })
 export class IonFormPaymentOptionComponent {
-    @Input() paymentgateway: any;
-    @Input() datashipping: any;
-    @Input() channel: any;
-    @Output() datapayment: EventEmitter<any> = new EventEmitter<any>();
-    constructor() {
-        // console.log('Hello IonFormPaymentComponent Component');
-    }
-    selectpayment(data) {
-        this.datashipping.order.payment = {
-            paymenttype: data.name
-        };
-        this.datapayment.emit(this.datashipping);
-    }
+  @Input() paymentgateway: any;
+  @Input() datashipping: any;
+  @Input() channel: any;
+  @Output() datapayment: EventEmitter<any> = new EventEmitter<any>();
+  constructor() {
+    // console.log('Hello IonFormPaymentComponent Component');
+  }
+  selectpayment(data) {
+    this.datashipping.order.payment = {
+      paymenttype: data.name
+    };
+    this.datapayment.emit(this.datashipping);
+  }
 
 }
