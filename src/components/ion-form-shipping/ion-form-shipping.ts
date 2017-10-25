@@ -9,7 +9,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 @Component({
     selector: 'ion-form-shipping',
     template: `
-    <ion-content id="hContent">
+    <ion-content id="hContentShipping">
     <ion-label id="hDelivery"> {{'การจัดส่งสินค้า'}} </ion-label>
     <ion-list radio-group id="listRadioGroup">
       <ion-item *ngFor="let item of listaddress.address" (click)="selectaddress(item)">
