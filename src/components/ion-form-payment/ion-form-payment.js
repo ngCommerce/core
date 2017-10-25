@@ -11,7 +11,7 @@ export class IonFormPaymentComponent {
         this.datapayment = {};
         this.gotoNext = new EventEmitter();
         this.datapaymentData = new EventEmitter();
-        this.channel = 'credit';
+        this.channel = 'Credit Card';
         // console.log('Hello IonFormPaymentComponent Component');
     }
     paymentType(e) {
@@ -35,15 +35,15 @@ export class IonFormPaymentComponent {
         this.datapayment = this.datashipping;
         let chk = false;
         if (this.datapayment.order && this.datapayment.order.payment && this.datapayment.order.payment.paymenttype) {
-            if (this.datapayment.order.payment.paymenttype === 'credit') {
+            if (this.datapayment.order.payment.paymenttype === 'Credit Card') {
                 if (this.datapayment.order.payment.creditno && this.datapayment.order.payment.creditname && this.datapayment.order.payment.expdate && this.datapayment.order.payment.creditcvc) {
                     chk = true;
                 }
             }
-            else if (this.datapayment.order.payment.paymenttype === 'delivery') {
+            else if (this.datapayment.order.payment.paymenttype === 'Cash On Delivery') {
                 chk = true;
             }
-            else if (this.datapayment.order.payment.paymenttype === 'bank') {
+            else if (this.datapayment.order.payment.paymenttype === 'Bank Transfer') {
                 if (this.datapayment.order.payment.counterservice) {
                     chk = true;
                 }
@@ -66,9 +66,9 @@ IonFormPaymentComponent.decorators = [
                 template: `
   <ion-form-paymentoption [paymentgateway]="paymentgateway.payment" [datashipping]="datashipping" (datapayment)="paymentType($event)"
   [(channel)]="channel">
-  <ion-form-credit [value]="'credit'" (datacredit)="formcredit($event)"></ion-form-credit>
-  <ion-form-delivery [value]="'delivery'"></ion-form-delivery>
-  <ion-form-counterservice [value]="'bank'" [paymentgateway]="paymentgateway.counterservice" [datapayment]="datapayment"></ion-form-counterservice>
+  <ion-form-credit [value]="'Credit Card'" (datacredit)="formcredit($event)"></ion-form-credit>
+  <ion-form-delivery [value]="'Cash On Delivery'"></ion-form-delivery>
+  <ion-form-counterservice [value]="'Bank Transfer'" [paymentgateway]="paymentgateway.counterservice" [datapayment]="datapayment"></ion-form-counterservice>
   <ion-grid>
     <ion-row>
       <ion-col>
