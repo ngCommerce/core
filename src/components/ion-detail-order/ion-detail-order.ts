@@ -22,16 +22,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </p>
         <span *ngIf="!item.promotionprice && !item.percentofdiscount" id="priceNormal">{{item.price}} {{item.currency}}</span> 
         </ion-col>
-        <ion-row>
-        <ion-col>
-            <span> {{item.rate}} </span> <span>From 5</span>
-        </ion-col>
-    </ion-row>
-    <ion-row>
-        <ion-col>
-            <span>{{item && item.reviews && item.reviews.length > 0 ? item.reviews.length : 0}} รีวิว</span>
-        </ion-col>
-    </ion-row>
     </ion-row>
     <ion-row *ngIf="item.rate">
         <ion-col width-50 id="colRate">
