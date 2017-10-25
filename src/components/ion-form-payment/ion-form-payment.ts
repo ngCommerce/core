@@ -37,7 +37,7 @@ export class IonFormPaymentComponent {
   @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
   @Output() datapaymentData: EventEmitter<any> = new EventEmitter<any>();
 
-  channel: string = 'Credit Card';
+  channel: string;
 
   constructor() {
     // console.log('Hello IonFormPaymentComponent Component');
