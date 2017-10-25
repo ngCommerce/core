@@ -10,7 +10,7 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
 @Component({
   selector: 'ion-form-credit',
   template: `
-    <ion-grid id="hContent" padding *ngIf="parent.channel == value">
+    <ion-grid padding *ngIf="parent.channel == value">
     <ion-row>
       <ion-col col-12>
         <ion-list>

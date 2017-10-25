@@ -9,7 +9,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 @Component({
     selector: 'ion-form-paymentoption',
     template: `
-    <ion-grid text-right>
+    <ion-grid id="hContent" text-right>
     <ion-row>
       <ion-col>
         <ion-row>
