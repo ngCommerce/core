@@ -9,7 +9,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 @Component({
     selector: 'ion-form-confirm',
     template: `
-    <ion-content *ngIf="confirmgateway.order" id="hContent">
+    <ion-content *ngIf="confirmgateway.order" id="hContentFix">
     <ion-grid>
       <ion-row>
         <ion-col>
