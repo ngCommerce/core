@@ -17,7 +17,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           <ion-col text-center *ngFor="let payment of paymentgateway" (click)="selectpayment(payment)">
             <ion-segment mode="md" color="light" [(ngModel)]="channel">
               <ion-segment-button id="segmentPayment" [value]="payment.name">
-              <span [ngClass]="{{payment.image}}"></span>
+              <span [ngClass]="payment.image"></span>
               </ion-segment-button>
             </ion-segment>
             <p>{{payment.name}}</p>
