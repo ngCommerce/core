@@ -9,84 +9,80 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 @Component({
     selector: 'ion-form-shipping',
     template: `
-    <ion-content>
+    <ion-content id="hContent">
     <ion-label id="hDelivery"> {{'การจัดส่งสินค้า'}} </ion-label>
     <ion-list radio-group id="listRadioGroup">
-        <ion-item *ngFor="let item of listaddress.address" (click)="selectaddress(item)">
-            <ion-label>
-                <ion-row>
-                    <ion-col width-33 id="colName">
-                        <p id="pName">{{item.firstname}} {{item.lastname}}</p>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col width-100  id="colAddress">
-                        <p id="pAddress">{{item.address}} {{item.district}} {{item.subdistrict}} {{item.province}} {{item.postcode}}</p>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col width-33 id="colTel">
-                        <p style="word-wrap: break-word" id="pTel">{{item.tel}}</p>
-                    </ion-col>
-                </ion-row>
-            </ion-label>
-            <ion-radio (click)="selectaddress(item)"></ion-radio>
-        </ion-item>
+      <ion-item *ngFor="let item of listaddress.address" (click)="selectaddress(item)">
+        <ion-label>
+          <ion-row>
+            <ion-col width-33 id="colName">
+              <p id="pName">{{item.firstname}} {{item.lastname}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-100 id="colAddress">
+              <p id="pAddress">{{item.address}} {{item.district}} {{item.subdistrict}} {{item.province}} {{item.postcode}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-33 id="colTel">
+              <p style="word-wrap: break-word" id="pTel">{{item.tel}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+        <ion-radio (click)="selectaddress(item)"></ion-radio>
+      </ion-item>
     </ion-list>
-
     <div id="button-round-center">
-    <button id="button-round" ion-button round outline (click)="openModal()">{{'เพิ่มที่อยู่ใหม่'}}</button>
+      <button id="button-round" ion-button round outline (click)="openModal()">{{'เพิ่มที่อยู่ใหม่'}}</button>
     </div>
-
     <ion-label id="labelShipping"> {{'โปรดเลือกแบบของการส่งสินค้า'}} </ion-label>
     <ion-list>
-        <div *ngFor="let item of listshipping.items">
+      <div *ngFor="let item of listshipping.items">
         <b padding-left>{{item.product.shop.name}}</b>
-        <ion-item id ="itemName">
-        <ion-thumbnail item-start>
-        <img src="{{item.product.images[0]}}">
-      </ion-thumbnail>
-            <h2  id="pProName">{{item.product.name}}</h2>
-            <p> {{item.qty}} {{'QTY'}}</p>
-            <h3 text-right>รวม {{item.totalamount | number}} {{item.product.currency}}</h3>
+        <ion-item id="itemName">
+          <ion-thumbnail item-start>
+            <img src="{{item.product.images[0]}}">
+          </ion-thumbnail>
+          <h2 id="pProName">{{item.product.name}}</h2>
+          <p> {{item.qty}} {{'QTY'}}</p>
+          <h3 text-right>รวม {{item.totalamount | number}} {{item.product.currency}}</h3>
         </ion-item>
-            <ion-row>
-                <ion-col width-100>
-                    <p>{{'วิธีจัดส่ง'}}</p>
-                </ion-col>
-            </ion-row>
-            
-            <ion-list radio-group>
-                <ion-item *ngFor="let itm of item.product.shippings" (click)="setproduct(item,itm)">
-                    <ion-label>
-                        <p>{{itm.name}}</p>
-                        <p>{{itm.detail}}</p>
-                    </ion-label>
-                    <ion-radio (click)="setproduct(item,itm)"></ion-radio>
-                </ion-item>
-            </ion-list>
-        </div>
+        <ion-row>
+          <ion-col width-100>
+            <p>{{'วิธีจัดส่ง'}}</p>
+          </ion-col>
+        </ion-row>
+  
+        <ion-list radio-group>
+          <ion-item *ngFor="let itm of item.product.shippings" (click)="setproduct(item,itm)">
+            <ion-label>
+              <p>{{itm.name}}</p>
+              <p>{{itm.detail}}</p>
+            </ion-label>
+            <ion-radio (click)="setproduct(item,itm)"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </div>
     </ion-list>
     <ion-grid>
-        <div *ngIf="listshipping.items && listshipping.items.length > 0">
-            <ion-row>
-                <ion-col width-50>
-                    <p>{{'ราคารวม'}}</p>
-                    <p>{{'ส่วนลด'}}</p>
-                    <p>{{'รวมสุทธิ'}}</p>
-                </ion-col>
-                <ion-col width-50>
-                    <p text-right>{{listshipping.amount | number}} {{'THB'}}</p>
-                    <p text-right>{{listshipping.discount | number}} {{'THB'}}</p>
-                    <p text-right>{{listshipping.totalamount | number}} {{'THB'}}</p>
-                </ion-col>
-            </ion-row>
-        </div>
+      <div *ngIf="listshipping.items && listshipping.items.length > 0">
+        <ion-row>
+          <ion-col width-50>
+            <p>{{'ราคารวม'}}</p>
+            <p>{{'ส่วนลด'}}</p>
+            <p>{{'รวมสุทธิ'}}</p>
+          </ion-col>
+          <ion-col width-50>
+            <p text-right>{{listshipping.amount | number}} {{'THB'}}</p>
+            <p text-right>{{listshipping.discount | number}} {{'THB'}}</p>
+            <p text-right>{{listshipping.totalamount | number}} {{'THB'}}</p>
+          </ion-col>
+        </ion-row>
+      </div>
     </ion-grid>
-    <ion-grid>
-        <button ion-button full color="danger" (click)="stepValidation()">{{'ดำเนินการชำระเงิน'}}</button>
-    </ion-grid>
-</ion-content>
+      <button ion-button full color="danger" (click)="stepValidation()">{{'ดำเนินการชำระเงิน'}}</button>
+  </ion-content>
     `,
     styles: [`
   ion-form-shipping {
