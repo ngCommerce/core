@@ -9,7 +9,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 @Component({
   selector: 'ion-form-payment',
   template: `
-  <ion-form-paymentoption [paymentgateway]="paymentgateway.payment" [datashipping]="datashipping" (datapayment)="paymentType($event)"
+  <ion-form-paymentoption id="hContent" [paymentgateway]="paymentgateway.payment" [datashipping]="datashipping" (datapayment)="paymentType($event)"
   [(channel)]="channel">
   <ion-form-credit [value]="'Credit Card'" (datacredit)="formcredit($event)"></ion-form-credit>
   <ion-form-delivery [value]="'Cash On Delivery'"></ion-form-delivery>
