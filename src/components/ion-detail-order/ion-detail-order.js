@@ -41,7 +41,7 @@ IonDetailOrderComponent.decorators = [
     </ion-row>
     <ion-row *ngIf="item.rate">
         <ion-col width-50 id="colRate">
-            <rating [(ngModel)]="item.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+            <rating [(ngModel)]="item.rate" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
                 starIconName="star" nullable="false"></rating>
         </ion-col>
       

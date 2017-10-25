@@ -16,7 +16,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </ion-thumbnail>
         <h2>{{item.name}}</h2>
         <div *ngIf="item.rate">
-        <rating [(ngModel)]="item.rate" readOnly="false"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
+        <rating [(ngModel)]="item.rate" readOnly="true"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
         </div>
       </ion-item>
     </ion-list>

@@ -29,7 +29,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </ion-row>
     <ion-row *ngIf="item.rate">
         <ion-col width-50 id="colRate">
-            <rating [(ngModel)]="item.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+            <rating [(ngModel)]="item.rate" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
                 starIconName="star" nullable="false"></rating>
         </ion-col>
         <ion-col width-50 text-right id="colBtn" *ngIf="isIcon">
@@ -80,7 +80,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </ion-row>
     <ion-row>
         <ion-col text-left>
-            <rating [(ngModel)]="item.shop.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+            <rating [(ngModel)]="item.shop.rate" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
                 starIconName="star" nullable="false"></rating>
         </ion-col>
     </ion-row>
@@ -109,7 +109,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         </ion-row>
     </p>
     <p>
-        <rating [(ngModel)]="review.rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+        <rating [(ngModel)]="review.rate" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
             starIconName="star" nullable="false"></rating>
     </p>
     <p>{{review.comment}}</p>
