@@ -10,7 +10,7 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
 @Component({
   selector: 'ion-form-delivery',
   template: `
-    <ion-grid padding *ngIf="parent.channel == value">
+    <ion-grid id="hContent" padding *ngIf="parent.channel == value">
     <ion-row>
       <ion-col col-12>การชำระเงินผ่านระบบชำระเงินปลายทาง. ชำระเงินโดยตรงกับพนักงานส่งของในระหว่างการจัดส่งได้ทันที</ion-col>
     </ion-row>

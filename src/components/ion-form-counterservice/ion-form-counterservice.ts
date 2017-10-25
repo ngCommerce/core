@@ -13,7 +13,7 @@ import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-f
     <ion-item-group *ngIf="parent.channel == value">
     <ion-item-divider color="light"><b>bank</b></ion-item-divider>
 </ion-item-group>
-<ion-grid text-right *ngIf="parent.channel == value">
+<ion-grid id="hContent" text-right *ngIf="parent.channel == value">
     <ion-row>
         <ion-col>
             <ion-row>
