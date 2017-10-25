@@ -11,7 +11,6 @@ export class IonFormPaymentComponent {
         this.datapayment = {};
         this.gotoNext = new EventEmitter();
         this.datapaymentData = new EventEmitter();
-        this.channel = 'Credit Card';
         // console.log('Hello IonFormPaymentComponent Component');
     }
     paymentType(e) {
