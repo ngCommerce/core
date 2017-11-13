@@ -37,7 +37,7 @@ IonFormConfirmComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-form-confirm',
                 template: `
-    <ion-content *ngIf="confirmgateway.order">
+    <ion-content *ngIf="confirmgateway.order" id="hContentFix">
     <ion-grid>
       <ion-row>
         <ion-col>

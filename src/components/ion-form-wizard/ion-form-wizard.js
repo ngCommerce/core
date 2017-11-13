@@ -14,7 +14,7 @@ IonFormWizardComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ion-form-wizard',
                 template: `
-    <ion-navbar>
+    <ion-navbar id="fixNav">
     <ion-grid text-right>
       <ion-row>
         <ion-col *ngFor="let step of steps">
