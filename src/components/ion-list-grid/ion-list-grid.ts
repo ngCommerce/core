@@ -14,7 +14,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     <ion-col col-2>
     </ion-col>
     <ion-col col-8 *ngIf="items && items.length > 0" (click)="selectProduct(items[0])">
-      <img src="{{items[0].image}}">
+      <img id="one-image" src="{{items[0].image}}">
       <p class="p-margin-top-50">{{items[0].name}} {{items[0].price}}</p>
     </ion-col>
     <ion-col col-2>
