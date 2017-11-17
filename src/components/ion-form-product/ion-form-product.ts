@@ -233,8 +233,8 @@ export class IonFormProductComponent {
     if (this.item.price > 0) {
       if (this.item.percentofdiscount > 0) {
         if (this.item.percentofdiscount <= 100) {
-          let pro = (this.item.percentofdiscount * this.item.price) / 100;
-
+          let normalPro = (this.item.percentofdiscount * this.item.price) / 100;
+          let pro = this.item.price - normalPro;
           let num = (pro).toString();
           let numSplit = num.split('.');
           if (numSplit && numSplit.length > 1) {
