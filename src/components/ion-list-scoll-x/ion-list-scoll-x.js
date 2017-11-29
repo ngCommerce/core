@@ -20,7 +20,7 @@ IonListScollXComponent.decorators = [
     <ion-scroll scrollX="true" class="horizontal-categories">
     
      <ion-row id="flexWrap">
-       <ion-col col-6 *ngFor="let popular of populars" (click)="_selectedItem(popular)">
+       <ion-col col-4 *ngFor="let popular of populars" (click)="_selectedItem(popular)">
          <ion-card>
            <img [src]="popular.image" />
            <ion-item>
