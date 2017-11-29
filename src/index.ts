@@ -67,4 +67,5 @@ export * from "./components/ion-orders/ion-orders";
 export * from "./components/ion-form-review/ion-form-review";
 export * from "./components/ion-upload-image/ion-upload-image";
 export * from "./components/ion-background-image/ion-background-image";
+export * from "./components/ion-list-scoll-x/ion-list-scoll-x";
 
