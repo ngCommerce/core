@@ -57,6 +57,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       </ion-item>
     </ion-list>
 <ion-list>
+<ion-list-scoll-x [populars]="item.products"></ion-list-scoll-x>
 <ion-grid *ngIf="item">
     <ion-row *ngIf="isReview" id="rowIsreview">
         <ion-col id="colBtnReview">
@@ -98,6 +99,7 @@ export class IonDetailShopComponent {
     @Input() item: any;
     @Input() isReview: Boolean;
     @Output() review: EventEmitter<any> = new EventEmitter<any>();
+    @Output() selecItem: EventEmitter<any> = new EventEmitter<any>();
     groups: Array<any> = [
         {
             name: '5',
@@ -129,6 +131,9 @@ export class IonDetailShopComponent {
     }
     createReview() {
         this.review.emit('createReview');
+    }
+    gotoShopDetail(e) {
+        this.selecItem.emit(e);
     }
 
 }
