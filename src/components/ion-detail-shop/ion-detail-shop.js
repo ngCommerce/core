@@ -9,6 +9,7 @@ export class IonDetailShopComponent {
     constructor() {
         this.review = new EventEmitter();
         this.selecItem = new EventEmitter();
+        this.selectedItem = new EventEmitter();
         this.groups = [
             {
                 name: '5',
@@ -42,6 +43,9 @@ export class IonDetailShopComponent {
     }
     gotoShopDetail(e) {
         this.selecItem.emit(e);
+    }
+    selected(e) {
+        this.selectedItem.emit(e);
     }
 }
 IonDetailShopComponent.decorators = [
@@ -96,7 +100,7 @@ IonDetailShopComponent.decorators = [
       </ion-item>
     </ion-list>
 <ion-list>
-<ion-list-scoll-x [populars]="item.products"></ion-list-scoll-x>
+<ion-list-scoll-x [populars]="item.products" (selectedItem)="selected($event)"></ion-list-scoll-x>
 <ion-grid *ngIf="item">
     <ion-row *ngIf="isReview" id="rowIsreview">
         <ion-col id="colBtnReview">
@@ -142,5 +146,6 @@ IonDetailShopComponent.propDecorators = {
     'isReview': [{ type: Input },],
     'review': [{ type: Output },],
     'selecItem': [{ type: Output },],
+    'selectedItem': [{ type: Output },],
 };
 //# sourceMappingURL=ion-detail-shop.js.map
