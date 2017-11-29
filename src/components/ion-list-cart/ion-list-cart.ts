@@ -54,8 +54,10 @@ export class IonListCartComponent {
   }
 
   decrease(item) {
-    item.qty--;
-    this.returnItems.emit(this.items);
+    if (item.qty > 1) {
+      item.qty--;
+      this.returnItems.emit(this.items);
+    }
   }
 
   increase(item) {
