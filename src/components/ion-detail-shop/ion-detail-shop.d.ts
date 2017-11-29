@@ -9,7 +9,9 @@ export declare class IonDetailShopComponent {
     item: any;
     isReview: Boolean;
     review: EventEmitter<any>;
+    selecItem: EventEmitter<any>;
     groups: Array<any>;
     constructor();
     createReview(): void;
+    gotoShopDetail(e: any): void;
 }

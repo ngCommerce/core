@@ -8,6 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class IonDetailShopComponent {
     constructor() {
         this.review = new EventEmitter();
+        this.selecItem = new EventEmitter();
         this.groups = [
             {
                 name: '5',
@@ -38,6 +39,9 @@ export class IonDetailShopComponent {
     }
     createReview() {
         this.review.emit('createReview');
+    }
+    gotoShopDetail(e) {
+        this.selecItem.emit(e);
     }
 }
 IonDetailShopComponent.decorators = [
@@ -92,6 +96,7 @@ IonDetailShopComponent.decorators = [
       </ion-item>
     </ion-list>
 <ion-list>
+<ion-list-scoll-x [populars]="item.products"></ion-list-scoll-x>
 <ion-grid *ngIf="item">
     <ion-row *ngIf="isReview" id="rowIsreview">
         <ion-col id="colBtnReview">
@@ -136,5 +141,6 @@ IonDetailShopComponent.propDecorators = {
     'item': [{ type: Input },],
     'isReview': [{ type: Input },],
     'review': [{ type: Output },],
+    'selecItem': [{ type: Output },],
 };
 //# sourceMappingURL=ion-detail-shop.js.map
