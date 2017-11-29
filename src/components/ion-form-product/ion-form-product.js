@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from "@angular/core";
 /**
  * Generated class for the IonListCategoryComponent component.
  *
@@ -22,35 +22,35 @@ export class IonFormProductComponent {
     }
     onClick(item) {
         if (!item.name) {
-            alert('Please Enter Your Name!');
+            alert("Please Enter Your Name!");
             return;
         }
         else if (!item.detail) {
-            alert('Please Enter Your Detail!');
+            alert("Please Enter Your Detail!");
             return;
         }
         else if (!item.price) {
-            alert('Please Enter Your Price!');
+            alert("Please Enter Your Price!");
             return;
         }
         else if (!item.currency) {
-            alert('Please Enter Your Currency!');
+            alert("Please Enter Your Currency!");
             return;
         }
         else if (!item.shippings) {
-            alert('Please Enter Your Shippings!');
+            alert("Please Enter Your Shippings!");
             return;
         }
         else if (!item.categories) {
-            alert('Please Enter Your Categories!');
+            alert("Please Enter Your Categories!");
             return;
         }
         else if (!item.shop) {
-            alert('Please Enter Your Shop!');
+            alert("Please Enter Your Shop!");
             return;
         }
         else if (!this.item.images && this.item.images.length === 0) {
-            alert('Please Enter Your Upload Image!');
+            alert("Please Enter Your Upload Image!");
             return;
         }
         this.itemClicked.emit(item);
@@ -71,30 +71,30 @@ export class IonFormProductComponent {
     toFixedNum(numbe, field) {
         if (numbe && numbe !== null) {
             let num = numbe.toString();
-            if (field.toString() === 'price') {
-                let numSplit = num.split('.');
+            if (field.toString() === "price") {
+                let numSplit = num.split(".");
                 if (numSplit && numSplit.length > 1) {
-                    let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                    let concatNum = numSplit[0] + "." + numSplit[1].substr(0, 2);
                     this.item.price = parseFloat(concatNum);
                 }
                 else {
                     this.item.price = parseFloat(numSplit);
                 }
             }
-            else if (field.toString() === 'promotionprice') {
-                let numSplit = num.split('.');
+            else if (field.toString() === "promotionprice") {
+                let numSplit = num.split(".");
                 if (numSplit && numSplit.length > 1) {
-                    let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                    let concatNum = numSplit[0] + "." + numSplit[1].substr(0, 2);
                     this.item.promotionprice = parseFloat(concatNum);
                 }
                 else {
                     this.item.promotionprice = parseFloat(numSplit);
                 }
             }
-            else if (field.toString() === 'percentofdiscount') {
-                let numSplit = num.split('.');
+            else if (field.toString() === "percentofdiscount") {
+                let numSplit = num.split(".");
                 if (numSplit && numSplit.length > 1) {
-                    let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                    let concatNum = numSplit[0] + "." + numSplit[1].substr(0, 2);
                     this.item.percentofdiscount = parseFloat(concatNum);
                 }
                 else {
@@ -107,11 +107,11 @@ export class IonFormProductComponent {
         if (this.item.price > 0) {
             if (this.item.promotionprice > 0) {
                 if (this.item.price - this.item.promotionprice >= 0) {
-                    let per = (this.item.promotionprice / this.item.price) * 100;
+                    let per = this.item.promotionprice / this.item.price * 100;
                     let num = (100 - per).toString();
-                    let numSplit = num.split('.');
+                    let numSplit = num.split(".");
                     if (numSplit && numSplit.length > 1) {
-                        let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                        let concatNum = numSplit[0] + "." + numSplit[1].substr(0, 2);
                         this.item.percentofdiscount = parseFloat(concatNum);
                     }
                     else {
@@ -120,7 +120,7 @@ export class IonFormProductComponent {
                     // this.item.percentofdiscount = parseFloat((100 - per).toFixed(2));
                 }
                 else {
-                    alert('ส่วนลดมากกว่าราคาขายจริง');
+                    alert("ส่วนลดมากกว่าราคาขายจริง");
                     this.item.percentofdiscount = null;
                     this.item.promotionprice = null;
                 }
@@ -139,11 +139,12 @@ export class IonFormProductComponent {
         if (this.item.price > 0) {
             if (this.item.percentofdiscount > 0) {
                 if (this.item.percentofdiscount <= 100) {
-                    let pro = (this.item.percentofdiscount * this.item.price) / 100;
-                    let num = (pro).toString();
-                    let numSplit = num.split('.');
+                    let pro = this.item.percentofdiscount * this.item.price / 100;
+                    let proFix = this.item.price - pro;
+                    let num = (proFix).toString();
+                    let numSplit = num.split(".");
                     if (numSplit && numSplit.length > 1) {
-                        let concatNum = numSplit[0] + '.' + numSplit[1].substr(0, 2);
+                        let concatNum = numSplit[0] + "." + numSplit[1].substr(0, 2);
                         this.item.promotionprice = parseFloat(concatNum);
                     }
                     else {
@@ -152,7 +153,7 @@ export class IonFormProductComponent {
                     // this.item.promotionprice = parseFloat((this.item.price - pro).toFixed(2));
                 }
                 else {
-                    alert('มากกว่า 100 เปอร์เซ็นต์');
+                    alert("มากกว่า 100 เปอร์เซ็นต์");
                     this.item.promotionprice = null;
                     this.item.percentofdiscount = null;
                 }
@@ -168,7 +169,7 @@ export class IonFormProductComponent {
         }
     }
     canceldissmis() {
-        this.cancelCreate.emit('cancelCreate');
+        this.cancelCreate.emit("cancelCreate");
     }
     discountprice() {
         if (this.item.price > 0) {
@@ -177,7 +178,7 @@ export class IonFormProductComponent {
         }
     }
     chkNumber(num, field) {
-        let nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        let nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
         let status = false;
         if (num !== null) {
             let numID = num.toString();
@@ -194,34 +195,39 @@ export class IonFormProductComponent {
                 }
             });
             if (!status) {
-                if (field.toString() === 'price') {
-                    this.item.price = parseFloat(this.item.price.toString().slice(0, this.item.price.toString().length - 1));
+                if (field.toString() === "price") {
+                    this.item.price = parseFloat(this.item.price
+                        .toString()
+                        .slice(0, this.item.price.toString().length - 1));
                 }
-                else if (field.toString() === 'promotionprice') {
-                    this.item.promotionprice = parseFloat(this.item.promotionprice.toString().slice(0, this.item.promotionprice.toString().length - 1));
+                else if (field.toString() === "promotionprice") {
+                    this.item.promotionprice = parseFloat(this.item.promotionprice
+                        .toString()
+                        .slice(0, this.item.promotionprice.toString().length - 1));
                 }
-                else if (field.toString() === 'percentofdiscount') {
-                    this.item.percentofdiscount = parseFloat(this.item.percentofdiscount.toString().slice(0, this.item.percentofdiscount.toString().length - 1));
+                else if (field.toString() === "percentofdiscount") {
+                    this.item.percentofdiscount = parseFloat(this.item.percentofdiscount
+                        .toString()
+                        .slice(0, this.item.percentofdiscount.toString().length - 1));
                 }
             }
         }
         else {
-            if (field.toString() === 'price') {
+            if (field.toString() === "price") {
                 this.item.price = null;
             }
-            else if (field.toString() === 'promotionprice') {
+            else if (field.toString() === "promotionprice") {
                 this.item.promotionprice = null;
             }
-            else if (field.toString() === 'percentofdiscount') {
+            else if (field.toString() === "percentofdiscount") {
                 this.item.percentofdiscount = null;
             }
         }
     }
-    ;
 }
 IonFormProductComponent.decorators = [
     { type: Component, args: [{
-                selector: 'ion-form-product',
+                selector: "ion-form-product",
                 template: `
     <ion-list>
       <ion-item>
@@ -309,7 +315,8 @@ IonFormProductComponent.decorators = [
     </ion-row>
     </div>
     `,
-                styles: [`
+                styles: [
+                    `
   ion-form-product {
     background-color: red;
   }`

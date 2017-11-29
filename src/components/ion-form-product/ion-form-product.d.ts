@@ -1,5 +1,5 @@
-import { EventEmitter } from '@angular/core';
-import { ProductModel } from '../../index';
+import { EventEmitter } from "@angular/core";
+import { ProductModel } from "../../index";
 /**
  * Generated class for the IonListCategoryComponent component.
  *
