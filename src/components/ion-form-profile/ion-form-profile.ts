@@ -89,7 +89,7 @@ export class IonFormProfileComponent {
 
     logout() {
         window.localStorage.removeItem('token');
-        window.localStorage.removeItem('gCart');
+        // window.localStorage.removeItem('gCart');
         this.itemClicked.emit('logout');
     }
 
