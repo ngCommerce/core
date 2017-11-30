@@ -26,7 +26,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </ion-item>
   </ion-list>
   {{items.length}}
-  <div *ngIf="items.length === 0">
+  <div *ngIf="items && items.length === 0">
     <p>
     ไม่พบรายการสินค้า
     </p>
