@@ -25,6 +25,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       <rating [(ngModel)]="item.rate" readOnly="true"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
     </ion-item>
   </ion-list>
+  {{items.length}}
   <div *ngIf="items.length === 0">
     <p>
     ไม่พบรายการสินค้า
