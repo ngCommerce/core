@@ -99,6 +99,12 @@ IonDetailShopComponent.decorators = [
         <span>{{item.email}}</span>
       </ion-item>
     </ion-list>
+
+    <ion-row *ngIf="item.products">
+    <ion-col text-left id="colShop">
+        สินค้าในร้าน : 
+    </ion-col>
+</ion-row>
 <ion-list>
 <ion-list-scoll-x [populars]="item.products" (selectedItem)="selected($event)"></ion-list-scoll-x>
 <ion-grid *ngIf="item">
