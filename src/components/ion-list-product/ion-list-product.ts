@@ -25,7 +25,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       <rating [(ngModel)]="item.rate" readOnly="true"  max="5"  emptyStarIconName="star-outline" halfStarIconName="star-half"starIconName="star" nullable="false"></rating>
     </ion-item>
   </ion-list>
-  <div *ngIf="items && items.length === 0">
+  <div *ngIf="items && items.length === 0" class="data-not-found">
     <p>
     ไม่พบรายการสินค้า
     </p>
@@ -34,6 +34,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styles: [`
   ion-list-product {
     background-color: red;
+  }
+  .data-not-found{
+    text-align: center !important;
+    color: #777777 !important;
   }`
   ]
 })
