@@ -22,16 +22,6 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
               <p>ค่าธรรมเนียมการจัดส่งสินค้า</p>
               <p item-end>{{confirmgateway.order.deliveryprice | number}} THB</p>
             </ion-item>
-            <ion-row>
-              <ion-col col-8>
-                <ion-item>
-                  <ion-input type="text" placeholder="ใส่โค้ดส่วนลด"></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col col-4>
-                <button ion-button block color="warning" (click)="discount(confirmgateway.order.discount)">ยืนยัน</button>
-              </ion-col>
-            </ion-row>
             <ion-item>
               <p><b>ยอดสุทธิ (รวมภาษีมูลค่าเพิ่ม)</b></p>
               <p item-end><b>{{((confirmgateway.order.deliveryprice || 0) + (confirmgateway.order.amount || 0)) - (confirmgateway.order.discount || 0) | number}} THB</b></p>

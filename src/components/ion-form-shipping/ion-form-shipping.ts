@@ -7,8 +7,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-form-shipping',
-    template: `
+  selector: 'ion-form-shipping',
+  template: `
     <ion-content id="hContentFix">
     <ion-label id="hDelivery"> {{'การจัดส่งสินค้า'}} </ion-label>
     <ion-list radio-group id="listRadioGroup">
@@ -84,83 +84,120 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
       <button ion-button full color="danger" (click)="stepValidation()">{{'ดำเนินการชำระเงิน'}}</button>
   </ion-content>
     `,
-    styles: [`
+  styles: [`
   ion-form-shipping {
     
   }`
-    ]
+  ]
 })
 export class IonFormShippingComponent {
-    @Input() listaddress: Array<any>;
-    @Input() listshipping: any;
-    @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
-    @Output() createAddress: EventEmitter<any> = new EventEmitter<any>();
+  @Input() listaddress: Array<any>;
+  @Input() listshipping: any;
+  @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
+  @Output() createAddress: EventEmitter<any> = new EventEmitter<any>();
 
-    address = {};
-    data: any = {
-        order: {
-            shipping: {},
-            items: [],
-            payment: {},
-            amount: 0,
-            discount: 0,
-            totalamount: 0,
-            deliveryprice: 0
-        }
-    };
-    constructor() {
-        // console.log('Hello IonFormShippingComponent Component');
+  address = {};
+  deli = 0;
+  total = 0;
+  data: any = {
+    order: {
+      shipping: {},
+      items: [],
+      payment: {},
+      amount: 0,
+      discount: 0,
+      totalamount: 0,
+      deliveryprice: 0
     }
+  };
+  dataOrd: any = {
+    order: {
+      shipping: {},
+      items: [],
+      payment: {},
+      amount: 0,
+      discount: 0,
+      totalamount: 0,
+      deliveryprice: 0
+    }
+  };
+  constructor() {
+    // console.log('Hello IonFormShippingComponent Component');
+  }
 
-    selectaddress(data) {
-        this.data.order.shipping = data;
-    }
-    openModal() {
-        this.createAddress.emit('push model');
-    }
+  selectaddress(data) {
+    this.data.order.shipping = data;
+  }
+  openModal() {
+    this.createAddress.emit('push model');
+  }
 
-    setproduct(product, shipping) {
-        var checkProduct = false;
-        if (this.data.order.items && this.data.order.items.length > 0) {
-            // console.log('+++++++++++++++++++++++++++++++++');
-            this.data.order.items.forEach(itm => {
-                if (itm.product.name === product.product.name) {
-                    itm.delivery = shipping;
-                    checkProduct = true;
-                }
-            });
+  setproduct(product, shipping) {
+    // var shipping = {
+    //   name: ship.shippingtype.name,
+    //   detail: ship.shippingtype.detail,
+    //   price: ship.shippingprice
+    // }
+    var checkProduct = false;
+    if (this.data.order.items && this.data.order.items.length > 0) {
+      this.data.order.items.forEach(itm => {
+        if (itm.product.name === product.product.name) {
+          itm.delivery = shipping;
+          checkProduct = true;
         }
-        if (!checkProduct) {
-            this.data.order.items.push({
-                product: product.product,
-                qty: product.qty,
-                amount: (product.product.price || 0) * (product.qty),
-                delivery: shipping,
-                price: product.product.price,
-                discount: product.discount,
-                afterdiscount: (product.amount || 0) - (product.discount || 0)
+      });
+      this.deli = 0;
+      this.total = 0;
+      this.data.order.items.forEach(itm => {
+        this.deli += itm.delivery.price || 0;
+      });
+      this.total = (this.listshipping.totalamount) + this.deli || 0;
+    }
+    if (!checkProduct) {
+      this.data.order.items.push({
+        product: product.product,
+        qty: product.qty,
+        amount: (product.product.price || 0) * (product.qty),
+        delivery: shipping,
+        price: product.product.price,
+        discount: product.discount,
+        afterdiscount: (product.amount || 0) - (product.discount || 0)
 
-            });
-        }
-        console.log(this.data.order);
+      });
+      this.deli = 0;
+      this.total = 0;
+      this.data.order.items.forEach(itm => {
+        this.deli += itm.delivery.price || 0;
+      });
+      this.total = (this.listshipping.totalamount) + this.deli || 0;
     }
-    stepValidation() {
-        if (this.data.order.shipping && this.data.order.shipping.address) {
-            if (this.data.order.items.length === this.listshipping.items.length) {
-                this.data.order.items.forEach(itm => {
-                    console.log(itm);
-                    this.data.order.deliveryprice += itm.delivery.price || 0;
-                    this.data.order.discount += itm.discount || 0;
-                    this.data.order.amount += itm.amount || 0;
-                    this.data.order.totalamount += itm.afterdiscount || 0;
-                });
-                this.gotoNext.emit(this.data);
-            } else {
-                alert('Please select products');
-            }
-        } else {
-            alert('Please select shipping');
-        }
+    console.log(this.data.order);
+  }
+  stepValidation() {
+    this.data.order.deliveryprice = 0;
+    this.data.order.discount = 0;
+    this.data.order.amount = 0;
+    this.data.order.totalamount = 0;
+    if (this.data.order.shipping && this.data.order.shipping.address) {
+      if (this.data.order.items.length === this.listshipping.items.length) {
+        this.data.order.items.forEach(itm => {
+          this.data.order.deliveryprice += itm.delivery.price || 0;
+          this.data.order.discount += itm.discount || 0;
+          this.data.order.amount += itm.amount || 0;
+          this.data.order.totalamount += itm.afterdiscount || 0;
+        });
+        this.dataOrd.order = this.data.order;
+        this.gotonextPage(this.dataOrd);
+      } else {
+        alert('Please select products');
+      }
+    } else {
+      alert('Please select shipping');
     }
+  }
+  gotonextPage(data) {
+    this.gotoNext.emit(data);
+
+  }
 
 }
