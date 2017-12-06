@@ -59,6 +59,7 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             <ion-label>
               <p>{{itm.name}}</p>
               <p>{{itm.detail}}</p>
+              <p>{{itm.price}} {{item.product.currency}}</p>
             </ion-label>
             <ion-radio (click)="setproduct(item,itm)"></ion-radio>
           </ion-item>
@@ -69,14 +70,14 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
       <div *ngIf="listshipping.items && listshipping.items.length > 0">
         <ion-row>
           <ion-col width-50>
-            <p>{{'ราคารวม'}}</p>
-            <p>{{'ส่วนลด'}}</p>
-            <p>{{'รวมสุทธิ'}}</p>
+            <p>{{'มูลค่าสินค้า'}}</p>
+            <p *ngIf="deli">{{'ค่าธรรมเนียมการจัดส่งสินค้า'}}</p>
+            <p *ngIf="deli">{{'ยอดสุทธิ'}}</p>
           </ion-col>
           <ion-col width-50>
             <p text-right>{{listshipping.amount | number}} {{'THB'}}</p>
-            <p text-right>{{listshipping.discount | number}} {{'THB'}}</p>
-            <p text-right>{{listshipping.totalamount | number}} {{'THB'}}</p>
+            <p *ngIf="deli" text-right>{{deli | number}} {{'THB'}}</p>
+            <p *ngIf="deli" text-right>{{total | number}} {{'THB'}}</p>
           </ion-col>
         </ion-row>
       </div>
