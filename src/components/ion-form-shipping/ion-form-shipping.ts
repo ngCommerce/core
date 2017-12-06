@@ -72,12 +72,12 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
           <ion-col width-50>
             <p>{{'มูลค่าสินค้า'}}</p>
             <p *ngIf="deli">{{'ค่าธรรมเนียมการจัดส่งสินค้า'}}</p>
-            <p *ngIf="total">{{'ยอดสุทธิ'}}</p>
+            <p>{{'ยอดสุทธิ'}}</p>
           </ion-col>
           <ion-col width-50>
             <p text-right>{{listshipping.amount | number}} {{'THB'}}</p>
             <p *ngIf="deli" text-right>{{deli | number}} {{'THB'}}</p>
-            <p *ngIf="total" text-right>{{total | number}} {{'THB'}}</p>
+            <p text-right>{{total | number}} {{'THB'}}</p>
           </ion-col>
         </ion-row>
       </div>

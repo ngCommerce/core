@@ -7,8 +7,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
  * Components.
  */
 @Component({
-    selector: 'ion-form-confirm',
-    template: `
+  selector: 'ion-form-confirm',
+  template: `
     <ion-content *ngIf="confirmgateway.order" id="hContentFix">
     <ion-grid>
       <ion-row>
@@ -31,41 +31,37 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
             <ion-item-divider color="light"><b>รายการ</b></ion-item-divider>
           </ion-item-group>
           <div>
-            <ion-list *ngFor="let item of confirmgateway.order.items">
-              <ion-item>
-                <ion-row>
-                  <ion-col col-12 id="shopName-col">
-                    <p>{{item.product.shop.name}}</p>
-                  </ion-col>
-                </ion-row>
-                <ion-row no-padding>
-                  <ion-col no-padding width-20>
-                  <img src="{{item.product.images[0]}}">
-                  </ion-col>
-                  <ion-col no-padding width-60>
-                    <h3>{{item.product.name}}</h3>
-                    <p>จำนวน: {{item.qty}}</p>
-                  </ion-col>
-                  <ion-col no-padding width-20>
-                    <p>{{item.product.price}} {{item.product.currency}}</p>
-                  </ion-col>
-                </ion-row>
 
-                <ion-row>
-                <ion-col id="shippingMethod-col">
-                  <p>{{'วิธีจัดส่ง'}}</p>
-                </ion-col>
-                </ion-row>
-                
-                <ion-row>
-                  <ion-col>
-                    <p>{{item.delivery.name}}</p>
-                    <p>{{item.delivery.detail}}</p>
-                  </ion-col>
-                </ion-row>
+          <ion-list>
+          <div *ngFor="let item of confirmgateway.order.items">
+            <b padding-left>{{item.product.shop.name}}</b>
+            <ion-item id="itemName">
+              <ion-thumbnail item-start>
+                <img src="{{item.product.images[0]}}">
+              </ion-thumbnail>
+              <h2 id="pProName">{{item.product.name}}</h2>
+              <p> {{item.qty}} {{'QTY'}}</p>
+              <h3 text-right>รวม {{item.product.price | number}} {{item.product.currency}}</h3>
+            </ion-item>
+            <ion-row>
+              <ion-col width-100>
+                <p>{{'วิธีจัดส่ง'}}</p>
+              </ion-col>
+            </ion-row>
 
+            <ion-list >
+              <ion-item >
+                <ion-label>
+                  <p>{{item.delivery.name}}</p>
+                  <p>{{item.delivery.detail}}</p>
+                  <p>{{item.delivery.price | number}} {{item.product.currency}}</p>
+                </ion-label>
               </ion-item>
             </ion-list>
+          </div>
+        </ion-list>
+
+
             <ion-row>
               <p>ที่อยู่จัดส่ง</p>
               <ion-col col-12>
@@ -87,39 +83,39 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
     </ion-grid>
   </ion-content>
     `,
-    styles: [`
+  styles: [`
   ion-form-confirm {
     
   }`
-    ]
+  ]
 })
 export class IonFormConfirmComponent {
-    data: any;
-    @Input() confirmgateway: any;
-    @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
-    confirmdiscount: number;
-    constructor() {
-        // console.log('Hello IonFormConfirmComponent Component');
+  data: any;
+  @Input() confirmgateway: any;
+  @Output() gotoNext: EventEmitter<any> = new EventEmitter<any>();
+  confirmdiscount: number;
+  constructor() {
+    // console.log('Hello IonFormConfirmComponent Component');
+  }
+  discount(data) {
+    if (data && data > 0) {
+      if (this.confirmgateway.order.amount && this.confirmgateway.order.amount >= data) {
+        this.confirmgateway.order.discount = data;
+      } else {
+        this.confirmgateway.order.discount = this.confirmgateway.order.amount;
+      }
+    } else {
+      this.confirmgateway.order.discount = 0;
     }
-    discount(data) {
-        if (data && data > 0) {
-            if (this.confirmgateway.order.amount && this.confirmgateway.order.amount >= data) {
-                this.confirmgateway.order.discount = data;
-            } else {
-                this.confirmgateway.order.discount = this.confirmgateway.order.amount;
-            }
-        } else {
-            this.confirmgateway.order.discount = 0;
-        }
-    }
-    stepValidation() {
+  }
+  stepValidation() {
 
-        if (this.confirmgateway.order.discount && this.confirmgateway.order.discount > 0 && !undefined) {
-            this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0)) - (this.confirmgateway.order.discount || 0);
-        } else {
-            this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0));
-        }
-        this.gotoNext.emit(this.confirmgateway.order);
+    if (this.confirmgateway.order.discount && this.confirmgateway.order.discount > 0 && !undefined) {
+      this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0)) - (this.confirmgateway.order.discount || 0);
+    } else {
+      this.confirmgateway.order.totalamount = ((this.confirmgateway.order.deliveryprice || 0) + (this.confirmgateway.order.amount || 0));
     }
+    this.gotoNext.emit(this.confirmgateway.order);
+  }
 
 }
